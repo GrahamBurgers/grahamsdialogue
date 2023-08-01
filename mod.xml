@@ -1,0 +1,5 @@
+<Mod
+    name="Graham's Enemy Dialogue"
+    description="Enemies will occasionally speak, like Enemy Kill Insults but more general."
+    request_no_api_restrictions="0"
+></Mod>
