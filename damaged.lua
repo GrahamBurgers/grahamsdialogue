@@ -11,7 +11,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal)
             name = name:gsub("_weak", "")
             dofile_once("mods/grahamsdialogue/common.lua")
             for i = 1, #DIALOGUE_DAMAGETAKEN do
-                if GameTextGetTranslatedOrNot(DIALOGUE_DAMAGETAKEN[i][1]) == GameTextGetTranslatedOrNot(name) then
+                if DIALOGUE_DAMAGETAKEN[i][1] == name then
                     local type = Random(2, #DIALOGUE_DAMAGETAKEN[i])
                     Speak(GetUpdatedEntityID(), tostring(DIALOGUE_DAMAGETAKEN[i][type]), "DAMAGETAKEN")
                     break

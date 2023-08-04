@@ -38,8 +38,10 @@ if Random(1, rate) == 1 then
     end
 
     local name = EntityGetName(me)
+    if name == nil then return end
+    name = name:gsub("_weak", "")
     for i = 1, #DIALOGUE_IDLE do
-        if GameTextGetTranslatedOrNot(name) == GameTextGetTranslatedOrNot(DIALOGUE_IDLE[i][1]) then
+        if DIALOGUE_IDLE[i][1] == name then
             if Random(1, 100000) == 100000 then
                 Speak(me, "Robin was a fool.", "IDLE")
             else

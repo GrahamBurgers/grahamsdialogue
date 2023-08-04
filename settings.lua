@@ -20,7 +20,7 @@ mod_settings =
 		value_default = 80,
 		value_min = 0,
 		value_max = 200,
-		value_display_formatting = "1 in $0",
+		value_display_formatting = " 1 in $0",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
@@ -30,7 +30,7 @@ mod_settings =
 		value_default = 15,
 		value_min = 0,
 		value_max = 100,
-		value_display_formatting = "1 in $0",
+		value_display_formatting = " 1 in $0",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
@@ -40,7 +40,7 @@ mod_settings =
 		value_default = 5,
 		value_min = 0,
 		value_max = 20,
-		value_display_formatting = "1 in $0",
+		value_display_formatting = " 1 in $0",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
@@ -50,7 +50,7 @@ mod_settings =
 		value_default = 180,
 		value_min = 60,
 		value_max = 360,
-		value_display_formatting = "For $0 frames",
+		value_display_formatting = " $0 frames",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{

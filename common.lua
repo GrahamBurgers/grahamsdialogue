@@ -8,6 +8,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_miner", "Nice catch! Haha...", "Kaboom!", "I expected more from you."},
     {"$animal_firemage", "You're a fool!", "You'd best run while you still can.", "I like my food cooked well-done."},
     {"$animal_slimeshooter", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
+    {"$animal_slimeshooter_nontoxic", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
     {"$animal_acidshooter", "Meet your end.", "Goodbye.", "You won't be missed."},
     {"$animal_giantshooter", "Fuel for the fire...", "You taste terrible.", "You will become food for my children!"},
     {"$animal_frog", "Konna used Tackle!", "I got you!", "Watch me fly!"},
@@ -43,6 +44,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_barfer", "I'm confused. W-what happened...?", "I did it? ...I did it!", "Oh... h-hooray!"},
     {"$animal_necromancer_shop", "Your run ends here!", "Beware justice's power! Fear it well!", "I'll snap you in half!"},
     {"$animal_necromancer_super", "I'll send you straight to our Gods, and you'll answer for your sins there.", "By divine wrath, you'll die today!", "I see right through you. You knew this was coming."},
+    {"$animal_roboguard", "Come quietly or there will be trouble.", "Your move, creep!", "Dead or alive, you're coming with me!"},
+    {"$animal_scavenger_invis", "Hey, this is kind of fun!", "I've never done this before...", "Oh, I see how this works!"},
+    {"$animal_scavenger_shield", "I didn't mean to, I swear!", "Oops! I'm sorry!", "No, I didn't mean it!"},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -55,6 +59,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
     {"$animal_firemage", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
     {"$animal_slimeshooter", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
+    {"$animal_slimeshooter_nontoxic", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
     {"$animal_acidshooter", "Look into my eye!", "Keep your distance.", "I'll corrode you down to nothing."},
     {"$animal_giantshooter", "My children...", "If I were you, I wouldn't!", "See what good killing me will do for you."},
     {"$animal_frog", "I'm just a little frog...", "Owie!", "Hey, that hurts!"},
@@ -90,6 +95,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_barfer", "Yeow! Keep that thing away from me!", "H-hey! Stop that!", "H-haven't you heard? T-treat others as you... o-ow..."},
     {"$animal_necromancer_shop", "Oh, you'll pay for that one!", "It'll only get worse for you if you resist!", "I would have loved to get to know you better, in different circumstances."},
     {"$animal_necromancer_super", "You may have taken down our, ahem, lesser guards, but it's not over.", "The Gods never forget your sins.", "Face it -- you're in way over your head on this one."},
+    {"$animal_roboguard", "Don't resist!", "Stand down, magic-user!", "You've messed with the wrong robot!"},
+    {"$animal_scavenger_invis", "That's rather mean, isn't it?", "Out of sight, out of mind.", "Give it up, seriously..."},
+    {"$animal_scavenger_shield", "Why can't we all just get along?", "Spare my life, please?", "I really just wanted to help people..."},
 }
 
 DIALOGUE_IDLE = {
@@ -102,12 +110,13 @@ DIALOGUE_IDLE = {
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
     {"$animal_firemage", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
     {"$animal_slimeshooter", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
+    {"$animal_slimeshooter_nontoxic", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
     {"$animal_acidshooter", "I see you.", "I can see you through the dark.", "Death is near!"},
     {"$animal_giantshooter", "Bloated...", "Ugh...", "What was that?"},
     {"$animal_frog", "Ribbit.", "Hop, hop.", "Meow."},
     {"$animal_frog_big", "Robbit.", "Skip, jump.", "Woof."},
     {"$animal_miner_fire", "I'll burn this whole place down!", "Don't look at me like that!", "You're flammable! All of you!"},
-    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower air quality by over " .. tostring(Random(50, 100)) .. ".", "Am I really the most level-headed one here?"},
+    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower air quality by over " .. tostring(Random(50, 100)) .. "%.", "Am I really the most level-headed one here?"},
     {"$animal_boss_pit", "I know you're here. Show yourself!", "A coward. You are a coward!", "Power corrupts. We both know that well.", "One of these days... I'll cast a black hole and burrow my way out of this place.", "I enjoy reading as well as obliterating unwise explorers.", "What, do you expect me to make small talk?"},
     {"$animal_shaman", "No one really knows...", "Will you remember me?", "Hm? Oh, it's nothing..."},
     {"$animal_playerghost", "Where have I gone? This isn't my world...", "Risen from my grave... I'll soon return to it.", "I feel lost... am I truly the only one?"},
@@ -130,13 +139,16 @@ DIALOGUE_IDLE = {
     {"$animal_wizard_returner", "Cyan is my favourite colour.", "Fun fact: It is impossible to outrun your own reflection.", "I see you staring. I'm staring back."},
     {"$animal_wizard_swapper", "Blue is my favourite colour.", "Who's ready for some shenanigans? You better be!", "It's all just a game! Why not have some fun with it?"},
     {"$animal_wizard_neutral", "Silver is my favourite colour.", "Have you tried turning it off and on again?", "Biological... technological..."},
-    {"$animal_wizard_twitchy", "Green is my f-favourite colour.", "H-hard to focus... hard to s-stay still...", "It's o-out of my control..."},
+    {"$animal_wizard_twitchy", "Green is my f-favourite colour.", "H-hard to focus, hard to s-stay still.", "It's o-out of my control..."},
     {"$animal_wizard_hearty", "Red is my favourite colour.", "What? A helmet? Why would I wear a helmet?", "Do you think I look gross? That's rude."},
     {"$animal_wizard_weaken", "White is my favourite colour.", "What's behind the mask? ...Stay in your own lane.", "Perhaps I look just like you, down below. Or perhaps not."},
     {"$animal_wizard_homing", "Crimson is my favourite colour.", "Don't touch my head.", "Don't call me self-absorbed!"},
     {"$animal_barfer", "M-my favourite color is... o-oh, I don't remember...", "H-hurp... I feel terrible...", "They kicked me out because I p-puked on a tapestry..."},
     {"$animal_necromancer_shop", "Who dares desecrate the Gods' holy land?!", "Let's make this quick... I have a meeting soon.", "If anyone moves these statues around, I'm gonna be mad!"},
     {"$animal_necromancer_super", "I may have skipped leg day, but I'd never skip arm day.", "I'd prefer not to waste any more time on something like this.", "You've made your mistakes. Time to face the consequences."},
+    {"$animal_roboguard", "Tonight is movie night...", "Those thunder mages always seem to evade the law...", "I'm still a bit human inside, I promise..."},
+    {"$animal_scavenger_invis", "...What, would you rather hide under a cardboard box?", "C'mon, people, get those stains off!", "Stealth technology is constantly improving..."},
+    {"$animal_scavenger_shield", "Protect the world from devastation!", "Let's just stop all this fighting, okay?", "Temporary shields complement permanent shields very well, don't you know?"},
 }
 
 GENERIC_HOLDINGWAND = {
@@ -165,13 +177,18 @@ GENERIC_CONFUSED = {
 }
 
 function Speak(entity, text, pool)
-    SetRandomSeed(entity + 2352, GameGetFrameNum() - 24806)
+    local old_text = text
+    local x, y = EntityGetTransform(entity)
+    SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
     local size = 0.7
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
 
     local offset_y = 26
+    local alpha = 0.8
     local name = EntityGetName(entity) or ""
+    if name == nil then return end
+    name = name:gsub("_weak", "")
     local special_offsets = {
         {"$animal_boss_alchemist", 60},
         {"$animal_parallel_alchemist", 60},
@@ -179,6 +196,8 @@ function Speak(entity, text, pool)
         {"$animal_parallel_tentacles", 15},
         {"$animal_necromancer_shop", 10},
         {"$animal_necromancer_super", 12},
+        {"$animal_firemage", 8},
+        {"$animal_thundermage", 8},
     }
     for i = 1, #special_offsets do
         if special_offsets[i][1] == name then
@@ -189,37 +208,70 @@ function Speak(entity, text, pool)
     -- special idle functionality
     if GameHasFlagRun("PERK_PICKED_PEACE_WITH_GODS") and (pool == "IDLE" or pool == "GENERIC") then
         if name == "$animal_necromancer_shop" then
-            local passive_necromancer = {
+            local special = {
                 "I suppose I can let it slide. But just this once!",
                 "Don't think that this means that you're off the hook...",
                 "Fine... harumph.",
             }
-            text = passive_necromancer[Random(1, #passive_necromancer)]
+            text = special[Random(1, #special)]
         end
         if name == "$animal_necromancer_super" then
-            local passive_necromancer = {
+            local special = {
                 "A sinful being you are... But perhaps a little bit endearing.",
                 "Don't be mistaken. It is by command of the gods that I spare your life today.",
                 "I'm sure you have your reasons. But so do I.",
             }
-            text = passive_necromancer[Random(1, #passive_necromancer)]
+            text = special[Random(1, #special)]
         end
     end
 
     if name == "$animal_wizard_returner" and pool == "IDLE" then
-        local x, y = EntityGetTransform(entity)
         local mimic = EntityGetClosestWithTag(x, y, "graham_speaking")
         if mimic ~= nil then
             local x2, y2 = EntityGetTransform(mimic)
-            local distance = math.sqrt((x2 - x)^2 + (y2 - y)^2)
-            if distance > 5 and distance < 250 then
-                local comp = EntityGetFirstComponent(mimic, "SpriteComponent", "graham_speech_text")
-                if comp ~= nil then
-                    text = ComponentGetValue2(comp, "text")
+            if x2 ~= nil then
+                local distance = math.sqrt((x2 - x)^2 + (y2 - y)^2)
+                if distance > 5 and distance < 250 then
+                    local comp = EntityGetFirstComponent(mimic, "SpriteComponent", "graham_speech_text")
+                    if comp ~= nil then
+                        text = ComponentGetValue2(comp, "text")
+                    end
                 end
             end
         end
     end
+
+    if (name == "$animal_firemage" or name == "$animal_thundermage") and pool == "IDLE" then
+        local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+        for i = 1, #items do
+            if EntityGetRootEntity(items[i]) ~= items[i] then
+                if text ~= old_text then break end
+                local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+                for j = 1, #comps do
+                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" and name == "$animal_firemage" then
+                        local special = {
+                            "Nice stone you got there. Is it for sale?",
+                            "That flame... it reminds me of myself when I was younger.",
+                            "Come a bit closer. I'd like to get a closer look at that item.",
+                        }
+                        text = special[Random(1, #special)]
+                        break
+                    end
+                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_THUNDERMAGE" and name == "$animal_thundermage" then
+                        local special = {
+                            "What a beautiful stone. Take good care of it.",
+                            "It looks like you appreciate the art of electricity almost as much as I do.",
+                            "I would normally blast you to pieces, but...",
+                        }
+                        text = special[Random(1, #special)]
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    if GameGetGameEffect(entity, "INVISIBILITY") > 0 then alpha = alpha - 0.65 end
 
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
@@ -229,7 +281,7 @@ function Speak(entity, text, pool)
         is_text_sprite = true,
         offset_x = string.len(text) * 1.9,
         offset_y = offset_y,
-        alpha = 0.8,
+        alpha = alpha,
         update_transform = true,
         update_transform_rotation = false,
         text = text,
