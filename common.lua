@@ -47,6 +47,11 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_roboguard", "Come quietly or there will be trouble.", "Your move, creep!", "Dead or alive, you're coming with me!"},
     {"$animal_scavenger_invis", "Hey, this is kind of fun!", "I've never done this before...", "Oh, I see how this works!"},
     {"$animal_scavenger_shield", "I didn't mean to, I swear!", "Oops! I'm sorry!", "No, I didn't mean it!"},
+    {"$animal_alchemist", "Oh, I can just deal damage like this? Sweet!", "This was easier than I thought it'd be.", "Catch!"},
+    {"$animal_tentacler", "You should've planned an escape route so much sooner...", "You won't slip out of my grasp this time!", "Let me teach you about the ancient art of freeze-melee."},
+    {"$animal_tentacler_small", "Underestimated me, didja?", "Hehe... did you forget that I could do that?", "Crunch!"},
+    {"$animal_ant", "Ta-da!", "How could you let this happen?", "You lose, sucker!"},
+    {"$animal_maggot", "It's like firecrackers! Pop, pop, pop...", "What, did you run out of levitation...?", "Wow! ...What?"},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -98,6 +103,11 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_roboguard", "Don't resist!", "Stand down, magic-user!", "You've messed with the wrong robot!"},
     {"$animal_scavenger_invis", "That's rather mean, isn't it?", "Out of sight, out of mind.", "Give it up, seriously..."},
     {"$animal_scavenger_shield", "Why can't we all just get along?", "Spare my life, please?", "I really just wanted to help people..."},
+    {"$animal_alchemist", "You can't handle my strongest potions.", "Hey, I don't know anything about 'em. I just throw 'em.", "Is this revenge for the acid potion?"},
+    {"$animal_tentacler", "I hope you can do better than that peashooter.", "You're funny. Get closer so I can end your life.", "Didn't sting at all."},
+    {"$animal_tentacler_small", "Mom told me you were mean...", "I may be small, but I can pack a punch!", "Get a bit closer, then you'll see...!"},
+    {"$animal_ant", "Can't you handle a little corrosion?", "I understand if you're afraid...", "I suppose I'm not the first bug you've squashed."},
+    {"$animal_maggot", "Sorry... I know it's hard to aim around me.", "I'm not trying to get in your way.", "I'm just a bug... Even if I'm this large."},
 }
 
 DIALOGUE_IDLE = {
@@ -149,6 +159,11 @@ DIALOGUE_IDLE = {
     {"$animal_roboguard", "Tonight is movie night...", "Those thunder mages always seem to evade the law...", "I'm still a bit human inside, I promise..."},
     {"$animal_scavenger_invis", "...What, would you rather hide under a cardboard box?", "C'mon, people, get those stains off!", "Stealth technology is constantly improving..."},
     {"$animal_scavenger_shield", "Protect the world from devastation!", "Let's just stop all this fighting, okay?", "Temporary shields complement permanent shields very well, don't you know?"},
+    {"$animal_alchemist", "Hey kid, want some potions?", "Technically, the correct term is flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
+    {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? It'll be your last."},
+    {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
+    {"$animal_ant", "I have an iron stomach, ya know?", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
+    {"$animal_maggot", "Oof, I got heartburn...", "Would it be weird if I kept a smaller maggot as a pet?", "I'm less scary than I look. ...Do I look scary?"},
 }
 
 GENERIC_HOLDINGWAND = {
@@ -198,6 +213,7 @@ function Speak(entity, text, pool)
         {"$animal_necromancer_super", 12},
         {"$animal_firemage", 8},
         {"$animal_thundermage", 8},
+        {"$animal_tentacler", 10}
     }
     for i = 1, #special_offsets do
         if special_offsets[i][1] == name then

@@ -1,5 +1,5 @@
 <Mod
     name="Graham's Enemy Dialogue"
-    description="Enemies will occasionally speak, like Enemy Kill Insults but more general."
+    description="Enemies will occasionally speak! Most enemies have 9 unique lines of dialogue.\nSome special enemies, like bosses, have more!"
     request_no_api_restrictions="0"
 ></Mod>
