@@ -54,6 +54,16 @@ mod_settings =
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
+		id = "transparency",
+		ui_name = "Dialogue transparency",
+		ui_description = "How see-through the dialogue text is.",
+		value_default = 20,
+		value_min = 0,
+		value_max = 90,
+		value_display_formatting = " $0%",
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
+	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
 		ui_description = "Whether or not dialogue is visible through the dark.",

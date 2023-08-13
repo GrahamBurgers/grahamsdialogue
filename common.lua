@@ -12,7 +12,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_acidshooter", "Meet your end.", "Goodbye.", "You won't be missed."},
     {"$animal_giantshooter", "Fuel for the fire...", "You taste terrible.", "You will become food for my children!"},
     {"$animal_frog", "Konna used Tackle!", "I got you!", "Watch me fly!"},
-    {"$animal_frog_big", "Blah!", "Blorp!", "Mlem!"},
+    {"$animal_frog_big", "Blah!", "Blorp!", "Mlem."},
     {"$animal_miner_fire", "Eat this!", "Serves you right!", "Feel the burn!"},
     {"$animal_graham_miner_gasser", "Breathe it in...", "I wear this hazmat suit for a reason.", "It's nothing personal. Let's try to make it quick."},
     {"$animal_boss_pit", "Experience the TRUE power of magic!", "How does it feel? Does it hurt? Good.", "Prepare to meet your end!", "Be grateful that one didn't polymorph you.", "You'll never amount to anything. You'll just become corrupt...", "I hate plasma. It burns the eye..."},
@@ -29,7 +29,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_goblin_bomb", "Shrapnel! Pain!", "Haha, yes!", "I did it!"},
     {"$animal_scavenger_heal", "Are you feeling better?", "I hope that helps.", "Deep breaths. You're gonna be okay."},
     {"$animal_boss_alchemist", "Oh, child... If only you knew.", "You're not even worth saving.", "Count this as a mercy kill. You wouldn't want to be like them.", "Life, death, or somewhere in between...? For you, I've chosen death.", "A shame, too... You could have been so great.", "Nothing? Not even a cry of pain? How daft."},
-    {"$animal_parallel_tentacles", "Now die. For magic. You monster.", "Justice is served.", "You deserve no apologies."},
+    {"$animal_parallel_tentacles", "You monster.", "Justice is served.", "You deserve no apologies."},
     {"$animal_parallel_alchemist", "Forfeit yourself. Don't end up like me...", "Don't go any further. Damnation awaits you.", "Reality grows more unstable because of you."},
     {"$animal_wizard_poly", "If you survive this, I'll be impressed...", "Are you feeling a bit sheepish...?", "You look rather pale."},
     {"$animal_wizard_dark", "Do you see what I see?", "Rest your weary eyes.", "Open your third eye."},
@@ -48,19 +48,26 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_scavenger_invis", "Hey, this is kind of fun!", "I've never done this before...", "Oh, I see how this works!"},
     {"$animal_scavenger_shield", "I didn't mean to, I swear!", "Oops! I'm sorry!", "No, I didn't mean it!"},
     {"$animal_alchemist", "Oh, I can just deal damage like this? Sweet!", "This was easier than I thought it'd be.", "Catch!"},
-    {"$animal_tentacler", "You should've planned an escape route so much sooner...", "You won't slip out of my grasp this time!", "Let me teach you about the ancient art of freeze-melee."},
+    {"$animal_tentacler", "You should've planned an escape route so much sooner...", "You won't slip out of my grasp this time!", "I can easily shatter ice with a single strike."},
     {"$animal_tentacler_small", "Underestimated me, didja?", "Hehe... did you forget that I could do that?", "Crunch!"},
     {"$animal_ant", "Ta-da!", "How could you let this happen?", "You lose, sucker!"},
     {"$animal_maggot", "It's like firecrackers! Pop, pop, pop...", "What, did you run out of levitation...?", "Wow! ...What?"},
+    {"$animal_fungus_giga", "I hope you don't have allergies.", "You look a bit scraped up...", "Stay back!"},
+    {"$animal_fly", "Sting them! Now!", "We produce honey, and you are NOT involved!", "Maybe you should just leave us alone."},
+    {"$animal_drone", "Target found. Engaging...", "Attempting to break target's focus...", "Detecting weaknesses... Bullets seem ineffective."},
+    {"$animal_drone_physics", "Target found. Engaging...", "Attempting to break target's focus...", "Detecting weaknesses... Bullets seem ineffective."},
+    {"$animal_bigzombie", "Join the undead... you'll be dying to do so.", "One day you'll end up like me.", "In the end, we'll all be... dead, but perhaps not buried."},
+    {"$animal_bigzombiehead", "Is it still rude to headbutt someone if you only have a head?", "This is what you get for ripping my head off!", "Death is inevitable. I'm just speeding yours up."},
+    {"$animal_rat", "Say goodbye to your ankles!", "I hope you've been vaccinated.", "Rip and tear..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
     {"$animal_shotgunner", "Augh!", "You'll pay for that!", "That hurts..."},
     {"$animal_zombie", "Leave me...", "This is my end.", "Are you hungry too?"},
-    {"$animal_chest_mimic", "Hey! Knock it off!", "Shh, you'll ruin the disguise!", "I'm hiding, stop it!"},
+    {"$animal_chest_mimic", "Hey! Knock it off!", "Shh, you'll ruin the disguise!", "Stop it, I'm hiding!"},
     {"$animal_dark_alchemist", "This disguise usually works... What a shame.", "Damn. Maybe I'll get you next time.", "Fine, then. I'll remember this."},
     {"$animal_shaman_wind", "This disguise always works! What gives?", "Damn it! You found me!", "Fine, then. I'll kill you next time."},
-    {"$animal_longleg", "No!", "Ahh!", "Fight us!"},
+    {"$animal_longleg", "You are weak!", "Ahh!", "Fight us!"},
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
     {"$animal_firemage", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
     {"$animal_slimeshooter", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
@@ -79,7 +86,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_fireskull", "I'm after you.", "Get over here!", "Argh!"},
     {"$animal_bat", "I'm coming for you!", "No!", "I'll take one for the team!"},
     {"$animal_bigbat", "Be slowed to a crawl.", "Soon enough, you'll be swarmed.", "Mmhmm..."},
-    {"$animal_sniper", "I could end your life with my eyes closed!", "Hey, that one almost hurt.", "I was going easy on you."},
+    {"$animal_sniper", "I could end your life with my eyes closed!", "Hey, that one almost hurt.", "You know that I'm going easy on you, right?"},
     {"$animal_scavenger_grenade", "Do your worst!", "I think I broke something...", "H-hey, is there a healer nearby? Help!"},
     {"$animal_thundermage", "I'm as tough as diamonds! Just try me!", "Don't let your guard down, fool. I can still blast you to pieces.", "Don't get cocky. One slip-up, and you're done for!"},
     {"$animal_goblin_bomb", "Oh, noo!", "I changed my mind! Leave me alone!", "No, no!"},
@@ -108,14 +115,21 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_tentacler_small", "Mom told me you were mean...", "I may be small, but I can pack a punch!", "Get a bit closer, then you'll see...!"},
     {"$animal_ant", "Can't you handle a little corrosion?", "I understand if you're afraid...", "I suppose I'm not the first bug you've squashed."},
     {"$animal_maggot", "Sorry... I know it's hard to aim around me.", "I'm not trying to get in your way.", "I'm just a bug... Even if I'm this large."},
+    {"$animal_fungus", "Wah!", "I don't know much...", "Time's running out."},
+    {"$animal_fungus_big", "Get over here!", "I've heard about you through the grapevine...", "Death is just temporary when you're like us."},
+    {"$animal_fungus_giga", "Just a little bit off the top, thank you.", "Hehe... you're short.", "I'm too dignified to self-destruct, don't you know?"},
+    {"$animal_fly", "That's fine... I'll be fine.", "Just please don't touch our honey...", "It'll all be worth it in the end..."},
+    {"$animal_drone", "I've already informed my correspondents of your location.", "Mayday! Mayday!", "Risk levels high. Please respond..."},
+    {"$animal_drone_physics", "I've already informed my correspondents of your location.", "Mayday! Mayday!", "Risk levels high. Please respond..."},
+    {"$animal_bigzombie", "Ouch... are all my limbs still attached?", "Don't get a-head of yourself.", "Oh, you haven't heard the last of me."},
+    {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
+    {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
 }
 
 DIALOGUE_IDLE = {
     {"$animal_shotgunner", "Who are you?", "I want to take a nap.", "This is my territory!"},
     {"$animal_zombie", "Hungry... so hungry!", "Must feed...", "Where are you?"},
-    {"$animal_chest_mimic", "...", "", ""}, -- intentionally blank
-    {"$animal_dark_alchemist", "", "", ""}, -- intentionally blank
-    {"$animal_shaman_wind", "", "", ""}, -- intentionally blank
+    {"$animal_chest_mimic", "...", "", ""},
     {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?"},
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
     {"$animal_firemage", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
@@ -126,7 +140,7 @@ DIALOGUE_IDLE = {
     {"$animal_frog", "Ribbit.", "Hop, hop.", "Meow."},
     {"$animal_frog_big", "Robbit.", "Skip, jump.", "Woof."},
     {"$animal_miner_fire", "I'll burn this whole place down!", "Don't look at me like that!", "You're flammable! All of you!"},
-    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower air quality by over " .. tostring(Random(50, 100)) .. "%.", "Am I really the most level-headed one here?"},
+    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower air quality by over " .. tostring(Random(25, 99)) .. "%.", "Am I really the most level-headed one here?"},
     {"$animal_boss_pit", "I know you're here. Show yourself!", "A coward. You are a coward!", "Power corrupts. We both know that well.", "One of these days... I'll cast a black hole and burrow my way out of this place.", "I enjoy reading as well as obliterating unwise explorers.", "What, do you expect me to make small talk?"},
     {"$animal_shaman", "No one really knows...", "Will you remember me?", "Hm? Oh, it's nothing..."},
     {"$animal_playerghost", "Where have I gone? This isn't my world...", "Risen from my grave... I'll soon return to it.", "I feel lost... am I truly the only one?"},
@@ -135,7 +149,7 @@ DIALOGUE_IDLE = {
     {"$animal_fireskull", "I smell smoke!", "I'm comin' for ya!", "Heeheehee..."},
     {"$animal_bat", "Flap, flap, squeak...", "Blah...", "I'm craving something sweet."},
     {"$animal_bigbat", "Will my children ever get the chance to grow up...?", "Peace and quiet, please?", "I'm craving something salty."},
-    {"$animal_sniper", "I'll strike you down... if you're close by or if you're far away.", "I know you're there. Don't try anything funny.", "...I'm not just talking to myself here, am I?"},
+    {"$animal_sniper", "I'll strike you down... whether you're close by or far away.", "I know you're there. Don't try anything funny.", "...I'm not just talking to myself here, am I?"},
     {"$animal_scavenger_grenade", "I should go get a drink after this...", "What day is it? I think rent's due soon...", "I need more coffee..."},
     {"$animal_thundermage", "My clothing? It's custom-made, thank you very much...", "If you can hear my electric crackle, you're too close.", "Magic keeps me alive... and makes so many other things dead."},
     {"$animal_goblin_bomb", "Hrmm...", "Shiny, sparkly glitter...", "What was that sound?"},
@@ -162,12 +176,21 @@ DIALOGUE_IDLE = {
     {"$animal_alchemist", "Hey kid, want some potions?", "Technically, the correct term is flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
     {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? It'll be your last."},
     {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
-    {"$animal_ant", "I have an iron stomach, ya know?", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
+    {"$animal_ant", "I have an iron stomach, you know.", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
     {"$animal_maggot", "Oof, I got heartburn...", "Would it be weird if I kept a smaller maggot as a pet?", "I'm less scary than I look. ...Do I look scary?"},
+    {"$animal_fungus", "Skitter, scatter...", "The roots run deep.", "Rambling, shuffling..."},
+    {"$animal_fungus_big", "It'll all return to soil...", "Muddy thoughts...", "Smells bad in here..."},
+    {"$animal_fungus_giga", "It's blooming season...", "Don't touch me.", "The fungi speaks to us..."},
+    {"$animal_fly", "I hope that no one's melee immune around here.", "That divine liquid... we just need diamond now.", "Need pollen... are there any flowers nearby?"},
+    {"$animal_drone", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
+    {"$animal_drone_physics", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
+    {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
+    {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
+    {"$animal_rat", "I wanna eat the moon.", "This isn't my home...", "No one ever tries to sympathize."},
 }
 
 GENERIC_HOLDINGWAND = {
-    "Hey, how do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "Oh, this thing has spells on it? I just wanted to hit someone with it...", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "...Hey, how do I put bullets into this?",
+    "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "Hey, how do I put bullets into this?",
 }
 GENERIC_CHARMED = {
     "I'm just happy to be here.", "Hello! How are you? I love you.", "Friendship...", "You're my best friend.", "Hehe...",
@@ -192,15 +215,17 @@ GENERIC_CONFUSED = {
 }
 
 function Speak(entity, text, pool)
-    local old_text = text
-    local x, y = EntityGetTransform(entity)
-    SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
-    local size = 0.7
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
 
+    local old_text = text
+    local x, y = EntityGetTransform(entity)
+    SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
+    local size_x = 0.7
+    local size_y = 0.7
+
     local offset_y = 26
-    local alpha = 0.8
+    local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = EntityGetName(entity) or ""
     if name == nil then return end
     name = name:gsub("_weak", "")
@@ -218,6 +243,22 @@ function Speak(entity, text, pool)
     for i = 1, #special_offsets do
         if special_offsets[i][1] == name then
             offset_y = offset_y + special_offsets[i][2]
+            break
+        end
+    end
+
+    local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
+    if genome ~= nil then
+        local faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
+        if faction == "robot" then
+            size_x = size_x + 0.06
+        end
+        if faction == "fungus" then
+            size_y = size_y + 0.06
+        end
+        if faction == "player" then
+            size_x = size_x + 0.06
+            size_y = size_y + 0.06
         end
     end
 
@@ -287,8 +328,6 @@ function Speak(entity, text, pool)
         end
     end
 
-    if GameGetGameEffect(entity, "INVISIBILITY") > 0 then alpha = alpha - 0.65 end
-
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
         _tags = "enabled_in_world, graham_speech_text",
@@ -302,8 +341,8 @@ function Speak(entity, text, pool)
         update_transform_rotation = false,
         text = text,
         has_special_scale = true,
-        special_scale_x = size,
-        special_scale_y = size,
+        special_scale_x = size_x,
+        special_scale_y = size_y,
         z_index = -9000,
         never_ragdollify_on_death = true
     })
