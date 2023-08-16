@@ -59,6 +59,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_bigzombie", "Join the undead... you'll be dying to do so.", "One day you'll end up like me.", "In the end, we'll all be... dead, but perhaps not buried."},
     {"$animal_bigzombiehead", "Is it still rude to headbutt someone if you only have a head?", "This is what you get for ripping my head off!", "Death is inevitable. I'm just speeding yours up."},
     {"$animal_rat", "Say goodbye to your ankles!", "I hope you've been vaccinated.", "Rip and tear..."},
+    {"$animal_iceskull", "Hah, take that to remember me by.", "Beautiful. Hold that pose, right there...", "Making ice sculptures is an intricate art."},
+    {"$animal_thunderskull", "Surprised? You should know that shocking people is my specialty!", "Wow, I've never seen someone fall for that before.", "No hard feelings, yeah, dude?"},
+    {"$animal_giant", "Step back. Take some time to refresh.", "You're not the first to get lost in the cold.", "What a shame."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -90,7 +93,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_grenade", "Do your worst!", "I think I broke something...", "H-hey, is there a healer nearby? Help!"},
     {"$animal_thundermage", "I'm as tough as diamonds! Just try me!", "Don't let your guard down, fool. I can still blast you to pieces.", "Don't get cocky. One slip-up, and you're done for!"},
     {"$animal_goblin_bomb", "Oh, noo!", "I changed my mind! Leave me alone!", "No, no!"},
-    {"$animal_scavenger_heal", "Show some respect!", "Hey! Don't be mean!", "B-but... There's many more people that need healing!"},
+    {"$animal_scavenger_heal", "Show some respect!", "Hey! Don't be mean!", "B-but... There's still so many people that need healing!"},
     {"$animal_boss_alchemist", "You should join us... We lack someone with your willpower. Heh heh heh.", "Faceless and nameless... You remind me of myself.", "Come closer. Let me get a good look at you.", "Don't look at me like you know me. It's offputting.", "Did the sight of my underlings upset you? Trust me, you haven't seen the half of it.", "I'll be missed if someone ends my life. Can you say that for yourself?"},
     {"$animal_parallel_tentacles", "Although I'm just a husk... I can end you all the same.", "It would be so easy to just give up now.", "Some day I'll come out from under you."},
     {"$animal_parallel_alchemist", "Life without living... is that what you seek?", "You're already a shadow of who you once were.", "You can't put me back together. So end it."},
@@ -124,6 +127,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bigzombie", "Ouch... are all my limbs still attached?", "Don't get a-head of yourself.", "Oh, you haven't heard the last of me."},
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
     {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
+    {"$animal_iceskull", "Chill out, dude!", "Cool it! I don't like your attitude.", "I knew you weren't cool."},
+    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "Was Jäätiö spreading rumours about me again? What a buzzkill..."},
+    {"$animal_giant", "Giving up would be so simple.", "You're quite a disappointing one.", "Echo, echo, echo..."},
 }
 
 DIALOGUE_IDLE = {
@@ -163,7 +169,7 @@ DIALOGUE_IDLE = {
     {"$animal_wizard_returner", "Cyan is my favourite colour.", "Fun fact: It is impossible to outrun your own reflection.", "I see you staring. I'm staring back."},
     {"$animal_wizard_swapper", "Blue is my favourite colour.", "Who's ready for some shenanigans? You better be!", "It's all just a game! Why not have some fun with it?"},
     {"$animal_wizard_neutral", "Silver is my favourite colour.", "Have you tried turning it off and on again?", "Biological... technological..."},
-    {"$animal_wizard_twitchy", "Green is my f-favourite colour.", "H-hard to focus, hard to s-stay still.", "It's o-out of my control..."},
+    {"$animal_wizard_twitchy", "Green is my f-favourite colour.", "H-hard to focus... hard to s-stay still.", "Everything's o-out of control..."},
     {"$animal_wizard_hearty", "Red is my favourite colour.", "What? A helmet? Why would I wear a helmet?", "Do you think I look gross? That's rude."},
     {"$animal_wizard_weaken", "White is my favourite colour.", "What's behind the mask? ...Stay in your own lane.", "Perhaps I look just like you, down below. Or perhaps not."},
     {"$animal_wizard_homing", "Crimson is my favourite colour.", "Don't touch my head.", "Don't call me self-absorbed!"},
@@ -174,7 +180,7 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_invis", "...What, would you rather hide under a cardboard box?", "C'mon, people, get those stains off!", "Stealth technology is constantly improving..."},
     {"$animal_scavenger_shield", "Protect the world from devastation!", "Let's just stop all this fighting, okay?", "Temporary shields complement permanent shields very well, don't you know?"},
     {"$animal_alchemist", "Hey kid, want some potions?", "Technically, the correct term is flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
-    {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? It'll be your last."},
+    {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? I'll make it your last."},
     {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
     {"$animal_ant", "I have an iron stomach, you know.", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
     {"$animal_maggot", "Oof, I got heartburn...", "Would it be weird if I kept a smaller maggot as a pet?", "I'm less scary than I look. ...Do I look scary?"},
@@ -186,7 +192,10 @@ DIALOGUE_IDLE = {
     {"$animal_drone_physics", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
     {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
     {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
-    {"$animal_rat", "I wanna eat the moon.", "This isn't my home...", "No one ever tries to sympathize."},
+    {"$animal_rat", "I wanna eat the moon.", "Leave this place!", "No one ever tries to sympathize."},
+    {"$animal_iceskull", "I'm just a laid-back kind of dude, you know?", "Everyone around here just wants to copy my style...", "Tell that Sähkiö guy that he can eat my shorts!"},
+    {"$animal_thunderskull", "I'll power your electronics if you pay me.", "My taste in music? Nothing but metal.", "Have you met Hankaussähkö? That guy just GETS me, y'know?"},
+    {"$animal_giant", "Think again about what you consider natural.", "The line between living and nonliving is often unclear.", "Aren't 'enchanted' and 'bewitched' essentially synonymous?"},
 }
 
 GENERIC_HOLDINGWAND = {
@@ -238,7 +247,8 @@ function Speak(entity, text, pool)
         {"$animal_necromancer_super", 12},
         {"$animal_firemage", 8},
         {"$animal_thundermage", 8},
-        {"$animal_tentacler", 10}
+        {"$animal_tentacler", 10},
+        {"$animal_giant", 8},
     }
     for i = 1, #special_offsets do
         if special_offsets[i][1] == name then
@@ -251,15 +261,19 @@ function Speak(entity, text, pool)
     if genome ~= nil then
         local faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
         if faction == "robot" then
-            size_x = size_x + 0.06
+            size_x = size_x + 0.08
         end
         if faction == "fungus" then
-            size_y = size_y + 0.06
+            size_y = size_y + 0.08
         end
         if faction == "player" then
-            size_x = size_x + 0.06
-            size_y = size_y + 0.06
+            size_x = size_x + 0.08
+            size_y = size_y + 0.08
         end
+    end
+    if name == "$animal_pebble" then
+        size_x = size_x - 0.10
+        size_y = size_y - 0.10
     end
 
     -- special idle functionality
@@ -327,6 +341,33 @@ function Speak(entity, text, pool)
             end
         end
     end
+
+    if name == "$animal_thunderskull" and (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_ELECTRICITY") then
+        local special = {
+            "Yo! A fellow electricity user?!",
+            "I never expected to see someone as rad as me down here!",
+            "I'm a fan of the volts you're outputting, friend.",
+        }
+        text = special[Random(1, #special)]
+    end
+    if name == "$animal_iceskull" and (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_GRAHAM_REVENGE_FREEZE") then
+        local special = {
+            "Hey, you also have retaliation projectiles? N-ice.",
+            "Your perks are cool! And I mean that literally.",
+            "We should make some ice sculptures together, some time.",
+        }
+        text = special[Random(1, #special)]
+    end
+
+    if name == "$animal_giant" then
+        local enemies = EntityGetInRadiusWithTag(x, y, 140, "glue_NOT")
+        for i = 1, #enemies do
+            if EntityGetName(enemies[i]) == "$animal_pebble" then
+                Speak(enemies[i], text, pool)
+            end
+        end
+    end
+    ---- All dialogue handling should go above this point ----
 
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
