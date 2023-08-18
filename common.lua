@@ -62,6 +62,10 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_iceskull", "Hah, take that to remember me by.", "Beautiful. Hold that pose, right there...", "Making ice sculptures is an intricate art."},
     {"$animal_thunderskull", "Surprised? You should know that shocking people is my specialty!", "Wow, I've never seen someone fall for that before.", "No hard feelings, yeah, dude?"},
     {"$animal_giant", "Step back. Take some time to refresh.", "You're not the first to get lost in the cold.", "What a shame."},
+    {"$animal_scavenger_mine", "Yo! Stay out of my range, weirdo.", "Let me hit you a few more times before you touch the ground.", "You're even more helpless than the animals I used to hunt."},
+    {"$animal_scavenger_glue", "Oh, this is a sticky situation...", "My job is all for show, y'know? For the paycheck.", "You're looking kind of suspicious there, friend."},
+    {"$animal_scavenger_leader", "Get out of my sight.", "Must I do everything myself?", "You've gotta be kidding me."},
+    {"$animal_scavenger_smg", "Eat lead, pest!", "Don't even think about levitating away.", "Brawn beats brains yet again. Hey, wait..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -93,7 +97,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_grenade", "Do your worst!", "I think I broke something...", "H-hey, is there a healer nearby? Help!"},
     {"$animal_thundermage", "I'm as tough as diamonds! Just try me!", "Don't let your guard down, fool. I can still blast you to pieces.", "Don't get cocky. One slip-up, and you're done for!"},
     {"$animal_goblin_bomb", "Oh, noo!", "I changed my mind! Leave me alone!", "No, no!"},
-    {"$animal_scavenger_heal", "Show some respect!", "Hey! Don't be mean!", "B-but... There's still so many people that need healing!"},
+    {"$animal_scavenger_heal", "Show some respect!", "Hey! Don't be mean!", "B-but... There's still so many more people that need healing!"},
     {"$animal_boss_alchemist", "You should join us... We lack someone with your willpower. Heh heh heh.", "Faceless and nameless... You remind me of myself.", "Come closer. Let me get a good look at you.", "Don't look at me like you know me. It's offputting.", "Did the sight of my underlings upset you? Trust me, you haven't seen the half of it.", "I'll be missed if someone ends my life. Can you say that for yourself?"},
     {"$animal_parallel_tentacles", "Although I'm just a husk... I can end you all the same.", "It would be so easy to just give up now.", "Some day I'll come out from under you."},
     {"$animal_parallel_alchemist", "Life without living... is that what you seek?", "You're already a shadow of who you once were.", "You can't put me back together. So end it."},
@@ -109,12 +113,12 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_wizard_homing", "I hope you're not using homing. That'd be hypocritical.", "I see a few ways this could go.", "Well, that's just rude."},
     {"$animal_barfer", "Yeow! Keep that thing away from me!", "H-hey! Stop that!", "H-haven't you heard? T-treat others as you... o-ow..."},
     {"$animal_necromancer_shop", "Oh, you'll pay for that one!", "It'll only get worse for you if you resist!", "I would have loved to get to know you better, in different circumstances."},
-    {"$animal_necromancer_super", "You may have taken down our, ahem, lesser guards, but it's not over.", "The Gods never forget your sins.", "Face it -- you're in way over your head on this one."},
+    {"$animal_necromancer_super", "You may have taken down our, ahem, lesser guards, but it's not over.", "The Gods never forget your sins.", "Face it. You're in way over your head on this one."},
     {"$animal_roboguard", "Don't resist!", "Stand down, magic-user!", "You've messed with the wrong robot!"},
     {"$animal_scavenger_invis", "That's rather mean, isn't it?", "Out of sight, out of mind.", "Give it up, seriously..."},
     {"$animal_scavenger_shield", "Why can't we all just get along?", "Spare my life, please?", "I really just wanted to help people..."},
     {"$animal_alchemist", "You can't handle my strongest potions.", "Hey, I don't know anything about 'em. I just throw 'em.", "Is this revenge for the acid potion?"},
-    {"$animal_tentacler", "I hope you can do better than that peashooter.", "You're funny. Get closer so I can end your life.", "Didn't sting at all."},
+    {"$animal_tentacler", "I hope you can do better than that peashooter.", "You're funny. Get closer so I can end your life.", "Doesn't sting at all."},
     {"$animal_tentacler_small", "Mom told me you were mean...", "I may be small, but I can pack a punch!", "Get a bit closer, then you'll see...!"},
     {"$animal_ant", "Can't you handle a little corrosion?", "I understand if you're afraid...", "I suppose I'm not the first bug you've squashed."},
     {"$animal_maggot", "Sorry... I know it's hard to aim around me.", "I'm not trying to get in your way.", "I'm just a bug... Even if I'm this large."},
@@ -128,8 +132,12 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
     {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
     {"$animal_iceskull", "Chill out, dude!", "Cool it! I don't like your attitude.", "I knew you weren't cool."},
-    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "Was Jäätiö spreading rumours about me again? What a buzzkill..."},
+    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "Was Jaatio spreading rumours about me again? What a buzzkill..."},
     {"$animal_giant", "Giving up would be so simple.", "You're quite a disappointing one.", "Echo, echo, echo..."},
+    {"$animal_scavenger_mine", "What a problem you are.", "I kill for sport. Can't say the same for you...", "What's wrong with you?"},
+    {"$animal_scavenger_glue", "Stick around for the fight of a lifetime!", "Oh, get me out of this horrid place...", "I'm not helpless, you know."},
+    {"$animal_scavenger_leader", "Drinks are on the house for whoever kills that thing!", "I swear, I will END you.", "What do I pay you fools for? Get them!"},
+    {"$animal_scavenger_smg", "O-on second thought, maybe being a janitor isn't so bad...", "I would offer you a truce, but the boss would get mad...", "You won't make it past me unscathed!"},
 }
 
 DIALOGUE_IDLE = {
@@ -179,7 +187,7 @@ DIALOGUE_IDLE = {
     {"$animal_roboguard", "Tonight is movie night...", "Those thunder mages always seem to evade the law...", "I'm still a bit human inside, I promise..."},
     {"$animal_scavenger_invis", "...What, would you rather hide under a cardboard box?", "C'mon, people, get those stains off!", "Stealth technology is constantly improving..."},
     {"$animal_scavenger_shield", "Protect the world from devastation!", "Let's just stop all this fighting, okay?", "Temporary shields complement permanent shields very well, don't you know?"},
-    {"$animal_alchemist", "Hey kid, want some potions?", "Technically, the correct term is flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
+    {"$animal_alchemist", "Hey kid, want some potions?", "I call them flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
     {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? I'll make it your last."},
     {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
     {"$animal_ant", "I have an iron stomach, you know.", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
@@ -193,9 +201,13 @@ DIALOGUE_IDLE = {
     {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
     {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
     {"$animal_rat", "I wanna eat the moon.", "Leave this place!", "No one ever tries to sympathize."},
-    {"$animal_iceskull", "I'm just a laid-back kind of dude, you know?", "Everyone around here just wants to copy my style...", "Tell that Sähkiö guy that he can eat my shorts!"},
-    {"$animal_thunderskull", "I'll power your electronics if you pay me.", "My taste in music? Nothing but metal.", "Have you met Hankaussähkö? That guy just GETS me, y'know?"},
-    {"$animal_giant", "Think again about what you consider natural.", "The line between living and nonliving is often unclear.", "Aren't 'enchanted' and 'bewitched' essentially synonymous?"},
+    {"$animal_iceskull", "I'm just a laid-back kind of dude, you know?", "Everyone around here just wants to copy my style...", "Tell that Sahkio guy that he can eat my shorts!"},
+    {"$animal_thunderskull", "I'll power your electronics if you pay me.", "My taste in music? Nothing but metal.", "Have you met Hankaussahko? That guy just GETS me, y'know?"},
+    {"$animal_giant", "Think again about what you consider natural.", "The line between living and nonliving is often unclear.", "You know not what forces allow you to survive."},
+    {"$animal_scavenger_mine", "Did I forget to renew my hunting license?", "I hope landmines are legal around here.", "Don't mistake me for a healer again."},
+    {"$animal_scavenger_glue", "Anyone wanna hire a distraction?", "I will legitimately kill you if you try to eat my glue.", "I hope this place doesn't smell as bad as I imagine it does."},
+    {"$animal_scavenger_leader", "Can I get a status report?", "Keep an eye out, there could be intruders anywhere...", "There's so much work to do... no time to think."},
+    {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, no thinking."},
 }
 
 GENERIC_HOLDINGWAND = {
@@ -223,6 +235,20 @@ GENERIC_CONFUSED = {
     "!?no gniog si kceh eht tahW", "!desufnoc os m'I", "...struh daeh yM", "!?tahW", "!em fo ffo ffuts siht teG",
 }
 
+local special_offsets = {
+    {"$animal_boss_alchemist", 60},
+    {"$animal_parallel_alchemist", 60},
+    {"$animal_boss_pit", 15},
+    {"$animal_parallel_tentacles", 15},
+    {"$animal_necromancer_shop", 10},
+    {"$animal_necromancer_super", 12},
+    {"$animal_firemage", 8},
+    {"$animal_thundermage", 8},
+    {"$animal_tentacler", 10},
+    {"$animal_giant", 8},
+    {"$animal_pebble", -4},
+}
+
 function Speak(entity, text, pool)
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
@@ -238,22 +264,35 @@ function Speak(entity, text, pool)
     local name = EntityGetName(entity) or ""
     if name == nil then return end
     name = name:gsub("_weak", "")
-    local special_offsets = {
-        {"$animal_boss_alchemist", 60},
-        {"$animal_parallel_alchemist", 60},
-        {"$animal_boss_pit", 15},
-        {"$animal_parallel_tentacles", 15},
-        {"$animal_necromancer_shop", 10},
-        {"$animal_necromancer_super", 12},
-        {"$animal_firemage", 8},
-        {"$animal_thundermage", 8},
-        {"$animal_tentacler", 10},
-        {"$animal_giant", 8},
-    }
     for i = 1, #special_offsets do
         if special_offsets[i][1] == name then
             offset_y = offset_y + special_offsets[i][2]
             break
+        end
+    end
+
+    -- Copier mage should go at the top, so it can pretend to be a different enemy
+    if name == "$animal_wizard_returner" then
+        local thing = nil
+        if pool == "IDLE" then thing = DIALOGUE_IDLE end
+        if pool == "DAMAGEDEALT" then thing = DIALOGUE_DAMAGEDEALT end
+        if pool == "DAMAGETAKEN" then thing = DIALOGUE_DAMAGETAKEN end
+        if thing ~= nil then
+            local enemies = EntityGetInRadiusWithTag(x, y, 150, "enemy") or {}
+            for j = 1, #enemies do
+                local enemy = enemies[Random(1, #enemies)]
+                name = EntityGetName(enemy)
+                name = name:gsub("_weak", "")
+                if name ~= "$animal_wizard_returner" then
+                    for i = 1, #thing do
+                        if thing[i][1] == name then
+                            text = tostring(thing[i][Random(2, #thing[i])])
+                            break
+                        end
+                    end
+                end
+                if text ~= old_text then break end
+            end
         end
     end
 
@@ -293,22 +332,6 @@ function Speak(entity, text, pool)
                 "I'm sure you have your reasons. But so do I.",
             }
             text = special[Random(1, #special)]
-        end
-    end
-
-    if name == "$animal_wizard_returner" and pool == "IDLE" then
-        local mimic = EntityGetClosestWithTag(x, y, "graham_speaking")
-        if mimic ~= nil then
-            local x2, y2 = EntityGetTransform(mimic)
-            if x2 ~= nil then
-                local distance = math.sqrt((x2 - x)^2 + (y2 - y)^2)
-                if distance > 5 and distance < 250 then
-                    local comp = EntityGetFirstComponent(mimic, "SpriteComponent", "graham_speech_text")
-                    if comp ~= nil then
-                        text = ComponentGetValue2(comp, "text")
-                    end
-                end
-            end
         end
     end
 
@@ -369,13 +392,20 @@ function Speak(entity, text, pool)
     end
     ---- All dialogue handling should go above this point ----
 
+    -- here lies some terrible width code that has since been replaced
+    -- thank you to Evaisa (and Copi) for making this not trash
+    local gui = GuiCreate()
+    GuiStartFrame(gui)
+    local offset_x = GuiGetTextDimensions( gui, text, size_x ) * 0.75
+    GuiDestroy(gui)
+
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
         _tags = "enabled_in_world, graham_speech_text",
         image_file = "data/fonts/font_pixel_white.xml",
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
-        offset_x = string.len(text) * 1.9,
+        offset_x = offset_x,
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,
