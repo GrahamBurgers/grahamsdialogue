@@ -207,7 +207,7 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_mine", "Did I forget to renew my hunting license?", "I hope landmines are legal around here.", "Don't mistake me for a healer again."},
     {"$animal_scavenger_glue", "Anyone wanna hire a distraction?", "I will legitimately kill you if you try to eat my glue.", "I hope this place doesn't smell as bad as I imagine it does."},
     {"$animal_scavenger_leader", "Can I get a status report?", "Keep an eye out, there could be intruders anywhere...", "There's so much work to do... no time to think."},
-    {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, no thinking."},
+    {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, don't think twice."},
 }
 
 GENERIC_HOLDINGWAND = {
@@ -234,20 +234,32 @@ GENERIC_TOXIC = {
 GENERIC_CONFUSED = {
     "!?no gniog si kceh eht tahW", "!desufnoc os m'I", "...struh daeh yM", "!?tahW", "!em fo ffo ffuts siht teG",
 }
-
-local special_offsets = {
-    {"$animal_boss_alchemist", 60},
-    {"$animal_parallel_alchemist", 60},
-    {"$animal_boss_pit", 15},
-    {"$animal_parallel_tentacles", 15},
-    {"$animal_necromancer_shop", 10},
-    {"$animal_necromancer_super", 12},
-    {"$animal_firemage", 8},
-    {"$animal_thundermage", 8},
-    {"$animal_tentacler", 10},
-    {"$animal_giant", 8},
-    {"$animal_pebble", -4},
+GENERIC_HEALED = {
+    "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
+
+
+local special_offsets_x = ({ -- shouldn't really have to use this often
+    ["$animal_drone"]                 = -15,
+    ["$animal_drone_physics"]         = -15,
+})
+
+local special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
+    ["$animal_boss_alchemist"]        = 60,
+    ["$animal_parallel_alchemist"]    = 60,
+    ["$animal_boss_pit"]              = 15,
+    ["$animal_parallel_tentacles"]    = 15,
+    ["$animal_necromancer_shop"]      = 10,
+    ["$animal_necromancer_super"]     = 12,
+    ["$animal_firemage"]              = 8,
+    ["$animal_thundermage"]           = 8,
+    ["$animal_tentacler"]             = 10,
+    ["$animal_giant"]                 = 8,
+    ["$animal_pebble"]                = -4,
+    ["$animal_rat"]                   = -2,
+    ["$animal_drone"]                 = -10,
+    ["$animal_drone_physics"]         = -10,
+})
 
 function Speak(entity, text, pool)
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
@@ -259,17 +271,12 @@ function Speak(entity, text, pool)
     local size_x = 0.7
     local size_y = 0.7
 
-    local offset_y = 26
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = EntityGetName(entity) or ""
     if name == nil then return end
     name = name:gsub("_weak", "")
-    for i = 1, #special_offsets do
-        if special_offsets[i][1] == name then
-            offset_y = offset_y + special_offsets[i][2]
-            break
-        end
-    end
+    local offset_x = 0  + (special_offsets_x[name] or 0)
+    local offset_y = 26 + (special_offsets_y[name] or 0)
 
     -- Copier mage should go at the top, so it can pretend to be a different enemy
     if name == "$animal_wizard_returner" then
@@ -294,25 +301,6 @@ function Speak(entity, text, pool)
                 if text ~= old_text then break end
             end
         end
-    end
-
-    local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
-    if genome ~= nil then
-        local faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
-        if faction == "robot" then
-            size_x = size_x + 0.08
-        end
-        if faction == "fungus" then
-            size_y = size_y + 0.08
-        end
-        if faction == "player" then
-            size_x = size_x + 0.08
-            size_y = size_y + 0.08
-        end
-    end
-    if name == "$animal_pebble" then
-        size_x = size_x - 0.10
-        size_y = size_y - 0.10
     end
 
     -- special idle functionality
@@ -390,13 +378,32 @@ function Speak(entity, text, pool)
             end
         end
     end
-    ---- All dialogue handling should go above this point ----
+
+    local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
+    if genome ~= nil then
+        local faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
+        if faction == "robot" then
+            size_x = size_x + 0.06
+        end
+        if faction == "fungus" then
+            size_y = size_y + 0.06
+        end
+        if faction == "player" then
+            size_x = size_x + 0.04
+            size_y = size_y + 0.04
+        end
+    end
+    if name == "$animal_pebble" then
+        size_x = size_x - 0.10
+        size_y = size_y - 0.10
+    end
+    ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
 
     -- here lies some terrible width code that has since been replaced
     -- thank you to Evaisa (and Copi) for making this not trash
     local gui = GuiCreate()
     GuiStartFrame(gui)
-    local offset_x = GuiGetTextDimensions( gui, text, size_x ) * 0.75
+    local width = GuiGetTextDimensions( gui, text, size_x ) * 0.75
     GuiDestroy(gui)
 
     EntityAddTag(entity, "graham_speaking")
@@ -405,7 +412,7 @@ function Speak(entity, text, pool)
         image_file = "data/fonts/font_pixel_white.xml",
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
-        offset_x = offset_x,
+        offset_x = width + offset_x,
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,

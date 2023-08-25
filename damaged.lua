@@ -1,21 +1,27 @@
+---@diagnostic disable-next-line: lowercase-global
 function damage_received( damage, message, entity_thats_responsible, is_fatal)
-    local x, y = EntityGetTransform(GetUpdatedEntityID())
-    if damage > 0 and EntityHasTag(entity_thats_responsible, "player_unit") and not is_fatal and entity_thats_responsible ~= GetUpdatedEntityID() then
-        SetRandomSeed(entity_thats_responsible + GameGetFrameNum() + y, damage + 1394 + x)
+    local me = GetUpdatedEntityID()
+    local x, y = EntityGetTransform(me)
+    if entity_thats_responsible ~= me and EntityHasTag(entity_thats_responsible, "mortal") then
+        SetRandomSeed(entity_thats_responsible + me + y, damage + 1394 + x)
 
         local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)
         if rate < 1 then return end
         if Random(1, rate) == 1 then
-            local name = EntityGetName(GetUpdatedEntityID())
-            if name == nil then return end
-            name = name:gsub("_weak", "")
             dofile_once("mods/grahamsdialogue/common.lua")
-            for i = 1, #DIALOGUE_DAMAGETAKEN do
-                if DIALOGUE_DAMAGETAKEN[i][1] == name then
-                    local type = Random(2, #DIALOGUE_DAMAGETAKEN[i])
-                    Speak(GetUpdatedEntityID(), tostring(DIALOGUE_DAMAGETAKEN[i][type]), "DAMAGETAKEN")
-                    break
+            if damage > 0 and EntityHasTag(entity_thats_responsible, "player_unit") then
+                local name = EntityGetName(me)
+                if name == nil then return end
+                name = name:gsub("_weak", "")
+                for i = 1, #DIALOGUE_DAMAGETAKEN do
+                    if DIALOGUE_DAMAGETAKEN[i][1] == name then
+                        local type = Random(2, #DIALOGUE_DAMAGETAKEN[i])
+                        Speak(me, tostring(DIALOGUE_DAMAGETAKEN[i][type]), "DAMAGETAKEN")
+                        break
+                    end
                 end
+            elseif damage < 0 then
+                Speak(me, GENERIC_HEALED[Random(1, #GENERIC_HEALED)], "GENERIC")
             end
         end
     end
