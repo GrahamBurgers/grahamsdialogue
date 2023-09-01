@@ -3,7 +3,7 @@ local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
 SetRandomSeed(x + GameGetFrameNum(), y + 1394)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
-if rate < 1 then return end
+if rate == 200 then return end
 if Random(1, rate) == 1 then
     local worldstatecomp = EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0
     local inventory = EntityGetFirstComponent(me, "Inventory2Component") or 0

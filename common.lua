@@ -65,7 +65,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_scavenger_mine", "Yo! Stay out of my range, weirdo.", "Let me hit you a few more times before you touch the ground.", "You're even more helpless than the animals I used to hunt."},
     {"$animal_scavenger_glue", "Oh, this is a sticky situation...", "My job is all for show, y'know? For the paycheck.", "You're looking kind of suspicious there, friend."},
     {"$animal_scavenger_leader", "Get out of my sight.", "Must I do everything myself?", "You've gotta be kidding me."},
-    {"$animal_scavenger_smg", "Eat lead, pest!", "Don't even think about levitating away.", "Brawn beats brains yet again. Hey, wait..."},
+    {"$animal_scavenger_smg", "Eat lead, pest!", "Don't even think about levitating away.", "Don't you know? Brawn beats brains."},
+    {"$animal_scavenger_clusterbomb", "Dying in the battlefield is honorable. Let me show you.", "This is what happens when consequences catch up to you.", "One of us must die here. I won't let it be me."},
+    {"$animal_scavenger_poison", "What's the matter with you?", "I don't care who else dies. You have to go.", "Let me get a good look at you while you die."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -138,6 +140,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_glue", "Stick around for the fight of a lifetime!", "Oh, get me out of this horrid place...", "I'm not helpless, you know."},
     {"$animal_scavenger_leader", "Drinks are on the house for whoever kills that thing!", "I swear, I will END you.", "What do I pay you fools for? Get them!"},
     {"$animal_scavenger_smg", "O-on second thought, maybe being a janitor isn't so bad...", "I would offer you a truce, but the boss would get mad...", "You won't make it past me unscathed!"},
+    {"$animal_scavenger_clusterbomb", "That makes me furious.", "I don't have any sympathy left for you.", "Now I only want you gone."},
+    {"$animal_scavenger_poison", "You're such a vile creature.", "You make me sick.", "Disgusting."},
 }
 
 DIALOGUE_IDLE = {
@@ -208,40 +212,42 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_glue", "Anyone wanna hire a distraction?", "I will legitimately kill you if you try to eat my glue.", "I hope this place doesn't smell as bad as I imagine it does."},
     {"$animal_scavenger_leader", "Can I get a status report?", "Keep an eye out, there could be intruders anywhere...", "There's so much work to do... no time to think."},
     {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, don't think twice."},
+    {"$animal_scavenger_clusterbomb", "At least I didn't get stuck with the poison gun...", "Avoiding collateral damage is hard when everything is so flammable.", "Outta the way! I have places to be, you know."},
+    {"$animal_scavenger_poison", "At least I didn't get stuck with the grenade launcher...", "To be honest, I never really liked this place.", "Please just ignore the long-term health risks of poison gas."},
 }
 
-GENERIC_HOLDINGWAND = {
-    "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "Hey, how do I put bullets into this?",
+GENERIC_HOLDINGWAND =
+    { "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "Hey, how do I put bullets into this?",
 }
-GENERIC_CHARMED = {
-    "I'm just happy to be here.", "Hello! How are you? I love you.", "Friendship...", "You're my best friend.", "Hehe...",
+GENERIC_CHARMED =
+    { "I'm just happy to be here.", "Hello! How are you? I love you.", "Friendship...", "You're my best friend.", "Hehe...",
 }
-GENERIC_ONFIRE = {
-    "Ow, ow!", "Aaah!", "Water! Need water, quickly!", "Someone help!", "Fire! Fire!!",
+GENERIC_ONFIRE =
+    { "Ow, ow!", "Aaah!", "Water! Need water, quickly!", "Someone help!", "Fire! Fire!!",
 }
-GENERIC_PEACEFULENDING = {
-    "This is nice.", "Thank you, player!", "So peaceful... so nice!", "I feel so happy!", "I can finally take a nap...",
+GENERIC_PEACEFULENDING =
+    { "This is nice.", "Thank you, player!", "So peaceful... so nice!", "I feel so happy!", "I can finally take a nap...",
 }
-GENERIC_DRUNK = {
-    "Hic...", "Y-you're funny.", "Burp.", "My head hurts...", "Oof, I've had too much.",
+GENERIC_DRUNK =
+    { "Hic...", "Y-you're funny.", "Burp.", "My head hurts...", "Oof, I've had too much.",
 }
-GENERIC_BERSERK = {
-    "I'll kill you all!", "Prepare to die!", "I'll tear you all to pieces!", "None of you are my allies!", "Surrender now! Die! Die!",
+GENERIC_BERSERK =
+    { "I'll kill you all!", "Prepare to die!", "I'll tear you all to pieces!", "None of you are my allies!", "Surrender now! Die! Die!",
 }
-GENERIC_TOXIC = {
-    "Oh, I feel gross...", "Cough, hack...", "My head hurts...", "I feel like I'm gonna be sick...", "It hurts...",
+GENERIC_TOXIC =
+    { "Oh, I feel gross...", "Cough, hack...", "My head hurts...", "I feel like I'm gonna be sick...", "It hurts...",
 }
-GENERIC_CONFUSED = {
-    "!?no gniog si kceh eht tahW", "!desufnoc os m'I", "...struh daeh yM", "!?tahW", "!em fo ffo ffuts siht teG",
+GENERIC_CONFUSED =
+    { "!?no gniog si kceh eht tahW", "!desufnoc os m'I", "...struh daeh yM", "!?tahW", "!em fo ffo ffuts siht teG",
 }
-GENERIC_HEALED = {
-    "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
+GENERIC_HEALED =
+    { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
 
 
 local special_offsets_x = ({ -- shouldn't really have to use this often
-    ["$animal_drone"]                 = -15,
-    ["$animal_drone_physics"]         = -15,
+    ["$animal_drone"]                 = -17,
+    ["$animal_drone_physics"]         = -17,
 })
 
 local special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
@@ -389,8 +395,8 @@ function Speak(entity, text, pool)
             size_y = size_y + 0.06
         end
         if faction == "player" then
-            size_x = size_x + 0.04
-            size_y = size_y + 0.04
+            size_x = size_x + 0.03
+            size_y = size_y + 0.03
         end
     end
     if name == "$animal_pebble" then
@@ -398,9 +404,6 @@ function Speak(entity, text, pool)
         size_y = size_y - 0.10
     end
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
-
-    -- here lies some terrible width code that has since been replaced
-    -- thank you to Evaisa (and Copi) for making this not trash
     local gui = GuiCreate()
     GuiStartFrame(gui)
     local width = GuiGetTextDimensions( gui, text, size_x ) * 0.75
@@ -412,7 +415,7 @@ function Speak(entity, text, pool)
         image_file = "data/fonts/font_pixel_white.xml",
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
-        offset_x = width + offset_x,
+        offset_x = offset_x + width,
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,

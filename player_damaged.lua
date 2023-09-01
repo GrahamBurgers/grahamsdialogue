@@ -3,7 +3,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal)
         SetRandomSeed(entity_thats_responsible + GameGetFrameNum(), damage + 3141)
 
         local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaging")) + 0.5)
-        if rate < 1 then return end
+        if rate == 20 then return end
         if Random(1, rate) == 1 then
             local name = EntityGetName(entity_thats_responsible)
             if name == nil then return end

@@ -6,7 +6,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal)
         SetRandomSeed(entity_thats_responsible + me + y, damage + 1394 + x)
 
         local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)
-        if rate < 1 then return end
+        if rate == 100 then return end
         if Random(1, rate) == 1 then
             dofile_once("mods/grahamsdialogue/common.lua")
             if damage > 0 and EntityHasTag(entity_thats_responsible, "player_unit") then
