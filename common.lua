@@ -1,6 +1,12 @@
 DUPES = ({ -- for when multiple enemy translation entries are identical
-    ["$animal_drone_physics"]            = "$animal_drone",
+    ["$animal_zombie_weak"]              = "$animal_zombie",
+    ["$animal_shotgunner_weak"]          = "$animal_shotgunner",
+    ["$animal_miner_weak"]               = "$animal_miner",
+    ["$animal_slimeshooter_weak"]        = "$animal_slimeshooter",
+    ["$animal_giantshooter_weak"]        = "$animal_giantshooter",
+    ["$animal_acidshooter_weak"]         = "$animal_acidshooter",
     ["$animal_slimeshooter_nontoxic"]    = "$animal_slimeshooter",
+    ["$animal_drone_physics"]            = "$animal_drone",
     ["$animal_turret_right"]             = "$animal_turret",
     ["$animal_turret_left"]              = "$animal_turret",
 })
@@ -8,9 +14,12 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 function NameGet(entity)
     local name = EntityGetName(entity) or ""
     if name == nil then return end
-    name = name:gsub("_weak", "")
     name = DUPES[name] or name
     return name
+end
+
+function ModdedStuff()
+    -- APPEND HERE! This function will be called right before dialogue is shown.
 end
 
 DIALOGUE_DAMAGEDEALT = {
@@ -21,7 +30,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_shaman_wind", "EAHAHAHA!", "HAHA!!", "MUAHAHAHA!"},
     {"$animal_longleg", "Fall before us!", "Fear us!", "We are legion!"},
     {"$animal_miner", "Nice catch! Haha...", "Kaboom!", "I expected more from you."},
-    {"$animal_firemage", "You're a fool!", "You'd best run while you still can.", "I like my food cooked well-done."},
+    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage_weak", "You're a fool!", "You'd best run while you still can.", "I like my food cooked well-done."},
     {"$animal_slimeshooter", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
     {"$animal_acidshooter", "Meet your end.", "Goodbye.", "You won't be missed."},
     {"$animal_giantshooter", "Fuel for the fire...", "You taste terrible.", "You will become food for my children!"},
@@ -95,7 +105,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_shaman_wind", "This disguise always works! What gives?", "Damn it! You found me!", "Fine, then. I'll kill you next time."},
     {"$animal_longleg", "You are weak!", "Ahh!", "Fight us!"},
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
-    {"$animal_firemage", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
+    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage_weak", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
     {"$animal_slimeshooter", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
     {"$animal_acidshooter", "Look into my eye!", "Keep your distance.", "I'll corrode you down to nothing."},
     {"$animal_giantshooter", "My children...", "If I were you, I wouldn't!", "See what good killing me will do for you."},
@@ -169,7 +180,8 @@ DIALOGUE_IDLE = {
     {"$animal_chest_mimic", "...", "", ""},
     {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?"},
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
-    {"$animal_firemage", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
+    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage_weak", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
     {"$animal_slimeshooter", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
     {"$animal_acidshooter", "I see you.", "I can see you through the dark.", "Death is near!"},
     {"$animal_giantshooter", "Bloated...", "Ugh...", "What was that?"},
@@ -234,7 +246,7 @@ DIALOGUE_IDLE = {
     {"$animal_tank", "", "", ""},
     {"$animal_tank_rocket", "", "", ""},
     {"$animal_tank_super", "", "", ""},
-    {"$animal_turret", "", "", ""},
+    {"$animal_turret", "Are you still there?", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
@@ -355,7 +367,7 @@ function Speak(entity, text, pool)
                 if text ~= old_text then break end
                 local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
                 for j = 1, #comps do
-                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" and name == "$animal_firemage" then
+                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" and name == "$animal_firemage" or name == "$animal_firemage_weak" then
                         local special = {
                             "Nice stone you got there. Is it for sale?",
                             "That flame... it reminds me of myself when I was younger.",
@@ -422,6 +434,10 @@ function Speak(entity, text, pool)
         size_x = size_x - 0.10
         size_y = size_y - 0.10
     end
+
+    -- Appended stuff
+    ModdedStuff()
+
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
     local gui = GuiCreate()
     GuiStartFrame(gui)
