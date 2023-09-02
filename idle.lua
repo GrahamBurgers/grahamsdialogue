@@ -5,12 +5,12 @@ SetRandomSeed(x + GameGetFrameNum(), y + 1394)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
 if rate == 200 then return end
 if Random(1, rate) == 1 then
+    dofile_once("mods/grahamsdialogue/common.lua")
     local worldstatecomp = EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0
     local inventory = EntityGetFirstComponent(me, "Inventory2Component") or 0
     local wand = ComponentGetValue2(inventory, "mActiveItem") or 0
     local random = Random(1, 10)
     -- this is a sort of priority system; hopefully this many elseifs won't cause problems
-    dofile_once("mods/grahamsdialogue/common.lua")
     if GameGetGameEffectCount(me, "ON_FIRE") > 0 then -- on fire
         Speak(me, GENERIC_ONFIRE[Random(1, #GENERIC_ONFIRE)], "GENERIC")
         return
@@ -37,9 +37,7 @@ if Random(1, rate) == 1 then
         return
     end
 
-    local name = EntityGetName(me)
-    if name == nil then return end
-    name = name:gsub("_weak", "")
+    local name = NameGet(me)
     for i = 1, #DIALOGUE_IDLE do
         if DIALOGUE_IDLE[i][1] == name then
             if Random(1, 100000) == 100000 then

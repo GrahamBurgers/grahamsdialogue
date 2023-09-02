@@ -1,3 +1,18 @@
+DUPES = ({ -- for when multiple enemy translation entries are identical
+    ["$animal_drone_physics"]            = "$animal_drone",
+    ["$animal_slimeshooter_nontoxic"]    = "$animal_slimeshooter",
+    ["$animal_turret_right"]             = "$animal_turret",
+    ["$animal_turret_left"]              = "$animal_turret",
+})
+
+function NameGet(entity)
+    local name = EntityGetName(entity) or ""
+    if name == nil then return end
+    name = name:gsub("_weak", "")
+    name = DUPES[name] or name
+    return name
+end
+
 DIALOGUE_DAMAGEDEALT = {
     {"$animal_shotgunner", "Gotcha.", "Blood, blood!", "I hope that hurt."},
     {"$animal_zombie", "Tasty!", "Rah!", "Spill your blood!"},
@@ -8,7 +23,6 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_miner", "Nice catch! Haha...", "Kaboom!", "I expected more from you."},
     {"$animal_firemage", "You're a fool!", "You'd best run while you still can.", "I like my food cooked well-done."},
     {"$animal_slimeshooter", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
-    {"$animal_slimeshooter_nontoxic", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
     {"$animal_acidshooter", "Meet your end.", "Goodbye.", "You won't be missed."},
     {"$animal_giantshooter", "Fuel for the fire...", "You taste terrible.", "You will become food for my children!"},
     {"$animal_frog", "Konna used Tackle!", "I got you!", "Watch me fly!"},
@@ -55,7 +69,6 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_fungus_giga", "I hope you don't have allergies.", "You look a bit scraped up...", "Stay back!"},
     {"$animal_fly", "Sting them! Now!", "We produce honey, and you are NOT involved!", "Maybe you should just leave us alone."},
     {"$animal_drone", "Target found. Engaging...", "Attempting to break target's focus...", "Detecting weaknesses... Bullets seem ineffective."},
-    {"$animal_drone_physics", "Target found. Engaging...", "Attempting to break target's focus...", "Detecting weaknesses... Bullets seem ineffective."},
     {"$animal_bigzombie", "Join the undead... you'll be dying to do so.", "One day you'll end up like me.", "In the end, we'll all be... dead, but perhaps not buried."},
     {"$animal_bigzombiehead", "Is it still rude to headbutt someone if you only have a head?", "This is what you get for ripping my head off!", "Death is inevitable. I'm just speeding yours up."},
     {"$animal_rat", "Say goodbye to your ankles!", "I hope you've been vaccinated.", "Rip and tear..."},
@@ -68,6 +81,10 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_scavenger_smg", "Eat lead, pest!", "Don't even think about levitating away.", "Don't you know? Brawn beats brains."},
     {"$animal_scavenger_clusterbomb", "Dying in the battlefield is honorable. Let me show you.", "This is what happens when consequences catch up to you.", "One of us must die here. I won't let it be me."},
     {"$animal_scavenger_poison", "What's the matter with you?", "I don't care who else dies. You have to go.", "Let me get a good look at you while you die."},
+    {"$animal_tank", "", "", ""},
+    {"$animal_tank_rocket", "", "", ""},
+    {"$animal_tank_super", "", "", ""},
+    {"$animal_turret", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -80,7 +97,6 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
     {"$animal_firemage", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
     {"$animal_slimeshooter", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
-    {"$animal_slimeshooter_nontoxic", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
     {"$animal_acidshooter", "Look into my eye!", "Keep your distance.", "I'll corrode you down to nothing."},
     {"$animal_giantshooter", "My children...", "If I were you, I wouldn't!", "See what good killing me will do for you."},
     {"$animal_frog", "I'm just a little frog...", "Owie!", "Hey, that hurts!"},
@@ -129,7 +145,6 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_fungus_giga", "Just a little bit off the top, thank you.", "Hehe... you're short.", "I'm too dignified to self-destruct, don't you know?"},
     {"$animal_fly", "That's fine... I'll be fine.", "Just please don't touch our honey...", "It'll all be worth it in the end..."},
     {"$animal_drone", "I've already informed my correspondents of your location.", "Mayday! Mayday!", "Risk levels high. Please respond..."},
-    {"$animal_drone_physics", "I've already informed my correspondents of your location.", "Mayday! Mayday!", "Risk levels high. Please respond..."},
     {"$animal_bigzombie", "Ouch... are all my limbs still attached?", "Don't get a-head of yourself.", "Oh, you haven't heard the last of me."},
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
     {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
@@ -142,6 +157,10 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_smg", "O-on second thought, maybe being a janitor isn't so bad...", "I would offer you a truce, but the boss would get mad...", "You won't make it past me unscathed!"},
     {"$animal_scavenger_clusterbomb", "That makes me furious.", "I don't have any sympathy left for you.", "Now I only want you gone."},
     {"$animal_scavenger_poison", "You're such a vile creature.", "You make me sick.", "Disgusting."},
+    {"$animal_tank", "", "", ""},
+    {"$animal_tank_rocket", "", "", ""},
+    {"$animal_tank_super", "", "", ""},
+    {"$animal_turret", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -152,7 +171,6 @@ DIALOGUE_IDLE = {
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
     {"$animal_firemage", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
     {"$animal_slimeshooter", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
-    {"$animal_slimeshooter_nontoxic", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
     {"$animal_acidshooter", "I see you.", "I can see you through the dark.", "Death is near!"},
     {"$animal_giantshooter", "Bloated...", "Ugh...", "What was that?"},
     {"$animal_frog", "Ribbit.", "Hop, hop.", "Meow."},
@@ -201,7 +219,6 @@ DIALOGUE_IDLE = {
     {"$animal_fungus_giga", "It's blooming season...", "Don't touch me.", "The fungi speaks to us..."},
     {"$animal_fly", "I hope that no one's melee immune around here.", "That divine liquid... we just need diamond now.", "Need pollen... are there any flowers nearby?"},
     {"$animal_drone", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
-    {"$animal_drone_physics", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
     {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
     {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
     {"$animal_rat", "I wanna eat the moon.", "Leave this place!", "No one ever tries to sympathize."},
@@ -214,6 +231,10 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, don't think twice."},
     {"$animal_scavenger_clusterbomb", "At least I didn't get stuck with the poison gun...", "Avoiding collateral damage is hard when everything is so flammable.", "Outta the way! I have places to be, you know."},
     {"$animal_scavenger_poison", "At least I didn't get stuck with the grenade launcher...", "To be honest, I never really liked this place.", "Please just ignore the long-term health risks of poison gas."},
+    {"$animal_tank", "", "", ""},
+    {"$animal_tank_rocket", "", "", ""},
+    {"$animal_tank_super", "", "", ""},
+    {"$animal_turret", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
@@ -246,8 +267,7 @@ GENERIC_HEALED =
 
 
 local special_offsets_x = ({ -- shouldn't really have to use this often
-    ["$animal_drone"]                 = -17,
-    ["$animal_drone_physics"]         = -17,
+    ["$animal_drone"]                 = -15,
 })
 
 local special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
@@ -264,7 +284,6 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_pebble"]                = -4,
     ["$animal_rat"]                   = -2,
     ["$animal_drone"]                 = -10,
-    ["$animal_drone_physics"]         = -10,
 })
 
 function Speak(entity, text, pool)
@@ -278,11 +297,11 @@ function Speak(entity, text, pool)
     local size_y = 0.7
 
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
-    local name = EntityGetName(entity) or ""
-    if name == nil then return end
-    name = name:gsub("_weak", "")
+    local name = NameGet(entity)
     local offset_x = 0  + (special_offsets_x[name] or 0)
     local offset_y = 26 + (special_offsets_y[name] or 0)
+
+    GamePrint(tostring(offset_x))
 
     -- Copier mage should go at the top, so it can pretend to be a different enemy
     if name == "$animal_wizard_returner" then

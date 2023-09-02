@@ -10,9 +10,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal)
         if Random(1, rate) == 1 then
             dofile_once("mods/grahamsdialogue/common.lua")
             if damage > 0 and EntityHasTag(entity_thats_responsible, "player_unit") then
-                local name = EntityGetName(me)
-                if name == nil then return end
-                name = name:gsub("_weak", "")
+                local name = NameGet(me)
                 for i = 1, #DIALOGUE_DAMAGETAKEN do
                     if DIALOGUE_DAMAGETAKEN[i][1] == name then
                         local type = Random(2, #DIALOGUE_DAMAGETAKEN[i])
