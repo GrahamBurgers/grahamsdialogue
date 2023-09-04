@@ -313,8 +313,6 @@ function Speak(entity, text, pool)
     local offset_x = 0  + (special_offsets_x[name] or 0)
     local offset_y = 26 + (special_offsets_y[name] or 0)
 
-    GamePrint(tostring(offset_x))
-
     -- Copier mage should go at the top, so it can pretend to be a different enemy
     if name == "$animal_wizard_returner" then
         local thing = nil
