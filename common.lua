@@ -298,6 +298,34 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_drone"]                 = -10,
 })
 
+function AddEnemyDialogue(pool, name, dialogue)
+    local what = {}
+    local insert = true
+    if pool == "IDLE" then what = DIALOGUE_IDLE end
+    if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
+    if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+    if what ~= {} then
+        for i = 1, #what do
+            if what[i][1] == name then
+                insert = false
+                for j = 1, #dialogue do
+                    -- If the enemy exists in the table already, insert the new dialogue
+                    table.insert(what[i], dialogue[j])
+                end
+                break
+            end
+        end
+        if insert then
+            -- if the enemy isn't in the table already, put it in
+            table.insert(dialogue, 1, name)
+            table.insert(what, dialogue)
+        end
+        if pool == "IDLE" then DIALOGUE_IDLE = what end
+        if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
+        if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
+    end
+end
+
 function Speak(entity, text, pool)
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end

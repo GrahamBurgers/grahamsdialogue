@@ -5,12 +5,14 @@
 -- First, the basics; stick this code in your init.lua and swap out the names, you probably know how this all works
 ModLuaFileAppend("mods/grahamsdialogue/common.lua", "YOURMOD/WHATEVERPATHYOUWANT/dialogue.lua")
 
--- All the code below should go in dialogue.lua (or whatever you choose to name it)
+-- !!! ALL THE CODE BELOW SHOULD GO IN dialogue.lua (or whatever you choose to name it) !!!
 
--- TO ADD REGULAR DIALOGUE: append with a table: the first item is the enemy's name (e.g. $animal_zombie), all items after the first are possible dialogue choices
--- Note that most enemies normally have 9 entries: 3 in DIALOGUE_DAMAGEDEALT, 3 in DIALOGUE_DAMAGETAKEN, and 3 in DIALOGUE_DAMAGEIDLE
--- Feel free to add as many as you want, though. Bosses traditionally have double the dialogue that regular enemies do. Up to you.
-table.insert(DIALOGUE_DAMAGEDEALT, {"$name_of_your_enemy", "Dialogue 1", "Dialogue 2", "Dialogue 3"})
+
+-- TO ADD REGULAR DIALOGUE: use the AddEnemyDialogue(str, str, table) function
+-- This should work with both vanilla and modded enemies. If the enemy has no dialogue already
+-- Use "DAMAGETAKEN" or "DAMAGEDEALT" or "IDLE" for the first parameter
+AddEnemyDialogue("DAMAGETAKEN", "$name_of_enemy", {"Dialogue 1", "Dialogue 2", "Dialogue 3"})
+-- If your enemy is not tagged with 'hittable' or 'graham_enemydialogue', then it will not be able to speak IDLE or DAMAGETAKEN lines.
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances
 -- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_CONFUSED, GENERIC_HEALED
@@ -29,7 +31,7 @@ DUPES["$name_of_your_enemy"] = "$name_of_mimic_enemy"
 local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
     MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
-    -- Your code goes here
+    -- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
     if name == "$name_of_your_enemy" then
         size_x = size_x + 3
     end
