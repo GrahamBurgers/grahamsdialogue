@@ -8,11 +8,18 @@ ModLuaFileAppend("mods/grahamsdialogue/common.lua", "YOURMOD/WHATEVERPATHYOUWANT
 -- !!! ALL THE CODE BELOW SHOULD GO IN dialogue.lua (or whatever you choose to name it) !!!
 
 
--- TO ADD REGULAR DIALOGUE: use the AddEnemyDialogue(str, str, table) function
+-- TO ADD REGULAR DIALOGUE: use the AddEnemyDialogue(pool, name, dialogue) function
 -- This should work with both vanilla and modded enemies. If the enemy has no dialogue already
--- Use "DAMAGETAKEN" or "DAMAGEDEALT" or "IDLE" for the first parameter
+-- Use "DAMAGETAKEN" or "DAMAGEDEALT" or "IDLE" for the pool parameter
 AddEnemyDialogue("DAMAGETAKEN", "$name_of_enemy", {"Dialogue 1", "Dialogue 2", "Dialogue 3"})
 -- If your enemy is not tagged with 'hittable' or 'graham_enemydialogue', then it will not be able to speak IDLE or DAMAGETAKEN lines.
+-- NOTE: Enemies that are not tagged with 'graham_enemydialogue' WILL NOT speak if they do not have any custom dialogue in any pools.
+
+-- Use EmptyEnemyDialogue(pool, name) to remove all of an enemy's currently-existing dialogue lines. Same parameters as above, except for the dialogue table.
+EmptyEnemyDialogue("IDLE", "$name_of_enemy")
+
+-- Use EnemyHasDialogue(pool, name) to detect if an enemy has dialogue in a specific pool, or use "ANY" for any pool.
+EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances
 -- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_CONFUSED, GENERIC_HEALED
@@ -37,5 +44,25 @@ function ModdedStuff()
     end
 end
 
--- Hopefully this will all work properly. I'm not very good at this
--- Enjoy!
+-- And, finally, if you want an enemy to speak dialogue from any script, do it like this
+if ModIsEnabled("grahamsdialogue") then
+    dofile_once("mods/grahamsdialogue/common.lua")
+    Speak(entity_id, "Dialogue to speak")
+end
+
+--[[
+Hopefully this will all work properly. I'm not very good at this.
+And never be afraid to ask me in my Discord server if you have questions or need help with something: https://discord.gg/DY6CVE2ua9
+One more thing: (this part is completely optional):
+
+STYLE GUIDES
+
+Hiisi: Somewhat comical. Fighting is just their day job, but they still enjoy doing it. They speak like normal people, for the most part.
+Robots: They usually never use contractions, sans very common ones like "I'm". They speak as if they were a text log in a computer, or an AI.
+Fungi: The weaker ones can hardly form full sentences. They know more than they let on, but can't seem to find a way to say it.
+Ghosts: They speak with a sense of longing, though they don't seem to consider a time in which they were alive. They don't see death as significant.
+Spiders: ???
+Worms: ???
+Hell enemies: ???
+
+]]--
