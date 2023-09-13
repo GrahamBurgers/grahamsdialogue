@@ -541,8 +541,8 @@ function Speak(entity, text, pool)
                         "RAAAAAAAHH!",
                     }
                     text = special[Random(1, #special)]
-                    size_x = size_x + (threshold / 24)
-                    size_y = size_y + (threshold / 24)
+                    size_x = size_x + threshold / 12
+                    size_y = size_y + threshold / 12
                 end
             end
         end
@@ -554,7 +554,7 @@ function Speak(entity, text, pool)
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
     local gui = GuiCreate()
     GuiStartFrame(gui)
-    local width = GuiGetTextDimensions( gui, text, size_x ) * 0.75
+    local width = GuiGetTextDimensions( gui, text, 1 ) / 2 -- special scale after offset_x
     GuiDestroy(gui)
 
     EntityAddTag(entity, "graham_speaking")
@@ -563,7 +563,7 @@ function Speak(entity, text, pool)
         image_file = "data/fonts/font_pixel_white.xml",
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
-        offset_x = offset_x + width,
+        offset_x = width,
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,
