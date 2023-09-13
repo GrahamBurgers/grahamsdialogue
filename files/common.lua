@@ -20,6 +20,7 @@ end
 
 function ModdedStuff()
     -- APPEND HERE! This function will be called right before dialogue is shown.
+    -- See README_MODDERS.lua for more info
 end
 
 DIALOGUE_DAMAGEDEALT = {
@@ -91,10 +92,17 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_scavenger_smg", "Eat lead, pest!", "Don't even think about levitating away.", "Don't you know? Brawn beats brains."},
     {"$animal_scavenger_clusterbomb", "Dying in the battlefield is honorable. Let me show you.", "This is what happens when consequences catch up to you.", "One of us must die here. I won't let it be me."},
     {"$animal_scavenger_poison", "What's the matter with you?", "I don't care who else dies. You have to go.", "Let me get a good look at you while you die."},
-    {"$animal_tank", "", "", ""},
-    {"$animal_tank_rocket", "", "", ""},
-    {"$animal_tank_super", "", "", ""},
-    {"$animal_turret", "", "", ""},
+    {"$animal_tank", "I am programmed to know what to do. Not why.", "Stay down. Do not fly away this time.", "Look at you. You are full of holes."},
+    {"$animal_tank_rocket", "Fully autonomous and still somehow smarter than you.", "You truly are inferior.", "I had you figured out long ago."},
+    {"$animal_tank_super", "Why can you not take what you give?", "Creature of magic, end this now.", "You confound my circuitry."},
+    {"$animal_turret", "Target suppressed.", "Hold still.", "You should have expected this."},
+    {"$animal_miniblob", "Agitate!", "Fight, fight!", "Squash!"},
+    {"$animal_blob", "Take over!", "Invade!", "Annihilate!"},
+    {"$animal_necromancer", "Ew. Don't make me do that again.", "That was just to make a point. Now leave.", "Next time, stay far away from me and my magic."},
+    {"$animal_monk", "Dissenters will be punished.", "Ignorant little one... Let me re-educate you.", "Sit still. Soon you will be enlightened."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -135,7 +143,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_wizard_tele", "You can't stop chaos's reign!", "Teleport away, now!", "I didn't know that that ring of teleportitis was cursed..."},
     {"$animal_wizard_returner", "You just wait 'till I fire that right back!", "Wanna play tennis? Back, forth, back, forth...", "Imitation is the sincerest form of flattery."},
     {"$animal_wizard_swapper", "Can't catch me!", "You're too slow!", "Uahaha!"},
-    {"$animal_wizard_neutral", "NULL_EXCEPTION", "Czzzt!", "L-let's go to commercial."},
+    {"$animal_wizard_neutral", "NULL_EXCEPTION.", "Czzzt!", "L-let's go to commercial."},
     {"$animal_wizard_twitchy", "Mm-h!", "Y-you w-won't miss me.", "Y-you're just j-jealous that I'm faster..."},
     {"$animal_wizard_hearty", "Urgh... my blood, my blood...", "Salt in the wound.", "At least I don't try to hide it."},
     {"$animal_wizard_weaken", "I'm already over it.", "Nothing I can say will convince you to stop.", "Perhaps you know better than I do."},
@@ -148,7 +156,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_shield", "Why can't we all just get along?", "Spare my life, please?", "I really just wanted to help people..."},
     {"$animal_alchemist", "You can't handle my strongest potions.", "Hey, I don't know anything about 'em. I just throw 'em.", "Is this revenge for the acid potion?"},
     {"$animal_tentacler", "I hope you can do better than that peashooter.", "You're funny. Get closer so I can end your life.", "Doesn't sting at all."},
-    {"$animal_tentacler_small", "Mom told me you were mean...", "I may be small, but I can pack a punch!", "Get a bit closer, then you'll see...!"},
+    {"$animal_tentacler_small", "You're such a pain!", "I may be small, but I can pack a punch!", "Get a bit closer, then you'll see...!"},
     {"$animal_ant", "Can't you handle a little corrosion?", "I understand if you're afraid...", "I suppose I'm not the first bug you've squashed."},
     {"$animal_maggot", "Sorry... I know it's hard to aim around me.", "I'm not trying to get in your way.", "I'm just a bug... Even if I'm this large."},
     {"$animal_fungus", "Wah!", "I don't know much...", "Time's running out."},
@@ -168,10 +176,17 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_scavenger_smg", "O-on second thought, maybe being a janitor isn't so bad...", "I would offer you a truce, but the boss would get mad...", "You won't make it past me unscathed!"},
     {"$animal_scavenger_clusterbomb", "That makes me furious.", "I don't have any sympathy left for you.", "Now I only want you gone."},
     {"$animal_scavenger_poison", "You're such a vile creature.", "You make me sick.", "Disgusting."},
-    {"$animal_tank", "", "", ""},
-    {"$animal_tank_rocket", "", "", ""},
-    {"$animal_tank_super", "", "", ""},
-    {"$animal_turret", "", "", ""},
+    {"$animal_tank", "Fatal error: Divided by zero. Rebooting...", "Don't you dare touch my CPU.", "I lagged! What happened?"},
+    {"$animal_tank_rocket", "Oil is expensive these days. What a waste...", "Buffering... buffering... ouch.", "Something I am doing is wrong. That is what pain tells me."},
+    {"$animal_tank_super", "Statistically, you will not like what happens next.", "It seems we have a pest problem. Resolving...", "My armour is as tough as your entire body."},
+    {"$animal_turret", "Oh dear.", "Critical error.", "Help me, I'm running on Javascript."},
+    {"$animal_miniblob", "Pain!", "Hurt!", "Irk!"},
+    {"$animal_blob", "Disperse! Now!", "Divide! Conquer!", "Go! Soldiers!"},
+    {"$animal_necromancer", "At least kill me with an interesting wand this time.", "Frankly, I'm a bit disappointed...", "Sigh... just make it quick."},
+    {"$animal_monk", "It's all for you. Ungrateful brat.", "I see you behind the screen.", "This is what happens when us monks don't educate people like you."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -243,10 +258,17 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_smg", "I stuff this outfit with extra bullets when the boss isn't looking.", "I'm glad I'm not on cleaning duty.", "Remember your training... no hesitation, don't think twice."},
     {"$animal_scavenger_clusterbomb", "At least I didn't get stuck with the poison gun...", "Avoiding collateral damage is hard when everything is so flammable.", "Outta the way! I have places to be, you know."},
     {"$animal_scavenger_poison", "At least I didn't get stuck with the grenade launcher...", "To be honest, I never really liked this place.", "Please just ignore the long-term health risks of poison gas."},
-    {"$animal_tank", "", "", ""},
-    {"$animal_tank_rocket", "", "", ""},
-    {"$animal_tank_super", "", "", ""},
-    {"$animal_turret", "Are you still there?", "", ""},
+    {"$animal_tank", "Problems detected. Rebooting...", Random(3, 50) .. " errors detected. Resolving...", "Does anyone know the internet password?"},
+    {"$animal_tank_rocket", "Do not look directly into the barrel.", "Metal can outlast any creature of flesh.", "What do you think you are?"},
+    {"$animal_tank_super", "My bullets are magic. My shell is steel.", "No worries at all about overheating.", "I can fire grenades as well. For some reason."},
+    {"$animal_turret", "Is anyone there?", "Minimal activity detected.", "Sentry mode activated."},
+    {"$animal_miniblob", "Swarm, swarm!", "Infest!", "More, faster!"},
+    {"$animal_blob", "Increase numbers...", "Multiply, more...", "An infestation!"},
+    {"$animal_necromancer", "No, they're not cat ears. Weirdo.", "Can we get some variety in here? I'm so bored.", "Tablet-kicking is like, so last-week."},
+    {"$animal_monk", "You creatures of nature are so ignorant without us.", "I was designed to educate... one way or another.", "If I don't do my job, something else might."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
@@ -277,7 +299,6 @@ GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
 
-
 local special_offsets_x = ({ -- shouldn't really have to use this often
     ["$animal_drone"]                 = -15,
 })
@@ -298,38 +319,73 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_drone"]                 = -10,
 })
 
-function AddEnemyDialogue(pool, name, dialogue)
+function EnemyHasDialogue(pool, name)
     local what = {}
-    local insert = true
     if pool == "IDLE" then what = DIALOGUE_IDLE end
     if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
     if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
     if what ~= {} then
         for i = 1, #what do
-            if what[i][1] == name then
-                insert = false
-                for j = 1, #dialogue do
-                    -- If the enemy exists in the table already, insert the new dialogue
-                    table.insert(what[i], dialogue[j])
-                end
-                break
-            end
+            if what[i][1] == name then return i end
         end
-        if insert then
-            -- if the enemy isn't in the table already, put it in
-            table.insert(dialogue, 1, name)
-            table.insert(what, dialogue)
-        end
-        if pool == "IDLE" then DIALOGUE_IDLE = what end
-        if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
-        if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
     end
+    if pool == "ANY" then
+        for i = 1, #DIALOGUE_IDLE do
+            if DIALOGUE_IDLE[i][1] == name then return i end
+        end
+        for i = 1, #DIALOGUE_DAMAGETAKEN do
+            if DIALOGUE_DAMAGETAKEN[i][1] == name then return i end
+        end
+        for i = 1, #DIALOGUE_DAMAGEDEALT do
+            if DIALOGUE_DAMAGEDEALT[i][1] == name then return i end
+        end
+    end
+    return false
+end
+
+function AddEnemyDialogue(pool, name, dialogue)
+    local has = EnemyHasDialogue(pool, name)
+    local what = {}
+    if pool == "IDLE" then what = DIALOGUE_IDLE end
+    if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
+    if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+    if has then
+        for j = 1, #dialogue do
+            -- If the enemy exists in the table already, insert the new dialogue
+            table.insert(what[has], dialogue[j])
+        end
+    else
+        -- if the enemy isn't in the table already, put it in
+        table.insert(dialogue, 1, name)
+        table.insert(what, dialogue)
+    end
+    if pool == "IDLE" then DIALOGUE_IDLE = what end
+    if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
+    if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
+end
+
+function EmptyEnemyDialogue(pool, name)
+    local has = EnemyHasDialogue(pool, name)
+    local what = {}
+    if pool == "IDLE" then what = DIALOGUE_IDLE end
+    if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
+    if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+
+    if has then
+        table.remove(what, has)
+    end
+
+    if pool == "IDLE" then DIALOGUE_IDLE = what end
+    if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
+    if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
 end
 
 function Speak(entity, text, pool)
+    pool = pool or ""
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
 
+    local rotate = false
     local old_text = text
     local x, y = EntityGetTransform(entity)
     SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
@@ -340,6 +396,10 @@ function Speak(entity, text, pool)
     local name = NameGet(entity)
     local offset_x = 0  + (special_offsets_x[name] or 0)
     local offset_y = 26 + (special_offsets_y[name] or 0)
+
+    if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
+
+    --- SPECIAL FUNCTIONALITY ---
 
     -- Copier mage should go at the top, so it can pretend to be a different enemy
     if name == "$animal_wizard_returner" then
@@ -366,7 +426,6 @@ function Speak(entity, text, pool)
         end
     end
 
-    -- special idle functionality
     if GameHasFlagRun("PERK_PICKED_PEACE_WITH_GODS") and (pool == "IDLE" or pool == "GENERIC") then
         if name == "$animal_necromancer_shop" then
             local special = {
@@ -456,9 +515,37 @@ function Speak(entity, text, pool)
             size_y = size_y + 0.03
         end
     end
-    if name == "$animal_pebble" then
+    if name == "$animal_pebble" or name == "$animal_miniblob" then
         size_x = size_x - 0.10
         size_y = size_y - 0.10
+    end
+
+    local worm_speeds = {
+        ["$animal_worm_tiny"]    = 4,
+        ["$animal_worm"]         = 5,
+        ["$animal_worm_big"]     = 6,
+    }
+    local threshold = worm_speeds[name]
+    if threshold ~= nil then
+        local comp = EntityGetFirstComponent(entity, "WormComponent")
+        if comp ~= nil then
+            local xs, ys = ComponentGetValueVector2(comp, "mTargetVec")
+            local ym = ComponentGetValue2(comp, "mGravVelocity")
+            if xs ~= nil and ys ~= nil and ym ~= nil then
+                local velocity = math.abs(xs) + math.abs(ys) + math.abs(ym)
+                if velocity > threshold then
+                    rotate = true
+                    local special = {
+                        "WOOOOOOOOO!",
+                        "YEAAAAHHHH!",
+                        "RAAAAAAAHH!",
+                    }
+                    text = special[Random(1, #special)]
+                    size_x = size_x + (threshold / 24)
+                    size_y = size_y + (threshold / 24)
+                end
+            end
+        end
     end
 
     -- Appended stuff
@@ -480,7 +567,7 @@ function Speak(entity, text, pool)
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,
-        update_transform_rotation = false,
+        update_transform_rotation = rotate,
         text = text,
         has_special_scale = true,
         special_scale_x = size_x,
