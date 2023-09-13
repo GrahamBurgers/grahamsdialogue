@@ -3,7 +3,7 @@ function OnPlayerSpawned(player)
         EntityAddTag(player, "graham_dialogue_added")
         EntityAddComponent2(player, "LuaComponent", {
             execute_every_n_frame=-1,
-            script_damage_received="mods/grahamsdialogue/player_damaged.lua",
+            script_damage_received="mods/grahamsdialogue/files/player_damaged.lua",
             remove_after_executed=false,
         })
     end
@@ -16,11 +16,11 @@ function OnWorldPreUpdate()
             EntityAddTag(enemies[i], "graham_dialogue_added")
             EntityAddComponent2(enemies[i], "LuaComponent", {
                 execute_every_n_frame=-1,
-                script_damage_received="mods/grahamsdialogue/damaged.lua"
+                script_damage_received="mods/grahamsdialogue/files/damaged.lua"
             })
             EntityAddComponent2(enemies[i], "LuaComponent", {
                 execute_every_n_frame=30,
-                script_source_file="mods/grahamsdialogue/idle.lua"
+                script_source_file="mods/grahamsdialogue/files/idle.lua"
             })
         end
     end
@@ -30,11 +30,11 @@ function OnWorldPreUpdate()
             EntityAddTag(special[i], "graham_dialogue_added")
             EntityAddComponent2(special[i], "LuaComponent", {
                 execute_every_n_frame=-1,
-                script_damage_received="mods/grahamsdialogue/damaged.lua"
+                script_damage_received="mods/grahamsdialogue/files/damaged.lua"
             })
             EntityAddComponent2(special[i], "LuaComponent", {
                 execute_every_n_frame=30,
-                script_source_file="mods/grahamsdialogue/idle.lua"
+                script_source_file="mods/grahamsdialogue/files/idle.lua"
             })
         end
     end

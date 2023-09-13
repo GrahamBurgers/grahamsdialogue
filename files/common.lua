@@ -495,6 +495,6 @@ function Speak(entity, text, pool)
     EntityAddComponent2(entity, "LuaComponent", {
         _tags= "graham_speech_quiet",
         execute_every_n_frame=ModSettingGet("grahamsdialogue.length"),
-        script_source_file="mods/grahamsdialogue/quiet.lua"
+        script_source_file="mods/grahamsdialogue/files/quiet.lua"
     })
 end

@@ -5,7 +5,7 @@ SetRandomSeed(x + GameGetFrameNum(), y + 1394)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
 if rate == 200 then return end
 if Random(1, rate) == 1 then
-    dofile_once("mods/grahamsdialogue/common.lua")
+    dofile_once("mods/grahamsdialogue/files/common.lua")
     local worldstatecomp = EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0
     local inventory = EntityGetFirstComponent(me, "Inventory2Component") or 0
     local wand = ComponentGetValue2(inventory, "mActiveItem") or 0

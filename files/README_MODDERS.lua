@@ -3,7 +3,7 @@
 -- Do you have a mod that adds enemies to Noita? Statistically, you don't,
 -- but if you do, then here's how to add custom dialogue to your enemies!
 -- First, the basics; stick this code in your init.lua and swap out the names, you probably know how this all works
-ModLuaFileAppend("mods/grahamsdialogue/common.lua", "YOURMOD/WHATEVERPATHYOUWANT/dialogue.lua")
+ModLuaFileAppend("mods/grahamsdialogue/files/common.lua", "YOURMOD/WHATEVERPATHYOUWANT/dialogue.lua")
 
 -- !!! ALL THE CODE BELOW SHOULD GO IN dialogue.lua (or whatever you choose to name it) !!!
 
