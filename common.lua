@@ -98,6 +98,11 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_turret", "Target suppressed.", "Hold still.", "You should have expected this."},
     {"$animal_miniblob", "Agitate!", "Fight, fight!", "Squash!"},
     {"$animal_blob", "Take over!", "Invade!", "Annihilate!"},
+    {"$animal_necromancer", "Ew. Don't make me do that again.", "That was just to make a point. Now leave.", "Next time, stay far away from me and my magic."},
+    {"$animal_monk", "Dissenters will be punished.", "Ignorant little one... Let me re-educate you.", "Sit still. Soon you will be enlightened."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -138,7 +143,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_wizard_tele", "You can't stop chaos's reign!", "Teleport away, now!", "I didn't know that that ring of teleportitis was cursed..."},
     {"$animal_wizard_returner", "You just wait 'till I fire that right back!", "Wanna play tennis? Back, forth, back, forth...", "Imitation is the sincerest form of flattery."},
     {"$animal_wizard_swapper", "Can't catch me!", "You're too slow!", "Uahaha!"},
-    {"$animal_wizard_neutral", "NULL_EXCEPTION", "Czzzt!", "L-let's go to commercial."},
+    {"$animal_wizard_neutral", "NULL_EXCEPTION.", "Czzzt!", "L-let's go to commercial."},
     {"$animal_wizard_twitchy", "Mm-h!", "Y-you w-won't miss me.", "Y-you're just j-jealous that I'm faster..."},
     {"$animal_wizard_hearty", "Urgh... my blood, my blood...", "Salt in the wound.", "At least I don't try to hide it."},
     {"$animal_wizard_weaken", "I'm already over it.", "Nothing I can say will convince you to stop.", "Perhaps you know better than I do."},
@@ -177,6 +182,11 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_turret", "Oh dear.", "Critical error.", "Help me, I'm running on Javascript."},
     {"$animal_miniblob", "Pain!", "Hurt!", "Irk!"},
     {"$animal_blob", "Disperse! Now!", "Divide! Conquer!", "Go! Soldiers!"},
+    {"$animal_necromancer", "At least kill me with an interesting wand this time.", "Frankly, I'm a bit disappointed...", "Sigh... just make it quick."},
+    {"$animal_monk", "It's all for you. Ungrateful brat.", "I see you behind the screen.", "This is what happens when us monks don't educate people like you."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -254,6 +264,11 @@ DIALOGUE_IDLE = {
     {"$animal_turret", "Is anyone there?", "Minimal activity detected.", "Sentry mode activated."},
     {"$animal_miniblob", "Swarm, swarm!", "Infest!", "More, faster!"},
     {"$animal_blob", "Increase numbers...", "Multiply, more...", "An infestation!"},
+    {"$animal_necromancer", "No, they're not cat ears. Weirdo.", "Can we get some variety in here? I'm so bored.", "Tablet-kicking is like, so last-week."},
+    {"$animal_monk", "You creatures of nature are so ignorant without us.", "I was designed to educate... one way or another.", "If I don't do my job, something else might."},
+    {"$animal_worm_tiny", "", "", ""},
+    {"$animal_worm", "", "", ""},
+    {"$animal_worm_big", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
@@ -370,6 +385,7 @@ function Speak(entity, text, pool)
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
 
+    local rotate = false
     local old_text = text
     local x, y = EntityGetTransform(entity)
     SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
@@ -504,6 +520,34 @@ function Speak(entity, text, pool)
         size_y = size_y - 0.10
     end
 
+    local worm_speeds = {
+        ["$animal_worm_tiny"]    = 4,
+        ["$animal_worm"]         = 5,
+        ["$animal_worm_big"]     = 6,
+    }
+    local threshold = worm_speeds[name]
+    if threshold ~= nil then
+        local comp = EntityGetFirstComponent(entity, "WormComponent")
+        if comp ~= nil then
+            local xs, ys = ComponentGetValueVector2(comp, "mTargetVec")
+            local ym = ComponentGetValue2(comp, "mGravVelocity")
+            if xs ~= nil and ys ~= nil and ym ~= nil then
+                local velocity = math.abs(xs) + math.abs(ys) + math.abs(ym)
+                if velocity > threshold then
+                    rotate = true
+                    local special = {
+                        "WOOOOOOOOO!",
+                        "YEAAAAHHHH!",
+                        "RAAAAAAAHH!",
+                    }
+                    text = special[Random(1, #special)]
+                    size_x = size_x + (threshold / 24)
+                    size_y = size_y + (threshold / 24)
+                end
+            end
+        end
+    end
+
     -- Appended stuff
     ModdedStuff()
 
@@ -523,7 +567,7 @@ function Speak(entity, text, pool)
         offset_y = offset_y,
         alpha = alpha,
         update_transform = true,
-        update_transform_rotation = false,
+        update_transform_rotation = rotate,
         text = text,
         has_special_scale = true,
         special_scale_x = size_x,

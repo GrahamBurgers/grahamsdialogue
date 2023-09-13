@@ -65,4 +65,6 @@ Spiders: ???
 Worms: ???
 Hell enemies: ???
 
+Referring to the player as 'you' is good in the damage taken and damage dealt lines, as they are talking directly to the player in that case, but otherwise it should be avoided.
+
 ]]--
