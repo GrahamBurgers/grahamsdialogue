@@ -3,7 +3,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal)
         SetRandomSeed(entity_thats_responsible + GameGetFrameNum(), damage + 3141)
 
         local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaging")) + 0.5)
-        if rate == 20 then return end
+        if ModSettingGet("grahamsdialogue.damaging_enabled") == false then return end
         if Random(1, rate) == 1 then
             dofile_once("mods/grahamsdialogue/files/common.lua")
             local name = NameGet(entity_thats_responsible)
