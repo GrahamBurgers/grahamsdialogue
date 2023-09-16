@@ -1,4 +1,4 @@
-if #EntityGetWithTag("player_unit") < 1 then return end -- don't speak when there's no player
+if #EntityGetWithTag("player_unit") < 1 and #EntityGetWithTag("polymorphed_player") < 1 then return end -- don't speak when there's no player
 local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
 SetRandomSeed(x + GameGetFrameNum(), y + 1394)
@@ -42,12 +42,8 @@ if Random(1, rate) == 1 then
     local name = NameGet(me)
     for i = 1, #DIALOGUE_IDLE do
         if DIALOGUE_IDLE[i][1] == name then
-            if Random(1, 100000) == 100000 then
-                Speak(me, "Robin was a fool.", "IDLE")
-            else
                 local type = Random(2, #DIALOGUE_IDLE[i])
                 Speak(me, tostring(DIALOGUE_IDLE[i][type]), "IDLE")
-            end
             break
         end
     end

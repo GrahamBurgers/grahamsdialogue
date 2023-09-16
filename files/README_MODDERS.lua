@@ -28,18 +28,18 @@ EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
 table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
 
 -- Define a new value in special_offsets_x or special_offsets_y if you want your enemy's dialogue to be offset horizontally or vertically.
-special_offsets_x["$name_of_your_enemy"] = 20
-special_offsets_y["$name_of_your_enemy"] = 12
+special_offsets_x["$name_of_enemy"] = 20
+special_offsets_y["$name_of_enemy"] = 12
 
 -- If you have multiple translation names for the same enemy, or different enemies who you want to have identical functionality, do this
-DUPES["$name_of_your_enemy"] = "$name_of_mimic_enemy"
+DUPES["$name_of_enemy"] = "$name_of_enemy_to_mimic"
 
 -- For other special functionality, like text size or other stuff, do this
 local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
     MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
     -- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
-    if name == "$name_of_your_enemy" then
+    if name == "$name_of_enemy" then
         size_x = size_x + 3
     end
 end
