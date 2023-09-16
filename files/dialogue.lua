@@ -161,7 +161,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_monk", "It's all for you. Ungrateful brat.", "I see you behind the screen. Look at you.", "This is what happens when us monks don't educate people like you."},
     {"$animal_worm_tiny", "I'll leave you alone now! P-promise!", "I won't damage anything here, trust me!", "Waaah!"},
     {"$animal_worm", "Fine, fine! I won't break your brickwork anymore.", "I'll get you back for that one.", "Hey, flying is cheating! Stay on the ground like me."},
-    {"$animal_worm_big", "Hey! Hands off the hide.", "Tell my story! ...Too dramatic?", "Just let me do my thing, and I'll leave you be."},
+    {"$animal_worm_big", "Hey! Hands off the hide.", "Are you jealous of my beautiful sight?", "Just let me do my thing, and I'll leave you be."},
 }
 
 DIALOGUE_IDLE = {

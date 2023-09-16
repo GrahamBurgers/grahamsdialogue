@@ -43,6 +43,9 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_scavenger_clusterbomb"] = 10,
     ["$animal_scavenger_mine"]        = 10,
     ["$animal_necromancer"]           = 12,
+    ["$animal_worm_tiny"]             = -8,
+    ["$animal_worm"]                  = -5,
+    ["$animal_worm_big"]              = -2,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -252,6 +255,7 @@ function Speak(entity, text, pool)
     }
     local threshold = worm_speeds[name]
     if threshold ~= nil then
+        rotate = true
         local comp = EntityGetFirstComponent(entity, "WormComponent")
         if comp ~= nil then
             local xs, ys = ComponentGetValueVector2(comp, "mTargetVec")
@@ -259,7 +263,6 @@ function Speak(entity, text, pool)
             if xs ~= nil and ys ~= nil and ym ~= nil then
                 local velocity = math.abs(xs) + math.abs(ys) + math.abs(ym)
                 if velocity > threshold then
-                    rotate = true
                     local special = {
                         "WOOOOOOOOO!",
                         "YEAAAAHHHH!",
@@ -267,8 +270,8 @@ function Speak(entity, text, pool)
                         "LET'S GOOO!"
                     }
                     text = special[Random(1, #special)]
-                    size_x = size_x + threshold / 12
-                    size_y = size_y + threshold / 12
+                    size_x = size_x + threshold / 20
+                    size_y = size_y + threshold / 20
                 end
             end
         end
@@ -276,6 +279,12 @@ function Speak(entity, text, pool)
 
     -- Appended stuff
     ModdedStuff()
+
+    if ModIsEnabled("translation_uwu") then
+        dofile_once("mods/translation_uwu/init.lua")
+        ---@diagnostic disable-next-line: undefined-global
+        text = owoify(text)
+    end
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
     local gui = GuiCreate()

@@ -39,3 +39,10 @@ function OnWorldPreUpdate()
         end
     end
 end
+
+function OnModPreInit()
+    -- not jank
+    local content = ModTextFileGetContent("mods/translation_uwu/init.lua")
+    content = content:gsub("local function", "function")
+    ModTextFileSetContent("mods/translation_uwu/init.lua", content)
+end
