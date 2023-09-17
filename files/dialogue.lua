@@ -78,6 +78,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_worm_tiny", "Boop! Gotcha!", "Just passing through, sorry.", "Oops. I just can't help myself."},
     {"$animal_worm", "I will literally bite anything that can die.", "Hey, my tunnels are only for me! Keep out.", "Guess how many stomachs I have. It's more than you'd think."},
     {"$animal_worm_big", "Don't worry, I'll make sure you get a spot in my biography.", "Even brickwork tastes better than that dirty cloak.", "That's for drinking my blood, you creep!"},
+    {"$animal_phantom_a", "Out! All of you, get out!", "Oh, don't think I'd ever forget about you.", "Soon... soon you will all see!"},
+    {"$animal_phantom_b", "Am I only in your head? Well, what isn't?", "If this is a nightmare, let me wake you up.", "Sleep, friend. Close your eyes and sleep."},
+    {"$animal_statue_physics", "Shall I take you to the other side?", "Death is not as bad as you might think.", "I can't claim to know more than you. But I am strong."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -162,6 +165,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_worm_tiny", "I'll leave you alone now! P-promise!", "I won't damage anything here, trust me!", "Waaah!"},
     {"$animal_worm", "Fine, fine! I won't break your brickwork anymore.", "I'll get you back for that one.", "Hey, flying is cheating! Stay on the ground like me."},
     {"$animal_worm_big", "Hey! Hands off the hide.", "Are you jealous of my beautiful sight?", "Just let me do my thing, and I'll leave you be."},
+    {"$animal_phantom_a", "I cannot believe you thought that'd kill me.", "You can't kill a ghost, idiot.", "I'll tear you into little tiny bits!"},
+    {"$animal_phantom_b", "You may regret this decision.", "Let me be clear. I dislike you.", "You'd better start spinning."},
+    {"$animal_statue_physics", "Please, remove this curse...", "You can't stop what has begun.", "Let me take one last breath."},
 }
 
 DIALOGUE_IDLE = {
@@ -244,6 +250,9 @@ DIALOGUE_IDLE = {
     {"$animal_worm_tiny", "This is interesting...", "I'm outta here!", "New day, new experiences!"},
     {"$animal_worm", "Worm.", "Carve your own path, that's my motto!", "Just keep movin' forward..."},
     {"$animal_worm_big", "Don't ask where I'm going, 'cause I have no idea!", "I'm not lost... Everywhere is my domain!", "I'm on tour, haven't you heard? Gotta keep moving..."},
+    {"$animal_phantom_a", "I bet you guys wish you had as many eyes as I do.", "Mind your own business! All of you!", "I need to take my anger out on something..."},
+    {"$animal_phantom_b", "Yes, it's weird for a ghost to have hair. Shush.", "Fear that which goes bump in the night.", "Don't turn on the lights."},
+    {"$animal_statue_physics", "Did someone here pick up a cursed key or something?", "Just let me rest...", "Don't look at me."},
 }
 
 GENERIC_HOLDINGWAND =

@@ -46,6 +46,8 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_worm_tiny"]             = -8,
     ["$animal_worm"]                  = -5,
     ["$animal_worm_big"]              = -2,
+    ["$animal_phantom_a"]             = 6,
+    ["$animal_phantom_b"]             = 6,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -242,6 +244,13 @@ function Speak(entity, text, pool)
             size_x = size_x + 0.03
             size_y = size_y + 0.03
         end
+        if faction == "ghost" then
+            EntityAddComponent2(entity, "LuaComponent", {
+                _tags="graham_speech_ghost",
+                execute_every_n_frame=1,
+                script_source_file="mods/grahamsdialogue/files/ghost.lua"
+            })
+        end
     end
     if name == "$animal_pebble" or name == "$animal_miniblob" then
         size_x = size_x - 0.10
@@ -280,7 +289,7 @@ function Speak(entity, text, pool)
     -- Appended stuff
     ModdedStuff()
 
-    if ModIsEnabled("translation_uwu") then
+    if ModIsEnabled("translation_uwu") then -- Haunted
         dofile_once("mods/translation_uwu/init.lua")
         ---@diagnostic disable-next-line: undefined-global
         text = owoify(text)
@@ -317,6 +326,7 @@ function Speak(entity, text, pool)
     EntityAddComponent2(entity, "LuaComponent", {
         _tags= "graham_speech_quiet",
         execute_every_n_frame=ModSettingGet("grahamsdialogue.length"),
-        script_source_file="mods/grahamsdialogue/files/quiet.lua"
+        script_source_file="mods/grahamsdialogue/files/quiet.lua",
+        remove_after_executed=true,
     })
 end
