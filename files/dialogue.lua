@@ -6,7 +6,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_shaman_wind", "EAHAHAHA!", "HAHA!!", "MUAHAHAHA!"},
     {"$animal_longleg", "Fall before us!", "Fear us!", "We are legion!"},
     {"$animal_miner", "Nice catch! Haha...", "Kaboom!", "I expected more from you."},
-    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage", "You're not looking so hot.", "Can't handle the heat? I get it.", "You look a bit burnt. That won't do at all..."},
     {"$animal_firemage_weak", "You're a fool!", "You'd best run while you still can.", "I like my food cooked well-done."},
     {"$animal_slimeshooter", "Splat!", "Are you feeling the toxicity yet?", "Let it seep into your skin..."},
     {"$animal_acidshooter", "Meet your end.", "Goodbye.", "You won't be missed."},
@@ -81,6 +81,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_phantom_a", "Out! All of you, get out!", "Oh, don't think I'd ever forget about you.", "Soon... soon you will all see!"},
     {"$animal_phantom_b", "Am I only in your head? Well, what isn't?", "If this is a nightmare, let me wake you up.", "Sleep, friend. Close your eyes and sleep."},
     {"$animal_statue_physics", "Shall I take you to the other side?", "Death is not as bad as you might think.", "I can't claim to know more than you. But I am strong."},
+    {"$animal_flamer", "Let me cauterize that wound, permanently.", "Having lungs must be awful. Breathing in so much smoke...", "Even after so long, the good ol' flamethrower still works..."},
+    {"$animal_icer", "What will save you now? The heat of the sun? Ha.", "Don't breathe in the vapour, please. I've already won.", "Let me teach you about the art of the stunlock."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -91,7 +93,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_shaman_wind", "This disguise always works! What gives?", "Damn it! You found me!", "Fine, then. I'll kill you next time."},
     {"$animal_longleg", "You are weak!", "Ahh!", "Fight us!"},
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
-    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage", "You want to go? Let's go!", "Your health looks a bit too high. Mind if I help?", "Ever heard the myth about boiling the frog?"},
     {"$animal_firemage_weak", "You'll need more than that to take me down.", "That hurts... a little bit.", "Who do you think you are?"},
     {"$animal_slimeshooter", "Just wait 'til my mom hears about this!", "If I was able to spit acid instead, you'd be screwed!", "Splat!"},
     {"$animal_acidshooter", "Look into my eye!", "Keep your distance.", "I'll corrode you down to nothing."},
@@ -168,6 +170,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_phantom_a", "I cannot believe you thought that'd kill me.", "You can't kill a ghost, idiot.", "I'll tear you into little tiny bits!"},
     {"$animal_phantom_b", "You may regret this decision.", "Let me be clear. I dislike you.", "You'd better start spinning."},
     {"$animal_statue_physics", "Please, remove this curse...", "You can't stop what has begun.", "Let me take one last breath."},
+    {"$animal_flamer", "This ain't a helmet. It's just my head. Hands off.", "I'll enjoy watching you burn.", "Ashes to ashes..."},
+    {"$animal_icer", "You look like you'd be scared of the word \"propane\".", "Where's the AC in here? It's too freakin' hot!", "No, not the oil! I don't want to start a fire!"},
 }
 
 DIALOGUE_IDLE = {
@@ -176,7 +180,7 @@ DIALOGUE_IDLE = {
     {"$animal_chest_mimic", "...", "", ""},
     {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?"},
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
-    {"$animal_firemage", "", "", ""},
+    {"$animal_firemage", "It's a big compliment, to be the hottest color of fire.", "What's the melting temperature of steel? Oh, no...", "I'm not afraid of water! I just... don't like it."},
     {"$animal_firemage_weak", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
     {"$animal_slimeshooter", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
     {"$animal_acidshooter", "I see you.", "I can see you through the dark.", "Death is near!"},
@@ -253,6 +257,8 @@ DIALOGUE_IDLE = {
     {"$animal_phantom_a", "I bet you guys wish you had as many eyes as I do.", "Mind your own business! All of you!", "I need to take my anger out on something..."},
     {"$animal_phantom_b", "Yes, it's weird for a ghost to have hair. Shush.", "Fear that which goes bump in the night.", "Don't turn on the lights."},
     {"$animal_statue_physics", "Did someone here pick up a cursed key or something?", "Just let me rest...", "Don't look at me."},
+    {"$animal_flamer", "Air conditioning? Why would I ever want to make things colder?", "Cleaning up blood is such a hassle.", "If any of you bring a fire extinguisher in here, I swear...!"},
+    {"$animal_icer", "Four eyes is better than two.", "No, propane tanks don't home towards you. Though that would be funny.", "Why isn't that mana liquid freezable? What a pain..."},
 }
 
 GENERIC_HOLDINGWAND =

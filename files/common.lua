@@ -33,6 +33,7 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_necromancer_shop"]      = 10,
     ["$animal_necromancer_super"]     = 12,
     ["$animal_firemage"]              = 8,
+    ["$animal_firemage_weak"]         = 8,
     ["$animal_thundermage"]           = 8,
     ["$animal_tentacler"]             = 10,
     ["$animal_giant"]                 = 8,
@@ -48,6 +49,8 @@ local special_offsets_y = ({ -- for when an enemy is taller or shorter than expe
     ["$animal_worm_big"]              = -2,
     ["$animal_phantom_a"]             = 6,
     ["$animal_phantom_b"]             = 6,
+    ["$animal_flamer"]                = 6,
+    ["$animal_icer"]                  = 6,
 })
 
 function EnemyHasDialogue(pool, name)
