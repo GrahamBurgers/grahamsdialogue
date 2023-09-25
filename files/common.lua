@@ -235,8 +235,9 @@ function Speak(entity, text, pool)
     end
 
     local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
+    local faction
     if genome ~= nil then
-        local faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
+        faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
         if faction == "robot" then
             size_x = size_x + 0.06
         end
@@ -254,6 +255,19 @@ function Speak(entity, text, pool)
                 script_source_file="mods/grahamsdialogue/files/ghost.lua"
             })
         end
+        if faction == "player" and name == "$animal_graham_fuzz" and pool == "IDLE" then
+            local special = {
+                "Just here to say hi. I'll be on my way soon.",
+                "I don't see what's so bad about you.",
+                "Do not pet. I will zap you.",
+                "Have I told you how fun it is to spin like this?",
+                "You're really one-of-a-kind, aren't you?",
+                "Take a break with me. You need some time to breathe, too.",
+                "I might shoot at you once I leave. Sorry about that.",
+                "This is so cozy, I might just fall asleep.",
+            }
+            text = special[Random(1, #special)]
+        end
     end
     if name == "$animal_pebble" or name == "$animal_miniblob" then
         size_x = size_x - 0.10
@@ -261,9 +275,9 @@ function Speak(entity, text, pool)
     end
 
     local worm_speeds = {
-        ["$animal_worm_tiny"]    = 4,
-        ["$animal_worm"]         = 5,
-        ["$animal_worm_big"]     = 6,
+        ["$animal_worm_tiny"]    = 6,
+        ["$animal_worm"]         = 7,
+        ["$animal_worm_big"]     = 8,
     }
     local threshold = worm_speeds[name]
     if threshold ~= nil then

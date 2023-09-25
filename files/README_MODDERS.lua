@@ -65,6 +65,8 @@ Spiders: ???
 Worms: ???
 Hell enemies: ???
 
-Referring to the player as 'you' is good in the damage taken and damage dealt lines, as they are talking directly to the player in that case, but otherwise it should be avoided.
+Referring to the player as 'you' is good in the damage taken and damage dealt lines, as they are talking directly to the player in that case.
+If an enemy is using 'you' in their idling or generic lines, assume they're just talking to anything nearby. (Or to themselves)
+Generally, spell words like "colour" with the u. Noita is mostly consistent in this... except for some stuff (rainbow glimmer)
 
 ]]--
