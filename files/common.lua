@@ -129,6 +129,7 @@ function Speak(entity, text, pool)
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = NameGet(entity)
     local offset_y = 26 + (special_offsets_y[name] or 0)
+    local font = "data/fonts/font_pixel_white.xml"
 
     if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
 
@@ -311,6 +312,9 @@ function Speak(entity, text, pool)
         ---@diagnostic disable-next-line: undefined-global
         text = owoify(text)
     end
+    if ModIsEnabled("salakieli") then
+        font = "mods/grahamsdialogue/files/font_runes_white.xml"
+    end
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
     local gui = GuiCreate()
@@ -321,7 +325,7 @@ function Speak(entity, text, pool)
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
         _tags = "enabled_in_world, graham_speech_text",
-        image_file = "data/fonts/font_pixel_white.xml",
+        image_file = font,
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
         offset_x = width,
