@@ -85,6 +85,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_icer", "What will save you now? The heat of the sun? Ha.", "Don't breathe in the vapour, please. I've already won.", "Let me teach you about the art of the stunlock."},
     {"$animal_graham_fuzz", "We are stronger together!", "With our powers combined...!", "It's up to you now, friends!"},
     {"$animal_graham_wizard_familiar", "Ka-pow!", "I'm sure you feel perfectly enlightened after that.", "No fortune for you today, sorry."},
+    {"$animal_coward", "Oh, this is SO much better than attacking indirectly.", "It seems so much simpler to just kill you myself.", "You know the saying. If you want it done right..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -176,6 +177,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_icer", "You look like you'd be scared of the word \"propane\".", "Where's the AC in here? It's too freakin' hot!", "No, not the oil! I don't want to start a fire!"},
     {"$animal_graham_fuzz", "Oh, you just wait until I pop...!", "H-hey, wait! Shouldn't you attack the other enemies first?", "Your projectiles are nothing to me! Haha!"},
     {"$animal_graham_wizard_familiar", "I know you can handle a little bit of fun.", "Receive my wisdom, you... dummy.", "Slow down a bit. It could save your life someday."},
+    {"$animal_coward", "I'm just doing my job. No need to get hostile.", "I should've invested in a better shield...", "You're a coward!"},
 }
 
 DIALOGUE_IDLE = {
@@ -264,7 +266,8 @@ DIALOGUE_IDLE = {
     {"$animal_flamer", "Air conditioning? Why would I ever want to make things colder?", "Cleaning up blood is such a hassle.", "If any of you bring a fire extinguisher in here, I swear...!"},
     {"$animal_icer", "Four eyes is better than two.", "No, propane tanks don't home towards you. Though that would be funny.", "Why isn't that mana liquid freezable? What a pain..."},
     {"$animal_graham_fuzz", "I hold the power of plasma! But only a little bit...", "Sometimes you just need a little push to reach greatness.", "When I grow up, I want to be a plasma ball."},
-    {"$animal_graham_wizard_familiar", "Mint is my favourite colour.", "I'll give you some orbs to ponder.", "Don't mind me. I'm just a perfectly normal wizard."},
+    {"$animal_graham_wizard_familiar", "Mint is my favourite colour.", "I'll give you some orbs to ponder.", "Don't stare for too long."},
+    {"$animal_coward", "If I throw a party, I'm making you guys come to it.", "Drinks are on me, folks.", "Everyone gather 'round. Let's have a good time."},
 }
 
 GENERIC_HOLDINGWAND =

@@ -28,29 +28,29 @@ end
 local special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_boss_alchemist"]        = 60,
     ["$animal_parallel_alchemist"]    = 60,
-    ["$animal_boss_pit"]              = 15,
-    ["$animal_parallel_tentacles"]    = 15,
-    ["$animal_necromancer_shop"]      = 10,
-    ["$animal_necromancer_super"]     = 12,
-    ["$animal_firemage"]              = 8,
-    ["$animal_firemage_weak"]         = 8,
-    ["$animal_thundermage"]           = 8,
-    ["$animal_tentacler"]             = 10,
-    ["$animal_giant"]                 = 8,
-    ["$animal_pebble"]                = -4,
-    ["$animal_rat"]                   = -2,
-    ["$animal_drone"]                 = -10,
-    ["$animal_scavenger_leader"]      = 10,
-    ["$animal_scavenger_clusterbomb"] = 10,
-    ["$animal_scavenger_mine"]        = 10,
-    ["$animal_necromancer"]           = 12,
-    ["$animal_worm_tiny"]             = -8,
-    ["$animal_worm"]                  = -5,
-    ["$animal_worm_big"]              = -2,
-    ["$animal_phantom_a"]             = 6,
-    ["$animal_phantom_b"]             = 6,
-    ["$animal_flamer"]                = 6,
-    ["$animal_icer"]                  = 6,
+    ["$animal_boss_pit"]              = 13,
+    ["$animal_parallel_tentacles"]    = 13,
+    ["$animal_necromancer_shop"]      = 8,
+    ["$animal_necromancer_super"]     = 10,
+    ["$animal_firemage"]              = 6,
+    ["$animal_firemage_weak"]         = 6,
+    ["$animal_thundermage"]           = 6,
+    ["$animal_tentacler"]             = 8,
+    ["$animal_giant"]                 = 6,
+    ["$animal_pebble"]                = -6,
+    ["$animal_rat"]                   = -4,
+    ["$animal_drone"]                 = -12,
+    ["$animal_scavenger_leader"]      = 8,
+    ["$animal_scavenger_clusterbomb"] = 8,
+    ["$animal_scavenger_mine"]        = 8,
+    ["$animal_necromancer"]           = 10,
+    ["$animal_worm_tiny"]             = -10,
+    ["$animal_worm"]                  = -7,
+    ["$animal_worm_big"]              = -4,
+    ["$animal_phantom_a"]             = 4,
+    ["$animal_phantom_b"]             = 4,
+    ["$animal_flamer"]                = 4,
+    ["$animal_icer"]                  = 4,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -128,7 +128,7 @@ function Speak(entity, text, pool)
 
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = NameGet(entity)
-    local offset_y = 26 + (special_offsets_y[name] or 0)
+    local offset_y = 28 + (special_offsets_y[name] or 0)
     local font = "data/fonts/font_pixel_white.xml"
 
     if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
