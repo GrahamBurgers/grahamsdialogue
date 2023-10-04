@@ -86,6 +86,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_graham_fuzz", "We are stronger together!", "With our powers combined...!", "It's up to you now, friends!"},
     {"$animal_graham_wizard_familiar", "Ka-pow!", "I'm sure you feel perfectly enlightened after that.", "No fortune for you today, sorry."},
     {"$animal_coward", "Oh, this is SO much better than attacking indirectly.", "It seems so much simpler to just kill you myself.", "You know the saying. If you want it done right..."},
+    {"$animal_ghoul", "I'm disappointed and disgusted.", "You've certainly faced creatures more acidic than me.", "Don't be dramatic."},
+    {"$animal_icemage", "Your health will soon drop to absolute zero.", "Don't look so blue. Just try.", "Your death will be my gift this year."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -177,7 +179,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_icer", "You look like you'd be scared of the word \"propane\".", "Where's the AC in here? It's too freakin' hot!", "No, not the oil! I don't want to start a fire!"},
     {"$animal_graham_fuzz", "Oh, you just wait until I pop...!", "H-hey, wait! Shouldn't you attack the other enemies first?", "Your projectiles are nothing to me! Haha!"},
     {"$animal_graham_wizard_familiar", "I know you can handle a little bit of fun.", "Receive my wisdom, you... dummy.", "Slow down a bit. It could save your life someday."},
-    {"$animal_coward", "I'm just doing my job. No need to get hostile.", "I should've invested in a better shield...", "You're a coward!"},
+    {"$animal_coward", "I'm just doing my job. No need to be hostile.", "I should've invested in a better shield...", "You're a coward!"},
+    {"$animal_ghoul", "I'm running out of ribs to break...", "You're gross and non-slimy.", "Blah! Don't even try it!"},
+    {"$animal_icemage", "I'm a bit chilly myself...", "My skull can hardly take this beating.", "You wish I was as fragile as ice."},
 }
 
 DIALOGUE_IDLE = {
@@ -268,6 +272,8 @@ DIALOGUE_IDLE = {
     {"$animal_graham_fuzz", "I hold the power of plasma! But only a little bit...", "Sometimes you just need a little push to reach greatness.", "When I grow up, I want to be a plasma ball."},
     {"$animal_graham_wizard_familiar", "Mint is my favourite colour.", "I'll give you some orbs to ponder.", "Don't stare for too long."},
     {"$animal_coward", "If I throw a party, I'm making you guys come to it.", "Drinks are on me, folks.", "Everyone gather 'round. Let's have a good time."},
+    {"$animal_ghoul", "Everyone here is cooler than me...", "I could corrode this whole place if I tried.", "See the world through glowing yellow eyes."},
+    {"$animal_icemage", "Do you wanna build a snowman?", "The winter season never lasts long enough...", "Anyone want a drink? Iced."},
 }
 
 GENERIC_HOLDINGWAND =

@@ -18,23 +18,20 @@ if Random(1, rate) == 1 then
         elseif random <= 5 and ComponentGetValue2(worldstatecomp, "ENDING_HAPPINESS") then -- peaceful ending
             Speak(me, GENERIC_PEACEFULENDING[Random(1, #GENERIC_PEACEFULENDING)], "GENERIC")
             return
-        elseif random <= 8 and wand ~= 0 and EntityHasTag(wand, "wand") then -- holding wand
+        elseif random <= 6 and wand ~= 0 and EntityHasTag(wand, "wand") then -- holding wand
             Speak(me, GENERIC_HOLDINGWAND[Random(1, #GENERIC_HOLDINGWAND)], "GENERIC")
             return
         elseif random <= 4 and GameGetGameEffectCount(me, "DRUNK") > 0 then -- drunk (both ingestion and alcohol stain)
             Speak(me, GENERIC_DRUNK[Random(1, #GENERIC_DRUNK)], "GENERIC")
             return
-        elseif random <= 8 and GameGetGameEffectCount(me, "BERSERK") > 0 then -- berserk
+        elseif random <= 7 and GameGetGameEffectCount(me, "BERSERK") > 0 then -- berserk
             Speak(me, GENERIC_BERSERK[Random(1, #GENERIC_BERSERK)], "GENERIC")
             return
-        elseif random <= 6 and GameGetGameEffectCount(me, "CHARM") > 0 then -- charmed
+        elseif random <= 9 and GameGetGameEffectCount(me, "CHARM") > 0 then -- charmed
             Speak(me, GENERIC_CHARMED[Random(1, #GENERIC_CHARMED)], "GENERIC")
             return
-        elseif random <= 9 and GameGetGameEffectCount(me, "RADIOACTIVE") > 0 then -- toxic
+        elseif random <= 4 and GameGetGameEffectCount(me, "RADIOACTIVE") > 0 then -- toxic
             Speak(me, GENERIC_TOXIC[Random(1, #GENERIC_TOXIC)], "GENERIC")
-            return
-        elseif random <= 9 and GameGetGameEffectCount(me, "CONFUSION") > 0 then -- confused
-            Speak(me, GENERIC_CONFUSED[Random(1, #GENERIC_CONFUSED)], "GENERIC")
             return
         end
     end

@@ -42,7 +42,7 @@ end
 
 function OnModPreInit()
     if ModIsEnabled("translation_uwu") then
-        -- not jank
+        -- hax
         local content = ModTextFileGetContent("mods/translation_uwu/init.lua")
         content = content:gsub("local function", "function")
         ModTextFileSetContent("mods/translation_uwu/init.lua", content)

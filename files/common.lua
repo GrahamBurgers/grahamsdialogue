@@ -132,6 +132,15 @@ function Speak(entity, text, pool)
     local font = "data/fonts/font_pixel_white.xml"
 
     if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
+    -- player should never speak
+    if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
+
+    
+    local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
+    local faction
+    if genome ~= nil then
+        faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
+    end
 
     --- SPECIAL FUNCTIONALITY ---
 
@@ -160,119 +169,152 @@ function Speak(entity, text, pool)
         end
     end
 
-    if GameHasFlagRun("PERK_PICKED_PEACE_WITH_GODS") and (pool == "IDLE" or pool == "GENERIC") then
-        if name == "$animal_necromancer_shop" then
-            local special = {
-                "I suppose I can let it slide. But just this once!",
-                "Don't think that this means that you're off the hook...",
-                "Fine... harumph.",
-            }
-            text = special[Random(1, #special)]
-        end
-        if name == "$animal_necromancer_super" then
-            local special = {
-                "A sinful being you are... But perhaps a little bit endearing.",
-                "Don't be mistaken. It is by command of the gods that I spare your life today.",
-                "I'm sure you have your reasons. But so do I.",
-            }
-            text = special[Random(1, #special)]
-        end
-    end
-
-    if (name == "$animal_firemage" or name == "$animal_thundermage") and pool == "IDLE" then
-        local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
-        for i = 1, #items do
-            if EntityGetRootEntity(items[i]) ~= items[i] then
-                if text ~= old_text then break end
-                local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
-                for j = 1, #comps do
-                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" and name == "$animal_firemage" or name == "$animal_firemage_weak" then
-                        local special = {
-                            "Nice stone you got there. Is it for sale?",
-                            "That flame... it reminds me of myself when I was younger.",
-                            "Come a bit closer. I'd like to get a closer look at that item.",
-                        }
-                        text = special[Random(1, #special)]
-                        break
-                    end
-                    if ComponentGetValue2(comps[j], "effect") == "FRIEND_THUNDERMAGE" and name == "$animal_thundermage" then
-                        local special = {
-                            "What a beautiful stone. Take good care of it.",
-                            "It looks like you appreciate the art of electricity almost as much as I do.",
-                            "I would normally blast you to pieces, but...",
-                        }
-                        text = special[Random(1, #special)]
-                        break
+    local special_dialogue = {
+        ["$animal_necromancer_shop"] = function()
+            if pool == "IDLE" and GlobalsGetValue( "TEMPLE_PEACE_WITH_GODS" ) == "1" then
+                local special = {
+                    "I suppose I can let it slide. But just this once!",
+                    "Don't think that this means that you're off the hook...",
+                    "Fine... harumph.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_necromancer_super"] = function()
+            if pool == "IDLE" and GlobalsGetValue( "TEMPLE_PEACE_WITH_GODS" ) == "1" then
+                local special = {
+                    "A sinful being you are... But perhaps a little bit endearing.",
+                    "Don't be mistaken. It is by command of the gods that I spare your life today.",
+                    "I'm sure you have your reasons. But so do I.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_firemage"] = function()
+            if pool == "IDLE" then
+                local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+                local found = false
+                for i = 1, #items do
+                    local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+                    for j = 1, #comps do
+                        if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" then
+                            local special = {
+                                "Nice stone you got there. Is it for sale?",
+                                "That flame... it reminds me of myself when I was younger.",
+                                "Come a bit closer. I'd like to get a closer look at that item.",
+                            }
+                            text = special[Random(1, #special)]
+                            found = true
+                            break
+                        end
+                        if found then break end
                     end
                 end
             end
-        end
-    end
-
-    if name == "$animal_thunderskull" and (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_ELECTRICITY") then
-        local special = {
-            "Yo! A fellow electricity user?!",
-            "I never expected to see someone as rad as me down here!",
-            "I'm a fan of the volts you're outputting, friend.",
-        }
-        text = special[Random(1, #special)]
-    end
-    if name == "$animal_iceskull" and (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_GRAHAM_REVENGE_FREEZE") then
-        local special = {
-            "Hey, you also have retaliation projectiles? N-ice.",
-            "Your perks are cool! And I mean that literally.",
-            "We should make some ice sculptures together, some time.",
-        }
-        text = special[Random(1, #special)]
-    end
-
-    if name == "$animal_giant" then
-        local enemies = EntityGetInRadiusWithTag(x, y, 140, "glue_NOT")
-        for i = 1, #enemies do
-            if EntityGetName(enemies[i]) == "$animal_pebble" then
-                Speak(enemies[i], text, pool)
+        end,
+        ["$animal_thundermage"] = function()
+            if pool == "IDLE" then
+                local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+                local found = false
+                for i = 1, #items do
+                    local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+                    for j = 1, #comps do
+                        if ComponentGetValue2(comps[j], "effect") == "FRIEND_THUNDERMAGE" then
+                            local special = {
+                                "What a beautiful stone. Take good care of it.",
+                                "It looks like you appreciate the art of electricity almost as much as I do.",
+                                "I would normally blast you to pieces, but...",
+                            }
+                            text = special[Random(1, #special)]
+                            found = true
+                            break
+                        end
+                        if found then break end
+                    end
+                end
             end
-        end
-    end
+        end,
+        ["$animal_thunderskull"] = function()
+            if (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_ELECTRICITY") then
+                local special = {
+                    "Yo! A fellow electricity user?!",
+                    "I never expected to see someone as rad as me down here!",
+                    "I'm a fan of the volts you're outputting, friend.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_iceskull"] = function()
+            if (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_GRAHAM_REVENGE_FREEZE") then
+                local special = {
+                    "Hey, you also have retaliation projectiles? N-ice.",
+                    "Your perks are cool! And I mean that literally.",
+                    "We should make some ice sculptures together, some time.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_icemage"] = function()
+            if (pool == "DAMAGEDEALT" or pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_FREEZE_FIELD") then
+                local special = {
+                    "Ice skate with me, friend!",
+                    "Are you feeling that winter spirit?",
+                    "I get stuck in ice so often. What are your secrets?",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_giant"] = function()
+            local enemies = EntityGetInRadiusWithTag(x, y, 140, "glue_NOT")
+            for i = 1, #enemies do
+                if EntityGetName(enemies[i]) == "$animal_pebble" then
+                    Speak(enemies[i], text, pool)
+                end
+            end
+        end,
+        ["$animal_graham_fuzz"] = function()
+            if faction == "player" and pool == "IDLE" then
+                local special = {
+                    "Just here to say hi. I'll be on my way soon.",
+                    "I don't see what's so bad about you.",
+                    "Do not pet. I will zap you.",
+                    "Have I told you how fun it is to spin like this?",
+                    "You're really one-of-a-kind, aren't you?",
+                    "Take a break with me. You need some time to breathe, too.",
+                    "I might shoot at you once I leave. Sorry about that.",
+                    "This is so cozy, I might just fall asleep.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
+        ["$animal_pebble"] = function()
+            size_x = size_x - 0.8
+            size_y = size_y - 0.8
+        end,
+        ["$animal_miniblob"] = function()
+            size_x = size_x - 0.10
+            size_y = size_y - 0.10
+        end,
+    }
+    -- Appended stuff
+    ModdedStuff()
 
-    local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
-    local faction
-    if genome ~= nil then
-        faction = HerdIdToString(ComponentGetValue2(genome, "herd_id"))
-        if faction == "robot" then
-            size_x = size_x + 0.06
-        end
-        if faction == "fungus" then
-            size_y = size_y + 0.06
-        end
-        if faction == "player" then
-            size_x = size_x + 0.03
-            size_y = size_y + 0.03
-        end
-        if faction == "ghost" then
-            EntityAddComponent2(entity, "LuaComponent", {
-                _tags="graham_speech_ghost",
-                execute_every_n_frame=1,
-                script_source_file="mods/grahamsdialogue/files/ghost.lua"
-            })
-        end
-        if faction == "player" and name == "$animal_graham_fuzz" and pool == "IDLE" then
-            local special = {
-                "Just here to say hi. I'll be on my way soon.",
-                "I don't see what's so bad about you.",
-                "Do not pet. I will zap you.",
-                "Have I told you how fun it is to spin like this?",
-                "You're really one-of-a-kind, aren't you?",
-                "Take a break with me. You need some time to breathe, too.",
-                "I might shoot at you once I leave. Sorry about that.",
-                "This is so cozy, I might just fall asleep.",
-            }
-            text = special[Random(1, #special)]
-        end
+    if faction == "robot" then
+        size_x = size_x + 0.06
     end
-    if name == "$animal_pebble" or name == "$animal_miniblob" then
-        size_x = size_x - 0.10
-        size_y = size_y - 0.10
+    if faction == "fungus" then
+        size_y = size_y + 0.06
+    end
+    if faction == "player" then
+        size_x = size_x + 0.03
+        size_y = size_y + 0.03
+    end
+    if faction == "ghost" then
+        EntityAddComponent2(entity, "LuaComponent", {
+            _tags="graham_speech_ghost",
+            execute_every_n_frame=1,
+            script_source_file="mods/grahamsdialogue/files/ghost.lua"
+        })
     end
 
     local worm_speeds = {
@@ -280,6 +322,7 @@ function Speak(entity, text, pool)
         ["$animal_worm"]         = 7,
         ["$animal_worm_big"]     = 8,
     }
+
     local threshold = worm_speeds[name]
     if threshold ~= nil then
         rotate = true
@@ -304,16 +347,28 @@ function Speak(entity, text, pool)
         end
     end
 
-    -- Appended stuff
-    ModdedStuff()
+    -- This is where all the stuff actually happens!
+    if special_dialogue[name] ~= nil then
+        special_dialogue[name]()
+    end
 
-    if ModIsEnabled("translation_uwu") then -- Haunted
+    if ModIsEnabled("translation_uwu") then
+        -- Haunted
         dofile_once("mods/translation_uwu/init.lua")
         ---@diagnostic disable-next-line: undefined-global
         text = owoify(text)
     end
     if ModIsEnabled("salakieli") then
+        -- Glyphs
         font = "mods/grahamsdialogue/files/font_runes_white.xml"
+    end
+    if GameGetGameEffectCount(entity, "CONFUSION") > 0 then
+        -- Flummoxium
+        local new_text = ""
+        for i = 1, #text do
+            new_text = new_text .. string.sub(text, #text - #new_text, #text - #new_text)
+        end
+        text = new_text
     end
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----

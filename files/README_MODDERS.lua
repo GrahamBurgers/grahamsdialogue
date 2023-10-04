@@ -22,7 +22,7 @@ EmptyEnemyDialogue("IDLE", "$name_of_enemy")
 EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances
--- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_CONFUSED, GENERIC_HEALED
+-- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_HEALED
 -- There's no limit to how many items these tables have. Just try to keep it immersive, eh?
 -- Add the no_generic_dialogue tag to your enemy to make them exempt from generic lines of dialogue
 table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
@@ -39,7 +39,7 @@ local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
     MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
     -- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
-    if name == "$name_of_enemy" then
+    special_dialogue["$name_of_enemy"] = function()
         size_x = size_x + 3
     end
 end
