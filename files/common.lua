@@ -114,7 +114,7 @@ function EmptyEnemyDialogue(pool, name)
     if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
 end
 
-function Speak(entity, text, pool)
+function Speak(entity, text, pool, check_name)
     pool = pool or ""
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
     if textComponent then return end
@@ -135,7 +135,9 @@ function Speak(entity, text, pool)
     -- player should never speak
     if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
 
-    
+    check_name = check_name or true
+    if check_name then --!!!--
+
     local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
     local faction
     if genome ~= nil then
@@ -351,6 +353,8 @@ function Speak(entity, text, pool)
     if special_dialogue[name] ~= nil then
         special_dialogue[name]()
     end
+
+    end --!!!--
 
     if ModIsEnabled("translation_uwu") then
         -- Haunted
