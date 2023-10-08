@@ -25,7 +25,7 @@ function ModdedStuff()
     -- See README_MODDERS.lua for more info
 end
 
-local special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
+Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_boss_alchemist"]        = 60,
     ["$animal_parallel_alchemist"]    = 60,
     ["$animal_boss_pit"]              = 13,
@@ -128,15 +128,15 @@ function Speak(entity, text, pool, check_name)
 
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = NameGet(entity)
-    local offset_y = 28 + (special_offsets_y[name] or 0)
+    local offset_y = 28 + (Special_offsets_y[name] or 0)
     local font = "data/fonts/font_pixel_white.xml"
+
+    check_name = check_name or true
+    if check_name then --!!!--
 
     if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
     -- player should never speak
     if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
-
-    check_name = check_name or true
-    if check_name then --!!!--
 
     local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
     local faction
@@ -298,8 +298,6 @@ function Speak(entity, text, pool, check_name)
             size_y = size_y - 0.10
         end,
     }
-    -- Appended stuff
-    ModdedStuff()
 
     if faction == "robot" then
         size_x = size_x + 0.06
@@ -324,6 +322,8 @@ function Speak(entity, text, pool, check_name)
         ["$animal_worm"]         = 7,
         ["$animal_worm_big"]     = 8,
     }
+    -- Appended stuff
+    ModdedStuff()
 
     local threshold = worm_speeds[name]
     if threshold ~= nil then

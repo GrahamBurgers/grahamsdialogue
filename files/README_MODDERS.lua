@@ -27,9 +27,8 @@ EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
 -- Add the no_generic_dialogue tag to your enemy to make them exempt from generic lines of dialogue
 table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
 
--- Define a new value in special_offsets_x or special_offsets_y if you want your enemy's dialogue to be offset horizontally or vertically.
-special_offsets_x["$name_of_enemy"] = 20
-special_offsets_y["$name_of_enemy"] = 12
+-- Define a new value in Special_offsets_y if you want your enemy's dialogue to be offset vertically.
+Special_offsets_y["$name_of_enemy"] = 12
 
 -- If you have multiple translation names for the same enemy, or different enemies who you want to have identical functionality, do this
 DUPES["$name_of_enemy"] = "$name_of_enemy_to_mimic"
