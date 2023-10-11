@@ -11,11 +11,11 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
     ["$animal_drone_physics"]            = "$animal_drone",
     ["$animal_turret_right"]             = "$animal_turret",
     ["$animal_turret_left"]              = "$animal_turret",
+    ["$animal_statue_physics"]           = "$animal_statue",
 })
 
 function NameGet(entity)
     local name = EntityGetName(entity) or ""
-    if name == nil then return end
     name = DUPES[name] or name
     return name
 end

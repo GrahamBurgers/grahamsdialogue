@@ -88,6 +88,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_coward", "Oh, this is SO much better than attacking indirectly.", "It seems so much simpler to just kill you myself.", "You know the saying. If you want it done right..."},
     {"$animal_ghoul", "I'm disappointed and disgusted.", "You've certainly faced creatures more acidic than me.", "Don't be dramatic."},
     {"$animal_icemage", "Your health will soon drop to absolute zero.", "Don't look so blue. Just try.", "Your death will be my gift this year."},
+    {"$animal_statue", "Let me make your grave in my image.", "How pathetic. Look at your blood.", "Parry me, coward! I bet you can't."},
+    {"$animal_assassin", "They always told me to not play with my food...", "I'm mechanical and tougher than you'll ever be.", "Diced and well-done, please."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -182,6 +184,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_coward", "I'm just doing my job. No need to be hostile.", "I should've invested in a better shield...", "You're a coward!"},
     {"$animal_ghoul", "I'm running out of ribs to break...", "You're gross and non-slimy.", "Blah! Don't even try it!"},
     {"$animal_icemage", "I'm a bit chilly myself...", "My skull can hardly take this beating.", "You wish I was as fragile as ice."},
+    {"$animal_statue", "You're not the only one to remember their past lives.", "Do you ponder your own purpose? I do.", "You're lucky. There's only one of you."},
+    {"$animal_assassin", "You're slicing up my patience...", "Ask Stendari if he wants to cook with me sometime, yea?", "I'm not one to complain, but..."},
 }
 
 DIALOGUE_IDLE = {
@@ -274,6 +278,8 @@ DIALOGUE_IDLE = {
     {"$animal_coward", "If I throw a party, I'm making you guys come to it.", "Drinks are on me, folks.", "Everyone gather 'round. Let's have a good time."},
     {"$animal_ghoul", "Everyone here is cooler than me...", "I could corrode this whole place if I tried.", "See the world through glowing yellow eyes."},
     {"$animal_icemage", "Do you wanna build a snowman?", "The winter season never lasts long enough...", "Anyone want a drink? Iced."},
+    {"$animal_statue", "Stare all you want. What else would I be here for?", "Why do so many consider life to be a gift?", "Break the curse, someone... please."},
+    {"$animal_assassin", "Fortunately, there's no need to sharpen an energy weapon.", "I can make anyone disappear; just give me a call.", "I'm not a \"crazed\" assassin. Rather sensible, in fact."},
 }
 
 GENERIC_HOLDINGWAND =

@@ -52,9 +52,11 @@ end
 --[[
 Hopefully this will all work properly. I'm not very good at this.
 And never be afraid to ask me in my Discord server if you have questions or need help with something: https://discord.gg/DY6CVE2ua9
-One more thing: (this part is completely optional):
+One more thing: (this part is completely optional (but it'll make your dialogue look a lot better!)):
 
 STYLE GUIDES
+
+Most important rule: use proper grammar or I will slap you >:(
 
 Hiisi: Somewhat comical. Fighting is just their day job, but they still enjoy doing it. They speak like normal people, for the most part.
 Robots: They usually never use contractions, sans very common ones like "I'm". They speak as if they were a text log in a computer, or an AI.
@@ -66,6 +68,9 @@ Hell enemies: ???
 
 Referring to the player as 'you' is good in the damage taken and damage dealt lines, as they are talking directly to the player in that case.
 If an enemy is using 'you' in their idling or generic lines, assume they're just talking to anything nearby. (Or to themselves)
+Bosses are generally smarter than normal enemies, so assume they're usually talking to the player with "you".
 Generally, spell words like "colour" with the u. Noita is mostly consistent in this... except for some stuff (rainbow glimmer)
+Ellipses and periods are good to end sentences, but double periods look a bit strange. Avoid if possible.
+You can make an enemy speak in glyphs if you'd like, but don't expect anyone to actually be able to read it.
 
 ]]--
