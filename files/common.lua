@@ -157,7 +157,6 @@ function Speak(entity, text, pool, check_name)
             for j = 1, #enemies do
                 local enemy = enemies[Random(1, #enemies)]
                 name = EntityGetName(enemy)
-                name = name:gsub("_weak", "")
                 if name ~= "$animal_wizard_returner" then
                     for i = 1, #thing do
                         if thing[i][1] == name then
@@ -296,6 +295,16 @@ function Speak(entity, text, pool, check_name)
         ["$animal_miniblob"] = function()
             size_x = size_x - 0.10
             size_y = size_y - 0.10
+        end,
+        ["$animal_miner_santa"] = function()
+            if StatsBiomeGetValue("enemies_killed") < 1 and pool == "DAMAGEDEALT" then
+                local special = {
+                    "Pacifism? You might be deserving of the Nice List after all.",
+                    "You've been a good person so far. Christmas awaits!",
+                    "Finally... someone that can appreciate the holiday spirit.",
+                }
+                text = special[Random(1, #special)]
+            end
         end,
     }
 

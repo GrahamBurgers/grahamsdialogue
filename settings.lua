@@ -88,7 +88,7 @@ mod_settings =
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
 		ui_description = "Whether or not dialogue is visible through the dark.",
-		value_default = true,
+		value_default = false,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 }

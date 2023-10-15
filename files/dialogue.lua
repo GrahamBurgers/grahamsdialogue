@@ -90,6 +90,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_icemage", "Your health will soon drop to absolute zero.", "Don't look so blue. Just try.", "Your death will be my gift this year."},
     {"$animal_statue", "Let me make your grave in my image.", "How pathetic. Look at your blood.", "Parry me, coward! I bet you can't."},
     {"$animal_assassin", "They always told me to not play with my food...", "I'm mechanical and tougher than you'll ever be.", "Diced and well-done, please."},
+    {"$animal_drone_lasership", "I will extract all of your blood from your feeble body.", "It's a shame that you are not as flammable as wood.", "Lasers are so clean. No bullet holes at all."},
+    {"$animal_miner_santa", "No coal for you. Although, would that hurt more...?", "Go make some snow angels. I insist.", "I know just what you deserve this holiday season."},
+    {"$animal_cook", "You'll end up in my next-a recipe if you aren't careful!", "Social distancing. Stay a sausage's length away.", "Bah! Kids these-a days..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -186,6 +189,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_icemage", "I'm a bit chilly myself...", "My skull can hardly take this beating.", "You wish I was as fragile as ice."},
     {"$animal_statue", "You're not the only one to remember their past lives.", "Do you ponder your own purpose? I do.", "You're lucky. There's only one of you."},
     {"$animal_assassin", "You're slicing up my patience...", "Ask Stendari if he wants to cook with me sometime, yea?", "I'm not one to complain, but..."},
+    {"$animal_drone_lasership", "I appear to have sprung a leak.", "I hope you do not start a fire.", "I wish I could just fall down and crush you."},
+    {"$animal_miner_santa", "Five more years of the Naughty List for you!", "You won't find any presents underneath your tree this season.", "I ain't no faker. Keep your hands off of me."},
+    {"$animal_cook", "I bet-a your corpse would go well with oregano...", "It won't all be sugar and spice if you keep doing that.", "A chef can poison-a food like no other, you know..."},
 }
 
 DIALOGUE_IDLE = {
@@ -280,6 +286,9 @@ DIALOGUE_IDLE = {
     {"$animal_icemage", "Do you wanna build a snowman?", "The winter season never lasts long enough...", "Anyone want a drink? Iced."},
     {"$animal_statue", "Stare all you want. What else would I be here for?", "Why do so many consider life to be a gift?", "Break the curse, someone... please."},
     {"$animal_assassin", "Fortunately, there's no need to sharpen an energy weapon.", "I can make anyone disappear; just give me a call.", "I'm not a \"crazed\" assassin. Rather sensible, in fact."},
+    {"$animal_drone_lasership", "Battery power low. Please recharge soon.", "Gravity is challenging for a heavy steel robot.", "If only they had implemented infrared sensors in my design."},
+    {"$animal_miner_santa", "This place is... certainly no winter wonderland.", "I shall spread the cheer! Forcefully.", "Haaaappy holidays! I think."},
+    {"$animal_cook", "Don't-a worry, I made enough to share!", "A tasty-a meal for everyone around!", "Here you go! Don't forget-a to share!"},
 }
 
 GENERIC_HOLDINGWAND =
