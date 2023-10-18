@@ -93,6 +93,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_drone_lasership", "I will extract all of your blood from your feeble body.", "It's a shame that you are not as flammable as wood.", "Lasers are so clean. No bullet holes at all."},
     {"$animal_miner_santa", "No coal for you. Although, would that hurt more...?", "Go make some snow angels. I insist.", "I know just what you deserve this holiday season."},
     {"$animal_cook", "You'll end up in my next-a recipe if you aren't careful!", "Social distancing. Stay a sausage's length away.", "Bah! Kids these-a days..."},
+    {"$animal_lukki_tiny", "You're violent, but you're not hopeless... right?", "This is what you get! Stay away from our eggs!", "Your magic seems to be failing you..."},
+    {"$animal_lukki", "You'll break as long as we just keep pushing.", "Where even do you belong...? Not here.", "You're an odd one. They usually go down easier."},
+    {"$animal_lukki_longleg", "You may be as wise as us, but you're no saint...", "You know where you belong. Stay away from our lives.", "Just get out of here. One way or another."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -192,6 +195,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_drone_lasership", "I appear to have sprung a leak.", "I hope you do not start a fire.", "I wish I could just fall down and crush you."},
     {"$animal_miner_santa", "Five more years of the Naughty List for you!", "You won't find any presents underneath your tree this season.", "I ain't no faker. Keep your hands off of me."},
     {"$animal_cook", "I bet-a your corpse would go well with oregano...", "It won't all be sugar and spice if you keep doing that.", "A chef can poison-a food like no other, you know..."},
+    {"$animal_lukki_tiny", "No! Not you, not now...", "Such violence... please leave us alone.", "I see why the elders say bad things about you..."},
+    {"$animal_lukki", "Change is hard. I know that as well as anyone.", "Please, think about this...", "I'm gonna go eat some brickwork if you don't stop."},
+    {"$animal_lukki_longleg", "I wouldn't want to coexist with someone like you anyway.", "How childish. Have some respect towards your elders.", "That attitude is bound to come back to you one day."},
 }
 
 DIALOGUE_IDLE = {
@@ -289,6 +295,9 @@ DIALOGUE_IDLE = {
     {"$animal_drone_lasership", "Battery power low. Please recharge soon.", "Gravity is challenging for a heavy steel robot.", "If only they had implemented infrared sensors in my design."},
     {"$animal_miner_santa", "This place is... certainly no winter wonderland.", "I shall spread the cheer! Forcefully.", "Haaaappy holidays! I think."},
     {"$animal_cook", "Don't-a worry, I made enough to share!", "A tasty-a meal for everyone around!", "Here you go! Don't forget-a to share!"},
+    {"$animal_lukki_tiny", "The Hiisi are so mean. Keep them out of our home...", "Thank you, guardians, for keeping us safe.", ""},
+    {"$animal_lukki", "I'm still learning, I promise...", "It's interesting to just watch things change from a distance.", "Fire is the enemy. Fire is the end of all things..."},
+    {"$animal_lukki_longleg", "It's so immature to destroy the world around you.", "Cherish what we have, friends, while it lasts.", "Once you start learning from nature, you never really stop."},
 }
 
 GENERIC_HOLDINGWAND =

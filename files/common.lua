@@ -51,6 +51,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_phantom_b"]             = 4,
     ["$animal_flamer"]                = 4,
     ["$animal_icer"]                  = 4,
+    ["$animal_lukki_tiny"]            = -8,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -295,6 +296,10 @@ function Speak(entity, text, pool, check_name)
         ["$animal_miniblob"] = function()
             size_x = size_x - 0.10
             size_y = size_y - 0.10
+        end,
+        ["$animal_lukki_tiny"] = function()
+            size_x = size_x - 0.05
+            size_y = size_y - 0.05
         end,
         ["$animal_miner_santa"] = function()
             if StatsBiomeGetValue("enemies_killed") < 1 and pool == "DAMAGEDEALT" then
