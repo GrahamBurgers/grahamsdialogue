@@ -52,9 +52,11 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_flamer"]                = 4,
     ["$animal_icer"]                  = 4,
     ["$animal_lukki_tiny"]            = -8,
+    ["$graham_lukkimount_name"]       = -38,
 })
 
 function EnemyHasDialogue(pool, name)
+    if name == nil then return false end
     local what = {}
     if pool == "IDLE" then what = DIALOGUE_IDLE end
     if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
@@ -311,6 +313,21 @@ function Speak(entity, text, pool, check_name)
                 text = special[Random(1, #special)]
             end
         end,
+        ["$graham_lukkimount_name"] = function()
+            local who = ComponentGetValue2(EntityGetFirstComponent(entity, "VariableStorageComponent") or 0, "value_int")
+            if who == 0 or who == nil then text = "" end
+            if BiomeMapGetName(x, y) == "$biome_rainforest" and Random(1, 3) == 1 and pool == "IDLE" then
+                local special = {
+                    "Ah, it's nice to be home in the jungle.",
+                    "It really has been a while. I don't recognize anyone here...",
+                    "Can we stay here a bit longer? I've missed it dearly...",
+                    "The air is so fresh here. It's a bit strange.",
+                    "Compared to everything else underneath the mountain, this place is...",
+                    "I enjoy just exploring the world with you. Though it's nice to be home.",
+                }
+                text = special[Random(1, #special)]
+            end
+        end,
     }
 
     if faction == "robot" then
@@ -320,8 +337,8 @@ function Speak(entity, text, pool, check_name)
         size_y = size_y + 0.06
     end
     if faction == "player" then
-        size_x = size_x + 0.03
-        size_y = size_y + 0.03
+        size_x = size_x + 0.025
+        size_y = size_y + 0.025
     end
     if faction == "ghost" then
         EntityAddComponent2(entity, "LuaComponent", {
@@ -369,6 +386,8 @@ function Speak(entity, text, pool, check_name)
     end
 
     end --!!!--
+    
+    if text == "" or text == nil then return end
 
     if ModIsEnabled("translation_uwu") then
         -- Haunted

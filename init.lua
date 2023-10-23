@@ -1,3 +1,5 @@
+dofile("mods/grahamsdialogue/files/common.lua")
+
 function OnPlayerSpawned(player)
     if not EntityHasTag(player, "graham_dialogue_added") then
         EntityAddTag(player, "graham_dialogue_added")
@@ -12,7 +14,8 @@ end
 function OnWorldPreUpdate()
     local enemies = EntityGetWithTag("hittable")
     for i = 1, #enemies do
-        if not EntityHasTag(enemies[i], "graham_dialogue_added") then
+        local name = NameGet(enemies[i])
+        if not EntityHasTag(enemies[i], "graham_dialogue_added") and EnemyHasDialogue("ANY", name) then
             EntityAddTag(enemies[i], "graham_dialogue_added")
             EntityAddComponent2(enemies[i], "LuaComponent", {
                 execute_every_n_frame=-1,

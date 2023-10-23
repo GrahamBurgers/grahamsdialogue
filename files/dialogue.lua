@@ -1,3 +1,5 @@
+SetRandomSeed(2352, GameGetFrameNum()) -- hax?
+
 DIALOGUE_DAMAGEDEALT = {
     {"$animal_shotgunner", "Gotcha.", "Blood, blood!", "I hope that hurt."},
     {"$animal_zombie", "Tasty!", "Rah!", "Spill your blood!"},
@@ -104,7 +106,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_shotgunner", "Augh!", "You'll pay for that!", "That hurts..."},
     {"$animal_zombie", "Leave me...", "This is my end.", "Are you hungry too?"},
     {"$animal_chest_mimic", "Hey! Knock it off!", "Shh, you'll ruin the disguise!", "Stop it, I'm hiding!"},
-    {"$animal_dark_alchemist", "This disguise usually works... what a shame.", "Damn. Maybe I'll get you next time.", "Fine, then. I'll remember this."},
+    {"$animal_dark_alchemist", "This disguise usually works... What a shame.", "Damn. Maybe I'll get you next time.", "Fine, then. I'll remember this."},
     {"$animal_shaman_wind", "This disguise always works! What gives?", "Damn it! You found me!", "Fine, then. I'll kill you next time."},
     {"$animal_longleg", "You are weak!", "Ahh!", "Fight us!"},
     {"$animal_miner", "I'll blow you to pieces!", "Bring it on!", "Beware!"},
@@ -304,6 +306,7 @@ DIALOGUE_IDLE = {
     {"$animal_lukki_longleg", "It's so immature to destroy the world around you.", "Cherish what we have, friends, while it lasts.", "Once you start learning from nature, you never really stop."},
     {"$animal_bloom", "Pollination was just a second thought once sentience struck.", "Nothing here follows nature's rules. Isn't that odd?", "Knowledge, yes, but... Where is there to go?"},
     {"$animal_shooterflower", "I won't summon a plant boss when I die. Sadly.", "The scenery here is quite nice... but what about elsewhere?", "The grass is always greener in a different biome."},
+    {"$graham_lukkimount_name", "Thanks again for saving me back then. I won't forget it.", "Feels like I was made for this. Hehe...", "My depth perception isn't great. I'm glad to have a pilot.", "Heh... where would I be without you?", "What's it like to have eyelids? Us spiders don't.", "I'm no good at pest removal, but I hope I can still help.", "This is great exercise for my legs. I'm glad that I can do it.", "No saddle for me. I'm a steed all on my own.", "Don't worry if I bump into a wall. It's kind of fun."},
 }
 
 GENERIC_HOLDINGWAND =
