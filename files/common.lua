@@ -387,28 +387,21 @@ function Speak(entity, text, pool, check_name)
 
     end --!!!--
     
-    if text == "" or text == nil then return end
+    if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
 
-    if ModIsEnabled("translation_uwu") then
-        -- Haunted
+    if ModIsEnabled("translation_uwu") then -- Haunted
         dofile_once("mods/translation_uwu/init.lua")
         ---@diagnostic disable-next-line: undefined-global
         text = owoify(text)
     end
-    if ModIsEnabled("salakieli") then
-        -- Glyphs
-        font = "mods/grahamsdialogue/files/font_runes_white.xml"
-    end
-    if GameGetGameEffectCount(entity, "CONFUSION") > 0 then
-        -- Flummoxium
-        local new_text = ""
-        for i = 1, #text do
-            new_text = new_text .. string.sub(text, #text - #new_text, #text - #new_text)
-        end
-        text = new_text
-    end
+    if ModIsEnabled("salakieli") then font = "mods/grahamsdialogue/files/font_runes_white.xml" end
+    if GameGetGameEffectCount(entity, "CONFUSION") > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
+    local size = ModSettingGet("grahamsdialogue.scale")
+    size_x = size_x * size
+    size_y = size_y * size
+
     local gui = GuiCreate()
     GuiStartFrame(gui)
     local width = GuiGetTextDimensions( gui, text, 1 ) / 2 -- special scale after offset_x

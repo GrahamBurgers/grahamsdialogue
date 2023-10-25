@@ -1,4 +1,4 @@
-SetRandomSeed(2352, GameGetFrameNum()) -- hax?
+SetRandomSeed(2352, 9533) -- hax?
 
 DIALOGUE_DAMAGEDEALT = {
     {"$animal_shotgunner", "Gotcha.", "Blood, blood!", "I hope that hurt."},
@@ -100,6 +100,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_lukki_longleg", "You may be as wise as us, but you're no saint...", "You know where you belong. Stay away from our lives.", "Just get out of here. One way or another."},
     {"$animal_bloom", "Hold your breath. Don't inhale the gas.", "Please move away so I'm not forced to start a fire.", "Hmm... I wish I could have hurt you more."},
     {"$animal_shooterflower", "It's funny to watch your dodging fail.", "Drop to the ground. Feel the grass.", "I mainly deal emotional damage... Idiot."},
+    {"$animal_spearbot", "Good. I was constructed for a divine purpose.", "Your goals are unholy. Let yourself be cleansed.", "I am nothing by myself. What are you?"},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -204,6 +205,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_lukki_longleg", "I wouldn't want to coexist with someone like you anyway.", "How childish. Have some respect towards your elders.", "That attitude is bound to come back to you one day."},
     {"$animal_bloom", "How could you hurt such an innocent little flower?", "Something within you... chills me to my core.", "Maybe you can turn me back into a normal flower."},
     {"$animal_shooterflower", "Leave me be. I'll fade into the background soon enough.", "Don't you have bigger things to worry about?", "If only I knew that I would have my sentience robbed by you."},
+    {"$animal_spearbot", "I do not know where you belong... but it is not here.", "Blasphemous being. What would your gods think?", "My body is not fragile, but my patience is."},
 }
 
 DIALOGUE_IDLE = {
@@ -307,6 +309,7 @@ DIALOGUE_IDLE = {
     {"$animal_bloom", "Pollination was just a second thought once sentience struck.", "Nothing here follows nature's rules. Isn't that odd?", "Knowledge, yes, but... Where is there to go?"},
     {"$animal_shooterflower", "I won't summon a plant boss when I die. Sadly.", "The scenery here is quite nice... but what about elsewhere?", "The grass is always greener in a different biome."},
     {"$graham_lukkimount_name", "Thanks again for saving me back then. I won't forget it.", "Feels like I was made for this. Hehe...", "My depth perception isn't great. I'm glad to have a pilot.", "Heh... where would I be without you?", "What's it like to have eyelids? Us spiders don't.", "I'm no good at pest removal, but I hope I can still help.", "This is great exercise for my legs. I'm glad that I can do it.", "No saddle for me. I'm a steed all on my own.", "Don't worry if I bump into a wall. It's kind of fun."},
+    {"$animal_spearbot", "Everything looks so much smaller from a higher perspective.", "Looks can be deceiving. And robots aren't fragile.", "These arms have won quite a few lance-throwing competitions."},
 }
 
 GENERIC_HOLDINGWAND =

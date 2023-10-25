@@ -85,6 +85,17 @@ mod_settings =
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
+		id = "scale",
+		ui_name = "Dialogue scale",
+		ui_description = "How large the dialogue is.\nMay cause strange offset scenarios if changed.",
+		value_default = 1,
+		value_min = 0.75,
+		value_max = 1.25,
+		value_display_multiplier = 100,
+		value_display_formatting = " $0%",
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
+	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
 		ui_description = "Whether or not dialogue is visible through the dark.",
