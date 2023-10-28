@@ -101,6 +101,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_bloom", "Hold your breath. Don't inhale the gas.", "Please move away so I'm not forced to start a fire.", "Hmm... I wish I could have hurt you more."},
     {"$animal_shooterflower", "It's funny to watch your dodging fail.", "Drop to the ground. Feel the grass.", "I mainly deal emotional damage... Idiot."},
     {"$animal_spearbot", "Good. I was constructed for a divine purpose.", "Your goals are unholy. Let yourself be cleansed.", "I am nothing by myself. What are you?"},
+    {"$animal_boss_dragon", "My birthday is your deathday!", "You brought this upon yourself. Understand that.", "How much more of this can you take? Let's find out.", "Hmm... What makes you so durable? Magic? Or something more?", "If your home is not the jungle... Then you are not welcome in my lair.", "You're tough, but you'll break. I know it."},
+    {"$animal_missilecrab", "Statistically, a few more missiles should cause your death.", "Be wary of the soot that such an explosion creates.", "Investing in homing rockets: a successful development."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -206,6 +208,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bloom", "How could you hurt such an innocent little flower?", "Something within you... chills me to my core.", "Maybe you can turn me back into a normal flower."},
     {"$animal_shooterflower", "Leave me be. I'll fade into the background soon enough.", "Don't you have bigger things to worry about?", "If only I knew that I would have my sentience robbed by you."},
     {"$animal_spearbot", "I do not know where you belong... but it is not here.", "Blasphemous being. What would your gods think?", "My body is not fragile, but my patience is."},
+    {"$animal_boss_dragon", "You'll pay for disturbing my slumber!", "Stay away from my jaws. Last warning.", "You're in my lair now, and this dragon hoards no gold.", "I won't give up. No matter how strong you may be...", "Ha! Perhaps I've finally met someone as stubborn as myself!", "I'll get to you eventually. Keep running."},
+    {"$animal_missilecrab", "This scenario should not happen. Error logged.", "You are a variable that has not been accounted for.", "Let us see whose health will drop to zero first."},
 }
 
 DIALOGUE_IDLE = {
@@ -310,6 +314,8 @@ DIALOGUE_IDLE = {
     {"$animal_shooterflower", "I won't summon a plant boss when I die. Sadly.", "The scenery here is quite nice... but what about elsewhere?", "The grass is always greener in a different biome."},
     {"$graham_lukkimount_name", "Thanks again for saving me back then. I won't forget it.", "Feels like I was made for this. Hehe...", "My depth perception isn't great. I'm glad to have a pilot.", "Heh... where would I be without you?", "What's it like to have eyelids? Us spiders don't.", "I'm no good at pest removal, but I hope I can still help.", "This is great exercise for my legs. I'm glad that I can do it.", "No saddle for me. I'm a steed all on my own.", "Don't worry if I bump into a wall. It's kind of fun."},
     {"$animal_spearbot", "Everything looks so much smaller from a higher perspective.", "Looks can be deceiving. And robots aren't fragile.", "These arms have won quite a few lance-throwing competitions."},
+    {"$animal_boss_dragon", "Don't bother hiding... I can smell you.", "According to all known laws of aviation, I shouldn't be able to fly.", "You know, it's rude to enter our tunnels while they're still occupied.", "It has been quite a while since my last haircut...", "I may be as red as a salmon, but nothing's fishy about me.", "It's a good thing that the jungle is so warm. I hate the cold..."},
+    {"$animal_missilecrab", "No, I will not vacuum your floors. Stop asking.", "Due to budget cuts, I do not have the ability to fly or hover.", "Fossil fuels? The environment will not suffer... hopefully."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -332,9 +338,6 @@ GENERIC_BERSERK =
 }
 GENERIC_TOXIC =
     { "Oh, I feel gross...", "Cough, hack...", "My head hurts...", "I feel like I'm gonna be sick...", "It hurts...",
-}
-GENERIC_CONFUSED =
-    { "!?no gniog si kceh eht tahW", "!desufnoc os m'I", "...struh daeh yM", "!?tahW", "!em fo ffo ffuts siht teG",
 }
 GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",

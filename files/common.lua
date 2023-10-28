@@ -53,6 +53,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_icer"]                  = 4,
     ["$animal_lukki_tiny"]            = -8,
     ["$graham_lukkimount_name"]       = -38,
+    ["$animal_boss_dragon"]           = 4,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -323,7 +324,7 @@ function Speak(entity, text, pool, check_name)
                     "Can we stay here a bit longer? I've missed it dearly...",
                     "The air is so fresh here. It's a bit strange.",
                     "Compared to everything else underneath the mountain, this place is...",
-                    "I enjoy just exploring the world with you. Though it's nice to be home.",
+                    "I'm enjoying just exploring the world with you. Though it's nice to be home.",
                 }
                 text = special[Random(1, #special)]
             end
@@ -352,6 +353,7 @@ function Speak(entity, text, pool, check_name)
         ["$animal_worm_tiny"]    = 6,
         ["$animal_worm"]         = 7,
         ["$animal_worm_big"]     = 8,
+        ["$animal_boss_dragon"]  = 20,
     }
     -- Appended stuff
     ModdedStuff()
@@ -370,7 +372,6 @@ function Speak(entity, text, pool, check_name)
                         "WOOOOOOOOO!",
                         "YEAAAAHHHH!",
                         "RAAAAAAAHH!",
-                        "LET'S GOOO!"
                     }
                     text = special[Random(1, #special)]
                     size_x = size_x + threshold / 20
