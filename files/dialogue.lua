@@ -103,6 +103,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_spearbot", "Good. I was constructed for a divine purpose.", "Your goals are unholy. Let yourself be cleansed.", "I am nothing by myself. What are you?"},
     {"$animal_boss_dragon", "My birthday is your deathday!", "You brought this upon yourself. Understand that.", "How much more of this can you take? Let's find out.", "Hmm... What makes you so durable? Magic? Or something more?", "If your home is not the jungle... Then you are not welcome in my lair.", "You're tough, but you'll break. I know it."},
     {"$animal_missilecrab", "Statistically, a few more missiles should cause your death.", "Be wary of the soot that such an explosion creates.", "Investing in homing rockets: a successful development."},
+    {"$animal_healerdrone_physics", "It is against protocol to heal unauthorized users.", "Wasted ammo. Someone will have to pay for this.", "Simply delaying the inevitable."},
+    {"$animal_lasershooter", "My gaze will not paralyze you, unlike some floating eyes I could mention.", "My field of view is bigger than yours, I assure you.", "No, I'm not crying! I just have something in my eye..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -210,6 +212,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_spearbot", "I do not know where you belong... but it is not here.", "Blasphemous being. What would your gods think?", "My body is not fragile, but my patience is."},
     {"$animal_boss_dragon", "You'll pay for disturbing my slumber!", "Stay away from my jaws. Last warning.", "You're in my lair now, and this dragon hoards no gold.", "I won't give up. No matter how strong you may be...", "Ha! Perhaps I've finally met someone as stubborn as myself!", "I'll get to you eventually. Keep running."},
     {"$animal_missilecrab", "This scenario should not happen. Error logged.", "You are a variable that has not been accounted for.", "Let us see whose health will drop to zero first."},
+    {"$animal_healerdrone_physics", "This does not seem beneficial to you.", "Is your purpose to simply remove all other sentient beings?", "Have you no respect for our work?"},
+    {"$animal_lasershooter", "You are, by far, the strangest thing I've seen recently.", "I'll win any staring contest that you challenge me to.", "I would ask you to aim around my eye, but..."},
 }
 
 DIALOGUE_IDLE = {
@@ -316,6 +320,8 @@ DIALOGUE_IDLE = {
     {"$animal_spearbot", "Everything looks so much smaller from a higher perspective.", "Looks can be deceiving. And robots aren't fragile.", "These arms have won quite a few lance-throwing competitions."},
     {"$animal_boss_dragon", "Don't bother hiding... I can smell you.", "According to all known laws of aviation, I shouldn't be able to fly.", "You know, it's rude to enter our tunnels while they're still occupied.", "It has been quite a while since my last haircut...", "I may be as red as a salmon, but nothing's fishy about me.", "It's a good thing that the jungle is so warm. I hate the cold..."},
     {"$animal_missilecrab", "No, I will not vacuum your floors. Stop asking.", "Due to budget cuts, I do not have the ability to fly or hover.", "Fossil fuels? The environment will not suffer... hopefully."},
+    {"$animal_healerdrone_physics", "Bolts that can heal both natural and robotic creatures... How interesting.", "Pheromone is quite amusing. I would not fall for something like that.", "I wonder what the purpose was behind my sentience. Is there one?"},
+    {"$animal_lasershooter", "What? Eyes? I don't know anything about any glyphs.", "Anyone got some eye drops? Please...", "Sweat and tears aren't that different, really."},
 }
 
 GENERIC_HOLDINGWAND =

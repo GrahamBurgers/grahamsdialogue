@@ -127,12 +127,12 @@ function Speak(entity, text, pool, check_name)
     local old_text = text
     local x, y = EntityGetTransform(entity)
     SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
-    local size_x = 0.7
-    local size_y = 0.7
+    local size_x = 0.65
+    local size_y = 0.65
 
     local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
     local name = NameGet(entity)
-    local offset_y = 28 + (Special_offsets_y[name] or 0)
+    local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
     local font = "data/fonts/font_pixel_white.xml"
 
     check_name = check_name or true
