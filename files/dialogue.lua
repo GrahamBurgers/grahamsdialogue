@@ -105,6 +105,11 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_missilecrab", "Statistically, a few more missiles should cause your death.", "Be wary of the soot that such an explosion creates.", "Investing in homing rockets: a successful development."},
     {"$animal_healerdrone_physics", "It is against protocol to heal unauthorized users.", "Wasted ammo. Someone will have to pay for this.", "Simply delaying the inevitable."},
     {"$animal_lasershooter", "My gaze will not paralyze you, unlike some floating eyes I could mention.", "My field of view is bigger than yours, I assure you.", "No, I'm not crying! I just have something in my eye..."},
+    {"$animal_worm_skull", "They're going to find you and you'll just be empty inside.", "Oh, I can sense potent magic within you...", "Your life... Give it all to me."},
+    {"$animal_ghost", "Do you see me as a tick? I see you as a liability.", "Let's get this over with.", "Submit yourself to me. I could use a host..."},
+    {"$animal_failed_alchemist", "I feel like... Something grander binds us together.", "I hate this. But this is where I belong.", "I'll break before you do. I'm sure of it."},
+    {"$animal_failed_alchemist_b", "This is all my fault. But I can't...", "Make it stop. Make it stop!", "I'm such a disgrace. A shallow fascimile..."},
+    {"$animal_enlightened_alchemist", "I can't hear you. There's this blaring in my mind...", "Stop breathing. Stop! I can't take it!", "I'll do whatever it takes to make the noise finally stop."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -214,6 +219,11 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_missilecrab", "This scenario should not happen. Error logged.", "You are a variable that has not been accounted for.", "Let us see whose health will drop to zero first."},
     {"$animal_healerdrone_physics", "This does not seem beneficial to you.", "Is your purpose to simply remove all other sentient beings?", "Have you no respect for our work?"},
     {"$animal_lasershooter", "You are, by far, the strangest thing I've seen recently.", "I'll win any staring contest that you challenge me to.", "I would ask you to aim around my eye, but..."},
+    {"$animal_worm_skull", "Try it all you'd like. You won't make a dent.", "Perhaps I overestimated you. Or is it something else...?", "I have bigger things to worry about."},
+    {"$animal_ghost", "You truly are a damned creature.", "Well, that's new.", "How ironic... No, not really."},
+    {"$animal_failed_alchemist", "Death is not an escape. It's just another hell...", "There's no going back this time.", "You won't make things any worse... Even if you try."},
+    {"$animal_failed_alchemist_b", "It doesn't even hurt anymore, it just...", "I don't want to suffer any more.", "Wake me up. I want to wake up...!"},
+    {"$animal_enlightened_alchemist", "I'm scared of the other side, so please...", "All of my senses are burning away.", "Count the sunsets. You only have so many of them left."},
 }
 
 DIALOGUE_IDLE = {
@@ -322,6 +332,11 @@ DIALOGUE_IDLE = {
     {"$animal_missilecrab", "No, I will not vacuum your floors. Stop asking.", "Due to budget cuts, I do not have the ability to fly or hover.", "Fossil fuels? The environment will not suffer... hopefully."},
     {"$animal_healerdrone_physics", "Bolts that can heal both natural and robotic creatures... How interesting.", "Pheromone is quite amusing. I would not fall for something like that.", "I wonder what the purpose was behind my sentience. Is there one?"},
     {"$animal_lasershooter", "What? Eyes? I don't know anything about any glyphs.", "Anyone got some eye drops? Please...", "Sweat and tears aren't that different, really."},
+    {"$animal_worm_skull", "Sometimes I do just get the urge to destroy things, though...", "Ghosts are like sponges for magic. Nothing else can persist...", "Walls are a suggestion. Or a blueprint."},
+    {"$animal_ghost", "No matter how many eyes I have, I'm blind...", "Maybe my next life will yield different results.", "Nothing feels real..."},
+    {"$animal_failed_alchemist", "My mistake was abusing my art and those I held dear.", "I know... I know that this isn't what I wanted...", "Where is everyone? Oh..."},
+    {"$animal_failed_alchemist_b", "My mistake was thinking that I was anything at all.", "I keep waking up, but this is just another nightmare...", "Look at me. Look at me."},
+    {"$animal_enlightened_alchemist", "My mistake was leaving my old morals behind.", "It feels like my mind is swollen with slime...", "What's left of me? Why don't I know?"},
 }
 
 GENERIC_HOLDINGWAND =

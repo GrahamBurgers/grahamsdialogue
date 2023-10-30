@@ -54,6 +54,9 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_lukki_tiny"]            = -8,
     ["$graham_lukkimount_name"]       = -38,
     ["$animal_boss_dragon"]           = 4,
+    ["$animal_failed_alchemist"]      = 18,
+    ["$animal_failed_alchemist_b"]    = 10,
+    ["$animal_enlightened_alchemist"] = 24,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -354,6 +357,7 @@ function Speak(entity, text, pool, check_name)
         ["$animal_worm"]         = 7,
         ["$animal_worm_big"]     = 8,
         ["$animal_boss_dragon"]  = 20,
+        ["$animal_worm_skull"]   = 10,
     }
     -- Appended stuff
     ModdedStuff()
