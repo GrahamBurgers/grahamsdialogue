@@ -72,5 +72,6 @@ Bosses are generally smarter than normal enemies, so assume they're usually talk
 Generally, spell words like "colour" with the u. Noita is mostly consistent in this... except for some stuff (rainbow glimmer)
 Ellipses and periods are good to end sentences, but double periods look a bit strange. Avoid if possible.
 You can make an enemy speak in glyphs if you'd like, but don't expect anyone to actually be able to read it.
+You might want to make idle lines a bit shorter than other lines, since enemies might be farther away from the center of the screen at any given time.
 
 ]]--

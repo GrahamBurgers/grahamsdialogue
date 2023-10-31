@@ -110,6 +110,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_failed_alchemist", "I feel like... Something grander binds us together.", "I hate this. But this is where I belong.", "I'll break before you do. I'm sure of it."},
     {"$animal_failed_alchemist_b", "This is all my fault. But I can't...", "Make it stop. Make it stop!", "I'm such a disgrace. A shallow fascimile..."},
     {"$animal_enlightened_alchemist", "I can't hear you. There's this blaring in my mind...", "Stop breathing. Stop! I can't take it!", "I'll do whatever it takes to make the noise finally stop."},
+    {"$animal_wraith", "What an interesting phenomenon.", "Hmm... This was not part of the plan.", "Unexpected, but not unwelcome."},
+    {"$animal_wraith_glowing", "Look on the bright side. You're not dead yet.", "Perhaps death will help you appreciate your next life.", "Let's not pretend that this isn't a familiar feeling."},
+    {"$animal_wraith_storm", "Maybe it would be wise to stay down this time.", "Haven't you learned anything at all?", "I'm surprised you can take any more of this."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -224,6 +227,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_failed_alchemist", "Death is not an escape. It's just another hell...", "There's no going back this time.", "You won't make things any worse... Even if you try."},
     {"$animal_failed_alchemist_b", "It doesn't even hurt anymore, it just...", "I don't want to suffer any more.", "Wake me up. I want to wake up...!"},
     {"$animal_enlightened_alchemist", "I'm scared of the other side, so please...", "All of my senses are burning away.", "Count the sunsets. You only have so many of them left."},
+    {"$animal_wraith", "Heh. That tickles.", "This might take a while.", "That's not a particularly wise thing to do."},
+    {"$animal_wraith_glowing", "Oh, it's on...!", "Are you challenging me? Let's go, then!", "You really want to do this? Your funeral."},
+    {"$animal_wraith_storm", "Your ascent will lead you to somewhere wicked, I know it.", "You think you're so clever, don't you?", "This was all predestined. Where will it go...?"},
 }
 
 DIALOGUE_IDLE = {
@@ -337,6 +343,9 @@ DIALOGUE_IDLE = {
     {"$animal_failed_alchemist", "My mistake was abusing my art and those I held dear.", "I know... I know that this isn't what I wanted...", "Where is everyone? Oh..."},
     {"$animal_failed_alchemist_b", "My mistake was thinking that I was anything at all.", "I keep waking up, but this is just another nightmare...", "Look at me. Look at me."},
     {"$animal_enlightened_alchemist", "My mistake was leaving my old morals behind.", "It feels like my mind is swollen with slime...", "What's left of me? Why don't I know?"},
+    {"$animal_wraith", "I'm an expert at conflict resolution. Right?", "We don't have vacuum cleaners around here, unfortunately.", "Not all who wander are lost. Hopefully."},
+    {"$animal_wraith_glowing", "Light and dark aren't always good and evil.", "Mirror, mirror, on the wall...", "Don't stare too hard. You'll give yourself sunburn."},
+    {"$animal_wraith_storm", "Stormy skies await you all.", "One day, the clouds will close in.", "Don't fly too close to the sun."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -346,7 +355,7 @@ GENERIC_CHARMED =
     { "I'm just happy to be here.", "Hello! How are you? I love you.", "Friendship...", "You're my best friend.", "Hehe...",
 }
 GENERIC_ONFIRE =
-    { "Ow, ow!", "Aaah!", "Water! Need water, quickly!", "Someone help!", "Fire! Fire!!",
+    { "Ow, ow!", "Aaah!", "Water! Need water, quickly!", "Someone help!", "Fire! Fire!!", "It burns! Help!",
 }
 GENERIC_PEACEFULENDING =
     { "This is nice.", "Thank you, player!", "So peaceful... so nice!", "I feel so happy!", "I can finally take a nap...",
