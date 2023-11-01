@@ -121,10 +121,23 @@ function EmptyEnemyDialogue(pool, name)
     if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
 end
 
-function Speak(entity, text, pool, check_name)
+function RemoveCurrentDialogue(entity)
+    local texts = EntityGetComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text") or {}
+    for i = 1, #texts do
+        EntityRemoveComponent(entity, texts[i])
+    end
+    EntityRemoveTag(entity, "graham_speaking")
+    local ghostComponent = EntityGetFirstComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_ghost")
+    if ghostComponent then EntityRemoveComponent(entity, ghostComponent) end
+end
+
+function Speak(entity, text, pool, check_name, override_old)
+    override_old = override_old or false
     pool = pool or ""
     local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
-    if textComponent then return end
+    if textComponent and not override_old then
+        return
+    end
 
     local rotate = false
     local old_text = text
@@ -403,6 +416,8 @@ function Speak(entity, text, pool, check_name)
     if GameGetGameEffectCount(entity, "CONFUSION") > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
+
+    if override_old then RemoveCurrentDialogue(entity) end
     local size = ModSettingGet("grahamsdialogue.scale")
     size_x = size_x * size
     size_y = size_y * size
