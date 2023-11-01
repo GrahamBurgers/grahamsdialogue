@@ -113,6 +113,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_wraith", "What an interesting phenomenon.", "Hmm... This was not part of the plan.", "Unexpected, but not unwelcome."},
     {"$animal_wraith_glowing", "Look on the bright side. You're not dead yet.", "Perhaps death will help you appreciate your next life.", "Let's not pretend that this isn't a familiar feeling."},
     {"$animal_wraith_storm", "Maybe it would be wise to stay down this time.", "Haven't you learned anything at all?", "I'm surprised you can take any more of this."},
+    {"$animal_skullrat", "Your flesh will go to the rats, and your bones will go to me!", "You'll wake up as a part of me as though nothing even happened.", "Don't worry, the only contagion I carry is death itself."},
+    {"$animal_skullfly", "Heh. Don't panic... It'll just make your death more painful.", "I'll assimilate you once you die. Would you like that?", "My flames burn away the very essence of life that animates you."},
+    {"$animal_crystal_physics", "Are you afraid of ghosts? Or what they can do?", "Stay awaaay! Haha!", "Who knows, maybe you'll turn into a ghost when you die, too."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -230,6 +233,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_wraith", "Heh. That tickles.", "This might take a while.", "That's not a particularly wise thing to do."},
     {"$animal_wraith_glowing", "Oh, it's on...!", "Are you challenging me? Let's go, then!", "You really want to do this? Your funeral."},
     {"$animal_wraith_storm", "Your ascent will lead you to somewhere wicked, I know it.", "You think you're so clever, don't you?", "This was all predestined. Where will it go...?"},
+    {"$animal_skullrat", "I don't see what's so unholy about reanimation.", "Maybe I'll manage to hold myself together this time.", "I can feel everything falling apart again..."},
+    {"$animal_skullfly", "Oh, you think you're better than me, do you?", "You can't kill me in a way that matters.", "How do I speak with no jaw? Magic. That's all."},
+    {"$animal_crystal_physics", "Try it! I can always choose a new crystal.", "There are enough gems around here to sustain me for eternity.", "Hey, hands off! This one's occupied!"},
 }
 
 DIALOGUE_IDLE = {
@@ -346,6 +352,9 @@ DIALOGUE_IDLE = {
     {"$animal_wraith", "I'm an expert at conflict resolution. Right?", "We don't have vacuum cleaners around here, unfortunately.", "Not all who wander are lost. Hopefully."},
     {"$animal_wraith_glowing", "Light and dark aren't always good and evil.", "Mirror, mirror, on the wall...", "Don't stare too hard. You'll give yourself sunburn."},
     {"$animal_wraith_storm", "Stormy skies await you all.", "One day, the clouds will close in.", "Don't fly too close to the sun."},
+    {"$animal_skullrat", "There's lots of room for scrounging, here in this tomb.", "Some day I'll find a big enough skull, and then...", "If you steal something for long enough, then you own it, right?"},
+    {"$animal_skullfly", "This brickwork is older than all of us. Best show some respect.", "We're more than just the sum of our parts.", "Sometimes it's just easier to appreciate someone in death."},
+    {"$animal_crystal_physics", "Crystals are such pretty husks to occupy...", "Perhaps I should've chosen a more discreet form.", "It's a lot of fun to be a bit haphazard sometimes."},
 }
 
 GENERIC_HOLDINGWAND =
