@@ -57,6 +57,9 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_failed_alchemist"]      = 18,
     ["$animal_failed_alchemist_b"]    = 10,
     ["$animal_enlightened_alchemist"] = 24,
+    ["$animal_fungus_big"]            = 8,
+    ["$animal_fungus_giga"]           = 24,
+    ["$animal_skullfly"]              = 8,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -122,14 +125,13 @@ function EmptyEnemyDialogue(pool, name)
 end
 
 function RemoveCurrentDialogue(entity)
+    if not EntityGetIsAlive(entity) then return end
     EntityRemoveTag(entity, "graham_speaking")
-    local texts = EntityGetComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text") or {}
-    for i = 1, #texts do
-        EntityRemoveComponent(entity, texts[i])
-    end
-    local lua = EntityGetComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_lua") or {}
-    for i = 1, #lua do
-        EntityRemoveComponent(entity, lua[i])
+    local comps = EntityGetAllComponents(entity) or {}
+    for i = 1, #comps do
+        if ComponentHasTag(comps[i], "graham_speech_removable") then
+            EntityRemoveComponent(entity, comps[i])
+        end
     end
 end
 
@@ -349,7 +351,7 @@ function Speak(entity, text, pool, check_name, override_old)
         end,
         ["$animal_lurker"] = function()
             EntityAddComponent2(entity, "LuaComponent", {
-                _tags="graham_speech_lua",
+                _tags="graham_speech_removable",
                 execute_every_n_frame=1,
                 script_source_file="mods/grahamsdialogue/files/lurker.lua"
             })
@@ -368,7 +370,7 @@ function Speak(entity, text, pool, check_name, override_old)
     end
     if faction == "ghost" then
         EntityAddComponent2(entity, "LuaComponent", {
-            _tags="graham_speech_lua",
+            _tags="graham_speech_removable",
             execute_every_n_frame=1,
             script_source_file="mods/grahamsdialogue/files/ghost.lua"
         })
@@ -425,6 +427,7 @@ function Speak(entity, text, pool, check_name, override_old)
     if GameGetGameEffectCount(entity, "CONFUSION") > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
     ---- All dialogue handling should go above this point, don't tinker with stuff down here ----
+    local mode = (ModSettingGet("grahamsdialogue.type") == "letter" and string.sub(text, 1, 1)) or text
 
     if override_old then RemoveCurrentDialogue(entity) end
     local size = ModSettingGet("grahamsdialogue.scale")
@@ -433,12 +436,12 @@ function Speak(entity, text, pool, check_name, override_old)
 
     local gui = GuiCreate()
     GuiStartFrame(gui)
-    local width = GuiGetTextDimensions( gui, text, 1 ) / 2 -- special scale after offset_x
+    local width = GuiGetTextDimensions( gui, mode, 1 ) / 2 -- special scale after offset_x
     GuiDestroy(gui)
 
     EntityAddTag(entity, "graham_speaking")
     EntityAddComponent2(entity, "SpriteComponent", {
-        _tags = "enabled_in_world, graham_speech_text",
+        _tags = "enabled_in_world, graham_speech_text, graham_speech_removable",
         image_file = font,
         emissive = ModSettingGet("grahamsdialogue.visibility"),
         is_text_sprite = true,
@@ -447,7 +450,7 @@ function Speak(entity, text, pool, check_name, override_old)
         alpha = alpha,
         update_transform = true,
         update_transform_rotation = rotate,
-        text = text,
+        text = mode,
         has_special_scale = true,
         special_scale_x = size_x,
         special_scale_y = size_y,
@@ -458,9 +461,23 @@ function Speak(entity, text, pool, check_name, override_old)
     local luacomp = EntityGetFirstComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_quiet")
     if luacomp then EntityRemoveComponent(entity, luacomp) end
 
+    if ModSettingGet("grahamsdialogue.type") == "letter" then
+        EntityAddComponent2(entity, "VariableStorageComponent", {
+            _tags="graham_speech_removable",
+            name="graham_dialogue_storage",
+            value_string=text,
+        })
+        EntityAddComponent2(entity, "LuaComponent", {
+            _tags="graham_speech_removable",
+            execute_every_n_frame=1,
+            execute_times=string.len(text) - 1,
+            script_source_file="mods/grahamsdialogue/files/speak.lua",
+        })
+    end
+
     EntityAddComponent2(entity, "LuaComponent", {
         _tags= "graham_speech_quiet",
-        execute_every_n_frame=ModSettingGet("grahamsdialogue.length"),
+        execute_every_n_frame=string.len(text) + 180,
         script_source_file="mods/grahamsdialogue/files/quiet.lua",
         remove_after_executed=true,
     })

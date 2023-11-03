@@ -118,6 +118,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_crystal_physics", "Are you afraid of ghosts? Or what they can do?", "Stay awaaay! Haha!", "Who knows, maybe you'll turn into a ghost when you die, too."},
     {"$animal_lurker", "I'm a coalescence of everything you dread.", "You'll forever be cursed, one way or another.", "Don't look away... I'm everywhere you look."},
     {"$animal_lukki_creepy_long", "Be mindful of all that you don't have.", "Poke around and find out.", "Evidently, a head is just for convenience."},
+    {"$animal_lukki_dark", "", "", ""},
+    {"$animal_worm_end", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -240,6 +242,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_crystal_physics", "Try it! I can always choose a new crystal.", "There are enough gems around here to sustain me for eternity.", "Hey, hands off! This one's occupied!"},
     {"$animal_lurker", "This bubble isn't going to pop just yet.", "Spread this essence of darkness far and wide...", "What lead you to this point? Do you regret it?"},
     {"$animal_lukki_creepy_long", "What a cruel creature you are.", "I speak with no mouth... You fight with no concience.", "So rude... My friends will eat you right up."},
+    {"$animal_lukki_dark", "", "", ""},
+    {"$animal_worm_end", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -361,6 +365,8 @@ DIALOGUE_IDLE = {
     {"$animal_crystal_physics", "Crystals are such pretty husks to occupy...", "Perhaps I should've chosen a more discreet form.", "It's a lot of fun to be a bit haphazard sometimes."},
     {"$animal_lurker", "The poison runs as deep as the darkness down here.", "This place just drains the light from every poor soul...", "It's pure darkness inside and out."},
     {"$animal_lukki_creepy_long", "A good sense of touch can light darkness like nothing else.", "The spiders in the jungle think that I'm odd. That's alright.", "Someone has to keep the folks here company, right?"},
+    {"$animal_lukki_dark", "", "", ""},
+    {"$animal_worm_end", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
