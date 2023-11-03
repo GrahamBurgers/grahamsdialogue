@@ -116,6 +116,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_skullrat", "Your flesh will go to the rats, and your bones will go to me!", "You'll wake up as a part of me as though nothing even happened.", "Don't worry, the only contagion I carry is death itself."},
     {"$animal_skullfly", "Heh. Don't panic... It'll just make your death more painful.", "I'll assimilate you once you die. Would you like that?", "My flames burn away the very essence of life that animates you."},
     {"$animal_crystal_physics", "Are you afraid of ghosts? Or what they can do?", "Stay awaaay! Haha!", "Who knows, maybe you'll turn into a ghost when you die, too."},
+    {"$animal_lurker", "I'm a coalescence of everything you dread.", "You'll forever be cursed, one way or another.", "Don't look away... I'm everywhere you look."},
+    {"$animal_lukki_creepy_long", "Be mindful of all that you don't have.", "Poke around and find out.", "Evidently, a head is just for convenience."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -236,6 +238,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_skullrat", "I don't see what's so unholy about reanimation.", "Maybe I'll manage to hold myself together this time.", "I can feel everything falling apart again..."},
     {"$animal_skullfly", "Oh, you think you're better than me, do you?", "You can't kill me in a way that matters.", "How do I speak with no jaw? Magic. That's all."},
     {"$animal_crystal_physics", "Try it! I can always choose a new crystal.", "There are enough gems around here to sustain me for eternity.", "Hey, hands off! This one's occupied!"},
+    {"$animal_lurker", "This bubble isn't going to pop just yet.", "Spread this essence of darkness far and wide...", "What lead you to this point? Do you regret it?"},
+    {"$animal_lukki_creepy_long", "What a cruel creature you are.", "I speak with no mouth... You fight with no concience.", "So rude... My friends will eat you right up."},
 }
 
 DIALOGUE_IDLE = {
@@ -355,6 +359,8 @@ DIALOGUE_IDLE = {
     {"$animal_skullrat", "There's lots of room for scrounging, here in this tomb.", "Some day I'll find a big enough skull, and then...", "If you steal something for long enough, then you own it, right?"},
     {"$animal_skullfly", "This brickwork is older than all of us. Best show some respect.", "We're more than just the sum of our parts.", "Sometimes it's just easier to appreciate someone in death."},
     {"$animal_crystal_physics", "Crystals are such pretty husks to occupy...", "Perhaps I should've chosen a more discreet form.", "It's a lot of fun to be a bit haphazard sometimes."},
+    {"$animal_lurker", "The poison runs as deep as the darkness down here.", "This place just drains the light from every poor soul...", "It's pure darkness inside and out."},
+    {"$animal_lukki_creepy_long", "A good sense of touch can light darkness like nothing else.", "The spiders in the jungle think that I'm odd. That's alright.", "Someone has to keep the folks here company, right?"},
 }
 
 GENERIC_HOLDINGWAND =

@@ -122,13 +122,15 @@ function EmptyEnemyDialogue(pool, name)
 end
 
 function RemoveCurrentDialogue(entity)
+    EntityRemoveTag(entity, "graham_speaking")
     local texts = EntityGetComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text") or {}
     for i = 1, #texts do
         EntityRemoveComponent(entity, texts[i])
     end
-    EntityRemoveTag(entity, "graham_speaking")
-    local ghostComponent = EntityGetFirstComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_ghost")
-    if ghostComponent then EntityRemoveComponent(entity, ghostComponent) end
+    local lua = EntityGetComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_lua") or {}
+    for i = 1, #lua do
+        EntityRemoveComponent(entity, lua[i])
+    end
 end
 
 function Speak(entity, text, pool, check_name, override_old)
@@ -345,6 +347,13 @@ function Speak(entity, text, pool, check_name, override_old)
                 text = special[Random(1, #special)]
             end
         end,
+        ["$animal_lurker"] = function()
+            EntityAddComponent2(entity, "LuaComponent", {
+                _tags="graham_speech_lua",
+                execute_every_n_frame=1,
+                script_source_file="mods/grahamsdialogue/files/lurker.lua"
+            })
+        end,
     }
 
     if faction == "robot" then
@@ -359,7 +368,7 @@ function Speak(entity, text, pool, check_name, override_old)
     end
     if faction == "ghost" then
         EntityAddComponent2(entity, "LuaComponent", {
-            _tags="graham_speech_ghost",
+            _tags="graham_speech_lua",
             execute_every_n_frame=1,
             script_source_file="mods/grahamsdialogue/files/ghost.lua"
         })
