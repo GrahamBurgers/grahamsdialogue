@@ -92,7 +92,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_icemage", "Your health will soon drop to absolute zero.", "Don't look so blue. Just try.", "Your death will be my gift this year."},
     {"$animal_statue", "Let me make your grave in my image.", "How pathetic. Look at your blood.", "Parry me, coward! I bet you can't."},
     {"$animal_assassin", "They always told me to not play with my food...", "I'm mechanical and tougher than you'll ever be.", "Diced and well-done, please."},
-    {"$animal_drone_lasership", "I will extract all of your blood from your feeble body.", "It's a shame that you are not as flammable as wood.", "Lasers are so clean. No bullet holes at all."},
+    {"$animal_drone_lasership", "I will extract all of your blood from your feeble body.", "It is a shame that you are not as flammable as wood.", "Lasers are so clean. No bullet holes at all."},
     {"$animal_miner_santa", "No coal for you. Although, would that hurt more...?", "Go make some snow angels. I insist.", "I know just what you deserve this holiday season."},
     {"$animal_cook", "You'll end up in my next-a recipe if you aren't careful!", "Social distancing. Stay a sausage's length away.", "Bah! Kids these-a days..."},
     {"$animal_lukki_tiny", "You're violent, but you're not hopeless... right?", "This is what you get! Stay away from our eggs!", "Your magic seems to be failing you..."},
@@ -118,8 +118,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_crystal_physics", "Are you afraid of ghosts? Or what they can do?", "Stay awaaay! Haha!", "Who knows, maybe you'll turn into a ghost when you die, too."},
     {"$animal_lurker", "I'm a coalescence of everything you dread.", "You'll forever be cursed, one way or another.", "Don't look away... I'm everywhere you look."},
     {"$animal_lukki_creepy_long", "Be mindful of all that you don't have.", "Poke around and find out.", "Evidently, a head is just for convenience."},
-    {"$animal_lukki_dark", "", "", ""},
-    {"$animal_worm_end", "", "", ""},
+    {"$animal_lukki_dark", "Yes, perish for me!", "Give me all of your delicious blood...", "Your blood, and then your corpse, all for me!"},
+    {"$animal_worm_end", "Feel how strong these jaws are? Haha...", "I would say that I'll send you to hell, but... You're already here.", "I'll drag you even deeper down."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -242,8 +242,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_crystal_physics", "Try it! I can always choose a new crystal.", "There are enough gems around here to sustain me for eternity.", "Hey, hands off! This one's occupied!"},
     {"$animal_lurker", "This bubble isn't going to pop just yet.", "Spread this essence of darkness far and wide...", "What lead you to this point? Do you regret it?"},
     {"$animal_lukki_creepy_long", "What a cruel creature you are.", "I speak with no mouth... You fight with no concience.", "So rude... My friends will eat you right up."},
-    {"$animal_lukki_dark", "", "", ""},
-    {"$animal_worm_end", "", "", ""},
+    {"$animal_lukki_dark", "Your spells won't stop the hunger!", "You think you can take me on?!", "You're fighting a losing battle!"},
+    {"$animal_worm_end", "What's hell for you is like heaven for us.", "My blood boils at the thought of you living any longer.", "You dare to assault a creature like me?!"},
 }
 
 DIALOGUE_IDLE = {
@@ -365,8 +365,8 @@ DIALOGUE_IDLE = {
     {"$animal_crystal_physics", "Crystals are such pretty husks to occupy...", "Perhaps I should've chosen a more discreet form.", "It's a lot of fun to be a bit haphazard sometimes."},
     {"$animal_lurker", "The poison runs as deep as the darkness down here.", "This place just drains the light from every poor soul...", "It's pure darkness inside and out."},
     {"$animal_lukki_creepy_long", "A good sense of touch can light darkness like nothing else.", "The spiders in the jungle think that I'm odd. That's alright.", "Someone has to keep the folks here company, right?"},
-    {"$animal_lukki_dark", "", "", ""},
-    {"$animal_worm_end", "", "", ""},
+    {"$animal_lukki_dark", "Gnaaaah!", "Nothing shall escape!", "I'll shred this whole place to bits!"},
+    {"$animal_worm_end", "As above, so below... But my reflection is lost.", "What's lost may never be found, down here.", "Rumors say that not a single soul has escaped my jaws alive."},
 }
 
 GENERIC_HOLDINGWAND =

@@ -2,16 +2,25 @@ local me = GetUpdatedEntityID()
 local comp = EntityGetFirstComponent(me, "VariableStorageComponent", "graham_speech_removable")
 if not comp then return end
 local text = ComponentGetValue2(comp, "value_string")
-local sprites = EntityGetComponent(me, "SpriteComponent", "graham_speech_text") or {}
-for i = 1, #sprites do
-    local current = ComponentGetValue2(sprites[i], "text")
-    local new = string.sub(text, 1, string.len(current) + 1)
+local sprite = EntityGetFirstComponent(me, "SpriteComponent", "graham_speech_text") or 0
+local amount = 1
+local current = ComponentGetValue2(sprite, "text")
+local slow = false
+if string.len(current) ~= string.len(text) then
+    if EntityHasTag(me, "robot") then
+        amount = 3
+        slow = true
+    end
+    if GameGetGameEffectCount(me, "MOVEMENT_FASTER_2X") > 0 then amount = amount * 2 end
+    if GameGetGameEffectCount(me, "SLIMY") > 0 then slow = true end
+    if slow and ComponentGetValue2(GetUpdatedComponentID(), "mTimesExecuted") % 3 ~= 0 then return end
+    local new = string.sub(text, 1, string.len(current) + amount)
     local gui = GuiCreate()
     GuiStartFrame(gui)
     local width = GuiGetTextDimensions( gui, new, 1 ) / 2
     GuiDestroy(gui)
 
-    ComponentSetValue2(sprites[i], "text", new)
-    ComponentSetValue2(sprites[i], "offset_x", width)
-    EntityRefreshSprite(me, sprites[i])
+    ComponentSetValue2(sprite, "text", new)
+    ComponentSetValue2(sprite, "offset_x", width)
+    EntityRefreshSprite(me, sprite)
 end

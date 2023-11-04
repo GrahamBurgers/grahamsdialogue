@@ -39,7 +39,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_giant"]                 = 6,
     ["$animal_pebble"]                = -6,
     ["$animal_rat"]                   = -4,
-    ["$animal_drone"]                 = -12,
+    ["$animal_drone"]                 = -10,
     ["$animal_scavenger_leader"]      = 8,
     ["$animal_scavenger_clusterbomb"] = 8,
     ["$animal_scavenger_mine"]        = 8,
@@ -60,6 +60,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
     ["$animal_fungus_big"]            = 8,
     ["$animal_fungus_giga"]           = 24,
     ["$animal_skullfly"]              = 8,
+    ["$animal_spearbot"]              = 12,
+    ["$animal_roboguard"]             = 4,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -224,9 +226,31 @@ function Speak(entity, text, pool, check_name, override_old)
                     for j = 1, #comps do
                         if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" then
                             local special = {
+                                "What an interesting stone. I can't help but stare.",
+                                "That flame burns brightly. Not as bright as me, but still...",
+                                "Blue fire is all the rage nowadays. Normal fire, not so much.",
+                            }
+                            text = special[Random(1, #special)]
+                            found = true
+                            break
+                        end
+                        if found then break end
+                    end
+                end
+            end
+        end,
+        ["$animal_firemage_weak"] = function()
+            if pool == "IDLE" then
+                local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+                local found = false
+                for i = 1, #items do
+                    local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+                    for j = 1, #comps do
+                        if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" then
+                            local special = {
                                 "Nice stone you got there. Is it for sale?",
                                 "That flame... it reminds me of myself when I was younger.",
-                                "Come a bit closer. I'd like to get a closer look at that item.",
+                                "Come a bit closer. I'd like to get a better look at that item.",
                             }
                             text = special[Random(1, #special)]
                             found = true
@@ -324,6 +348,13 @@ function Speak(entity, text, pool, check_name, override_old)
             size_x = size_x - 0.05
             size_y = size_y - 0.05
         end,
+        ["$animal_lukki_dark"] = function()
+            size_x = size_x + 0.20
+            size_y = size_y + 0.20
+            if string.sub(text, -1, -1) == "." and string.sub(text, -2, -2) ~= "." then
+                text = string.sub(text, 1, -2) .. "!"
+            end
+        end,
         ["$animal_miner_santa"] = function()
             if StatsBiomeGetValue("enemies_killed") < 1 and pool == "DAMAGEDEALT" then
                 local special = {
@@ -358,7 +389,7 @@ function Speak(entity, text, pool, check_name, override_old)
         end,
     }
 
-    if faction == "robot" then
+    if EntityHasTag(entity, "robot") then
         size_x = size_x + 0.06
     end
     if faction == "fungus" then
@@ -415,7 +446,7 @@ function Speak(entity, text, pool, check_name, override_old)
     end
 
     end --!!!--
-    
+
     if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
 
     if ModIsEnabled("translation_uwu") then -- Haunted
@@ -470,7 +501,6 @@ function Speak(entity, text, pool, check_name, override_old)
         EntityAddComponent2(entity, "LuaComponent", {
             _tags="graham_speech_removable",
             execute_every_n_frame=1,
-            execute_times=string.len(text) - 1,
             script_source_file="mods/grahamsdialogue/files/speak.lua",
         })
     end
