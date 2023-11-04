@@ -221,6 +221,7 @@ function Speak(entity, text, pool, check_name, override_old)
 			["$animal_worm_big"]    = 8,
 			["$animal_boss_dragon"] = 20,
 			["$animal_worm_skull"]  = 10,
+			["$animal_worm_end"]    = 10,
 		}
 		-- Appended stuff
 		ModdedStuff()

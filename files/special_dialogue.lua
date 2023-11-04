@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
 	["$animal_necromancer_shop"] = function(config)
 		if config.pool == "IDLE" and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
@@ -181,5 +182,13 @@ return {
 		if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
 			config.text = string.sub(config.text, 1, -2) .. "!"
 		end
+	end,
+	["$animal_worm_end"] = function(config)
+		config.size_x = config.size_x + 0.15
+		config.size_y = config.size_y + 0.15
+	end,
+	["$animal_boss_dragon"] = function(config)
+		config.size_x = config.size_x + 0.10
+		config.size_y = config.size_y + 0.10
 	end,
 }
