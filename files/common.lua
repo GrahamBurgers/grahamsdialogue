@@ -254,8 +254,8 @@ function Speak(entity, text, pool, check_name, override_old)
 			entity = config.entity
 			x = config.x
 			y = config.y
-			size_x = config.x
-			size_y = config.y
+			size_x = config.size_x
+			size_y = config.size_y
 			faction = config.faction
 			pool = config.pool
 		end
