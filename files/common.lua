@@ -12,6 +12,10 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_turret_right"]          = "$animal_turret",
 	["$animal_turret_left"]           = "$animal_turret",
 	["$animal_statue_physics"]        = "$animal_statue",
+	["angry_ghost"]                  = "generic_ghost",
+	["hungry_ghost"]                 = "generic_ghost",
+	["mournful_spirit"]              = "generic_ghost",
+	["tipsy_ghost"]                  = "generic_ghost",
 })
 
 function NameGet(entity)
@@ -62,6 +66,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_skullfly"]              = 8,
 	["$animal_spearbot"]              = 12,
 	["$animal_roboguard"]             = 4,
+	["generic_ghost"]                = -8,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -137,12 +142,21 @@ function RemoveCurrentDialogue(entity)
 	end
 end
 
-function Speak(entity, text, pool, check_name, override_old)
+---@param entity number
+---@param text string
+---@param pool string? ""
+---@param check_name boolean? true
+---@param override_old boolean? false
+---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
+---Returns true if enemy successfully began speaking. Otherwise, returns a string with the reason why nothing happened.
+function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
 	pool = pool or ""
+	if check_name == nil then check_name = true end
+
 	local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
 	if textComponent and not override_old then
-		return
+		return "No dialogue: Enemy is already speaking."
 	end
 
 	local rotate = false
@@ -154,14 +168,16 @@ function Speak(entity, text, pool, check_name, override_old)
 
 	local alpha = (100 - ModSettingGet("grahamsdialogue.transparency")) / 100
 	local name = NameGet(entity)
+	if name_override ~= nil then
+		name = DUPES[name_override] or name_override
+	end
 	local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
 	local font = "data/fonts/font_pixel_white.xml"
 
-	check_name = check_name or true
 	if check_name then --!!!--
-		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
+		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return "No dialogue: Enemy has no text! Try changing check_name." end
 		-- player should never speak
-		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
+		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return "No dialogue: This is the player!" end
 
 		local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
 		local faction
@@ -195,7 +211,7 @@ function Speak(entity, text, pool, check_name, override_old)
 			end
 		end
 
-		local special_dialogue = dofile_once("mods/grahamsdialogue/files/special_dialogue.lua")
+		Special_dialogue = dofile_once("mods/grahamsdialogue/files/special_dialogue.lua")
 
 		if EntityHasTag(entity, "robot") then
 			size_x = size_x + 0.06
@@ -250,7 +266,7 @@ function Speak(entity, text, pool, check_name, override_old)
 		end
 
 		-- This is where all the stuff actually happens!
-		if special_dialogue[name] ~= nil then
+		if Special_dialogue[name] ~= nil then
 			local config = {
 				text = text,
 				entity = entity,
@@ -261,7 +277,7 @@ function Speak(entity, text, pool, check_name, override_old)
 				faction = faction,
 				pool = pool
 			}
-			special_dialogue[name](config)
+			Special_dialogue[name](config)
 			text = config.text
 			entity = config.entity
 			x = config.x
@@ -273,7 +289,7 @@ function Speak(entity, text, pool, check_name, override_old)
 		end
 	end                                       --!!!--
 
-	if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
+	if text == "" or text == nil then return "No dialogue: There is no text to speak!" end -- utility; if text is nothing then don't speak at all
 
 	if ModIsEnabled("translation_uwu") then   -- Haunted
 		dofile_once("mods/translation_uwu/init.lua")
@@ -337,4 +353,6 @@ function Speak(entity, text, pool, check_name, override_old)
 		script_source_file = "mods/grahamsdialogue/files/quiet.lua",
 		remove_after_executed = true,
 	})
+
+	return true
 end

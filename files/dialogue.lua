@@ -393,3 +393,10 @@ GENERIC_TOXIC =
 GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
+
+Custom_speak_lines = {
+    {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!"},
+    {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "Eating bullets is strange? How does a ghost eat at all?", "Careful about healing while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier..."},
+    {"mournful_spirit", "", "", "", "", "", ""},
+    {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "", "", "", ""},
+}

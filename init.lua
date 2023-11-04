@@ -1,3 +1,25 @@
+local filepaths = {
+    -- note: this probably won't work if the filepath has a child entity
+    {"data/entities/misc/perks/angry_ghost.xml", "angry_ghost"},
+    {"data/entities/misc/perks/hungry_ghost.xml", "hungry_ghost"},
+    {"data/entities/misc/perks/death_ghost.xml", "mournful_spirit"},
+    {"mods/grahamsperks/files/entities/tipsy_ghost/tipsy_ghost.xml", "tipsy_ghost"}
+}
+
+for i = 1, #filepaths do
+    if ModDoesFileExist == nil or ModDoesFileExist(filepaths[i][1]) then -- may cause errors if not on beta branch
+        local content = ModTextFileGetContent(filepaths[i][1])
+        if content ~= nil then
+            content = content:gsub("</Entity>", [[
+                <LuaComponent script_source_file="mods/grahamsdialogue/files/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="]] .. filepaths[i][2] .. [["></LuaComponent>
+                </Entity>
+            ]])
+            content = content:gsub([[tags="]], [[tags="graham_enemydialogue,]])
+            ModTextFileSetContent(filepaths[i][1], content)
+        end
+    end
+end
+
 function OnPlayerSpawned(player)
     if not EntityHasTag(player, "graham_dialogue_added") then
         EntityAddTag(player, "graham_dialogue_added")

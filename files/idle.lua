@@ -39,8 +39,8 @@ if Random(1, rate) == 1 then
     local name = NameGet(me)
     for i = 1, #DIALOGUE_IDLE do
         if DIALOGUE_IDLE[i][1] == name then
-                local type = Random(2, #DIALOGUE_IDLE[i])
-                Speak(me, tostring(DIALOGUE_IDLE[i][type]), "IDLE")
+            local type = Random(2, #DIALOGUE_IDLE[i])
+            Speak(me, tostring(DIALOGUE_IDLE[i][type]), "IDLE")
             break
         end
     end

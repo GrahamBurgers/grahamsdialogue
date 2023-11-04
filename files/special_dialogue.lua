@@ -191,4 +191,8 @@ return {
 		config.size_x = config.size_x + 0.10
 		config.size_y = config.size_y + 0.10
 	end,
+	["generic_ghost"] = function(config)
+		config.size_x = config.size_x - 0.08
+		config.size_y = config.size_y - 0.08
+	end,
 }
