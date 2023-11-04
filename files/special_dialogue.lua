@@ -21,6 +21,25 @@ return {
 	end,
 	["$animal_firemage"] = function(config)
 		if config.pool == "IDLE" then
+			local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+			for i = 1, #items do
+				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+				for j = 1, #comps do
+					if ComponentGetValue2(comps[j], "effect") == "FRIEND_FIREMAGE" then
+						local special = {
+							"What an interesting stone. I can't help but stare.",
+							"That flame burns brightly. Not as bright as me, but still...",
+							"Blue fire is all the rage nowadays. Normal fire, not so much.",
+						}
+						config.text = special[Random(1, #special)]
+						return
+					end
+				end
+			end
+		end
+	end,
+	["$animal_firemage_weak"] = function(config)
+		if config.pool == "IDLE" then
 			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
@@ -29,7 +48,7 @@ return {
 						local special = {
 							"Nice stone you got there. Is it for sale?",
 							"That flame... it reminds me of myself when I was younger.",
-							"Come a bit closer. I'd like to get a closer look at that item.",
+							"Come a bit closer. I'd like to get a better look at that item.",
 						}
 						config.text = special[Random(1, #special)]
 						return
@@ -155,5 +174,12 @@ return {
 			execute_every_n_frame = 1,
 			script_source_file = "mods/grahamsdialogue/files/lurker.lua"
 		})
+	end,
+	["$animal_lukki_dark"] = function(config)
+		config.size_x = config.size_x + 0.20
+		config.size_y = config.size_y + 0.20
+		if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
+			config.text = string.sub(config.text, 1, -2) .. "!"
+		end
 	end,
 }
