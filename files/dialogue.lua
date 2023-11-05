@@ -120,6 +120,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_lukki_creepy_long", "Be mindful of all that you don't have.", "Poke around and find out.", "Evidently, a head is just for convenience."},
     {"$animal_lukki_dark", "Yes, perish for me!", "Give me all of your delicious blood...", "Your blood, and then your corpse, all for me!"},
     {"$animal_worm_end", "Feel how strong these jaws are? Haha...", "I would say that I'll send you to hell, but... You're already here.", "I'll drag you even deeper down."},
+    {"$animal_friend", "", "", "", "", "", ""},
+    {"$animal_ultimate_killer", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -244,6 +246,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_lukki_creepy_long", "What a cruel creature you are.", "I speak with no mouth... You fight with no concience.", "So rude... My friends will eat you right up."},
     {"$animal_lukki_dark", "Your spells won't stop the hunger!", "You think you can take me on?!", "You're fighting a losing battle!"},
     {"$animal_worm_end", "What's hell for you is like heaven for us.", "My blood boils at the thought of you living any longer.", "You dare to assault a creature like me?!"},
+    {"$animal_friend", "", "", "", "", "", ""},
+    {"$animal_ultimate_killer", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -367,6 +371,8 @@ DIALOGUE_IDLE = {
     {"$animal_lukki_creepy_long", "A good sense of touch can light darkness like nothing else.", "The spiders in the jungle think that I'm odd. That's alright.", "Someone has to keep the folks here company, right?"},
     {"$animal_lukki_dark", "Gnaaaah!", "Nothing shall escape!", "I'll shred this whole place to bits!"},
     {"$animal_worm_end", "As above, so below... But my reflection is lost.", "What's lost may never be found, down here.", "Rumors say that not a single soul has escaped my jaws alive."},
+    {"$animal_friend", "", "", "", "", "", ""},
+    {"$animal_ultimate_killer", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
