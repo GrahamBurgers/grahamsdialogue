@@ -12,10 +12,12 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_turret_right"]          = "$animal_turret",
 	["$animal_turret_left"]           = "$animal_turret",
 	["$animal_statue_physics"]        = "$animal_statue",
-	["angry_ghost"]                  = "generic_ghost",
-	["hungry_ghost"]                 = "generic_ghost",
-	["mournful_spirit"]              = "generic_ghost",
-	["tipsy_ghost"]                  = "generic_ghost",
+	["angry_ghost"]                   = "generic_ghost",
+	["hungry_ghost"]                  = "generic_ghost",
+	["mournful_spirit"]               = "generic_ghost",
+	["tipsy_ghost"]                   = "generic_ghost",
+	["tiny_ghost"]                    = "generic_ghost",
+	["ghostly_ghost"]                 = "generic_ghost",
 })
 
 function NameGet(entity)
@@ -213,24 +215,6 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 
 		Special_dialogue = dofile_once("mods/grahamsdialogue/files/special_dialogue.lua")
 
-		if EntityHasTag(entity, "robot") then
-			size_x = size_x + 0.06
-		end
-		if faction == "fungus" then
-			size_y = size_y + 0.06
-		end
-		if faction == "player" then
-			size_x = size_x + 0.025
-			size_y = size_y + 0.025
-		end
-		if faction == "ghost" then
-			EntityAddComponent2(entity, "LuaComponent", {
-				_tags = "graham_speech_removable",
-				execute_every_n_frame = 1,
-				script_source_file = "mods/grahamsdialogue/files/ghost.lua"
-			})
-		end
-
 		local worm_speeds = {
 			["$animal_worm_tiny"]   = 6,
 			["$animal_worm"]        = 7,
@@ -286,6 +270,24 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			size_y = config.size_y
 			faction = config.faction
 			pool = config.pool
+		end
+
+		if EntityHasTag(entity, "robot") then
+			size_x = size_x + 0.06
+		end
+		if faction == "fungus" then
+			size_y = size_y + 0.06
+		end
+		if faction == "player" then
+			size_x = size_x + 0.025
+			size_y = size_y + 0.025
+		end
+		if faction == "ghost" then
+			EntityAddComponent2(entity, "LuaComponent", {
+				_tags = "graham_speech_removable",
+				execute_every_n_frame = 1,
+				script_source_file = "mods/grahamsdialogue/files/ghost.lua"
+			})
 		end
 	end                                       --!!!--
 

@@ -3,7 +3,9 @@ local filepaths = {
     {"data/entities/misc/perks/angry_ghost.xml", "angry_ghost"},
     {"data/entities/misc/perks/hungry_ghost.xml", "hungry_ghost"},
     {"data/entities/misc/perks/death_ghost.xml", "mournful_spirit"},
-    {"mods/grahamsperks/files/entities/tipsy_ghost/tipsy_ghost.xml", "tipsy_ghost"}
+    {"mods/grahamsperks/files/entities/tipsy_ghost/tipsy_ghost.xml", "tipsy_ghost"},
+    {"data/entities/misc/perks/tiny_ghost_extra.xml", "tiny_ghost"},
+    {"data/entities/misc/perks/ghostly_ghost.xml", "ghostly_ghost"},
 }
 
 for i = 1, #filepaths do

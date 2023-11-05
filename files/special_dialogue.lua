@@ -194,5 +194,6 @@ return {
 	["generic_ghost"] = function(config)
 		config.size_x = config.size_x - 0.08
 		config.size_y = config.size_y - 0.08
+		config.faction = "ghost"
 	end,
 }
