@@ -120,8 +120,10 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_lukki_creepy_long", "Be mindful of all that you don't have.", "Poke around and find out.", "Evidently, a head is just for convenience."},
     {"$animal_lukki_dark", "Yes, perish for me!", "Give me all of your delicious blood...", "Your blood, and then your corpse, all for me!"},
     {"$animal_worm_end", "Feel how strong these jaws are? Haha...", "I would say that I'll send you to hell, but... You're already here.", "I'll drag you even deeper down."},
-    {"$animal_friend", "", "", "", "", "", ""},
-    {"$animal_ultimate_killer", "", "", ""},
+    {"$animal_gazer", "When you die... Will you just end up back here?", "You've been trapped in a cycle of death this whole time.", "No mere mortal would venture here. What are you?"},
+    {"$animal_skygazer", "My eyes will be the last thing you ever see.", "Nothing ends without death, but death is never the end.", "This isn't the first time that we've met... Is it?"},
+    {"$animal_friend", "Something's bound to break inside you eventually.", "I won't give up until you're buried and dead.", "You certainly deserve this.", "I'll be satisfied once your run ends.", "I'm just doing this because I hate you.", "Your health is still too high for my tastes."},
+    {"$animal_ultimate_killer", "Do you want a gourd?", "Welcome to our home!", "What's your name?"},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -246,8 +248,10 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_lukki_creepy_long", "What a cruel creature you are.", "I speak with no mouth... You fight with no concience.", "So rude... My friends will eat you right up."},
     {"$animal_lukki_dark", "Your spells won't stop the hunger!", "You think you can take me on?!", "You're fighting a losing battle!"},
     {"$animal_worm_end", "What's hell for you is like heaven for us.", "My blood boils at the thought of you living any longer.", "You dare to assault a creature like me?!"},
-    {"$animal_friend", "", "", "", "", "", ""},
-    {"$animal_ultimate_killer", "", "", ""},
+    {"$animal_gazer", "Face it. You never had a choice.", "You don't know a thing...", "Isn't this where you belong?"},
+    {"$animal_skygazer", "The choice has been yours all along.", "I know you more than you know yourself.", "You must be horribly lost to end up here."},
+    {"$animal_friend", "Do what you want. Just don't hurt the little ones any more.", "You should've gone down a different path...", "Next time, I'll hide this damn cave better.", "What a horrid creature you are. Really now.", "I will never forget the things you've done.", "Anger... Pure anger."},
+    {"$animal_ultimate_killer", "Ow! That hurts!", "Hey! You're a meanie!", "I don't like you..."},
 }
 
 DIALOGUE_IDLE = {
@@ -337,7 +341,7 @@ DIALOGUE_IDLE = {
     {"$animal_icer", "Four eyes is better than two.", "No, propane tanks don't home towards you. Though that would be funny.", "Why isn't that mana liquid freezable? What a pain..."},
     {"$animal_graham_fuzz", "I hold the power of plasma! But only a little bit...", "Sometimes you just need a little push to reach greatness.", "When I grow up, I want to be a plasma ball."},
     {"$animal_graham_wizard_familiar", "Mint is my favourite colour.", "I'll give you some orbs to ponder.", "Don't stare for too long."},
-    {"$animal_coward", "If I throw a party, I'm making you guys come to it.", "Drinks are on me, folks.", "Everyone gather 'round. Let's have a good time."},
+    {"$animal_coward", "If I throw a party, I'm making you guys come to it.", Random(23,45) .. " lonely Hiisi have been detected in your area.", "Everyone gather 'round. Let's have a good time."},
     {"$animal_ghoul", "Everyone here is cooler than me...", "I could corrode this whole place if I tried.", "See the world through glowing yellow eyes."},
     {"$animal_icemage", "Do you wanna build a snowman?", "The winter season never lasts long enough...", "Anyone want a drink? Iced."},
     {"$animal_statue", "Stare all you want. What else would I be here for?", "Why do so many consider life to be a gift?", "Break the curse, someone... please."},
@@ -371,8 +375,10 @@ DIALOGUE_IDLE = {
     {"$animal_lukki_creepy_long", "A good sense of touch can light darkness like nothing else.", "The spiders in the jungle think that I'm odd. That's alright.", "Someone has to keep the folks here company, right?"},
     {"$animal_lukki_dark", "Gnaaaah!", "Nothing shall escape!", "I'll shred this whole place to bits!"},
     {"$animal_worm_end", "As above, so below... But my reflection is lost.", "What's lost may never be found, down here.", "Rumors say that not a single soul has escaped my jaws alive."},
-    {"$animal_friend", "", "", "", "", "", ""},
-    {"$animal_ultimate_killer", "", "", ""},
+    {"$animal_gazer", "Don't cry when the show's over.", "A hellish punishment awaits you.", "Don't look up."},
+    {"$animal_skygazer", "Tears in the eye...", "A divine punishment awaits you.", "Don't look down."},
+    {"$animal_friend", "It's my job to protect my children, no matter what.", "I'm glad to provide a safe haven for everyone.", "It takes a lot of effort to go off the record around here.", "I think I misspelled \"friendship\"... I'm still practicing my glyphs.", "What? \"Baba\"? I don't know anyone named that.", "Nature is truly beautiful."},
+    {"$animal_ultimate_killer", "Hooray!", "Friends!", "Plants are nice!"},
 }
 
 GENERIC_HOLDINGWAND =

@@ -196,4 +196,30 @@ return {
 		config.size_y = config.size_y - 0.08
 		config.faction = "ghost"
 	end,
+	["$animal_friend"] = function(config)
+		if config.pool == "IDLE" or Random(1, 2) == 1 then
+			local count = tonumber( GlobalsGetValue( "ULTIMATE_KILLER_KILLS", "0" ) )
+			if count >= 10 then
+				local special = {
+					"I will never forgive you for what you've done.",
+					"You think I'm funny? I'm being serious right now.",
+					"What's wrong with you? Why would you do that?",
+					"You deserve death after what you did to my children.",
+					"What do you plan to do to me? I don't trust you.",
+					"I hate you. I seriously hate you.",
+				}
+				config.text = special[Random(1, #special)]
+			elseif count >= 1 then
+				local special = {
+					"I have to stop you before you do any more harm!",
+					"Don't act like that was an accident. I know you.",
+					"It's no magic that makes me stronger. Just rage.",
+					"Don't you dare continue that behaviour any further.",
+					"I should have never let you in here to begin with.",
+					"Stay back, children! I'll take care of this.",
+				}
+				config.text = special[Random(1, #special)]
+			end
+		end
+	end,
 }

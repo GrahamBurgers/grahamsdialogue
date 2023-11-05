@@ -68,7 +68,9 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_skullfly"]              = 8,
 	["$animal_spearbot"]              = 12,
 	["$animal_roboguard"]             = 4,
-	["generic_ghost"]                = -8,
+	["generic_ghost"]                 = -8,
+	["$animal_friend"]                = 10,
+	["$animal_ultimate_killer"]       = -8,
 })
 
 function EnemyHasDialogue(pool, name)
