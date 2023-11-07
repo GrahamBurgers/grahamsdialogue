@@ -22,7 +22,7 @@ EmptyEnemyDialogue("IDLE", "$name_of_enemy")
 EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances
--- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_HEALED
+-- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_HEALED, GENERIC_FRIENDLYFIRE
 -- There's no limit to how many items these tables have. Just try to keep it immersive, eh?
 -- Add the no_generic_dialogue tag to your enemy to make them exempt from generic lines of dialogue
 table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
@@ -46,7 +46,8 @@ end
 -- And, finally, if you want an enemy to speak dialogue from any script, do it like this
 if ModIsEnabled("grahamsdialogue") then
     dofile_once("mods/grahamsdialogue/common.lua")
-    Speak(entity_id, "Dialogue to speak")
+    Speak(entity_id, "Dialogue to speak", pool, check_name, override_old, name_override)
+    -- Most values shouldn't be needed. Turn off "check_name" if your enemy doesn't have any special dialogue or offsets defined.
 end
 
 --[[

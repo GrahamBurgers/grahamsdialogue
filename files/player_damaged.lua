@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global, lowercase-global
 function damage_received( damage, message, entity_thats_responsible, is_fatal)
     if entity_thats_responsible ~= 0 and entity_thats_responsible ~= nil and entity_thats_responsible ~= GetUpdatedEntityID() and not is_fatal then
         SetRandomSeed(entity_thats_responsible + GameGetFrameNum(), damage + 3141)

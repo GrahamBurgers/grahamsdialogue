@@ -1,4 +1,4 @@
-if #EntityGetWithTag("player_unit") < 1 and #EntityGetWithTag("polymorphed_player") < 1 then return end -- don't speak when there's no player
+---@diagnostic disable: undefined-global, lowercase-global
 local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
 SetRandomSeed(x + GameGetFrameNum(), y + 1394)
@@ -11,7 +11,7 @@ if Random(1, rate) == 1 then
     local wand = ComponentGetValue2(inventory, "mActiveItem") or 0
     local random = Random(1, 10)
     -- this is a sort of priority system; hopefully this many elseifs won't cause problems
-    if not EntityHasTag(me, "no_generic_dialogue") then
+    if not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost") then
         if GameGetGameEffectCount(me, "ON_FIRE") > 0 then -- on fire
             Speak(me, GENERIC_ONFIRE[Random(1, #GENERIC_ONFIRE)], "GENERIC")
             return

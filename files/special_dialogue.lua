@@ -58,6 +58,25 @@ return {
 			end
 		end
 	end,
+	["$animal_thundermage_big"] = function(config)
+		if config.pool == "IDLE" then
+			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
+			for i = 1, #items do
+				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
+				for j = 1, #comps do
+					if ComponentGetValue2(comps[j], "effect") == "FRIEND_THUNDERMAGE" then
+						local special = {
+							"Argh... That stone... Drop it so I can eviscerate you!",
+							"Oh, you know that I don't want to destroy that item, hmm? Clever.",
+							"How about we barter. You give me that stone, and I'll spare your life. Hah...",
+						}
+						config.text = special[Random(1, #special)]
+						return
+					end
+				end
+			end
+		end
+	end,
 	["$animal_thundermage"] = function(config)
 		if config.pool == "IDLE" then
 			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")

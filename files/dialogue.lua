@@ -124,6 +124,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_skygazer", "My eyes will be the last thing you ever see.", "Nothing ends without death, but death is never the end.", "This isn't the first time that we've met... Is it?"},
     {"$animal_friend", "Something's bound to break inside you eventually.", "I won't give up until you're buried and dead.", "You certainly deserve this.", "I'll be satisfied once your run ends.", "I'm just doing this because I hate you.", "Your health is still too high for my tastes."},
     {"$animal_ultimate_killer", "Do you want a gourd?", "Welcome to our home!", "What's your name?"},
+    {"$animal_thundermage_big", "How much charge can your feeble nerves even handle?", "I'm almost impressed that you're alive. Almost.", "What a crutch your magic abilities must be."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -252,6 +253,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_skygazer", "The choice has been yours all along.", "I know you more than you know yourself.", "You must be horribly lost to end up here."},
     {"$animal_friend", "Do what you want. Just don't hurt the little ones any more.", "You should've gone down a different path...", "Next time, I'll hide this damn cave better.", "What a horrid creature you are. Really now.", "I will never forget the things you've done.", "Anger... Pure anger."},
     {"$animal_ultimate_killer", "Ow! That hurts!", "Hey! You're a meanie!", "I don't like you..."},
+    {"$animal_thundermage_big", "You WISH that you could fire my projectiles from your puny little wands.", "Yeah, I'm not gonna let that slide. Not a chance.", "One punch and your whole body would be entirely paralyzed."},
 }
 
 DIALOGUE_IDLE = {
@@ -268,7 +270,7 @@ DIALOGUE_IDLE = {
     {"$animal_frog", "Ribbit.", "Hop, hop.", "Meow."},
     {"$animal_frog_big", "Robbit.", "Skip, jump.", "Woof."},
     {"$animal_miner_fire", "I'll burn this whole place down!", "Don't look at me like that!", "You're flammable! All of you!"},
-    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower air quality by over " .. tostring(Random(25, 99)) .. "%.", "Am I really the most level-headed one here?"},
+    {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower the air quality by over " .. tostring(Random(25, 99)) .. "%.", "Am I really the most level-headed one here?"},
     {"$animal_boss_pit", "I know you're here. Show yourself!", "A coward. You are a coward!", "Power corrupts. We both know that well.", "One of these days... I'll cast a black hole and burrow my way out of this place.", "I enjoy reading as well as obliterating unwise explorers.", "What, do you expect me to make small talk?"},
     {"$animal_shaman", "No one really knows...", "Will you remember me?", "Hm? Oh, it's nothing..."},
     {"$animal_playerghost", "Where have I gone? This isn't my world...", "Risen from my grave... I'll soon return to it.", "I feel lost... am I truly the only one?"},
@@ -379,6 +381,7 @@ DIALOGUE_IDLE = {
     {"$animal_skygazer", "Tears in the eye...", "A divine punishment awaits you.", "Don't look down."},
     {"$animal_friend", "It's my job to protect my children, no matter what.", "I'm glad to provide a safe haven for everyone.", "It takes a lot of effort to go off the record around here.", "I think I misspelled \"friendship\"... I'm still practicing my glyphs.", "What? \"Baba\"? I don't know anyone named that.", "Nature is truly beautiful."},
     {"$animal_ultimate_killer", "Hooray!", "Friends!", "Plants are nice!"},
+    {"$animal_thundermage_big", "Very few can survive a single blast of my power.", "Why's it so damn cold out here?!", "I've been itching to take my anger out on something..."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -404,6 +407,9 @@ GENERIC_TOXIC =
 }
 GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
+}
+GENERIC_FRIENDLYFIRE =
+    { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!",
 }
 
 Custom_speak_lines = {
