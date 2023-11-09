@@ -125,6 +125,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_friend", "Something's bound to break inside you eventually.", "I won't give up until you're buried and dead.", "You certainly deserve this.", "I'll be satisfied once your run ends.", "I'm just doing this because I hate you.", "Your health is still too high for my tastes."},
     {"$animal_ultimate_killer", "Do you want a gourd?", "Welcome to our home!", "What's your name?"},
     {"$animal_thundermage_big", "How much charge can your feeble nerves even handle?", "I'm almost impressed that you're alive. Almost.", "What a crutch your magic abilities must be."},
+    {"$animal_bloodcrystal_physics", "I feel like I'm trapped down here...", "You remind me of myself. That's a joke.", "What a horrible day to have a curse."},
+    {"$animal_skycrystal_physics", "There's so much to explore... Why stay here?", "I sense an unholy presence... Is it you?", "What a horrible night to have a curse."},
+    {"$animal_spitmonster", "Be grateful that I didn't bite you, at least.", "Your time's ticking down.", "This feels a bit futile..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -254,6 +257,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_friend", "Do what you want. Just don't hurt the little ones any more.", "You should've gone down a different path...", "Next time, I'll hide this damn cave better.", "What a horrid creature you are. Really now.", "I will never forget the things you've done.", "Anger... Pure anger."},
     {"$animal_ultimate_killer", "Ow! That hurts!", "Hey! You're a meanie!", "I don't like you..."},
     {"$animal_thundermage_big", "You WISH that you could fire my projectiles from your puny little wands.", "Yeah, I'm not gonna let that slide. Not a chance.", "One punch and your whole body would be entirely paralyzed."},
+    {"$animal_bloodcrystal_physics", "It's too warm in here... Ice hurts.", "The crystals don't mean anything! Us ghosts are all magic.", "Careful not to get your blood mixed up with my sheen."},
+    {"$animal_skycrystal_physics", "Don't even try to set me on fire.", "All types of crystals have latent magical properties.", "\"Poltergeist\" tends to have quite a negative connotation..."},
+    {"$animal_spitmonster", "You came all this way just to do this?", "If you were in my place, would you abandon hope?", "It ain't over until someone's health drops to zero."},
 }
 
 DIALOGUE_IDLE = {
@@ -382,6 +388,9 @@ DIALOGUE_IDLE = {
     {"$animal_friend", "It's my job to protect my children, no matter what.", "I'm glad to provide a safe haven for everyone.", "It takes a lot of effort to go off the record around here.", "I think I misspelled \"friendship\"... I'm still practicing my glyphs.", "What? \"Baba\"? I don't know anyone named that.", "Nature is truly beautiful."},
     {"$animal_ultimate_killer", "Hooray!", "Friends!", "Plants are nice!"},
     {"$animal_thundermage_big", "Very few can survive a single blast of my power.", "Why's it so damn cold out here?!", "I've been itching to take my anger out on something..."},
+    {"$animal_bloodcrystal_physics", "Crystals reflect the light of the lava so nicely.", "Maybe I should just ditch this body and move north.", "Maybe a purple crystal would be nice to inhabit."},
+    {"$animal_skycrystal_physics", "Crystals reflect the sunlight so beautifully.", "I'm sometimes tempted to leave this body and move south.", "Perhaps green would be a nice look on me instead."},
+    {"$animal_spitmonster", "Blargh! This place stinks!", "Please bring me a toothbrush.", "Perhaps... It's best to lose your reflection sometimes."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -409,7 +418,7 @@ GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
 GENERIC_FRIENDLYFIRE =
-    { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!",
+    { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!", "Hey, who do you think you are?!",
 }
 
 Custom_speak_lines = {
