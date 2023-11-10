@@ -6,21 +6,37 @@ local filepaths = {
     {"mods/grahamsperks/files/entities/tipsy_ghost/tipsy_ghost.xml", "tipsy_ghost"},
     {"data/entities/misc/perks/tiny_ghost_extra.xml", "tiny_ghost"},
     {"data/entities/misc/perks/ghostly_ghost.xml", "ghostly_ghost"},
+    {"data/entities/buildings/racing_cart.xml", "karl"},
 }
 
 for i = 1, #filepaths do
     if ModDoesFileExist == nil or ModDoesFileExist(filepaths[i][1]) then -- may cause errors if not on beta branch
-        local content = ModTextFileGetContent(filepaths[i][1])
+        local path = filepaths[i][1]
+        local content = ModTextFileGetContent(path)
         if content ~= nil then
             content = content:gsub("</Entity>", [[
                 <LuaComponent script_source_file="mods/grahamsdialogue/files/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="]] .. filepaths[i][2] .. [["></LuaComponent>
                 </Entity>
             ]])
             content = content:gsub([[tags="]], [[tags="graham_enemydialogue,]])
-            ModTextFileSetContent(filepaths[i][1], content)
+            ModTextFileSetContent(path, content)
         end
     end
 end
+
+local path = "data/scripts/buildings/racing_cart_checkpoint.lua"
+local content = ModTextFileGetContent(path)
+content = content:gsub("best_time = lap_time", [[best_time = lap_time
+dofile_once%("mods/grahamsdialogue/files/common.lua"%)
+for i = 1, #Custom_speak_lines do
+    if Custom_speak_lines[i][1] == "karl_lap" then
+        local type = Random%(2, #Custom_speak_lines[i]%)
+        Speak%(entity_id, Custom_speak_lines[i][type], "CUSTOM", true, true, "karl"%)
+        break
+    end
+end
+]])
+ModTextFileSetContent(path, content)
 
 function OnPlayerSpawned(player)
     if not EntityHasTag(player, "graham_dialogue_added") then

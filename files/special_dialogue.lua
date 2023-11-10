@@ -241,4 +241,19 @@ return {
 			end
 		end
 	end,
+	["karl"] = function(config)
+		config.size_x = config.size_x - 0.04
+		config.size_y = config.size_y - 0.04
+		if EntityHasTag(config.entity, "small_friend") and Random(1, 3) > 1 then
+			local special = {
+				"I don't know what this thing is, but it seems to like me. (Hello!)",
+				"(This cart is cool!) Heh, I'm glad you think so, kid.",
+				"Sit back and relax. This'll be a smooth ride. (Thanks!)",
+				"(Where are we going?) Not sure yet. Stick around and see, eh?",
+				"You two are quite interesting creatures... (Yeah!)",
+				"I'm glad to meet a creature as kind as myself. (Me too!)",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
 }

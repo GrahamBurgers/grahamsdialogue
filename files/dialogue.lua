@@ -128,6 +128,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_bloodcrystal_physics", "I feel like I'm trapped down here...", "You remind me of myself. That's a joke.", "What a horrible day to have a curse."},
     {"$animal_skycrystal_physics", "There's so much to explore... Why stay here?", "I sense an unholy presence... Is it you?", "What a horrible night to have a curse."},
     {"$animal_spitmonster", "Be grateful that I didn't bite you, at least.", "Your time's ticking down.", "This feels a bit futile..."},
+    {"$animal_necrobot", "Some creatures just aren't worth the effort to save.", "Ah, it'll feel so good to truly kill something for once.", "Stay down this time. No resurrection for you."},
+    {"$animal_necrobot_super", "Yeah, and don't try to use pheromone, either. Imbecile.", "Killing makes for quite good mental exercise.", "Why doesn't everyone have an energy shield? It helps."},
+    {"$animal_minipit", "Nothing comes from nothing. You know this.", "Don't stop struggling. I'm having fun.", "This world is full of shadows..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -260,6 +263,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bloodcrystal_physics", "It's too warm in here... Ice hurts.", "The crystals don't mean anything! Us ghosts are all magic.", "Careful not to get your blood mixed up with my sheen."},
     {"$animal_skycrystal_physics", "Don't even try to set me on fire.", "All types of crystals have latent magical properties.", "\"Poltergeist\" tends to have quite a negative connotation..."},
     {"$animal_spitmonster", "You came all this way just to do this?", "If you were in my place, would you abandon hope?", "It ain't over until someone's health drops to zero."},
+    {"$animal_necrobot", "No need to worry. My metal is reinforced three times over.", "Death is no large event. Everyone else is so dramatic.", "Perhaps my components can be repurposed after I die."},
+    {"$animal_necrobot_super", "At least it's not that awful mana liquid...", "Get away! You're gonna smudge my screen.", "Do you really think that I care?"},
+    {"$animal_minipit", "You don't know what you've gotten yourself into, do you?", "Please don't compare me to a meatball.", "You can't make this situation any worse."},
 }
 
 DIALOGUE_IDLE = {
@@ -291,7 +297,7 @@ DIALOGUE_IDLE = {
     {"$animal_goblin_bomb", "Hrmm...", "Shiny, sparkly glitter...", "What was that sound?"},
     {"$animal_scavenger_heal", "Does anyone need healing?", "I love my job.", "This place is filthy!"},
     {"$animal_boss_alchemist", "Wonders you can't have...", "And yet, there's something missing.", "Is my vision failing me? Or...", "I sense that you're nearby. Do you seek enlightenment?", "Let's make this quick, then.", "If only things went differently, so long ago..."},
-    {"$animal_parallel_tentacles", "I feel our reality ripping at the seams...", "I see no evil, and yet evil remains.", "Three eyes count down to one. And then the whole world goes dark."},
+    {"$animal_parallel_tentacles", "I feel our reality ripping at the seams...", "I see no evil, and yet evil remains.", "Three eyes count down to one. Then the whole world goes dark."},
     {"$animal_parallel_alchemist", "It'll all be torn apart if this doesn't stop...", "Where are our Gods now?", "The end is near."},
     {"$animal_wizard_poly", "Pink is my favourite colour.", "My flock is looking a bit small...", "Stay back, I'd rather not get blood on my robe..."},
     {"$animal_wizard_dark", "Purple is my favourite colour.", "Where have you gone?", "Something else lurks beyond."},
@@ -391,6 +397,9 @@ DIALOGUE_IDLE = {
     {"$animal_bloodcrystal_physics", "Crystals reflect the light of the lava so nicely.", "Maybe I should just ditch this body and move north.", "Maybe a purple crystal would be nice to inhabit."},
     {"$animal_skycrystal_physics", "Crystals reflect the sunlight so beautifully.", "I'm sometimes tempted to leave this body and move south.", "Perhaps green would be a nice look on me instead."},
     {"$animal_spitmonster", "Blargh! This place stinks!", "Please bring me a toothbrush.", "Perhaps... It's best to lose your reflection sometimes."},
+    {"$animal_necrobot", "I haven't oiled the treads recently, hmm...", "What tedium, resurrecting these fragile mortals.", "Is no one here satisfied with their purpose? How sad."},
+    {"$animal_necrobot_super", "Jeez, where can a robot get some lens wipes around here?", "I'm so tired of steel. Nothing but steel, everywhere...", "For most people, turning into a little slimy thing is somehow an upgrade."},
+    {"$animal_minipit", "Life energy can be very powerful when simply reformed.", "And it never ends and it never ends...", "Sorry, no staring contest today."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -428,4 +437,6 @@ Custom_speak_lines = {
     {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "Got any spare whiskey or sima? I'll m-make it worth your while.", "I can do lots of stuff! If my head is clear...", "I'm a spirit spirit! Get it...?", "Stay away from my whiskey! ...For your health, I mean."},
     {"tiny_ghost", "This is quite the ghostly reunion, isn't it?", "Hello, ghost folks! Have we met before?", "Life is short... But being a ghost lasts forever!", "I'm not nearly as strong as your angry friend over there.", "I would love to be friends with that hungry ghost, but I'm so shy...", "I always try to keep my 'spirits' up, hehe."},
     {"ghostly_ghost", "My little brother asked me to come along. You seem nice...", "I've never seen so many ghosts in one place before...", "You might become a ghost one day. Wouldn't that be neat?", "What? I'm just here to keep you company. I don't fight.", "Us ghosts make you floatier, don't you know?", "Come on, guys, we go as ghosts every Halloween..."},
+    {"karl", "Modifying the arena is against the rules, by the way.", "I typically stay in my course, but it's fun to explore too!", "Bumping walls to turn can be both fun and effective!", "This cart isn't ever gonna run out of power.", "I haven't seen much... Wanna go somewhere?", "I'm so popular, even the stars are attracted to me."},
+    {"karl_lap", "New best time! I knew you could do it!", "That lap was great! Wanna do another?", "I'm proud to have you as my driver.", "Woah! I didn't know that you could do it that fast!", "We should try going in the opposite direction next time!", "Yes! That one was super quick!"},
 }
