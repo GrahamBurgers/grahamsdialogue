@@ -164,9 +164,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	if check_name == nil then check_name = true end
 
 	local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
-	if textComponent and not override_old then
-		return "No dialogue: Enemy is already speaking."
-	end
+	if textComponent and not override_old then return end
 
 	local rotate = false
 	local old_text = text
@@ -184,9 +182,9 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local font = "data/fonts/font_pixel_white.xml"
 
 	if check_name then --!!!--
-		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return "No dialogue: Enemy has no text! Try changing check_name." end
+		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
 		-- player should never speak
-		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return "No dialogue: This is the player!" end
+		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
 
 		local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
 		local faction
@@ -298,7 +296,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		end
 	end                                       --!!!--
 
-	if text == "" or text == nil then return "No dialogue: There is no text to speak!" end -- utility; if text is nothing then don't speak at all
+	if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
 
 	if ModIsEnabled("translation_uwu") then   -- Haunted
 		dofile_once("mods/translation_uwu/init.lua")

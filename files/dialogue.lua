@@ -50,7 +50,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_scavenger_invis", "Hey, this is kind of fun!", "I've never done this before...", "Oh, I see how this works!"},
     {"$animal_scavenger_shield", "I didn't mean to, I swear!", "Oops! I'm sorry!", "No, I didn't mean it!"},
     {"$animal_alchemist", "Oh, I can just deal damage like this? Sweet!", "This was easier than I thought it'd be.", "Catch!"},
-    {"$animal_tentacler", "You should've planned an escape route so much sooner...", "You won't slip out of my grasp this time!", "I can easily shatter ice with a single strike."},
+    {"$animal_tentacler", "You should've planned an escape route so much sooner...", "You won't slip out of my grasp this time!", "Get a good look at me. I'll make it your last."},
     {"$animal_tentacler_small", "Underestimated me, didja?", "Hehe... Did you forget that I could do that?", "Crunch!"},
     {"$animal_ant", "Ta-da!", "How could you let this happen?", "You lose, sucker!"},
     {"$animal_maggot", "It's like firecrackers! Pop, pop, pop...", "What, did you run out of levitation...?", "Wow! ...What?"},
@@ -131,6 +131,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_necrobot", "Some creatures just aren't worth the effort to save.", "Ah, it'll feel so good to truly kill something for once.", "Stay down this time. No resurrection for you."},
     {"$animal_necrobot_super", "Yeah, and don't try to use pheromone, either. Imbecile.", "Killing makes for quite good mental exercise.", "Why doesn't everyone have an energy shield? It helps."},
     {"$animal_minipit", "Nothing comes from nothing. You know this.", "Don't stop struggling. I'm having fun.", "This world is full of shadows..."},
+    {"$animal_piranha", "There is no greater firepower than me around these parts.", "You had better learn the countermeasures to prevent this.", "Let's finish this."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -266,6 +267,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_necrobot", "No need to worry. My metal is reinforced three times over.", "Death is no large event. Everyone else is so dramatic.", "Perhaps my components can be repurposed after I die."},
     {"$animal_necrobot_super", "At least it's not that awful mana liquid...", "Get away! You're gonna smudge my screen.", "Do you really think that I care?"},
     {"$animal_minipit", "You don't know what you've gotten yourself into, do you?", "Please don't compare me to a meatball.", "You can't make this situation any worse."},
+    {"$animal_piranha", "You are making a serious mistake.", "I'm not the only thing here that can tear you to pieces.", "A bit of electricity is nice... Too much is lethal."},
 }
 
 DIALOGUE_IDLE = {
@@ -316,7 +318,7 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_invis", "...What, would you rather hide under a cardboard box?", "C'mon, people, get those stains off!", "Stealth technology is constantly improving..."},
     {"$animal_scavenger_shield", "Protect the world from devastation!", "Let's just stop all this fighting, okay?", "Temporary shields complement permanent shields very well, don't you know?"},
     {"$animal_alchemist", "Hey kid, want some potions?", "I call them flasks, because they're not all magical...", "How do I get them 200% full? A magician never reveals their secrets..."},
-    {"$animal_tentacler", "You've heard of me in a myth? That's cute.", "I bet I would be infamous for sinking ships...", "Why don't you get a good look at me? I'll make it your last."},
+    {"$animal_tentacler", "I can easily shatter ice with a single strike.", "I used to dwell in the ocean... Until magic changed me.", "A swift slap often knocks the confidence out of someone."},
     {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
     {"$animal_ant", "I have an iron stomach, you know.", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
     {"$animal_maggot", "Oof, I got heartburn...", "Would it be weird if I kept a smaller maggot as a pet?", "I'm less scary than I look. ...Do I look scary?"},
@@ -400,6 +402,7 @@ DIALOGUE_IDLE = {
     {"$animal_necrobot", "I haven't oiled the treads recently, hmm...", "What tedium, resurrecting these fragile mortals.", "Is no one here satisfied with their purpose? How sad."},
     {"$animal_necrobot_super", "Jeez, where can a robot get some lens wipes around here?", "I'm so tired of steel. Nothing but steel, everywhere...", "For most people, turning into a little slimy thing is somehow an upgrade."},
     {"$animal_minipit", "Life energy can be very powerful when simply reformed.", "And it never ends and it never ends...", "Sorry, no staring contest today."},
+    {"$animal_piranha", "Each new revision brings new optimizations.", "There's never enough code to cover every edge case...", "At least I can solve most of my problems with this gun."},
 }
 
 GENERIC_HOLDINGWAND =

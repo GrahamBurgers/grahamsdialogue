@@ -52,7 +52,7 @@ end
 function OnWorldPreUpdate()
     if GameGetFrameNum() > 5 then
         dofile("mods/grahamsdialogue/files/common.lua")
-        local enemies = EntityGetWithTag("hittable")
+        local enemies = EntityGetWithTag("mortal")
         for i = 1, #enemies do
             local name = NameGet(enemies[i])
             if not EntityHasTag(enemies[i], "graham_dialogue_added") and EnemyHasDialogue("ANY", name) then
