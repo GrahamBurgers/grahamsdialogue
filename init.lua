@@ -1,5 +1,5 @@
 local filepaths = {
-    -- note: this probably won't work if the filepath has a child entity
+    -- note: this may or may not work if the filepath has a child entity
     {"data/entities/misc/perks/angry_ghost.xml", "angry_ghost"},
     {"data/entities/misc/perks/hungry_ghost.xml", "hungry_ghost"},
     {"data/entities/misc/perks/death_ghost.xml", "mournful_spirit"},

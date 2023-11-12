@@ -68,6 +68,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_skullfly"]              = 8,
 	["$animal_spearbot"]              = 12,
 	["$animal_roboguard"]             = 4,
+	["$animal_piranha"]               = 4,
 	["generic_ghost"]                 = -8,
 	["$animal_friend"]                = 10,
 	["$animal_ultimate_killer"]       = -8,
@@ -76,6 +77,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_thundermage_big"]       = 20,
 	["$animal_spitmonster"]           = 8,
 	["karl"]                          = -4,
+	["$animal_necrobot"]              = 8,
+	["$animal_necrobot_super"]        = 8,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -182,7 +185,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local font = "data/fonts/font_pixel_white.xml"
 
 	if check_name then --!!!--
-		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name)) then return end
+		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name) or name_override ~= nil) then return end
 		-- player should never speak
 		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
 
