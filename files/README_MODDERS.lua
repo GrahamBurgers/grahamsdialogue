@@ -29,17 +29,19 @@ table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
 
 -- Define a new value in Special_offsets_y if you want your enemy's dialogue to be offset vertically.
 Special_offsets_y["$name_of_enemy"] = 12
+-- Same with Special_sizes if you want your enemy to have bigger or smaller text. Usually don't use this unless you have especially large/small enemies.
+Special_sizes["$name_of_enemy"] = -0.8
 
 -- If you have multiple translation names for the same enemy, or different enemies who you want to have identical functionality, do this
 DUPES["$name_of_enemy"] = "$name_of_enemy_to_mimic"
 
--- For other special functionality, like text size or other stuff, do this
+-- For other special functionality, do this
 local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
     MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
     -- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
     special_dialogue["$name_of_enemy"] = function()
-        size_x = size_x + 3
+        size_x = size_x + 0.4
     end
 end
 

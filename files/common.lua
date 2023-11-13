@@ -81,6 +81,22 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_necrobot_super"]        = 8,
 })
 
+Special_sizes = ({ -- for when an enemy needs larger or smaller text
+	["$animal_pebble"]                = -0.8,
+	["$animal_miniblob"]              = -0.10,
+	["$animal_lukki_tiny"]            = -0.05,
+	["$animal_lukki_dark"]            = 0.20,
+	["$animal_worm_end"]              = 0.15,
+	["$animal_boss_dragon"]           = 0.10,
+	["$animal_fish_giga"]             = 0.10,
+	["$animal_gate_monster_a"]        = 0.10,
+	["$animal_gate_monster_b"]        = 0.10,
+	["$animal_gate_monster_c"]        = 0.10,
+	["$animal_gate_monster_d"]        = 0.10,
+	["generic_ghost"]                 = -0.08,
+	["karl"]                          = -0.04,
+})
+
 function EnemyHasDialogue(pool, name)
 	if name == nil then return false end
 	local what = {}
@@ -280,8 +296,16 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			pool = config.pool
 		end
 
+		if Special_sizes[name] ~= nil then
+			size_x = size_x + Special_sizes[name]
+			size_y = size_y + Special_sizes[name]
+		end
 		if EntityHasTag(entity, "robot") then
 			size_x = size_x + 0.06
+		end
+		if EntityHasTag(entity, "boss") or EntityHasTag(entity, "miniboss") then
+			size_x = size_x + 0.10
+			size_y = size_y + 0.10
 		end
 		if faction == "fungus" then
 			size_y = size_y + 0.06

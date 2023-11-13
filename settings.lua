@@ -41,14 +41,14 @@ mod_settings =
 	{
 		id = "damaged_enabled",
 		ui_name = "Damaged dialogue",
-		ui_description = "Whether or not enemies can speak when taking damage.",
+		ui_description = "Whether or not enemies can speak when you damage them.",
 		value_default = true,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
 		id = "damaged",
 		ui_name = "Damaged dialogue chance",
-		ui_description = "The chance for an enemy to speak when taking damage.",
+		ui_description = "The chance for an enemy to speak when you damage them.",
 		value_default = 15,
 		value_min = 1,
 		value_max = 100,

@@ -150,18 +150,6 @@ return {
 		end
 		return config.text
 	end,
-	["$animal_pebble"] = function(config)
-		config.size_x = config.size_x - 0.8
-		config.size_y = config.size_y - 0.8
-	end,
-	["$animal_miniblob"] = function(config)
-		config.size_x = config.size_x - 0.10
-		config.size_y = config.size_y - 0.10
-	end,
-	["$animal_lukki_tiny"] = function(config)
-		config.size_x = config.size_x - 0.05
-		config.size_y = config.size_y - 0.05
-	end,
 	["$animal_miner_santa"] = function(config)
 		if StatsBiomeGetValue("enemies_killed") < 1 and config.pool == "DAMAGEDEALT" then
 			local special = {
@@ -196,23 +184,11 @@ return {
 		})
 	end,
 	["$animal_lukki_dark"] = function(config)
-		config.size_x = config.size_x + 0.20
-		config.size_y = config.size_y + 0.20
 		if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
 			config.text = string.sub(config.text, 1, -2) .. "!"
 		end
 	end,
-	["$animal_worm_end"] = function(config)
-		config.size_x = config.size_x + 0.15
-		config.size_y = config.size_y + 0.15
-	end,
-	["$animal_boss_dragon"] = function(config)
-		config.size_x = config.size_x + 0.10
-		config.size_y = config.size_y + 0.10
-	end,
 	["generic_ghost"] = function(config)
-		config.size_x = config.size_x - 0.08
-		config.size_y = config.size_y - 0.08
 		config.faction = "ghost"
 	end,
 	["$animal_friend"] = function(config)
@@ -242,8 +218,6 @@ return {
 		end
 	end,
 	["karl"] = function(config)
-		config.size_x = config.size_x - 0.04
-		config.size_y = config.size_y - 0.04
 		if EntityHasTag(config.entity, "small_friend") and Random(1, 3) > 1 then
 			local special = {
 				"I don't know what this thing is, but it seems to like me. (Hello!)",
