@@ -132,6 +132,10 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_necrobot_super", "Yeah, and don't try to use pheromone, either. Imbecile.", "Killing makes for quite good mental exercise.", "Why doesn't everyone have an energy shield? It helps."},
     {"$animal_minipit", "Nothing comes from nothing. You know this.", "Don't stop struggling. I'm having fun.", "This world is full of shadows..."},
     {"$animal_piranha", "There is no greater firepower than me around these parts.", "You had better learn the countermeasures to prevent this.", "Let's finish this."},
+    {"$animal_shotgunner_hell", "Let down your guard for two seconds in here and everything will change.", "How many shields do you have? Not enough, it seems.", "It seems that I can still see better with this mask than you can."},
+    {"$animal_sniper_hell", "A blood-red target's been painted on your head this whole time.", "All or nothing. Shall we duel?", "Turn away, lest I strike you in the eyes."},
+    {"$animal_miner_hell", "You're still holding yourself together? Impressive...", "Ideally, you'd be gone once the smoke clears.", "No need to plan ahead. Every outcome ends up with someone dead."},
+    {"$animal_graham_gasser_hell", "Don't be surprised if your lungs disintegrate sometime soon.", "If people knew what I made this gas out of, I'd be exiled.", "You could use a light dose of total organ failure."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -268,6 +272,10 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_necrobot_super", "At least it's not that awful mana liquid...", "Get away! You're gonna smudge my screen.", "Do you really think that I care?"},
     {"$animal_minipit", "You don't know what you've gotten yourself into, do you?", "Please don't compare me to a meatball.", "You can't make this situation any worse."},
     {"$animal_piranha", "You are making a serious mistake.", "I'm not the only thing here that can tear you to pieces.", "A bit of electricity is nice... Too much is lethal."},
+    {"$animal_shotgunner_hell", "This must be what true despair feels like.", "What do you expect? I won't just lie down and die.", "I'll struggle against you until the bitter end."},
+    {"$animal_sniper_hell", "Please leave my eyes intact, at the very least.", "There are no words to express my rage...", "Let me teach you a new definition of pain."},
+    {"$animal_miner_hell", "Layers and layers of skin to shed...", "It doesn't get much worse than this.", "I manage to stop the bleeding... Most of the time."},
+    {"$animal_graham_gasser_hell", "Don't punch a hole in my suit. You'll regret what happens next.", "The blood flows through the eye holes. Looks like I'm crying.", "More blood to brew up my bottles."},
 }
 
 DIALOGUE_IDLE = {
@@ -403,6 +411,10 @@ DIALOGUE_IDLE = {
     {"$animal_necrobot_super", "Jeez, where can a robot get some lens wipes around here?", "I'm so tired of steel. Nothing but steel, everywhere...", "For most people, turning into a little slimy thing is somehow an upgrade."},
     {"$animal_minipit", "Life energy can be very powerful when simply reformed.", "And it never ends and it never ends...", "Sorry, no staring contest today."},
     {"$animal_piranha", "Each new revision brings new optimizations.", "There's never enough code to cover every edge case...", "At least I can solve most of my problems with this gun."},
+    {"$animal_shotgunner_hell", "The heart and soul went missing a long time ago.", "This marks the beginning of a new age...", "Stay in this realm long enough, you might become one of us."},
+    {"$animal_sniper_hell", "Bullets kill. That's one of the constants of this world.", "You don't want to know what I look like beneath this mask.", "I have to restrain myself... Shouldn't use every bullet at once."},
+    {"$animal_miner_hell", "Nothing else matters if everyone around you is dead.", "I'll blow this whole place skyward soon enough.", "Let's see how big of a crater I can create before I die."},
+    {"$animal_graham_gasser_hell", "I only wear this hazmat suit to keep myself held together...", "Stay away if you don't want your skin dissolved. Seriously.", "I can singlehandedly lower the air quality by over " .. tostring(Random(234, 567)) .. "%."},
 }
 
 GENERIC_HOLDINGWAND =
