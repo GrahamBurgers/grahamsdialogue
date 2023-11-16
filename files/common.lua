@@ -368,24 +368,16 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local luacomp = EntityGetFirstComponentIncludingDisabled(entity, "LuaComponent", "graham_speech_quiet")
 	if luacomp then EntityRemoveComponent(entity, luacomp) end
 
-	if ModSettingGet("grahamsdialogue.type") == "letter" then
-		EntityAddComponent2(entity, "VariableStorageComponent", {
-			_tags = "graham_speech_removable",
-			name = "graham_dialogue_storage",
-			value_string = text,
-		})
-		EntityAddComponent2(entity, "LuaComponent", {
-			_tags = "graham_speech_removable",
-			execute_every_n_frame = 1,
-			script_source_file = "mods/grahamsdialogue/files/speak.lua",
-		})
-	end
-
+	EntityAddComponent2(entity, "VariableStorageComponent", {
+		_tags = "graham_speech_removable",
+		name = "graham_dialogue_storage",
+		value_string = text,
+		value_int = 1,
+	})
 	EntityAddComponent2(entity, "LuaComponent", {
-		_tags = "graham_speech_quiet",
-		execute_every_n_frame = string.len(text) + 180,
-		script_source_file = "mods/grahamsdialogue/files/quiet.lua",
-		remove_after_executed = true,
+		_tags = "graham_speech_removable",
+		execute_every_n_frame = 1,
+		script_source_file = "mods/grahamsdialogue/files/speak.lua",
 	})
 
 	return true

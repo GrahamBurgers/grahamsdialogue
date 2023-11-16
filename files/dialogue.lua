@@ -141,6 +141,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_soldier", "Consider it an honour to perish to my weaponry.", "I believe something called \"dodging\" may help you in this situation.", "Off with your head!"},
     {"$animal_neutralizer", "I had to ask very politely to be given this secondary fire.", "It would be dishonest to claim this is not a personal attack.", "You must not be very happy about this scenario."},
     {"$animal_sentry", "The blinking lights are very necessary. I would not lie.", "I am proud to live in an extremely secure area.", "The whole world is against you now."},
+    {"$animal_ethereal_being", "It all returns to nothing eventually.", "Let me into your head. I need to know...", "It would be a shame if something happened to your magic..."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -286,6 +287,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_soldier", "An .exe will not execute me, despite the name.", "Who are you? No one executes the executioner.", "I hope you did not expect me to avoid that."},
     {"$animal_neutralizer", "My shell is standard-issue. Nothing special around here.", "This place absorbs far more power than it outputs.", "I will do my job until the day that I am decommissioned."},
     {"$animal_sentry", "The only spies permitted here are those on our side.", "You're not invisible, but I do not wish to look at you any longer.", "It pays to observe. Data collection is rather profitable."},
+    {"$animal_ethereal_being", "You bring me back just to dismiss me again?", "I guess this is what I get for trying to influence you.", "You deserve far worse than anything you could do to me."},
 }
 
 DIALOGUE_IDLE = {
@@ -430,6 +432,7 @@ DIALOGUE_IDLE = {
     {"$animal_soldier", "You all chip the enemy down. I will finish the job.", "Blood is a good indicator that I am doing my job well.", "Guillotines are quite flamboyant. Perhaps impractical."},
     {"$animal_neutralizer", "No good fights happen alone. Let me assist.", "Sometimes technology can indeed prevail over magic.", "We have not figured out how to slow down enemy flight yet..."},
     {"$animal_sentry", "Who shall we attack? Let me decide.", "A good plan helps keep things moving in the right direction.", "The Class-D Guardians? They're friends of mine, yes..."},
+    {"$animal_ethereal_being", "Everything was so much different back then...", "Three eyes bring wisdom. Nothing good comes from two.", "Feels like knowledge so easily flies away from me..."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -457,7 +460,7 @@ GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
 GENERIC_FRIENDLYFIRE =
-    { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!", "Hey, who do you think you are?!",
+    { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!", "Hey, who do you think you are?!", "You'll pay for that!", "We're supposed to fight them, not each other!",
 }
 
 Custom_speak_lines = {

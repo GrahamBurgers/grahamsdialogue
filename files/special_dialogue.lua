@@ -230,4 +230,17 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_ethereal_being"] = function(config)
+		if EntityGetFirstComponent(config.entity, "SpriteComponent") ~= EntityGetFirstComponentIncludingDisabled(config.entity, "SpriteComponent") then
+			config.size_x = config.size_x - 0.10
+			config.size_y = config.size_y - 0.10
+			local special = {
+				"Whispers on the wind...",
+				"Do you hear that? Come closer...",
+				"Ha, ha... The thought terrifies me.",
+				"The chill of death never truly leaves.",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
 }
