@@ -136,6 +136,11 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_sniper_hell", "A blood-red target's been painted on your head this whole time.", "All or nothing. Shall we duel?", "Turn away, lest I strike you in the eyes."},
     {"$animal_miner_hell", "You're still holding yourself together? Impressive...", "Ideally, you'd be gone once the smoke clears.", "No need to plan ahead. Every outcome ends up with someone dead."},
     {"$animal_graham_gasser_hell", "Don't be surprised if your lungs disintegrate sometime soon.", "If people knew what I made this gas out of, I'd be exiled.", "You could use a light dose of total organ failure."},
+    {"$animal_drone_shield", "This is a very strange situation we find ourselves in.", "Error: How did this happen.", "Do I now... Apologise?"},
+    {"$animal_hidden", "Nothing personal, kid.", "Boo! Jumpscare!", "How embarrassing. For you, I mean."},
+    {"$animal_soldier", "Consider it an honour to perish to my weaponry.", "I believe something called \"dodging\" may help you in this situation.", "Off with your head!"},
+    {"$animal_neutralizer", "I had to ask very politely to be given this secondary fire.", "It would be dishonest to claim this is not a personal attack.", "You must not be very happy about this scenario."},
+    {"$animal_sentry", "The blinking lights are very necessary. I would not lie.", "I am proud to live in an extremely secure area.", "The whole world is against you now."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -201,7 +206,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
     {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
     {"$animal_iceskull", "Chill out, dude!", "Cool it! I don't like your attitude.", "I knew you weren't cool."},
-    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "Was Jaatio spreading rumours about me again? What a buzzkill..."},
+    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "No electric skulls can compare to my sheer chill."},
     {"$animal_giant", "Giving up would be so simple.", "You're quite a disappointing one.", "Echo, echo, echo..."},
     {"$animal_scavenger_mine", "What a problem you are.", "I kill for sport. Can't say the same for you...", "What's wrong with you?"},
     {"$animal_scavenger_glue", "Stick around for the fight of a lifetime!", "Oh, get me out of this horrid place...", "I'm not helpless, you know."},
@@ -276,6 +281,11 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_sniper_hell", "Please leave my eyes intact, at the very least.", "There are no words to express my rage...", "Let me teach you a new definition of pain."},
     {"$animal_miner_hell", "Layers and layers of skin to shed...", "It doesn't get much worse than this.", "I manage to stop the bleeding... Most of the time."},
     {"$animal_graham_gasser_hell", "Don't punch a hole in my suit. You'll regret what happens next.", "The blood flows through the eye holes. Looks like I'm crying.", "More blood to brew up my bottles."},
+    {"$animal_drone_shield", "If you get polymorphed, I will keep you safe.", "I have been instructed to not protect anyone that looks like you.", "Can you not find ways to solve problems without hostility?"},
+    {"$animal_hidden", "I suppose I should not have expected anything more from you.", "Electricity merely charges my invisibility. Do not try it.", "Can we do a do-over? Let my invisibility recharge..."},
+    {"$animal_soldier", "An .exe will not execute me, despite the name.", "Who are you? No one executes the executioner.", "I hope you did not expect me to avoid that."},
+    {"$animal_neutralizer", "My shell is standard-issue. Nothing special around here.", "This place absorbs far more power than it outputs.", "I will do my job until the day that I am decommissioned."},
+    {"$animal_sentry", "The only spies permitted here are those on our side.", "You're not invisible, but I do not wish to look at you any longer.", "It pays to observe. Data collection is rather profitable."},
 }
 
 DIALOGUE_IDLE = {
@@ -338,8 +348,8 @@ DIALOGUE_IDLE = {
     {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
     {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
     {"$animal_rat", "I wanna eat the moon.", "Leave this place!", "No one ever tries to sympathize."},
-    {"$animal_iceskull", "I'm just a laid-back kind of dude, you know?", "Everyone around here just wants to copy my style...", "Tell that Sahkio guy that he can eat my shorts!"},
-    {"$animal_thunderskull", "I'll power your electronics if you pay me.", "My taste in music? Nothing but metal.", "Have you met Hankaussahko? That guy just GETS me, y'know?"},
+    {"$animal_iceskull", "I'm just a laid-back kind of dude, you know?", "Everyone around here just wants to copy my style...", "I'm way cooler than any ice skulls around here!"},
+    {"$animal_thunderskull", "I'll power your electronics if you pay me.", "My taste in music? Nothing but metal.", "Bzzzt! Ain't that shocking?"},
     {"$animal_giant", "Think again about what you consider natural.", "The line between living and nonliving is often unclear.", "You know not what forces allow you to survive."},
     {"$animal_scavenger_mine", "Did I forget to renew my hunting license?", "I hope landmines are legal around here.", "Don't mistake me for a healer again."},
     {"$animal_scavenger_glue", "Anyone wanna hire a distraction?", "I will legitimately kill you if you try to eat my glue.", "I hope this place doesn't smell as bad as I imagine it does."},
@@ -415,6 +425,11 @@ DIALOGUE_IDLE = {
     {"$animal_sniper_hell", "Bullets kill. That's one of the constants of this world.", "You don't want to know what I look like beneath this mask.", "I have to restrain myself... Shouldn't use every bullet at once."},
     {"$animal_miner_hell", "Nothing else matters if everyone around you is dead.", "I'll blow this whole place skyward soon enough.", "Let's see how big of a crater I can create before I die."},
     {"$animal_graham_gasser_hell", "I only wear this hazmat suit to keep myself held together...", "Stay away if you don't want your skin dissolved. Seriously.", "I can singlehandedly lower the air quality by over " .. tostring(Random(234, 567)) .. "%."},
+    {"$animal_drone_shield", "It is much easier to think when we are all in stalemate.", "Do not ask how my work is done. The end result is what matters.", "Fireproofing everything here was a worthwile investment..."},
+    {"$animal_hidden", "I begin the hunt. Others will end it.", "Some people do not listen carefully. What a mistake.", "Flight helps greatly to stay unstained and pristine..."},
+    {"$animal_soldier", "You all chip the enemy down. I will finish the job.", "Blood is a good indicator that I am doing my job well.", "Guillotines are quite flamboyant. Perhaps impractical."},
+    {"$animal_neutralizer", "No good fights happen alone. Let me assist.", "Sometimes technology can indeed prevail over magic.", "We have not figured out how to slow down enemy flight yet..."},
+    {"$animal_sentry", "Who shall we attack? Let me decide.", "A good plan helps keep things moving in the right direction.", "The Class-D Guardians? They're friends of mine, yes..."},
 }
 
 GENERIC_HOLDINGWAND =
