@@ -206,7 +206,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
     {"$animal_rat", "Don't hate us...", "You're so mean.", "Brothers, help!"},
     {"$animal_iceskull", "Chill out, dude!", "Cool it! I don't like your attitude.", "I knew you weren't cool."},
-    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "No electric skulls can compare to my sheer chill."},
+    {"$animal_thunderskull", "You can't handle the sheer volts I'm outputting.", "You're no fun.", "No frozen skulls can compare to my sheer power."},
     {"$animal_giant", "Giving up would be so simple.", "You're quite a disappointing one.", "Echo, echo, echo..."},
     {"$animal_scavenger_mine", "What a problem you are.", "I kill for sport. Can't say the same for you...", "What's wrong with you?"},
     {"$animal_scavenger_glue", "Stick around for the fight of a lifetime!", "Oh, get me out of this horrid place...", "I'm not helpless, you know."},
