@@ -12,7 +12,7 @@ if Random(1, rate) == 1 then
     local random = Random(1, 10)
     -- this is a sort of priority system; hopefully this many elseifs won't cause problems
     if not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost") then
-        if GameGetGameEffectCount(me, "ON_FIRE") > 0 then -- on fire
+        if GameGetGameEffectCount(me, "ON_FIRE") > 0 and not EntityHasGameEffect(me, {"PROTECTION_ALL", "PROTECTION_FIRE"}) then -- on fire
             Speak(me, GENERIC_ONFIRE[Random(1, #GENERIC_ONFIRE)], "GENERIC")
             return
         elseif random <= 5 and ComponentGetValue2(worldstatecomp, "ENDING_HAPPINESS") then -- peaceful ending

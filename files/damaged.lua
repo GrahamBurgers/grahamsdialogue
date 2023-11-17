@@ -2,7 +2,7 @@
 function damage_received( damage, message, entity_thats_responsible, is_fatal)
     local me = GetUpdatedEntityID()
     local x, y = EntityGetTransform(me)
-    if entity_thats_responsible ~= me and EntityHasTag(entity_thats_responsible, "mortal") then
+    if entity_thats_responsible ~= me and EntityHasTag(entity_thats_responsible, "mortal") and not EntityHasGameEffect(me, {"PROTECTION_ALL"}) then
         SetRandomSeed(entity_thats_responsible + me + y, damage + 1394 + x)
 
         local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)

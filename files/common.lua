@@ -170,6 +170,29 @@ function RemoveCurrentDialogue(entity)
 	end
 end
 
+function EntityHasGameEffect(entity, effects)
+    local queue = EntityGetAllChildren(entity) or {}
+    local last = #queue
+    local current = 1
+    local checks = {}
+    for i = 1, #effects do checks[effects[i]] = true end
+    while current <= last do
+        local check_entity = queue[current]
+        local comps = EntityGetComponent(check_entity, "GameEffectComponent") or {}
+        for i = 1, #comps do
+            if checks[ComponentGetValue2(comps[i], "effect")] then return true end
+        end
+        local children = EntityGetAllChildren(check_entity) or {}
+        local new = #children
+        for i = 1, new do
+            queue[i + last] = children[i]
+        end
+        last = last + new
+        current = current + 1
+    end
+    return false
+end
+
 ---@param entity number
 ---@param text string
 ---@param pool string? ""
