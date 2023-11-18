@@ -243,4 +243,7 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_fish_giga"] = function(config)
+		-- config.font = "mods/grahamsdialogue/files/font_pixel_white.xml"
+	end,
 }

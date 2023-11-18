@@ -79,6 +79,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["karl"]                          = -4,
 	["$animal_necrobot"]              = 8,
 	["$animal_necrobot_super"]        = 8,
+	["$animal_fish_giga"]             = -12,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -88,7 +89,7 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["$animal_lukki_dark"]            = 0.20,
 	["$animal_worm_end"]              = 0.15,
 	["$animal_boss_dragon"]           = 0.10,
-	["$animal_fish_giga"]             = 0.10,
+	["$animal_fish_giga"]             = 0.80,
 	["$animal_gate_monster_a"]        = 0.10,
 	["$animal_gate_monster_b"]        = 0.10,
 	["$animal_gate_monster_c"]        = 0.10,
@@ -306,7 +307,8 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 				size_x = size_x,
 				size_y = size_y,
 				faction = faction,
-				pool = pool
+				pool = pool,
+				font = font,
 			}
 			Special_dialogue[name](config)
 			text = config.text
@@ -317,6 +319,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			size_y = config.size_y
 			faction = config.faction
 			pool = config.pool
+			font = config.font
 		end
 
 		if Special_sizes[name] ~= nil then

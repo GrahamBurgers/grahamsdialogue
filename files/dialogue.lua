@@ -142,6 +142,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_neutralizer", "I had to ask very politely to be given this secondary fire.", "It would be dishonest to claim this is not a personal attack.", "You must not be very happy about this scenario."},
     {"$animal_sentry", "The blinking lights are very necessary. I would not lie.", "I am proud to live in an extremely secure area.", "The whole world is against you now."},
     {"$animal_ethereal_being", "It all returns to nothing eventually.", "Let me into your head. I need to know...", "It would be a shame if something happened to your magic..."},
+    {"$animal_fish_giga", "Drown.", "Reconsider. Your death awaits.", "This encounter shall be your last.", "Your corpse will be snatched up by the eels soon enough.", "Close your eyes. It's best if you don't see it coming.", "I tire of wasting my time with you."},
+    {"$animal_boss_limbs", "", "", "", "", "", ""},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -288,6 +290,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_neutralizer", "My shell is standard-issue. Nothing special around here.", "This place absorbs far more power than it outputs.", "I will do my job until the day that I am decommissioned."},
     {"$animal_sentry", "The only spies permitted here are those on our side.", "You're not invisible, but I do not wish to look at you any longer.", "It pays to observe. Data collection is rather profitable."},
     {"$animal_ethereal_being", "You bring me back just to dismiss me again?", "I guess this is what I get for trying to influence you.", "You deserve far worse than anything you could do to me."},
+    {"$animal_fish_giga", "Curse you and everything that you stand for.", "Don't forget the past. The portals never close.", "I would gladly disembowel you... If I was capable.", "You have no idea what's truly worthwhile in this world.", "Your eyes don't seem suited for environments such as this...", "Things will never truly be normal again, will they?"},
+    {"$animal_boss_limbs", "", "", "", "", "", ""},
 }
 
 DIALOGUE_IDLE = {
@@ -433,6 +437,8 @@ DIALOGUE_IDLE = {
     {"$animal_neutralizer", "No good fights happen alone. Let me assist.", "Sometimes technology can indeed prevail over magic.", "We have not figured out how to slow down enemy flight yet..."},
     {"$animal_sentry", "Who shall we attack? Let me decide.", "A good plan helps keep things moving in the right direction.", "The Class-D Guardians? They're friends of mine, yes..."},
     {"$animal_ethereal_being", "Everything was so much different back then...", "Three eyes bring wisdom. Nothing good comes from two.", "Feels like knowledge so easily flies away from me..."},
+    {"$animal_fish_giga", "Land-dweller, face the truth. You don't belong here.", "The pressure down here would crush any lesser beings.", "I'll teach you the true meaning of thalassophobia.", "What could even drive someone to venture down here, I wonder...", "I can smell blood in the water.", "You're not the only one with powerful hidden magic."},
+    {"$animal_boss_limbs", "", "", "", "", "", ""},
 }
 
 GENERIC_HOLDINGWAND =
