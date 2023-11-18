@@ -1,4 +1,4 @@
-path = "C:/Users/natha/Documents/code/noitadat/data/fonts/font_pixel_huge.xml"
+path = "C:/Users/natha/Documents/code/noitadat/data/fonts/font_pixel_big.xml"
 with open(path, "r") as f:
     text = f.read()
 chars = [chr(int(x.split("\"")[1])) for x in text.split("id")[1:]]
