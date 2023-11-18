@@ -11,7 +11,7 @@ ModLuaFileAppend("mods/grahamsdialogue/files/common.lua", "YOURMOD/WHATEVERPATHY
 -- TO ADD REGULAR DIALOGUE: use the AddEnemyDialogue(pool, name, dialogue) function
 -- This should work with both vanilla and modded enemies. If the enemy has no dialogue already
 -- Use "DAMAGETAKEN" or "DAMAGEDEALT" or "IDLE" for the pool parameter
-AddEnemyDialogue("DAMAGETAKEN", "$name_of_enemy", {"Dialogue 1", "Dialogue 2", "Dialogue 3"})
+AddEnemyDialogue("DAMAGETAKEN", "$name_of_enemy", { "Dialogue 1", "Dialogue 2", "Dialogue 3" })
 -- If your enemy is not tagged with 'hittable' or 'graham_enemydialogue', then it will not be able to speak IDLE or DAMAGETAKEN lines.
 -- NOTE: Enemies that are not tagged with 'graham_enemydialogue' WILL NOT speak if they do not have any custom dialogue in any pools.
 
@@ -38,18 +38,18 @@ DUPES["$name_of_enemy"] = "$name_of_enemy_to_mimic"
 -- For other special functionality, do this
 local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
-    MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
-    -- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
-    special_dialogue["$name_of_enemy"] = function()
-        size_x = size_x + 0.4
-    end
+	MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
+	-- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
+	special_dialogue["$name_of_enemy"] = function()
+		size_x = size_x + 0.4
+	end
 end
 
 -- And, finally, if you want an enemy to speak dialogue from any script, do it like this
 if ModIsEnabled("grahamsdialogue") then
-    dofile_once("mods/grahamsdialogue/common.lua")
-    Speak(entity_id, "Dialogue to speak", pool, check_name, override_old, name_override)
-    -- Most values shouldn't be needed. Turn off "check_name" if your enemy doesn't have any special dialogue or offsets defined.
+	dofile_once("mods/grahamsdialogue/common.lua")
+	Speak(entity_id, "Dialogue to speak", pool, check_name, override_old, name_override)
+	-- Most values shouldn't be needed. Turn off "check_name" if your enemy doesn't have any special dialogue or offsets defined.
 end
 
 --[[
@@ -78,4 +78,5 @@ You can make an enemy speak in glyphs if you'd like, but don't expect anyone to 
 You might want to make idle lines a bit shorter than other lines, since enemies might be farther away from the center of the screen at any given time.
 I try to use mostly gender-neutral words (e.g. avoid calling enemies or the player "guys"). This isn't necessary, but feels nicer.
 
-]]--
+]]
+   --

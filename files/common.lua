@@ -83,19 +83,19 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
-	["$animal_pebble"]                = -0.8,
-	["$animal_miniblob"]              = -0.10,
-	["$animal_lukki_tiny"]            = -0.05,
-	["$animal_lukki_dark"]            = 0.20,
-	["$animal_worm_end"]              = 0.15,
-	["$animal_boss_dragon"]           = 0.10,
-	["$animal_fish_giga"]             = 0.80,
-	["$animal_gate_monster_a"]        = 0.10,
-	["$animal_gate_monster_b"]        = 0.10,
-	["$animal_gate_monster_c"]        = 0.10,
-	["$animal_gate_monster_d"]        = 0.10,
-	["generic_ghost"]                 = -0.08,
-	["karl"]                          = -0.04,
+	["$animal_pebble"]         = -0.8,
+	["$animal_miniblob"]       = -0.10,
+	["$animal_lukki_tiny"]     = -0.05,
+	["$animal_lukki_dark"]     = 0.20,
+	["$animal_worm_end"]       = 0.15,
+	["$animal_boss_dragon"]    = 0.10,
+	["$animal_fish_giga"]      = 0.80,
+	["$animal_gate_monster_a"] = 0.10,
+	["$animal_gate_monster_b"] = 0.10,
+	["$animal_gate_monster_c"] = 0.10,
+	["$animal_gate_monster_d"] = 0.10,
+	["generic_ghost"]          = -0.08,
+	["karl"]                   = -0.04,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -172,26 +172,26 @@ function RemoveCurrentDialogue(entity)
 end
 
 function EntityHasGameEffect(entity, effects)
-    local queue = EntityGetAllChildren(entity) or {}
-    local last = #queue
-    local current = 1
-    local checks = {}
-    for i = 1, #effects do checks[effects[i]] = true end
-    while current <= last do
-        local check_entity = queue[current]
-        local comps = EntityGetComponent(check_entity, "GameEffectComponent") or {}
-        for i = 1, #comps do
-            if checks[ComponentGetValue2(comps[i], "effect")] then return true end
-        end
-        local children = EntityGetAllChildren(check_entity) or {}
-        local new = #children
-        for i = 1, new do
-            queue[i + last] = children[i]
-        end
-        last = last + new
-        current = current + 1
-    end
-    return false
+	local queue = EntityGetAllChildren(entity) or {}
+	local last = #queue
+	local current = 1
+	local checks = {}
+	for i = 1, #effects do checks[effects[i]] = true end
+	while current <= last do
+		local check_entity = queue[current]
+		local comps = EntityGetComponent(check_entity, "GameEffectComponent") or {}
+		for i = 1, #comps do
+			if checks[ComponentGetValue2(comps[i], "effect")] then return true end
+		end
+		local children = EntityGetAllChildren(check_entity) or {}
+		local new = #children
+		for i = 1, new do
+			queue[i + last] = children[i]
+		end
+		last = last + new
+		current = current + 1
+	end
+	return false
 end
 
 ---@param entity number
@@ -222,7 +222,8 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		name = DUPES[name_override] or name_override
 	end
 	local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
-	local font = "data/fonts/font_pixel_white.xml"
+	local font = "font_pixel_white"
+	local custom_font = false
 
 	if check_name then --!!!--
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name) or name_override ~= nil) then return end
@@ -309,6 +310,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 				faction = faction,
 				pool = pool,
 				font = font,
+				custom_font = custom_font
 			}
 			Special_dialogue[name](config)
 			text = config.text
@@ -320,6 +322,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			faction = config.faction
 			pool = config.pool
 			font = config.font
+			custom_font = config.custom_font
 		end
 
 		if Special_sizes[name] ~= nil then
@@ -356,7 +359,8 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		---@diagnostic disable-next-line: undefined-global
 		text = owoify(text)
 	end
-	if ModIsEnabled("salakieli") then font = "mods/grahamsdialogue/files/font_runes_white.xml" end
+	-- if ModIsEnabled("salakieli") then font = "/mods/grahamsdialogue/files/font_runes_white.xml" end
+	-- i don't think this is needed because salakieli overrides already.
 	if GameGetGameEffectCount(entity, "CONFUSION") > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
 	---- All dialogue handling should go above this point, don't tinker with stuff down here ----
@@ -369,13 +373,18 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 
 	local gui = GuiCreate()
 	GuiStartFrame(gui)
-	local width = GuiGetTextDimensions(gui, mode, 1) / 2 -- special scale after offset_x
+	local width = 0
+	if custom_font then
+		width = dofile("mods/grahamsdialogue/files/custom_font.lua")(font, mode)
+	else
+		width = GuiGetTextDimensions(gui, mode, 1) / 2 -- special scale after offset_x
+	end
 	GuiDestroy(gui)
 
 	EntityAddTag(entity, "graham_speaking")
 	EntityAddComponent2(entity, "SpriteComponent", {
 		_tags = "enabled_in_world, graham_speech_text, graham_speech_removable",
-		image_file = font,
+		image_file = "mods/grahamsdialogue/files/font_data/" .. font .. ".xml",
 		emissive = ModSettingGet("grahamsdialogue.visibility"),
 		is_text_sprite = true,
 		offset_x = width,

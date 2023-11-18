@@ -193,7 +193,7 @@ return {
 	end,
 	["$animal_friend"] = function(config)
 		if config.pool == "IDLE" or Random(1, 2) == 1 then
-			local count = tonumber( GlobalsGetValue( "ULTIMATE_KILLER_KILLS", "0" ) )
+			local count = tonumber(GlobalsGetValue("ULTIMATE_KILLER_KILLS", "0"))
 			if count >= 10 then
 				local special = {
 					"I will never forgive you for what you've done.",
@@ -244,6 +244,7 @@ return {
 		end
 	end,
 	["$animal_fish_giga"] = function(config)
-		-- config.font = "mods/grahamsdialogue/files/font_pixel_white.xml"
+		config.font = "font_pixel_huge"
+		config.custom_font = true
 	end,
 }
