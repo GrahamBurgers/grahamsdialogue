@@ -1,11 +1,11 @@
-path = "D:/Steam/steamapps/common/Noita/mods/grahamsdialogue/files/font_data/arial.xml"
+path = "D:/Steam/steamapps/common/Noita/mods/grahamsdialogue/files/font_data/font_pixel_huge.xml"
 
 with open(path, "r") as f:
     text = f.read()
 print([x.split("\"")[1] for x in text.split("id")[1:]])
 chars = [chr(int(x.split("\"")[1])) for x in text.split("id=")[1:]]
 print(chars)
-widths = [int(x.split("\"")[1]) for x in text.split("width=")[1:]]
+widths = [float(x.split("\"")[1]) for x in text.split("width=")[1:]]
 stuff = {}
 for a, b in zip(chars, widths):
     stuff[a] = b
