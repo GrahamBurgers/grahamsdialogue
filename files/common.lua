@@ -80,6 +80,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_necrobot"]              = 8,
 	["$animal_necrobot_super"]        = 8,
 	["$animal_fish_giga"]             = -12,
+	["$animal_boss_limbs"]            = 12,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -89,13 +90,14 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["$animal_lukki_dark"]     = 0.20,
 	["$animal_worm_end"]       = 0.15,
 	["$animal_boss_dragon"]    = 0.10,
-	["$animal_fish_giga"]      = 0.80,
+	["$animal_fish_giga"]      = 0.10,
 	["$animal_gate_monster_a"] = 0.10,
 	["$animal_gate_monster_b"] = 0.10,
 	["$animal_gate_monster_c"] = 0.10,
 	["$animal_gate_monster_d"] = 0.10,
 	["generic_ghost"]          = -0.08,
 	["karl"]                   = -0.04,
+	["$animal_boss_limbs"]     = 0.10,
 })
 
 function EnemyHasDialogue(pool, name)
@@ -200,7 +202,7 @@ end
 ---@param check_name boolean? true
 ---@param override_old boolean? false
 ---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
----Returns true if enemy successfully began speaking. Otherwise, returns a string with the reason why nothing happened.
+---Returns true if enemy successfully began speaking. Otherwise, returns nil.
 function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
 	pool = pool or ""

@@ -24,14 +24,31 @@ for i = 1, #filepaths do
     end
 end
 
-local path = "data/scripts/buildings/racing_cart_checkpoint.lua"
-local content = ModTextFileGetContent(path)
+local path, content
+
+path = "data/scripts/buildings/racing_cart_checkpoint.lua"
+content = ModTextFileGetContent(path)
 content = content:gsub("best_time = lap_time", [[best_time = lap_time
 dofile_once%("mods/grahamsdialogue/files/common.lua"%)
 for i = 1, #Custom_speak_lines do
     if Custom_speak_lines[i][1] == "karl_lap" then
         local type = Random%(2, #Custom_speak_lines[i]%)
         Speak%(entity_id, Custom_speak_lines[i][type], "CUSTOM", true, true, "karl"%)
+        break
+    end
+end
+]])
+ModTextFileSetContent(path, content)
+
+path = "data/entities/animals/boss_limbs/boss_limbs_update.lua"
+content = ModTextFileGetContent(path)
+content = content:gsub("-- run death sequence", [[-- run death sequence
+dofile_once%("mods/grahamsdialogue/files/common.lua"%)
+for i = 1, #Custom_speak_lines do
+    if Custom_speak_lines[i][1] == "boss_limbs_death" then
+        SetRandomSeed%(GetUpdatedEntityID%(%), GetUpdatedEntityID%(%)%)
+        local type = Random%(2, #Custom_speak_lines[i]%)
+        Speak%(GetUpdatedEntityID%(%), Custom_speak_lines[i][type], "CUSTOM", true, true%)
         break
     end
 end

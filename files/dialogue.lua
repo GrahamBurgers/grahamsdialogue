@@ -143,7 +143,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_sentry", "The blinking lights are very necessary. I would not lie.", "I am proud to live in an extremely secure area.", "The whole world is against you now."},
     {"$animal_ethereal_being", "It all returns to nothing eventually.", "Let me into your head. I need to know...", "It would be a shame if something happened to your magic..."},
     {"$animal_fish_giga", "Drown.", "Reconsider. Your death awaits.", "This encounter shall be your last.", "Your corpse will be snatched up by the eels soon enough.", "Close your eyes. It's best if you don't see it coming.", "I tire of wasting my time with you."},
-    {"$animal_boss_limbs", "", "", "", "", "", ""},
+    {"$animal_boss_limbs", "We can forget your transgressions. Just let yourself go...", "Do you know how many are a part of me now? Too many to count.", "Believe me, this isn't over quite yet.", "You think I can't feel every single thing you do to me?", "Perhaps I can go back and rest after you die.", "Some strange new diseases might rot your body soon. How fun."},
+    {"$animal_slimeshooter_boss_limbs", "Don't think too much about what happens next.", "It's just recycling. Or something like that.", "Acid is so wasteful. Corpses can be valuable."},
 }
 
 DIALOGUE_DAMAGETAKEN = {
@@ -291,7 +292,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_sentry", "The only spies permitted here are those on our side.", "You're not invisible, but I do not wish to look at you any longer.", "It pays to observe. Data collection is rather profitable."},
     {"$animal_ethereal_being", "You bring me back just to dismiss me again?", "I guess this is what I get for trying to influence you.", "You deserve far worse than anything you could do to me."},
     {"$animal_fish_giga", "Curse you and everything that you stand for.", "Don't forget the past. The portals never close.", "I would gladly disembowel you... If I was capable.", "You have no idea what's truly worthwhile in this world.", "Your eyes don't seem suited for environments such as this...", "Things will never truly be normal again, will they?"},
-    {"$animal_boss_limbs", "", "", "", "", "", ""},
+    {"$animal_boss_limbs", "I'm not the only one with darkness lurking inside.", "The heart always beats until it forever stops.", "We all had names. Identities. All forgotten, now.", "I have followers. Friends. They will never forget me.", "I accepted my fate a long, long time ago.", "Don't ignore your weaknesses. That's how the end comes."},
+    {"$animal_slimeshooter_boss_limbs", "Do what you want. You can't stop us.", "Try to catch up before the corpses rot away.", "Just one skull can make all the difference."},
 }
 
 DIALOGUE_IDLE = {
@@ -438,7 +440,8 @@ DIALOGUE_IDLE = {
     {"$animal_sentry", "Who shall we attack? Let me decide.", "A good plan helps keep things moving in the right direction.", "The Class-D Guardians? They're friends of mine, yes..."},
     {"$animal_ethereal_being", "Everything was so much different back then...", "Three eyes bring wisdom. Nothing good comes from two.", "Feels like knowledge so easily flies away from me..."},
     {"$animal_fish_giga", "Land-dweller, face the truth. You don't belong here.", "The pressure down here would crush any lesser beings.", "I'll teach you the true meaning of thalassophobia.", "What could even drive someone to venture down here, I wonder...", "I can smell blood in the water.", "You're not the only one with powerful hidden magic."},
-    {"$animal_boss_limbs", "", "", "", "", "", ""},
+    {"$animal_boss_limbs", "Death is a part of nature. The two cannot be separated.", "A new old life awaits those who fall down.", "Rebirth comes in all shapes and sizes.", "Some walk, some fly, some climb. All die.", "The most unusual thing in this world is something dying forever.", "It all moves in cycles. Each end is a new beginning."},
+    {"$animal_slimeshooter_boss_limbs", "Eternally thankful for eternal life.", "I must prove my devotion. It's worth it.", "Whatever it takes. I will demonstrate..."},
 }
 
 GENERIC_HOLDINGWAND =
@@ -478,4 +481,5 @@ Custom_speak_lines = {
     {"ghostly_ghost", "My little brother asked me to come along. You seem nice...", "I've never seen so many ghosts in one place before...", "You might become a ghost one day. Wouldn't that be neat?", "What? I'm just here to keep you company. I don't fight.", "Us ghosts make you floatier, don't you know?", "Come on, guys, we go as ghosts every Halloween..."},
     {"karl", "Modifying the arena is against the rules, by the way.", "I typically stay in my course, but it's fun to explore too!", "Bumping walls to turn can be both fun and effective!", "This cart isn't ever gonna run out of power.", "I haven't seen much... Wanna go somewhere?", "I'm so popular, even the stars are attracted to me."},
     {"karl_lap", "New best time! I knew you could do it!", "That lap was great! Wanna do another?", "I'm proud to have you as my driver.", "Woah! I didn't know that you could do it that fast!", "We should try going in the opposite direction next time!", "Yes! That one was super quick!"},
+    {"boss_limbs_death", "Wait, this isn't right! I'm not ready!", "What did you do? Why can't I hold myself together anymore?!", "I'm sorry for what I said! I didn't mean it, I swear!", "T-the offer's still on the table to join me, right...?", "It hurts... How does it hurt?! This is insane!", "Oh... You've really done it now, haven't you..."},
 }
