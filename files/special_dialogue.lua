@@ -244,7 +244,7 @@ return {
 		end
 	end,
 	["$animal_fish_giga"] = function(config)
-		config.font = "font_pixel_huge"
+		config.font = "font_pixel_huge" -- arial
 		config.custom_font = true
 	end,
 }
