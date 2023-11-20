@@ -72,7 +72,7 @@ function OnWorldPreUpdate()
         local enemies = EntityGetWithTag("mortal")
         for i = 1, #enemies do
             local name = NameGet(enemies[i])
-            if not EntityHasTag(enemies[i], "graham_dialogue_added") and EnemyHasDialogue("ANY", name) then
+            if not EntityHasTag(enemies[i], "graham_dialogue_added") and EnemyHasDialogue(pools.ANY, name) then
                 EntityAddTag(enemies[i], "graham_dialogue_added")
                 EntityAddComponent2(enemies[i], "LuaComponent", {
                     execute_every_n_frame=-1,

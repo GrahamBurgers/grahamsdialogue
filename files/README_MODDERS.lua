@@ -18,7 +18,7 @@ AddEnemyDialogue(pools.DAMAGETAKEN, "$name_of_enemy", { "Dialogue 1", "Dialogue 
 -- Use EmptyEnemyDialogue(pool, name) to remove all of an enemy's currently-existing dialogue lines. Same parameters as above, except for the dialogue table.
 EmptyEnemyDialogue(pools.IDLE, "$name_of_enemy")
 
--- Use EnemyHasDialogue(pool, name) to detect if an enemy has dialogue in a specific pool, or use "ANY" for any pool.
+-- Use EnemyHasDialogue(pool, name) to detect if an enemy has dialogue in a specific pool, or use pools.ANY for any pool.
 EnemyHasDialogue(pools.DAMAGEDEALT, "$name_of_enemy")
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances

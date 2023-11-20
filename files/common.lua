@@ -118,7 +118,7 @@ function EnemyHasDialogue(pool, name)
 			if what[i][1] == name then return i end
 		end
 	end
-	if pool == "ANY" then
+	if pool == pools.ANY then
 		for i = 1, #DIALOGUE_IDLE do
 			if DIALOGUE_IDLE[i][1] == name then return i end
 		end
@@ -252,7 +252,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local custom_font = false
 
 	if check_name then --!!!--
-		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name) or name_override ~= nil) then return end
+		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue(pools.ANY, name) or name_override ~= nil) then return end
 		-- player should never speak
 		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
 		if EntityIsStunned(entity) then return end
