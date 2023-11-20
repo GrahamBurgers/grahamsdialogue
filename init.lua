@@ -33,7 +33,7 @@ dofile_once%("mods/grahamsdialogue/files/common.lua"%)
 for i = 1, #Custom_speak_lines do
     if Custom_speak_lines[i][1] == "karl_lap" then
         local type = Random%(2, #Custom_speak_lines[i]%)
-        Speak%(entity_id, Custom_speak_lines[i][type], "CUSTOM", true, true, "karl"%)
+        Speak%(entity_id, Custom_speak_lines[i][type], pools.CUSTOM, true, true, "karl"%)
         break
     end
 end
@@ -48,7 +48,7 @@ for i = 1, #Custom_speak_lines do
     if Custom_speak_lines[i][1] == "boss_limbs_death" then
         SetRandomSeed%(GetUpdatedEntityID%(%), GetUpdatedEntityID%(%)%)
         local type = Random%(2, #Custom_speak_lines[i]%)
-        Speak%(GetUpdatedEntityID%(%), Custom_speak_lines[i][type], "CUSTOM", true, true%)
+        Speak%(GetUpdatedEntityID%(%), Custom_speak_lines[i][type], pools.CUSTOM, true, true%)
         break
     end
 end
