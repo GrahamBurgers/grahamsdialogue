@@ -100,8 +100,12 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["$animal_boss_limbs"]     = 0.10,
 })
 
+---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
+---@param pool string -- TODO: enum
+---@param name string
+---@return integer?
 function EnemyHasDialogue(pool, name)
-	if name == nil then return false end
+	if name == nil then return nil end
 	local what = {}
 	if pool == "IDLE" then what = DIALOGUE_IDLE end
 	if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
@@ -122,9 +126,13 @@ function EnemyHasDialogue(pool, name)
 			if DIALOGUE_DAMAGEDEALT[i][1] == name then return i end
 		end
 	end
-	return false
+	return nil
 end
 
+---Registers enemy dialogue into the dialogue table provided
+---@param pool string -- TODO: refactor to enum
+---@param name string
+---@param dialogue string[]
 function AddEnemyDialogue(pool, name, dialogue)
 	local has = EnemyHasDialogue(pool, name)
 	local what = {}
@@ -162,6 +170,7 @@ function EmptyEnemyDialogue(pool, name)
 	if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
 end
 
+---@param entity integer
 function RemoveCurrentDialogue(entity)
 	if not EntityGetIsAlive(entity) then return end
 	EntityRemoveTag(entity, "graham_speaking")
@@ -173,6 +182,9 @@ function RemoveCurrentDialogue(entity)
 	end
 end
 
+---@param entity integer	
+---@param effects string[]
+---@return boolean
 function EntityHasGameEffect(entity, effects)
 	local queue = EntityGetAllChildren(entity) or {}
 	local last = #queue
@@ -196,6 +208,7 @@ function EntityHasGameEffect(entity, effects)
 	return false
 end
 
+---Returns true if enemy successfully began speaking. Otherwise, returns nil.
 ---@param entity number
 ---@param text string
 ---@param pool string? ""
@@ -203,7 +216,6 @@ end
 ---@param override_old boolean? false
 ---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
 ---@return boolean?
----Returns true if enemy successfully began speaking. Otherwise, returns nil.
 function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
 	pool = pool or ""
