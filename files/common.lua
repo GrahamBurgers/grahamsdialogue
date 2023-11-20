@@ -20,6 +20,8 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 	["ghostly_ghost"]                 = "generic_ghost",
 })
 
+---@param entity integer
+---@return string
 function NameGet(entity)
 	local name = EntityGetName(entity) or ""
 	name = DUPES[name] or name
@@ -154,6 +156,8 @@ function AddEnemyDialogue(pool, name, dialogue)
 	if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
 end
 
+---@param pool string
+---@param name string
 function EmptyEnemyDialogue(pool, name)
 	local has = EnemyHasDialogue(pool, name)
 	local what = {}
