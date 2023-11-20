@@ -1,5 +1,6 @@
 SetRandomSeed(2352, 9533) -- hax?
 
+---@type string[][]
 DIALOGUE_DAMAGEDEALT = {
     {"$animal_shotgunner", "Gotcha.", "Blood, blood!", "I hope that hurt."},
     {"$animal_zombie", "Tasty!", "Rah!", "Spill your blood!"},
@@ -147,6 +148,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_slimeshooter_boss_limbs", "Don't think too much about what happens next.", "It's just recycling. Or something like that.", "Acid is so wasteful. Corpses can be valuable."},
 }
 
+---@type string[][]
 DIALOGUE_DAMAGETAKEN = {
     {"$animal_shotgunner", "Augh!", "You'll pay for that!", "That hurts..."},
     {"$animal_zombie", "Leave me...", "This is my end.", "Are you hungry too?"},
@@ -296,6 +298,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_slimeshooter_boss_limbs", "Do what you want. You can't stop us.", "Try to catch up before the corpses rot away.", "Just one skull can make all the difference."},
 }
 
+---@type string[][]
 DIALOGUE_IDLE = {
     {"$animal_shotgunner", "Who are you?", "I want to take a nap.", "This is my territory!"},
     {"$animal_zombie", "Hungry... so hungry!", "Must feed...", "Where are you?"},
@@ -444,34 +447,52 @@ DIALOGUE_IDLE = {
     {"$animal_slimeshooter_boss_limbs", "Eternally thankful for eternal life.", "I must prove my devotion. It's worth it.", "Whatever it takes. I will demonstrate..."},
 }
 
+---@type string[]
 GENERIC_HOLDINGWAND =
     { "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "Hey, how do I put bullets into this?",
 }
+
+---@type string[]
 GENERIC_CHARMED =
     { "I'm just happy to be here.", "Hello! How are you? I love you.", "Friendship...", "You're my best friend.", "Hehe...",
 }
+
+---@type string[]
 GENERIC_ONFIRE =
     { "Ow, ow!", "Aaah!", "Water! Need water, quickly!", "Someone help!", "Fire! Fire!!", "It burns! Help!",
 }
+
+---@type string[]
 GENERIC_PEACEFULENDING =
     { "This is nice.", "Thank you, player!", "So peaceful... so nice!", "I feel so happy!", "I can finally take a nap...",
 }
+
+---@type string[]
 GENERIC_DRUNK =
     { "Hic...", "Y-you're funny.", "Burp.", "My head hurts...", "Oof, I've had too much.",
 }
+
+---@type string[]
 GENERIC_BERSERK =
     { "I'll kill you all!", "Prepare to die!", "I'll tear you all to pieces!", "None of you are my allies!", "Surrender now! Die! Die!",
 }
+
+---@type string[]
 GENERIC_TOXIC =
     { "Oh, I feel gross...", "Cough, hack...", "My head hurts...", "I feel like I'm gonna be sick...", "It hurts...",
 }
+
+---@type string[]
 GENERIC_HEALED =
     { "Ahh, that feels better.", "That's a weight off my back.", "I feel as good as new!", "Thanks for that.", "Perhaps I'll live another day.",
 }
+
+---@type string[]
 GENERIC_FRIENDLYFIRE =
     { "Hey! Who did that?!", "Don't attack me!", "Stay away!", "Why can't we just be allies?!", "Hey, who do you think you are?!", "You'll pay for that!", "We're supposed to fight them, not each other!",
 }
 
+---@type string[][]
 Custom_speak_lines = {
     {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!"},
     {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "Eating bullets is strange? How does a ghost eat at all?", "Careful about healing while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier..."},

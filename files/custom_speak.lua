@@ -12,7 +12,7 @@ if Random(1, rate) == 1 and Random(1, 2) == 1 then                              
 			local who = EntityGetAllChildren(me)
 			if who ~= nil then me = who[1] end
 			local type = Random(2, #Custom_speak_lines[i])
-			Speak(me, Custom_speak_lines[i][type], pools.CUSTOM, true, false, id)
+			Speak(me, GetLine(Custom_speak_lines, i, pools.CUSTOM), pools.CUSTOM, true, false, id)
 			break
 		end
 	end
