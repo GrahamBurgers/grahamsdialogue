@@ -214,8 +214,8 @@ function EntityHasGameEffect(entity, effects)
 end
 
 function EntityIsStunned(entity)
-	if EntityHasGameEffect(entity, {"FROZEN"}) and not EntityHasGameEffect(entity, {"STUN_PROTECTION_FREEZE"}) then return true end
-	if EntityHasGameEffect(entity, {"ELECTROCUTION"}) and not EntityHasGameEffect(entity, {"STUN_PROTECTION_ELECTRICITY"}) then return true	end
+	if EntityHasGameEffect(entity, { "FROZEN" }) and not EntityHasGameEffect(entity, { "STUN_PROTECTION_FREEZE" }) then return true end
+	if EntityHasGameEffect(entity, { "ELECTROCUTION" }) and not EntityHasGameEffect(entity, { "STUN_PROTECTION_ELECTRICITY" }) then return true end
 	return false
 end
 
@@ -254,7 +254,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	if check_name then --!!!--
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue(pools.ANY, name) or name_override ~= nil) then return end
 		-- player should never speak
-		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
+		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "polymorphed_player") then return end
 		if EntityIsStunned(entity) then return end
 
 		local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
@@ -267,19 +267,19 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 
 		-- Copier mage should go at the top, so it can pretend to be a different enemy
 		if name == "$animal_wizard_returner" then
-			local thing = nil
-			if pool == pools.IDLE then thing = DIALOGUE_IDLE end
-			if pool == pools.DAMAGEDEALT then thing = DIALOGUE_DAMAGEDEALT end
-			if pool == pools.DAMAGETAKEN then thing = DIALOGUE_DAMAGETAKEN end
-			if thing ~= nil then
+			local dailogue_pool = nil
+			if pool == pools.IDLE then dailogue_pool = DIALOGUE_IDLE end
+			if pool == pools.DAMAGEDEALT then dailogue_pool = DIALOGUE_DAMAGEDEALT end
+			if pool == pools.DAMAGETAKEN then dailogue_pool = DIALOGUE_DAMAGETAKEN end
+			if dailogue_pool ~= nil then
 				local enemies = EntityGetInRadiusWithTag(x, y, 150, "enemy") or {}
 				for j = 1, #enemies do
 					local enemy = enemies[Random(1, #enemies)]
 					name = EntityGetName(enemy)
 					if name ~= "$animal_wizard_returner" then
-						for i = 1, #thing do
-							if thing[i][1] == name then
-								text = tostring(thing[i][Random(2, #thing[i])])
+						for i = 1, #dailogue_pool do
+							if dailogue_pool[i][1] == name then
+								text = tostring(dailogue_pool[i][Random(2, #dailogue_pool[i])])
 								break
 							end
 						end
@@ -389,7 +389,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	-- if ModIsEnabled("salakieli") then font = "/mods/grahamsdialogue/files/font_runes_white.xml" end
 	-- i don't think this is needed because salakieli overrides already.
 	-- TODO: new font system means we need to do this properly.
-	if EntityHasGameEffect(entity, {"CONFUSION"}) then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
+	if EntityHasGameEffect(entity, { "CONFUSION" }) then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
 	---- All dialogue handling should go above this point, don't tinker with stuff down here ----
 	local mode = (ModSettingGet("grahamsdialogue.type") == "letter" and string.sub(text, 1, 1)) or text
@@ -444,4 +444,38 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	})
 
 	return text
+end
+
+---Gets a line given an enemies index in a dailogue pool
+---@param dailogue_pool string[][]
+---@param enemy_idx integer
+---@param pool pool
+---@return string
+function GetLine(dailogue_pool, enemy_idx, pool)
+	local lines = dailogue_pool[enemy_idx]
+	local time = GameGetFrameNum()
+	local integrated = {}
+	local sum = 0
+	for i = 2, #lines do
+		local last = time - tonumber(GlobalsGetValue(
+			"mods_grahamsdialogue_pool_"
+			.. pool
+			.. "_" .. enemy_idx
+			.. "_" .. i, "0"))
+		sum = sum + last
+		table.insert(integrated, sum)
+	end
+	local cut = Random(1, sum)
+	local idx = 1
+	for k, v in ipairs(sum) do
+		if cut <= v then
+			idx = k
+			break
+		end
+	end
+	GlobalsSetValue("mods_grahamsdialogue_pool_"
+		.. pool
+		.. "_" .. enemy_idx
+		.. "_" .. idx, tostring(time))
+	return lines[idx + 1]
 end
