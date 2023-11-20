@@ -40,8 +40,8 @@ local MakeSureThisIsNamedSomethingUnique = ModdedStuff
 function ModdedStuff()
 	MakeSureThisIsNamedSomethingUnique() -- make sure to call this function, otherwise you'll overwrite stuff that other mods do
 	-- Your code goes here; make this whatever you want - typically, you'd want to modify variables like size_x or size_y
-	special_dialogue["$name_of_enemy"] = function()
-		size_x = size_x + 0.4
+	special_dialogue["$name_of_enemy"] = function(config)
+		config.size_x = config.size_x + 0.4
 	end
 end
 
