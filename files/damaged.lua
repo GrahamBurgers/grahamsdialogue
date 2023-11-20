@@ -4,7 +4,7 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 	local x, y = EntityGetTransform(me)
 	dofile_once("mods/grahamsdialogue/files/common.lua")
 	if entity_thats_responsible ~= me and EntityHasTag(entity_thats_responsible, "mortal") and not EntityHasGameEffect(me, { "PROTECTION_ALL" }) then
-		SetRandomSeed(entity_thats_responsible + me + y, damage + 1394 + x)
+		SetRandomSeed(entity_thats_responsible + y, me + GameGetFrameNum() + x)
 
 		local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)
 		if ModSettingGet("grahamsdialogue.damaged_enabled") == false then return end

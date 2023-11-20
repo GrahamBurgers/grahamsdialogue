@@ -208,14 +208,14 @@ function EntityHasGameEffect(entity, effects)
 	return false
 end
 
----Returns true if enemy successfully began speaking. Otherwise, returns nil.
+---Returns the spoken text if enemy successfully began speaking. Otherwise, returns nil.
 ---@param entity number
 ---@param text string
 ---@param pool string? ""
 ---@param check_name boolean? true
 ---@param override_old boolean? false
 ---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
----@return boolean?
+---@return string?
 function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
 	pool = pool or ""
@@ -244,6 +244,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name) or name_override ~= nil) then return end
 		-- player should never speak
 		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
+		if GameGetGameEffectCount(entity, "FROZEN") > 0 or GameGetGameEffectCount(entity, "ELECTROCUTION") > 0 then return end
 
 		local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
 		local faction
@@ -430,5 +431,5 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		script_source_file = "mods/grahamsdialogue/files/speak.lua",
 	})
 
-	return true
+	return text
 end

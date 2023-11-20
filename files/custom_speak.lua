@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-global, lowercase-global
 local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
-SetRandomSeed(x + GameGetFrameNum(), y + 1394)
+SetRandomSeed(x + GameGetFrameNum(), y + me + 23835)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
 if ModSettingGet("grahamsdialogue.idle_enabled") == false then return end
 if Random(1, rate) == 1 and Random(1, 2) == 1 then                                   -- make these guys speak half as often to not annoy the player
