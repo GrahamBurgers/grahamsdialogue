@@ -1,2 +1,8 @@
 ---@enum pool
-pools = { IDLE = 0, DAMAGETAKEN = 1, DAMAGEDEALT = 2, GENERIC = 3, ANY = 4 }
+pools = {
+	IDLE = 0,
+	DAMAGETAKEN = 1,
+	DAMAGEDEALT = 2,
+	GENERIC = 3,
+	ANY = 4
+}
