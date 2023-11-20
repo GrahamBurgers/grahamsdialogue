@@ -389,7 +389,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	-- if ModIsEnabled("salakieli") then font = "/mods/grahamsdialogue/files/font_runes_white.xml" end
 	-- i don't think this is needed because salakieli overrides already.
 	-- TODO: new font system means we need to do this properly.
-	if EntityHasGameEffect(entity, {"CONFUSION"}) > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
+	if EntityHasGameEffect(entity, {"CONFUSION"}) then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
 	---- All dialogue handling should go above this point, don't tinker with stuff down here ----
 	local mode = (ModSettingGet("grahamsdialogue.type") == "letter" and string.sub(text, 1, 1)) or text
