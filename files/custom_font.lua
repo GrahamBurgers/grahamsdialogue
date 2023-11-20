@@ -1,4 +1,8 @@
-return function(font, text)
+return 
+---@param font string
+---@param text string
+---@return number
+function(font, text)
 	local width = 0
 	local custom_font_data = dofile("mods/grahamsdialogue/files/font_data/" .. font .. ".lua")
 	for i = 1, #text do
