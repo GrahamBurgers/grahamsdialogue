@@ -213,6 +213,12 @@ function EntityHasGameEffect(entity, effects)
 	return false
 end
 
+function EntityIsStunned(entity)
+	if EntityHasGameEffect(entity, {"FROZEN"}) and not EntityHasGameEffect(entity, {"STUN_PROTECTION_FREEZE"}) then return true end
+	if EntityHasGameEffect(entity, {"ELECTROCUTION"}) and not EntityHasGameEffect(entity, {"STUN_PROTECTION_ELECTRICITY"}) then return true	end
+	return false
+end
+
 ---Returns the spoken text if enemy successfully began speaking. Otherwise, returns nil.
 ---@param entity number
 ---@param text string
@@ -249,7 +255,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue("ANY", name) or name_override ~= nil) then return end
 		-- player should never speak
 		if EntityHasTag(entity, "player_unit") or EntityHasTag(entity, "player_polymorphed") or EntityHasTag(entity, "polymorphed_player") then return end
-		if GameGetGameEffectCount(entity, "FROZEN") > 0 or GameGetGameEffectCount(entity, "ELECTROCUTION") > 0 then return end
+		if EntityIsStunned(entity) then return end
 
 		local genome = EntityGetFirstComponent(entity, "GenomeDataComponent")
 		local faction
