@@ -465,7 +465,6 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
-	for k,v in ipairs(integrated) do print(k, v) end
 	local cut = Random(1, sum)
 	local idx = 1
 	for k, v in ipairs(integrated) do
