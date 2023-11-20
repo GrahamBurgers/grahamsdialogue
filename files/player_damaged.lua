@@ -11,7 +11,7 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 			for i = 1, #DIALOGUE_DAMAGEDEALT do
 				if DIALOGUE_DAMAGEDEALT[i][1] == name then
 					local type = Random(2, #DIALOGUE_DAMAGEDEALT[i])
-					Speak(entity_thats_responsible, tostring(DIALOGUE_DAMAGEDEALT[i][type]), "DAMAGEDEALT")
+					Speak(entity_thats_responsible, tostring(DIALOGUE_DAMAGEDEALT[i][type]), pools.DAMAGEDEALT)
 					break
 				end
 			end

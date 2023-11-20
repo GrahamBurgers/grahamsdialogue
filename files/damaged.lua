@@ -15,15 +15,15 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 					for i = 1, #DIALOGUE_DAMAGETAKEN do
 						if DIALOGUE_DAMAGETAKEN[i][1] == name then
 							local type = Random(2, #DIALOGUE_DAMAGETAKEN[i])
-							Speak(me, tostring(DIALOGUE_DAMAGETAKEN[i][type]), "DAMAGETAKEN")
+							Speak(me, tostring(DIALOGUE_DAMAGETAKEN[i][type]), pools.DAMAGETAKEN)
 							break
 						end
 					end
 				else
-					Speak(me, GENERIC_FRIENDLYFIRE[Random(1, #GENERIC_FRIENDLYFIRE)], "GENERIC")
+					Speak(me, GENERIC_FRIENDLYFIRE[Random(1, #GENERIC_FRIENDLYFIRE)], pools.GENERIC)
 				end
 			elseif damage < 0 then
-				Speak(me, GENERIC_HEALED[Random(1, #GENERIC_HEALED)], "GENERIC")
+				Speak(me, GENERIC_HEALED[Random(1, #GENERIC_HEALED)], pools.GENERIC)
 			end
 		end
 	end

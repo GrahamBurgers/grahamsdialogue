@@ -1,4 +1,5 @@
 dofile("mods/grahamsdialogue/files/dialogue.lua")
+dofile("mods/grahamsdialogue/files/types.lua")
 
 DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_zombie_weak"]           = "$animal_zombie",
@@ -103,15 +104,15 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
----@param pool string -- TODO: enum
+---@param pool pool
 ---@param name string
 ---@return integer?
 function EnemyHasDialogue(pool, name)
 	if name == nil then return nil end
 	local what = {}
-	if pool == "IDLE" then what = DIALOGUE_IDLE end
-	if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
-	if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.IDLE then what = DIALOGUE_IDLE end
+	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
+	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
 	if what ~= {} then
 		for i = 1, #what do
 			if what[i][1] == name then return i end
@@ -132,15 +133,15 @@ function EnemyHasDialogue(pool, name)
 end
 
 ---Registers enemy dialogue into the dialogue table provided
----@param pool string -- TODO: refactor to enum
+---@param pool pool
 ---@param name string
 ---@param dialogue string[]
 function AddEnemyDialogue(pool, name, dialogue)
 	local has = EnemyHasDialogue(pool, name)
 	local what = {}
-	if pool == "IDLE" then what = DIALOGUE_IDLE end
-	if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
-	if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.IDLE then what = DIALOGUE_IDLE end
+	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
+	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
 	if has then
 		for j = 1, #dialogue do
 			-- If the enemy exists in the table already, insert the new dialogue
@@ -151,27 +152,27 @@ function AddEnemyDialogue(pool, name, dialogue)
 		table.insert(dialogue, 1, name)
 		table.insert(what, dialogue)
 	end
-	if pool == "IDLE" then DIALOGUE_IDLE = what end
-	if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
-	if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
+	if pool == pools.IDLE then DIALOGUE_IDLE = what end
+	if pool == pools.DAMAGETAKEN then DIALOGUE_DAMAGETAKEN = what end
+	if pool == pools.DAMAGEDEALT then DIALOGUE_DAMAGEDEALT = what end
 end
 
----@param pool string
+---@param pool pool
 ---@param name string
 function EmptyEnemyDialogue(pool, name)
 	local has = EnemyHasDialogue(pool, name)
 	local what = {}
-	if pool == "IDLE" then what = DIALOGUE_IDLE end
-	if pool == "DAMAGETAKEN" then what = DIALOGUE_DAMAGETAKEN end
-	if pool == "DAMAGEDEALT" then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.IDLE then what = DIALOGUE_IDLE end
+	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
+	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
 
 	if has then
 		table.remove(what, has)
 	end
 
-	if pool == "IDLE" then DIALOGUE_IDLE = what end
-	if pool == "DAMAGETAKEN" then DIALOGUE_DAMAGETAKEN = what end
-	if pool == "DAMAGEDEALT" then DIALOGUE_DAMAGEDEALT = what end
+	if pool == pools.IDLE then DIALOGUE_IDLE = what end
+	if pool == pools.DAMAGETAKEN then DIALOGUE_DAMAGETAKEN = what end
+	if pool == pools.DAMAGEDEALT then DIALOGUE_DAMAGEDEALT = what end
 end
 
 ---@param entity integer
@@ -215,14 +216,14 @@ end
 ---Returns the spoken text if enemy successfully began speaking. Otherwise, returns nil.
 ---@param entity number
 ---@param text string
----@param pool string? ""
+---@param pool pool
 ---@param check_name boolean? true
 ---@param override_old boolean? false
 ---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
 ---@return string?
 function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
-	pool = pool or ""
+	pool = pool or pools.GENERIC
 	if check_name == nil then check_name = true end
 
 	local textComponent = EntityGetFirstComponentIncludingDisabled(entity, "SpriteComponent", "graham_speech_text")
@@ -261,9 +262,9 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		-- Copier mage should go at the top, so it can pretend to be a different enemy
 		if name == "$animal_wizard_returner" then
 			local thing = nil
-			if pool == "IDLE" then thing = DIALOGUE_IDLE end
-			if pool == "DAMAGEDEALT" then thing = DIALOGUE_DAMAGEDEALT end
-			if pool == "DAMAGETAKEN" then thing = DIALOGUE_DAMAGETAKEN end
+			if pool == pools.IDLE then thing = DIALOGUE_IDLE end
+			if pool == pools.DAMAGEDEALT then thing = DIALOGUE_DAMAGEDEALT end
+			if pool == pools.DAMAGETAKEN then thing = DIALOGUE_DAMAGETAKEN end
 			if thing ~= nil then
 				local enemies = EntityGetInRadiusWithTag(x, y, 150, "enemy") or {}
 				for j = 1, #enemies do
@@ -381,6 +382,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	end
 	-- if ModIsEnabled("salakieli") then font = "/mods/grahamsdialogue/files/font_runes_white.xml" end
 	-- i don't think this is needed because salakieli overrides already.
+	-- TODO: new font system means we need to do this properly.
 	if GameGetGameEffectCount(entity, "CONFUSION") > 0 then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
 	---- All dialogue handling should go above this point, don't tinker with stuff down here ----

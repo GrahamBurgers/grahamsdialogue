@@ -1,7 +1,7 @@
 ---@diagnostic disable: undefined-global
 return {
 	["$animal_necromancer_shop"] = function(config)
-		if config.pool == "IDLE" and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
+		if config.pool == pools.IDLE and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
 			local special = {
 				"I suppose I can let it slide. But just this once!",
 				"Don't think that this means that you're off the hook...",
@@ -11,7 +11,7 @@ return {
 		end
 	end,
 	["$animal_necromancer_super"] = function(config)
-		if config.pool == "IDLE" and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
+		if config.pool == pools.IDLE and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
 			local special = {
 				"A sinful being you are... But perhaps a little bit endearing.",
 				"Don't be mistaken. It is by command of the gods that I spare your life today.",
@@ -21,7 +21,7 @@ return {
 		end
 	end,
 	["$animal_firemage"] = function(config)
-		if config.pool == "IDLE" then
+		if config.pool == pools.IDLE then
 			local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
@@ -40,7 +40,7 @@ return {
 		end
 	end,
 	["$animal_firemage_weak"] = function(config)
-		if config.pool == "IDLE" then
+		if config.pool == pools.IDLE then
 			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
@@ -59,7 +59,7 @@ return {
 		end
 	end,
 	["$animal_thundermage_big"] = function(config)
-		if config.pool == "IDLE" then
+		if config.pool == pools.IDLE then
 			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
@@ -78,7 +78,7 @@ return {
 		end
 	end,
 	["$animal_thundermage"] = function(config)
-		if config.pool == "IDLE" then
+		if config.pool == pools.IDLE then
 			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
@@ -97,7 +97,7 @@ return {
 		end
 	end,
 	["$animal_thunderskull"] = function(config)
-		if (config.pool == "DAMAGEDEALT" or config.pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_ELECTRICITY") then
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and GameHasFlagRun("PERK_PICKED_ELECTRICITY") then
 			local special = {
 				"Yo! A fellow electricity user?!",
 				"I never expected to see someone as rad as me down here!",
@@ -107,7 +107,7 @@ return {
 		end
 	end,
 	["$animal_iceskull"] = function(config)
-		if (config.pool == "DAMAGEDEALT" or config.pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_GRAHAM_REVENGE_FREEZE") then
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and GameHasFlagRun("PERK_PICKED_GRAHAM_REVENGE_FREEZE") then
 			local special = {
 				"Hey, you also have retaliation projectiles? N-ice.",
 				"Your perks are cool! And I mean that literally.",
@@ -117,7 +117,7 @@ return {
 		end
 	end,
 	["$animal_icemage"] = function(config)
-		if (config.pool == "DAMAGEDEALT" or config.pool == "DAMAGETAKEN") and GameHasFlagRun("PERK_PICKED_FREEZE_FIELD") then
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and GameHasFlagRun("PERK_PICKED_FREEZE_FIELD") then
 			local special = {
 				"Ice skate with me, friend!",
 				"Are you feeling that winter spirit?",
@@ -135,7 +135,7 @@ return {
 		end
 	end,
 	["$animal_graham_fuzz"] = function(config)
-		if config.faction == "player" and config.pool == "IDLE" then
+		if config.faction == "player" and config.pool == pools.IDLE then
 			local special = {
 				"Just here to say hi. I'll be on my way soon.",
 				"I don't see what's so bad about you.",
@@ -151,7 +151,7 @@ return {
 		return config.text
 	end,
 	["$animal_miner_santa"] = function(config)
-		if StatsBiomeGetValue("enemies_killed") < 1 and config.pool == "DAMAGEDEALT" then
+		if StatsBiomeGetValue("enemies_killed") < 1 and config.pool == pools.DAMAGEDEALT then
 			local special = {
 				"Pacifism? You might be deserving of the Nice List after all.",
 				"You've been a good person so far. Christmas awaits!",
@@ -164,7 +164,7 @@ return {
 		local who = ComponentGetValue2(EntityGetFirstComponent(config.entity, "VariableStorageComponent") or 0,
 			"value_int")
 		if who == 0 or who == nil then config.text = "" end
-		if BiomeMapGetName(config.x, config.y) == "$biome_rainforest" and Random(1, 3) == 1 and config.pool == "IDLE" then
+		if BiomeMapGetName(config.x, config.y) == "$biome_rainforest" and Random(1, 3) == 1 and config.pool == pools.IDLE then
 			local special = {
 				"Ah, it's nice to be home in the jungle.",
 				"It really has been a while. I don't recognize anyone here...",
@@ -192,7 +192,7 @@ return {
 		config.faction = "ghost"
 	end,
 	["$animal_friend"] = function(config)
-		if config.pool == "IDLE" or Random(1, 2) == 1 then
+		if config.pool == pools.IDLE or Random(1, 2) == 1 then
 			local count = tonumber(GlobalsGetValue("ULTIMATE_KILLER_KILLS", "0"))
 			if count >= 10 then
 				local special = {

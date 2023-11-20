@@ -10,16 +10,16 @@ ModLuaFileAppend("mods/grahamsdialogue/files/common.lua", "YOURMOD/WHATEVERPATHY
 
 -- TO ADD REGULAR DIALOGUE: use the AddEnemyDialogue(pool, name, dialogue) function
 -- This should work with both vanilla and modded enemies. If the enemy has no dialogue already
--- Use "DAMAGETAKEN" or "DAMAGEDEALT" or "IDLE" for the pool parameter
-AddEnemyDialogue("DAMAGETAKEN", "$name_of_enemy", { "Dialogue 1", "Dialogue 2", "Dialogue 3" })
+-- Use pool enum defined in files/types.lua for pools parameter
+AddEnemyDialogue(pools.DAMAGETAKEN, "$name_of_enemy", { "Dialogue 1", "Dialogue 2", "Dialogue 3" })
 -- If your enemy is not tagged with 'hittable' or 'graham_enemydialogue', then it will not be able to speak IDLE or DAMAGETAKEN lines.
 -- NOTE: Enemies that are not tagged with 'graham_enemydialogue' WILL NOT speak if they do not have any custom dialogue in any pools.
 
 -- Use EmptyEnemyDialogue(pool, name) to remove all of an enemy's currently-existing dialogue lines. Same parameters as above, except for the dialogue table.
-EmptyEnemyDialogue("IDLE", "$name_of_enemy")
+EmptyEnemyDialogue(pools.IDLE, "$name_of_enemy")
 
 -- Use EnemyHasDialogue(pool, name) to detect if an enemy has dialogue in a specific pool, or use "ANY" for any pool.
-EnemyHasDialogue("DAMAGEDEALT", "$name_of_enemy")
+EnemyHasDialogue(pools.DAMAGEDEALT, "$name_of_enemy")
 
 -- You can also append to the 'generic' dialogue pools; these will apply to any enemy under specific circumstances
 -- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_HEALED, GENERIC_FRIENDLYFIRE
