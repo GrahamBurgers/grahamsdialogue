@@ -467,7 +467,7 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 	end
 	local cut = Random(1, sum)
 	local idx = 1
-	for k, v in ipairs(sum) do
+	for k, v in ipairs(integrated) do
 		if cut <= v then
 			idx = k
 			break
