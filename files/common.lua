@@ -202,6 +202,7 @@ end
 ---@param check_name boolean? true
 ---@param override_old boolean? false
 ---@param name_override string? -- This is for custom stuff, generally shouldn't be needed
+---@return boolean?
 ---Returns true if enemy successfully began speaking. Otherwise, returns nil.
 function Speak(entity, text, pool, check_name, override_old, name_override)
 	override_old = override_old or false
