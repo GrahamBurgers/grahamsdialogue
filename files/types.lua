@@ -4,5 +4,6 @@ pools = {
 	DAMAGETAKEN = 1,
 	DAMAGEDEALT = 2,
 	GENERIC = 3,
-	ANY = 4
+	ANY = 4,
+	CUSTOM = 5,
 }
