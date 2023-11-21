@@ -8,6 +8,7 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 
 		local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)
 		if ModSettingGet("grahamsdialogue.damaged_enabled") == false then return end
+		if IsBoss(me) then return end
 		if Random(1, rate) == 1 then
 			if damage > 0 then
 				if EntityHasTag(entity_thats_responsible, "player_unit") then
