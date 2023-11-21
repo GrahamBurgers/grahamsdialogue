@@ -248,9 +248,15 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		name = DUPES[name_override] or name_override
 	end
 	local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
-	local tablets = #EntityGetInRadiusWithTag(x, y, 48, "tablet")
-	local font = (tablets ~= 0 or ModIsEnabled("salakieli")) and "font_pixel_runes" or "font_pixel_white"
-	local custom_font = false
+	local tablets = EntityGetInRadiusWithTag(x, y, 48, "tablet")
+	local custom_font = ModIsEnabled("salakieli")
+	local font = ModIsEnabled("salakieli") and "font_pixel_runes" or "font_pixel_white"
+	for k, v in ipairs(tablets) do
+		if EntityGetRootEntity(v) == v or #(EntityGetComponent(v, "ParticleEmitterComponent") or {}) ~= 0 then
+			font = "font_pixel_runes"
+			custom_font = true
+		end
+	end
 
 	if check_name then --!!!--
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue(pools.ANY, name) or name_override ~= nil) then return end
