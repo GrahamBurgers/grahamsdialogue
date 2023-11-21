@@ -267,19 +267,19 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 
 		-- Copier mage should go at the top, so it can pretend to be a different enemy
 		if name == "$animal_wizard_returner" then
-			local dailogue_pool = nil
-			if pool == pools.IDLE then dailogue_pool = DIALOGUE_IDLE end
-			if pool == pools.DAMAGEDEALT then dailogue_pool = DIALOGUE_DAMAGEDEALT end
-			if pool == pools.DAMAGETAKEN then dailogue_pool = DIALOGUE_DAMAGETAKEN end
-			if dailogue_pool ~= nil then
+			local dialogue_pool = nil
+			if pool == pools.IDLE then dialogue_pool = DIALOGUE_IDLE end
+			if pool == pools.DAMAGEDEALT then dialogue_pool = DIALOGUE_DAMAGEDEALT end
+			if pool == pools.DAMAGETAKEN then dialogue_pool = DIALOGUE_DAMAGETAKEN end
+			if dialogue_pool ~= nil then
 				local enemies = EntityGetInRadiusWithTag(x, y, 150, "enemy") or {}
 				for j = 1, #enemies do
 					local enemy = enemies[Random(1, #enemies)]
 					name = EntityGetName(enemy)
 					if name ~= "$animal_wizard_returner" then
-						for i = 1, #dailogue_pool do
-							if dailogue_pool[i][1] == name then
-								text = tostring(dailogue_pool[i][Random(2, #dailogue_pool[i])])
+						for i = 1, #dialogue_pool do
+							if dialogue_pool[i][1] == name then
+								text = tostring(dialogue_pool[i][Random(2, #dialogue_pool[i])])
 								break
 							end
 						end
@@ -446,13 +446,13 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	return text
 end
 
----Gets a line given an enemies index in a dailogue pool
----@param dailogue_pool string[][]
+---Gets a line given an enemies index in a dialogue pool
+---@param dialogue_pool string[][]
 ---@param enemy_idx integer
 ---@param pool pool
 ---@return string
-function GetLine(dailogue_pool, enemy_idx, pool)
-	local lines = dailogue_pool[enemy_idx]
+function GetLine(dialogue_pool, enemy_idx, pool)
+	local lines = dialogue_pool[enemy_idx]
 	local time = GameGetFrameNum()
 	local integrated = {}
 	local sum = 0
@@ -485,15 +485,15 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 end
 
 -- TODO: refactor to have a generic integrator function which isn't bound to generic / named pools
----Gets a line given an enemies index in a generic dailogue pool
----@param dailogue_pool string[]
+---Gets a line given an enemies index in a generic dialogue pool
+---@param dialogue_pool string[]
 ---@param type string
 ---@return string
-function GetLineGeneric(dailogue_pool, type)
+function GetLineGeneric(dialogue_pool, type)
 	local time = GameGetFrameNum()
 	local integrated = {}
 	local sum = 0
-	for i = 1, #dailogue_pool do
+	for i = 1, #dialogue_pool do
 		local last = math.pow(time - tonumber(GlobalsGetValue(
 				"mods_grahamsdialogue_genericpool_"
 				.. type
@@ -514,5 +514,5 @@ function GetLineGeneric(dailogue_pool, type)
 	GlobalsSetValue("mods_grahamsdialogue_genericpool_"
 		.. type
 		.. "_" .. idx, tostring(time))
-	return dailogue_pool[idx]
+	return dialogue_pool[idx]
 end
