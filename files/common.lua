@@ -471,7 +471,7 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 	-- looks like someone added way too many dialogue lines to an enemy.
 	sum = math.min(sum, math.pow(2, 30))
 
-	local cut = Randomf(1, sum)
+	local cut = Randomf(1, sum + 1) --TODO: see if this fixes the other overflow guards. it's hard to tell.
 	-- print(cut, sum)
 	-- for k,v in ipairs(integrated) do print(k,v) end
 	local idx = 1
@@ -510,7 +510,7 @@ function GetLineGeneric(dialogue_pool, type)
 	end
 	-- looks like someone added way too many dialogue lines to an enemy.
 	sum = math.min(sum, math.pow(2, 30))
-	local cut = Randomf(1, sum)
+	local cut = Randomf(1, sum + 1)
 	local idx = 1
 	for k, v in ipairs(integrated) do
 		if cut <= v then
