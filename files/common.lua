@@ -470,10 +470,10 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 	end
 	-- looks like someone added way too many dialogue lines to an enemy.
 	sum = math.min(sum, math.pow(2, 30))
-
+	SetRandomSeed(math.random() * 10000, math.random() * 10000)
 	local cut = Random(1, sum) -- TODO: make this randomf and not break stuff
 	-- print(cut, sum)
-	-- for k,v in ipairs(integrated) do print(k,v) end
+	-- for k, v in ipairs(integrated) do print(k, v) end
 	local idx = 1
 	for k, v in ipairs(integrated) do
 		if cut <= v then
@@ -510,6 +510,7 @@ function GetLineGeneric(dialogue_pool, type)
 	end
 	-- looks like someone added way too many dialogue lines to an enemy.
 	sum = math.min(sum, math.pow(2, 30))
+	SetRandomSeed(math.random() * 10000, math.random() * 10000)
 	local cut = Random(1, sum)
 	local idx = 1
 	for k, v in ipairs(integrated) do
