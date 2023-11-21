@@ -105,6 +105,7 @@ mod_settings =
 		value_display_formatting = " $0%",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	--[[
 	{
 		id = "unique",
 		ui_name = "Uniqueness factor",
@@ -116,6 +117,7 @@ mod_settings =
 		value_display_formatting = " $0%",
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	]]--
 	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
