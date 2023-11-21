@@ -457,16 +457,20 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 	local integrated = {}
 	local sum = 0
 	for i = 2, #lines do
-		local last = math.pow(time - tonumber(GlobalsGetValue(
-				"mods_grahamsdialogue_pool_"
-				.. pool
-				.. "_" .. enemy_idx
-				.. "_" .. i, "0")),
+		local last = time - tonumber(GlobalsGetValue(
+			"mods_grahamsdialogue_pool_"
+			.. pool
+			.. "_" .. enemy_idx
+			.. "_" .. i, "0"))
+		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
 			ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
+	-- looks like someone added way too many dialogue lines to an enemy.
+	sum = math.min(sum, math.pow(2, 30))
+
 	local cut = Random(1, sum)
 	-- print(cut, sum)
 	-- for k,v in ipairs(integrated) do print(k,v) end
@@ -494,15 +498,18 @@ function GetLineGeneric(dialogue_pool, type)
 	local integrated = {}
 	local sum = 0
 	for i = 1, #dialogue_pool do
-		local last = math.pow(time - tonumber(GlobalsGetValue(
-				"mods_grahamsdialogue_genericpool_"
-				.. type
-				.. "_" .. i, "0")),
+		local last = time - tonumber(GlobalsGetValue(
+			"mods_grahamsdialogue_genericpool_"
+			.. type
+			.. "_" .. i, "0"))
+		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
 			ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
+	-- looks like someone added way too many dialogue lines to an enemy.
+	sum = math.min(sum, math.pow(2, 30))
 	local cut = Random(1, sum)
 	local idx = 1
 	for k, v in ipairs(integrated) do
