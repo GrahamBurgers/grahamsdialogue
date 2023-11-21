@@ -19,11 +19,10 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 						end
 					end
 				else
-					Speak(me, GENERIC_FRIENDLYFIRE[Random(1, #GENERIC_FRIENDLYFIRE)], pools.GENERIC)
+					Speak(me, GetLineGeneric(GENERIC_FRIENDLYFIRE, "GENERIC_FRIENDLYFIRE"), pools.GENERIC)
 				end
 			elseif damage < 0 then
-				-- TODO: refactor to use new getline system, maybe make an alt one which works for generics?
-				Speak(me, GENERIC_HEALED[Random(1, #GENERIC_HEALED)], pools.GENERIC)
+				Speak(me, GetLineGeneric(GENERIC_HEALED, "GENERIC_HEALED"), pools.GENERIC)
 			end
 		end
 	end

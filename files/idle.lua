@@ -12,26 +12,26 @@ if Random(1, rate) == 1 then
 	local random = Random(1, 10)
 	-- this is a sort of priority system; hopefully this many elseifs won't cause problems
 	if not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost") then
-		if GameGetGameEffectCount(me, "ON_FIRE") > 0 and not EntityHasGameEffect(me, { "PROTECTION_ALL", "PROTECTION_FIRE" }) then -- on fire
-			Speak(me, GENERIC_ONFIRE[Random(1, #GENERIC_ONFIRE)], pools.GENERIC, true, true)
+		if EntityHasGameEffect(me, {"ON_FIRE"}) and not EntityHasGameEffect(me, { "PROTECTION_ALL", "PROTECTION_FIRE" }) then -- on fire
+			Speak(me, GetLineGeneric(GENERIC_ONFIRE, "GENERIC_ONFIRE"), pools.GENERIC, true, true)
 			return
 		elseif random <= 5 and ComponentGetValue2(worldstatecomp, "ENDING_HAPPINESS") then -- peaceful ending
-			Speak(me, GENERIC_PEACEFULENDING[Random(1, #GENERIC_PEACEFULENDING)], pools.GENERIC)
+			Speak(me, GetLineGeneric(GENERIC_PEACEFULENDING, "GENERIC_PEACEFULENDING"), pools.GENERIC)
 			return
 		elseif random <= 6 and wand ~= 0 and EntityHasTag(wand, "wand") then -- holding wand
-			Speak(me, GENERIC_HOLDINGWAND[Random(1, #GENERIC_HOLDINGWAND)], pools.GENERIC)
+			Speak(me, GetLineGeneric(GENERIC_HOLDINGWAND, "GENERIC_HOLDINGWAND"), pools.GENERIC)
 			return
-		elseif random <= 4 and GameGetGameEffectCount(me, "DRUNK") > 0 then -- drunk (both ingestion and alcohol stain)
-			Speak(me, GENERIC_DRUNK[Random(1, #GENERIC_DRUNK)], pools.GENERIC)
+		elseif random <= 4 and EntityHasGameEffect(me, {"DRUNK"}) then -- drunk (both ingestion and alcohol stain)
+			Speak(me, GetLineGeneric(GENERIC_DRUNK, "GENERIC_DRUNK"), pools.GENERIC)
 			return
-		elseif random <= 7 and GameGetGameEffectCount(me, "BERSERK") > 0 then -- berserk
-			Speak(me, GENERIC_BERSERK[Random(1, #GENERIC_BERSERK)], pools.GENERIC)
+		elseif random <= 7 and EntityHasGameEffect(me, {"BERSERK"}) then -- berserk
+			Speak(me, GetLineGeneric(GENERIC_BERSERK, "GENERIC_BERSERK"), pools.GENERIC)
 			return
-		elseif random <= 9 and GameGetGameEffectCount(me, "CHARM") > 0 then -- charmed
-			Speak(me, GENERIC_CHARMED[Random(1, #GENERIC_CHARMED)], pools.GENERIC)
+		elseif random <= 9 and EntityHasGameEffect(me, {"CHARM"}) then -- charmed
+			Speak(me, GetLineGeneric(GENERIC_CHARMED, "GENERIC_CHARMED"), pools.GENERIC)
 			return
-		elseif random <= 4 and GameGetGameEffectCount(me, "RADIOACTIVE") > 0 then -- toxic
-			Speak(me, GENERIC_TOXIC[Random(1, #GENERIC_TOXIC)], pools.GENERIC)
+		elseif random <= 4 and EntityHasGameEffect(me, { "RADIOACTIVE" }) then -- toxic
+			Speak(me, GetLineGeneric(GENERIC_TOXIC, "GENERIC_TOXIC"), pools.GENERIC)
 			return
 		end
 	end

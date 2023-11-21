@@ -479,3 +479,35 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 		.. "_" .. (idx + 1), tostring(time))
 	return lines[idx + 1]
 end
+
+
+-- TODO: refactor to have a generic integrator function which isn't bound to generic / named pools
+---Gets a line given an enemies index in a generic dailogue pool
+---@param dailogue_pool string[]
+---@param type string
+---@return string
+function GetLineGeneric(dailogue_pool, type)
+	local time = GameGetFrameNum()
+	local integrated = {}
+	local sum = 0
+	for i = 1, #dailogue_pool do
+		local last = time - tonumber(GlobalsGetValue(
+			"mods_grahamsdialogue_genericpool_"
+			.. type
+			.. "_" .. i, "0"))
+		sum = sum + last
+		table.insert(integrated, sum)
+	end
+	local cut = Random(1, sum)
+	local idx = 1
+	for k, v in ipairs(integrated) do
+		if cut <= v then
+			idx = k
+			break
+		end
+	end
+	GlobalsSetValue("mods_grahamsdialogue_genericpool_"
+		.. type
+		.. "_" .. idx, tostring(time))
+	return dailogue_pool[idx]
+end
