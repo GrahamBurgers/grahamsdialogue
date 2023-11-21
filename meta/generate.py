@@ -1,4 +1,4 @@
-path = "D:/Steam/steamapps/common/Noita/mods/grahamsdialogue/files/font_data/font_pixel_huge.xml"
+path = "D:/Steam/steamapps/common/Noita/mods/grahamsdialogue/files/font_data/font_pixel_runes.xml"
 
 with open(path, "r") as f:
     text = f.read()

@@ -248,7 +248,8 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		name = DUPES[name_override] or name_override
 	end
 	local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
-	local font = "font_pixel_white"
+	local tablets = #EntityGetInRadiusWithTag(x, y, 48, "tablet")
+	local font = (tablets ~= 0 or ModIsEnabled("salakieli")) and "font_pixel_runes" or "font_pixel_white"
 	local custom_font = false
 
 	if check_name then --!!!--
@@ -386,9 +387,6 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		---@diagnostic disable-next-line: undefined-global
 		text = owoify(text)
 	end
-	-- if ModIsEnabled("salakieli") then font = "/mods/grahamsdialogue/files/font_runes_white.xml" end
-	-- i don't think this is needed because salakieli overrides already.
-	-- TODO: new font system means we need to do this properly.
 	if EntityHasGameEffect(entity, { "CONFUSION" }) then text = string.reverse(text) end -- thanks sycokinetic for telling me about string.reverse lol
 
 	---- All dialogue handling should go above this point, don't tinker with stuff down here ----
