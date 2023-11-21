@@ -464,7 +464,7 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 			.. "_" .. i, "0"))
 		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
-			ModSettingGet("grahamsdialogue.unique"))
+			2.5 ) -- ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
@@ -504,7 +504,7 @@ function GetLineGeneric(dialogue_pool, type)
 			.. "_" .. i, "0"))
 		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
-			ModSettingGet("grahamsdialogue.unique"))
+			2.5 ) -- ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
