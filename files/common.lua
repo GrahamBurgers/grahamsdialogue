@@ -457,15 +457,19 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 	local integrated = {}
 	local sum = 0
 	for i = 2, #lines do
-		local last = time - tonumber(GlobalsGetValue(
-			"mods_grahamsdialogue_pool_"
-			.. pool
-			.. "_" .. enemy_idx
-			.. "_" .. i, "0"))
+		local last = math.pow(time - tonumber(GlobalsGetValue(
+				"mods_grahamsdialogue_pool_"
+				.. pool
+				.. "_" .. enemy_idx
+				.. "_" .. i, "0")),
+			---@diagnostic disable-next-line: param-type-mismatch
+			ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end
 	local cut = Random(1, sum)
+	-- print(cut, sum)
+	-- for k,v in ipairs(integrated) do print(k,v) end
 	local idx = 1
 	for k, v in ipairs(integrated) do
 		if cut <= v then
@@ -480,7 +484,6 @@ function GetLine(dailogue_pool, enemy_idx, pool)
 	return lines[idx + 1]
 end
 
-
 -- TODO: refactor to have a generic integrator function which isn't bound to generic / named pools
 ---Gets a line given an enemies index in a generic dailogue pool
 ---@param dailogue_pool string[]
@@ -491,10 +494,12 @@ function GetLineGeneric(dailogue_pool, type)
 	local integrated = {}
 	local sum = 0
 	for i = 1, #dailogue_pool do
-		local last = time - tonumber(GlobalsGetValue(
-			"mods_grahamsdialogue_genericpool_"
-			.. type
-			.. "_" .. i, "0"))
+		local last = math.pow(time - tonumber(GlobalsGetValue(
+				"mods_grahamsdialogue_genericpool_"
+				.. type
+				.. "_" .. i, "0")),
+			---@diagnostic disable-next-line: param-type-mismatch
+			ModSettingGet("grahamsdialogue.unique"))
 		sum = sum + last
 		table.insert(integrated, sum)
 	end

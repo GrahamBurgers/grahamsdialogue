@@ -106,6 +106,17 @@ mod_settings =
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	{
+		id = "unique",
+		ui_name = "Uniqueness factor",
+		ui_description = "How much the enemies try to have unique lines.\n0% means not at all unique, 100% means very unique.",
+		value_default = 1,
+		value_min = 0,
+		value_max = 2,
+		value_display_multiplier = 50,
+		value_display_formatting = " $0%",
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
+	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
 		ui_description = "Whether or not dialogue is visible through the dark.",
