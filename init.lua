@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local nxml = dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
 dofile_once("mods/grahamsdialogue/files/lib/injection.lua")
 
@@ -27,8 +26,6 @@ for i = 1, #filepaths do
 		end
 	end
 end
-
-local path, content
 
 -- TODO: use GetLine() for these
 inject(args.StringString, modes.APPEND, "data/scripts/buildings/racing_cart_checkpoint.lua", "best_time = lap_time", [[
