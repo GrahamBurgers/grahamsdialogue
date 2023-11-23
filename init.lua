@@ -69,36 +69,41 @@ function OnPlayerSpawned(player)
 end
 
 function OnWorldPreUpdate()
-	if GameGetFrameNum() > 5 then
+	if GameGetFrameNum() > 5 then -- hax
+		-- TODO: this code path might be moderately hot, consider doing `and (GameGetFrameNum % alpha == 0)`
 		dofile("mods/grahamsdialogue/files/common.lua")
 		local enemies = EntityGetWithTag("mortal")
-		for i = 1, #enemies do
-			local name = NameGet(enemies[i])
-			if not EntityHasTag(enemies[i], "graham_dialogue_added") and EnemyHasDialogue(pools.ANY, name) then
-				EntityAddTag(enemies[i], "graham_dialogue_added")
-				EntityAddComponent2(enemies[i], "LuaComponent", {
+		for _k, enemy in ipairs(enemies) do
+			local name = NameGet(enemy)
+			if not EntityHasTag(enemy, "graham_dialogue_added") and EnemyHasDialogue(pools.ANY, name) then
+				EntityAddTag(enemy, "graham_dialogue_added")
+				EntityAddComponent2(enemy, "LuaComponent", {
 					execute_every_n_frame = -1,
 					script_damage_received = "mods/grahamsdialogue/files/damaged.lua"
 				})
-				EntityAddComponent2(enemies[i], "LuaComponent", {
+				EntityAddComponent2(enemy, "LuaComponent", {
 					execute_every_n_frame = 30,
 					script_source_file = "mods/grahamsdialogue/files/idle.lua"
 				})
 			end
 		end
-		local special = EntityGetWithTag("graham_enemydialogue")
-		for i = 1, #special do
-			if not EntityHasTag(special[i], "graham_dialogue_added") then
-				EntityAddTag(special[i], "graham_dialogue_added")
-				EntityAddComponent2(special[i], "LuaComponent", {
+		local specials = EntityGetWithTag("graham_enemydialogue")
+		for _k, special in ipairs(specials) do
+			if not EntityHasTag(special, "graham_dialogue_added") then
+				EntityAddTag(special, "graham_dialogue_added")
+				EntityAddComponent2(special, "LuaComponent", {
 					execute_every_n_frame = -1,
 					script_damage_received = "mods/grahamsdialogue/files/damaged.lua"
 				})
-				EntityAddComponent2(special[i], "LuaComponent", {
+				EntityAddComponent2(special, "LuaComponent", {
 					execute_every_n_frame = 30,
 					script_source_file = "mods/grahamsdialogue/files/idle.lua"
 				})
 			end
+		end
+		local orbs = EntityGetWithTag("graham_orbdialogue")
+		for k, orb in ipairs(orbs) do
+			-- doesn't exist lol
 		end
 	end
 end

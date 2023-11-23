@@ -366,7 +366,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		if EntityHasTag(entity, "robot") then
 			size_x = size_x + 0.06
 		end
-		if EntityHasTag(entity, "boss") or EntityHasTag(entity, "miniboss") then
+		if IsBoss(entity) then
 			size_x = size_x + 0.10
 			size_y = size_y + 0.10
 		end
@@ -527,4 +527,15 @@ function GetLineGeneric(dialogue_pool, type)
 		.. type
 		.. "_" .. idx, tostring(time))
 	return dialogue_pool[idx]
+end
+
+---@param entity integer
+---@return boolean
+function IsBoss(entity)
+	return
+		EntityHasTag(entity, "boss") or
+		EntityHasTag(entity, "miniboss") or
+		EntityHasTag(entity, "boss_dragon") or
+		EntityGetName(entity) == "$animal_fish_giga" or 
+		EntityGetName(entity) == "$animal_maggot_tiny"
 end

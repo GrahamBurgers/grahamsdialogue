@@ -25,6 +25,7 @@ EnemyHasDialogue(pools.DAMAGEDEALT, "$name_of_enemy")
 -- GENERIC_HOLDINGWAND, GENERIC_CHARMED, GENERIC_ONFIRE, GENERIC_PEACEFULENDING, GENERIC_DRUNK, GENERIC_BERSERK, GENERIC_TOXIC, GENERIC_HEALED, GENERIC_FRIENDLYFIRE
 -- There's no limit to how many items these tables have. Just try to keep it immersive, eh?
 -- Add the no_generic_dialogue tag to your enemy to make them exempt from generic lines of dialogue
+-- Any bosses automagically ignore ignore generic dialogues. This is controlled by them having a boss or miniboss tag.
 table.insert(GENERIC_ONFIRE, "On Fire Dialogue")
 
 -- Define a new value in Special_offsets_y if you want your enemy's dialogue to be offset vertically.

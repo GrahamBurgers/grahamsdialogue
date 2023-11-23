@@ -11,7 +11,7 @@ if Random(1, rate) == 1 then
 	local wand = ComponentGetValue2(inventory, "mActiveItem") or 0
 	local random = Random(1, 10)
 	-- this is a sort of priority system; hopefully this many elseifs won't cause problems
-	if not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost") then
+	if not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost") or IsBoss(me) then
 		if EntityHasGameEffect(me, {"ON_FIRE"}) and not EntityHasGameEffect(me, { "PROTECTION_ALL", "PROTECTION_FIRE" }) then -- on fire
 			Speak(me, GetLineGeneric(GENERIC_ONFIRE, "GENERIC_ONFIRE"), pools.GENERIC, true, true)
 			return
