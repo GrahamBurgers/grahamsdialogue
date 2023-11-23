@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global, lowercase-global
+--dofile("mods/grahamsdialogue/files/common.lua")
 function damage_received(damage, message, entity_thats_responsible, is_fatal)
 	local me = GetUpdatedEntityID()
 	local x, y = EntityGetTransform(me)

@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global
+--dofile("mods/grahamsdialogue/files/common.lua")
 return {
 	["$animal_necromancer_shop"] = function(config)
 		if config.pool == pools.IDLE and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then

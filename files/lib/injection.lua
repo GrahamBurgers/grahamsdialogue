@@ -110,15 +110,15 @@ function inject(args, mode, file, hook, new)
 		new = getfile(new)
 	end
 	if mode == modes.P then
-		prepend(file,hook,new)
+		prepend(file, hook, new)
 		return
 	end
 	if mode == modes.R then
-		replace(file,hook,new)
+		replace(file, hook, new)
 		return
 	end
 	if mode == modes.A then
-		append(file,hook,new)
+		append(file, hook, new)
 		return
 	end
 end

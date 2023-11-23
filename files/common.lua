@@ -536,6 +536,6 @@ function IsBoss(entity)
 		EntityHasTag(entity, "boss") or
 		EntityHasTag(entity, "miniboss") or
 		EntityHasTag(entity, "boss_dragon") or
-		EntityGetName(entity) == "$animal_fish_giga" or 
+		EntityGetName(entity) == "$animal_fish_giga" or
 		EntityGetName(entity) == "$animal_maggot_tiny"
 end
