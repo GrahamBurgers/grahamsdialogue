@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local nxml = dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
 dofile_once("mods/grahamsdialogue/files/lib/injection.lua")
 

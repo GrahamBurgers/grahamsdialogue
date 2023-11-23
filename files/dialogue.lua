@@ -146,6 +146,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_fish_giga", "Drown.", "Reconsider. Your death awaits.", "This encounter shall be your last.", "Your corpse will be snatched up by the eels soon enough.", "Close your eyes. It's best if you don't see it coming.", "I tire of wasting my time with you."},
     {"$animal_boss_limbs", "We can forget your transgressions. Just let yourself go...", "Do you know how many are a part of me now? Too many to count.", "Believe me, this isn't over quite yet.", "You think I can't feel every single thing you do to me?", "Perhaps I can go back and rest after you die.", "Some strange new diseases might rot your body soon. How fun."},
     {"$animal_slimeshooter_boss_limbs", "Don't think too much about what happens next.", "It's just recycling. Or something like that.", "Acid is so wasteful. Corpses can be valuable."},
+    {"$animal_chest_leggy", "You seem to be at a loss for words. I understand.", "It's not every day you meet someone as amazing as myself.", "Let me educate you on how amazing this mutation can be."},
+    {"$animal_fungus_tiny", "Goodbye.", "Boop.", "I got you."},
+    {"$animal_fungus_tiny_perk", "What is this!?", "Quite interesting...", "Aargh."},
 }
 
 ---@type string[][]
@@ -296,6 +299,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_fish_giga", "Curse you and everything that you stand for.", "Don't forget the past. The portals never close.", "I would gladly disembowel you... If I was capable.", "You have no idea what's truly worthwhile in this world.", "Your eyes don't seem suited for environments such as this...", "Things will never truly be normal again, will they?"},
     {"$animal_boss_limbs", "I'm not the only one with darkness lurking inside.", "The heart always beats until it forever stops.", "We all had names. Identities. All forgotten, now.", "I have followers. Friends. They will never forget me.", "I accepted my fate a long, long time ago.", "Don't ignore your weaknesses. That's how the end comes."},
     {"$animal_slimeshooter_boss_limbs", "Do what you want. You can't stop us.", "Try to catch up before the corpses rot away.", "Just one skull can make all the difference."},
+    {"$animal_chest_leggy", "Oohoho! Care for a dance?", "Join the fun with me!", "I've got a gift for you..."},
+    {"$animal_fungus_tiny", "Time's up.", "Squash. Pain...", "I'm bleeding. How fun."},
+    {"$animal_fungus_tiny_perk", "Oh, my time is now...!", "I can't take much more of this...", "I feel dizzy..."},
 }
 
 ---@type string[][]
@@ -326,7 +332,7 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_grenade", "I should go get a drink after this...", "What day is it? I think rent's due soon...", "I need more coffee..."},
     {"$animal_thundermage", "My clothing? It's custom-made, thank you very much...", "If you can hear my electric crackle, you're too close.", "Magic keeps me alive... and makes so many other things dead."},
     {"$animal_goblin_bomb", "Hrmm...", "Shiny, sparkly glitter...", "What was that sound?"},
-    {"$animal_scavenger_heal", "Does anyone need healing?", "I love my job.", "This place is filthy!"},
+    {"$animal_scavenger_heal", "Does anyone need healing?", "I love my job.", "This place could really use some cleanup..."},
     {"$animal_boss_alchemist", "Wonders you can't have...", "And yet, there's something missing.", "Is my vision failing me? Or...", "I sense that you're nearby. Do you seek enlightenment?", "Let's make this quick, then.", "If only things went differently, so long ago..."},
     {"$animal_parallel_tentacles", "I feel our reality ripping at the seams...", "I see no evil, and yet evil remains.", "Three eyes count down to one. Then the whole world goes dark."},
     {"$animal_parallel_alchemist", "It'll all be torn apart if this doesn't stop...", "Where are our Gods now?", "The end is near."},
@@ -445,6 +451,9 @@ DIALOGUE_IDLE = {
     {"$animal_fish_giga", "Land-dweller, face the truth. You don't belong here.", "The pressure down here would crush any lesser beings.", "I'll teach you the true meaning of thalassophobia.", "What could even drive someone to venture down here, I wonder...", "I can smell blood in the water.", "You're not the only one with powerful hidden magic."},
     {"$animal_boss_limbs", "Death is a part of nature. The two cannot be separated.", "A new old life awaits those who fall down.", "Rebirth comes in all shapes and sizes.", "Some walk, some fly, some climb. All die.", "The most unusual thing in this world is something dying forever.", "It all moves in cycles. Each end is a new beginning."},
     {"$animal_slimeshooter_boss_limbs", "Eternally thankful for eternal life.", "I must prove my devotion. It's worth it.", "Whatever it takes. I will demonstrate..."},
+    {"$animal_chest_leggy", "No more disguises. I'm being my true self!", "I would kill for some shoes right about now.", "All those other mimics just WISH they were me."},
+    {"$animal_fungus_tiny", "What's my name...?", "Forgotten, but not gone.", "Only one thing left to do."},
+    {"$animal_fungus_tiny_perk", "Let's do this.", "Bring the slime! Spread this...", "Life is short. Eat fungus."},
 }
 
 ---@type string[]
@@ -495,7 +504,7 @@ GENERIC_FRIENDLYFIRE =
 ---@type string[][]
 Custom_speak_lines = {
     {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!"},
-    {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "Eating bullets is strange? How does a ghost eat at all?", "Careful about healing while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier..."},
+    {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "You think eating bullets is strange? How do I eat at all?", "Try not to heal yourself while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier..."},
     {"mournful_spirit", "How far can we spread this plague of death?", "This can't be taken back, you know...", "I've learned so much since this began.", "Lure your foes to me. I'll make sure they regret it.", "It's too late for tears. I only have one purpose now.", "Sorry if I bring the mood down. It's part of the job."},
     {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "Got any spare whiskey or sima? I'll m-make it worth your while.", "I can do lots of stuff! If my head is clear...", "I'm a spirit spirit! Get it...?", "Stay away from my whiskey! ...For your health, I mean."},
     {"tiny_ghost", "This is quite the ghostly reunion, isn't it?", "Hello, ghost folks! Have we met before?", "Life is short... But being a ghost lasts forever!", "I'm not nearly as strong as your angry friend over there.", "I would love to be friends with that hungry ghost, but I'm so shy...", "I always try to keep my 'spirits' up, hehe."},
