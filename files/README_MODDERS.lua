@@ -80,4 +80,4 @@ You might want to make idle lines a bit shorter than other lines, since enemies 
 I try to use mostly gender-neutral words (e.g. avoid calling enemies or the player "guys"). This isn't necessary, but feels nicer.
 
 ]]
-   --
+--
