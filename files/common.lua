@@ -101,6 +101,7 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["generic_ghost"]          = -0.08,
 	["karl"]                   = -0.04,
 	["$animal_boss_limbs"]     = 0.10,
+	["minitank"]               = -0.08,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist

@@ -11,6 +11,10 @@ local filepaths = {
 	{ "data/entities/misc/perks/tiny_ghost_extra.xml",                "tiny_ghost" },
 	{ "data/entities/misc/perks/ghostly_ghost.xml",                   "ghostly_ghost" },
 	{ "data/entities/buildings/racing_cart.xml",                      "karl" },
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank.xml",         "minitank"},
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank_rocket.xml",  "minitank"},
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank_super.xml",   "minitank"},
+	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank"},
 }
 
 for i = 1, #filepaths do
@@ -27,8 +31,6 @@ for i = 1, #filepaths do
 		end
 	end
 end
-
-local path, content
 
 -- TODO: use GetLine() for these
 inject(args.StringString, modes.APPEND, "data/scripts/buildings/racing_cart_checkpoint.lua", "best_time = lap_time", [[
