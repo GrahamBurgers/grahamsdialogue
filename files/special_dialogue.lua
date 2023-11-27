@@ -247,4 +247,45 @@ return {
 		config.font = "font_pixel_huge" -- arial
 		config.custom_font = true
 	end,
+	["Calamariface"] = function(config)
+		local special
+		local x, y = EntityGetTransform(GetUpdatedEntityID())
+		local is_in_endroom = #EntityGetInRadiusWithTag(x, y, 200, "victoryroom_ambience") ~= 0
+		if GameHasFlagRun("lap3_now") then
+			special = {
+				"If it's death you want, I'm glad to provide.",
+				"A delightful dose of overconfidence spells your demise.",
+				"The shortest path to your death is always a straight line.",
+				"You must be insane to attempt a challenge like this.",
+				"Run faster! Faster! I'll get to you soon enough...",
+				"Lap 2 just wasn't enough for you, eh? So be it...",
+			}
+			if is_in_endroom then
+				config.speak_end_wait_frames = "900000"
+				special = {
+					"You actually outran me...?! Blasphemy!",
+					"Who do you think you are?! I'll rip you to pieces!",
+					"No way! You cheated! No one outruns Calamariface!",
+				}
+			end
+		elseif is_in_endroom then
+			config.speak_end_wait_frames = "360"
+			special = {
+				"Hmm. Fine. You win this time. Next time, though...",
+				"Care for a real challenge? I bet you can't beat me in Lap 3.",
+				"Well done. You did the bare minimum to survive...",
+			}
+		end
+		if #EntityGetWithTag("player_unit") < 1 then
+			config.speak_end_wait_frames = "900000"
+			special = {
+				"Hah. Maybe next time. Or maybe not.",
+				"You knew that this was always the way it was going to end.",
+				"I win this time. Don't tell me you expected anything different.",
+			}
+		end
+		if special ~= nil then
+			config.text = special[Random(1, #special)]
+		end
+	end,
 }

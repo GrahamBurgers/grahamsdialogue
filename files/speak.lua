@@ -37,6 +37,7 @@ if string.len(current) ~= string.len(text) then
 end
 local counter = ComponentGetValue2(comp, "value_int") + 1
 ComponentSetValue2(comp, "value_int", counter)
-if counter > string.len(text) + 180 then
+local buffer = ComponentGetValue2(GetUpdatedComponentID(), "script_material_area_checker_failed")
+if counter > string.len(text) + (tonumber(buffer) or 180) then
 	RemoveCurrentDialogue(GetUpdatedEntityID())
 end

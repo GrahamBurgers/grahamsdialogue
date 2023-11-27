@@ -84,6 +84,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_necrobot_super"]        = 8,
 	["$animal_fish_giga"]             = -12,
 	["$animal_boss_limbs"]            = 12,
+	["Calamariface"]                  = 8,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -102,6 +103,7 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["karl"]                   = -0.04,
 	["$animal_boss_limbs"]     = 0.10,
 	["minitank"]               = -0.08,
+	["Calamariface"]           = 0.05,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
@@ -258,6 +260,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			custom_font = true
 		end
 	end
+	local speak_end_wait_frames = "180"
 
 	if check_name then --!!!--
 		if not (EntityHasTag(entity, "graham_enemydialogue") or EnemyHasDialogue(pools.ANY, name) or name_override ~= nil) then return end
@@ -345,7 +348,8 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 				faction = faction,
 				pool = pool,
 				font = font,
-				custom_font = custom_font
+				custom_font = custom_font,
+				speak_end_wait_frames = speak_end_wait_frames,
 			}
 			Special_dialogue[name](config)
 			text = config.text
@@ -358,6 +362,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			pool = config.pool
 			font = config.font
 			custom_font = config.custom_font
+			speak_end_wait_frames = config.speak_end_wait_frames
 		end
 
 		if Special_sizes[name] ~= nil then
@@ -446,6 +451,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		_tags = "graham_speech_removable",
 		execute_every_n_frame = 1,
 		script_source_file = "mods/grahamsdialogue/files/speak.lua",
+		script_material_area_checker_failed = speak_end_wait_frames,
 	})
 
 	return text
@@ -537,6 +543,6 @@ function IsBoss(entity)
 		EntityHasTag(entity, "boss") or
 		EntityHasTag(entity, "miniboss") or
 		EntityHasTag(entity, "boss_dragon") or
-		EntityGetName(entity) == "$animal_fish_giga" or
-		EntityGetName(entity) == "$animal_maggot_tiny"
+		NameGet(entity) == "$animal_fish_giga" or
+		NameGet(entity) == "$animal_maggot_tiny"
 end

@@ -14,6 +14,7 @@ local filepaths = {
 	{ "mods/grahamsperks/files/entities/mini_tanks/tank_rocket.xml",  "minitank"},
 	{ "mods/grahamsperks/files/entities/mini_tanks/tank_super.xml",   "minitank"},
 	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank"},
+	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface"}
 }
 
 for i = 1, #filepaths do

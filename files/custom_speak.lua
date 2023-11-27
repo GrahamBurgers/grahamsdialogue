@@ -10,7 +10,7 @@ if Random(1, rate) == 1 and Random(1, 2) == 1 then                              
 	for i = 1, #Custom_speak_lines do
 		if Custom_speak_lines[i][1] == id then
 			local who = EntityGetAllChildren(me)
-			if who ~= nil then me = who[1] end
+			if who ~= nil and NameGet(me) ~= "Calamariface" then me = who[1] end --hax
 			Speak(me, GetLine(Custom_speak_lines, i, pools.CUSTOM), pools.CUSTOM, true, false, id)
 			break
 		end
