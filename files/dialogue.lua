@@ -149,6 +149,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_chest_leggy", "You seem to be at a loss for words. I understand.", "It's not every day you meet someone as amazing as myself.", "Let me educate you on how amazing this mutation can be."},
     {"$animal_fungus_tiny", "Goodbye.", "Boop.", "I got you."},
     {"$animal_fungus_tiny_perk", "What is this!?", "Quite interesting...", "Aargh."},
+    {"$animal_mini_mimic", "Chomp. Chomp.", "I got ya!", "Rraaah!"},
+    {"$animal_bloody_mimic", "Bleed.", "You fool...", "I will mutilate you."},
+    {"$animal_homunculus", "Oh, my bad! Jeez...", "Youch! That's gotta hurt...", "N-no hard feelings, right, boss?"},
 }
 
 ---@type string[][]
@@ -302,6 +305,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_chest_leggy", "Oohoho! Care for a dance?", "Join the fun with me!", "I've got a gift for you..."},
     {"$animal_fungus_tiny", "Time's up.", "Squash. Pain...", "I'm bleeding. How fun."},
     {"$animal_fungus_tiny_perk", "Oh, my time is now...!", "I can't take much more of this...", "I feel dizzy..."},
+    {"$animal_mini_mimic", "Aw... Just this once?", "I'll pick a better hiding spot... Next time.", "Ow! So mean..."},
+    {"$animal_bloody_mimic", "Blood craves blood.", "Argh... You...!", "Look away or I'll bite out your eyes."},
+    {"$animal_homunculus", "Hey! I haven't done that bad of a job, have I?!", "Ouch... Sorry, boss. I'll do better.", "My bad... I should've dodged that."},
 }
 
 ---@type string[][]
@@ -454,6 +460,9 @@ DIALOGUE_IDLE = {
     {"$animal_chest_leggy", "No more disguises. I'm being my true self!", "I would kill for some shoes right about now.", "All those other mimics just WISH they were me."},
     {"$animal_fungus_tiny", "What's my name...?", "Forgotten, but not gone.", "Only one thing left to do."},
     {"$animal_fungus_tiny_perk", "Let's do this.", "Bring the slime! Spread this...", "Life is short. Eat fungus."},
+    {"$animal_mini_mimic", "...", "...?", "...!"},
+    {"$animal_bloody_mimic", "...", "...?", "...!"},
+    {"$animal_homunculus", "Spitting out my projectiles isn't elegant, but it works...", "Sorry. There's not much brain in my head.", "Call me up if you need any more firepower."},
 }
 
 ---@type string[]
@@ -514,4 +523,5 @@ Custom_speak_lines = {
     {"boss_limbs_death", "Wait, this isn't right! I'm not ready!", "What did you do? Why can't I hold myself together anymore?!", "I'm sorry for what I said! I didn't mean it, I swear!", "T-the offer's still on the table to join me, right...?", "It hurts... How does it hurt?! This is insane!", "Oh... You've really done it now, haven't you..."},
     {"minitank", "AAA batteries do not last that long, unfortunately.", "Pew pew pew.", "A little bit of magic can go a long way.", "Circuit boards and computer chips... Everything that is 'me'.", "More sleek and lightweight than any common tank out there.", "I am not a wind-up toy. What a shame."},
     {"Calamariface", "Time's up. If you can't outrun me, you're dead.", "What makes you think that you can outrun death?", "Let's see if I can't teach you a thing or two...", "You've wasted far too much time on a simple jog to the final floor!", "No P-rank awaits you at the end of this run.", "The stakes are high. You're not gonna win this race."},
+    {"lukki_minion", "Glad I could tag along! I'll feed on your enemies...", "Bullets are funny. My skin is too tough for them to hurt...", "I'm no facehugger, but I hate to let go of foes...", "Come here, friends! Let me take a bite out of you!", "Hmm... I'm still hungry, though...", "I'd hate to wander off... Ooh, but what's that over there?"},
 }

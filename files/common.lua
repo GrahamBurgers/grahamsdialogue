@@ -85,6 +85,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_fish_giga"]             = -12,
 	["$animal_boss_limbs"]            = 12,
 	["Calamariface"]                  = 8,
+	["lukki_minion"]                  = -4,
+	["$animal_homunculus"]            = -4,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -104,6 +106,8 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["$animal_boss_limbs"]     = 0.10,
 	["minitank"]               = -0.08,
 	["Calamariface"]           = 0.05,
+	["lukki_minion"]           = -0.08,
+	["$animal_homunculus"]     = -0.08,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist

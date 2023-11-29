@@ -288,4 +288,18 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_homunculus"] = function(config)
+		local comp = EntityGetFirstComponent(GetUpdatedEntityID(), "DamageModelComponent")
+		if comp ~= nil then
+			local max_hp = ComponentGetValue2(comp, "max_hp")
+			if max_hp < 0 then
+				local special = {
+					"Hold on.... What if I just kill you myself?!",
+					"I feel like being a villain today...",
+					"I want to kill something tougher... Like you!",
+				}
+				config.text = special[Random(1, #special)]
+			end
+		end
+	end,
 }

@@ -2,7 +2,7 @@ local nxml = dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
 dofile_once("mods/grahamsdialogue/files/lib/injection.lua")
 
 local filepaths = {
-	-- note: this may or may not work if the filepath has a child entity
+	-- note: this may or may not work if the filepath has a child entity (use true to ignore children)
 	{ "data/entities/misc/perks/angry_ghost.xml",                     "angry_ghost" },
 	{ "data/entities/misc/perks/hungry_ghost.xml",                    "hungry_ghost" },
 	{ "data/entities/misc/perks/death_ghost.xml",                     "mournful_spirit" },
@@ -14,7 +14,8 @@ local filepaths = {
 	{ "mods/grahamsperks/files/entities/mini_tanks/tank_rocket.xml",  "minitank"},
 	{ "mods/grahamsperks/files/entities/mini_tanks/tank_super.xml",   "minitank"},
 	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank"},
-	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface"}
+	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface", "true"},
+	{ "data/entities/misc/perks/lukki_minion.xml",                    "lukki_minion", "true"},
 }
 
 for i = 1, #filepaths do
@@ -25,7 +26,7 @@ for i = 1, #filepaths do
 			local tree = nxml.parse(content)
 			table.insert(tree.children, nxml.parse(
 				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="' ..
-				filepaths[i][2] .. '"></LuaComponent>'))
+				filepaths[i][2] .. '" script_collision_trigger_timer_finished="' .. (filepaths[i][3] or "") .. '"></LuaComponent>'))
 			tree.attr.tags = "graham_enemydialogue," .. (tree.attr.tags or "")
 			ModTextFileSetContent(path, tostring(tree))
 		end
