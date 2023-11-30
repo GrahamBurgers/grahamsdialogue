@@ -108,6 +108,9 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["Calamariface"]           = 0.05,
 	["lukki_minion"]           = -0.08,
 	["$animal_homunculus"]     = -0.08,
+	["swarm_fly"]              = -0.08,
+	["swarm_firebug"]          = -0.08,
+	["swarm_wasp"]             = -0.08,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
@@ -382,10 +385,6 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		end
 		if faction == "fungus" then
 			size_y = size_y + 0.06
-		end
-		if faction == "player" then
-			size_x = size_x + 0.025
-			size_y = size_y + 0.025
 		end
 		if faction == "ghost" then
 			EntityAddComponent2(entity, "LuaComponent", {

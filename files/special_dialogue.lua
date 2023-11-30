@@ -249,7 +249,7 @@ return {
 	end,
 	["Calamariface"] = function(config)
 		local special
-		local x, y = EntityGetTransform(GetUpdatedEntityID())
+		local x, y = EntityGetTransform(config.entity)
 		local is_in_endroom = #EntityGetInRadiusWithTag(x, y, 200, "victoryroom_ambience") ~= 0
 		if GameHasFlagRun("lap3_now") then
 			special = {
@@ -289,7 +289,7 @@ return {
 		end
 	end,
 	["$animal_homunculus"] = function(config)
-		local comp = EntityGetFirstComponent(GetUpdatedEntityID(), "DamageModelComponent")
+		local comp = EntityGetFirstComponent(config.entity, "DamageModelComponent")
 		if comp ~= nil then
 			local max_hp = ComponentGetValue2(comp, "max_hp")
 			if max_hp < 0 then
@@ -300,6 +300,21 @@ return {
 				}
 				config.text = special[Random(1, #special)]
 			end
+		end
+	end,
+	["$animal_rat"] = function(config)
+		if EntityHasTag(config.entity, "plague_rat") then
+			config.size_x = config.size_x - 0.08
+			config.size_y = config.size_y - 0.08
+			local special = {
+				"Stay among the rats too long, and you might just become one...",
+				"Stay away from pheromone. You belong to the rats now!",
+				"A rat's eyes pierce the dark like nothing else.",
+				"All that lies below the mountain belongs to us! Raah!",
+				"How come we don't get to fly, too? It's so unfair!",
+				"Where's the giant rat that makes all of the rules?",
+			}
+			config.text = special[Random(1, #special)]
 		end
 	end,
 }

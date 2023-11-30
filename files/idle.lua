@@ -27,7 +27,7 @@ if Random(1, rate) == 1 then
 		elseif random <= 7 and EntityHasGameEffect(me, { "BERSERK" }) then -- berserk
 			Speak(me, GetLineGeneric(GENERIC_BERSERK, "GENERIC_BERSERK"), pools.GENERIC)
 			return
-		elseif random <= 9 and EntityHasGameEffect(me, { "CHARM" }) and NameGet(me) ~= "$animal_homunculus" then -- charmed
+		elseif random <= 5 and EntityHasGameEffect(me, { "CHARM" }) and NameGet(me) ~= "$animal_homunculus" then -- charmed
 			Speak(me, GetLineGeneric(GENERIC_CHARMED, "GENERIC_CHARMED"), pools.GENERIC)
 			return
 		elseif random <= 4 and EntityHasGameEffect(me, { "RADIOACTIVE" }) then -- toxic

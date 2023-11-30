@@ -16,6 +16,10 @@ local filepaths = {
 	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank"},
 	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface", "true"},
 	{ "data/entities/misc/perks/lukki_minion.xml",                    "lukki_minion", "true"},
+	{ "data/entities/projectiles/deck/swarm_fly.xml",                 "swarm_fly"},
+	{ "data/entities/projectiles/deck/swarm_firebug.xml",             "swarm_firebug"},
+	{ "data/entities/projectiles/deck/swarm_wasp.xml",                "swarm_wasp"},
+	{ "data/entities/projectiles/deck/friend_fly.xml",                "swarm_fly"},
 }
 
 for i = 1, #filepaths do
