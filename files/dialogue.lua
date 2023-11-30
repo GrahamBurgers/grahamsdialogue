@@ -315,7 +315,7 @@ DIALOGUE_IDLE = {
     {"$animal_shotgunner", "Who are you?", "I want to take a nap.", "This is my territory!"},
     {"$animal_zombie", "Hungry... so hungry!", "Must feed...", "Where are you?"},
     {"$animal_chest_mimic", "...", "...?", "...!"},
-    {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?"},
+    {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?", "Stick together like a nice, big family...", "Gnaw on their legs when they're not looking.", "Spiders come in all shapes and sizes."},
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
     {"$animal_firemage", "It's a big compliment, to be the hottest color of fire.", "What's the melting temperature of steel? Oh, no...", "I'm not afraid of water! I just... don't like it."},
     {"$animal_firemage_weak", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},

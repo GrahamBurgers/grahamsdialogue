@@ -1,5 +1,42 @@
 --dofile("mods/grahamsdialogue/files/common.lua")
 return {
+	["$animal_longleg"] = function(config)
+		local new = config.text
+		if Random(1, 7) == 7 then
+			local special = {}
+			if ModIsEnabled("HamisMaid") then
+				special[#special+1] = "This outfit... I feel like it was meant to be."
+			end
+			if ModIsEnabled("cowboy_hamis") then
+				special[#special+1] = "This hat... I'm feelin' real good about this!"
+			end
+			if ModIsEnabled("rainbow_hamis") or ModIsEnabled("rainbow_hamogus") then
+				special[#special+1] = "Every color of the rainbow is reflected in our beauty."
+			end
+			if ModIsEnabled("hamogus") or ModIsEnabled("rainbow_hamogus") or ModIsEnabled("hamisus") then
+				special[#special+1] = "I'm feeling kind of sus... B-but I'm no impostor!"
+			end
+			if ModIsEnabled("cool hamis") then
+				special[#special+1] = "This cigarette is fake... But it does make me look cooler."
+			end
+			if ModIsEnabled("Copis_Hamis_Friends") then
+				special[#special+1] = "You, player! You're a friend, in more ways than one..."
+			end
+			if ModIsEnabled("longleg_player") then
+				special[#special+1] = "A fellow sibling has more than 3 health? No fair."
+			end
+			if #special > 0 then
+				new = special[Random(1, #special)]
+			end
+		end
+		if ModSettingGet("grahamsdialogue.hamis") then
+			new = string.lower(new)
+			if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
+				new = string.sub(new, 1, -2)
+			end
+		end
+		config.text = new
+	end,
 	["$animal_necromancer_shop"] = function(config)
 		if config.pool == pools.IDLE and GlobalsGetValue("TEMPLE_PEACE_WITH_GODS") == "1" then
 			local special = {

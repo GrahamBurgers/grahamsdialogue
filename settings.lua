@@ -125,6 +125,13 @@ mod_settings =
 		value_default = false,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	{
+		id = "hamis",
+		ui_name = "lowercase hämis",
+		ui_description = "whether or not hämis speak informally like they should :thumbsup:",
+		value_default = true,
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
 }
 
 -- This function is called to ensure the correct setting values are visible to the game via ModSettingGet(). your mod's settings don't work if you don't have a function like this defined in settings.lua.
