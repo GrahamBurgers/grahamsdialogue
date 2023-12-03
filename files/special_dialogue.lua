@@ -23,7 +23,7 @@ return {
 				special[#special+1] = "You, player! You're a friend, in more ways than one..."
 			end
 			if ModIsEnabled("longleg_player") then
-				special[#special+1] = "A fellow sibling has more than 3 health? No fair."
+				special[#special+1] = "A fellow spider has more than 3 health? No fair."
 			end
 			if #special > 0 then
 				new = special[Random(1, #special)]
@@ -354,4 +354,50 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_boss_wizard"] = function(config)
+		local x, y = EntityGetTransform(config.entity)
+		local comp = EntityGetFirstComponent( config.entity, "VariableStorageComponent", "boss_wizard_mode" )
+		local special = {}
+		if comp ~= nil then
+			local mode = ComponentGetValue2( comp, "value_int" )
+			local chance = 6
+			if mode == 1 then chance = 4 end
+			if mode == 2 then chance = 2 end
+			if (config.pool == pools.IDLE or Random(1, chance) == chance) then
+				if EntityHasGameEffect(EntityGetClosestWithTag(x, y, "player_unit"), { "PROTECTION_ALL" }) and Random(1, 3) == 3 then
+					special[#special+1] = "You little cheater. You want to have it both ways, don't you?"
+					special[#special+1] = "I see you over there. Do you need invincibility to beat me? How amusing."
+					special[#special+1] = "Interesting. I worked hard for my power... And here you are. Invulnerable."
+				end
+				if mode == 0 then
+					-- normal
+					if #EntityGetInRadiusWithTag(x, y, 128, "wizard_orb_death") < 1 then
+						special[#special+1] = "You've subverted just one aspect of my magic. I wouldn't celebrate yet."
+						special[#special+1] = "What a shame you didn't shoot the red ones as well. It's not too late..."
+						special[#special+1] = "Oh? Something feels different... My invincibility is gone. No matter."
+					end
+					if GameHasFlagRun("$animal_gate_monster_a_killed") and GameHasFlagRun("$animal_gate_monster_b_killed")
+					and GameHasFlagRun("$animal_gate_monster_c_killed") and GameHasFlagRun("$animal_gate_monster_d_killed")
+					and Random(1, 3) == 3 then
+						special[#special+1] = "You've destroyed the triangular guardians as well? That explains some things..."
+					end
+				elseif mode == 1 then
+					-- helmet gone
+					special[#special+1] = "Bear witness to my true form. I tried to hide it, but no longer."
+					special[#special+1] = "Oh, you've done it now... Prepare to meet your end."
+					special[#special+1] = "The pain is almost unbearable now. Let me share some of it with you."
+				elseif mode == 2 then
+					-- tentacle frenzy
+					special[#special+1] = "I don't care anymore! I'll rip you apart, even if it kills me!"
+					special[#special+1] = "You accursed being of magic...! You deserve nothing but pain!"
+					special[#special+1] = "Gods, oh Gods... Grant me power to give this fool what they deserve!"
+					config.size_x = config.size_x + 0.06
+					config.size_y = config.size_y + 0.06
+				end
+			end
+		end
+		if #special > 0 then
+			config.text = special[Random(1, #special)]
+		end
+	end
 }

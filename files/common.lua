@@ -90,6 +90,9 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["swarm_fly"]                     = -11,
 	["swarm_firebug"]                 = -11,
 	["swarm_wasp"]                    = -11,
+	["$animal_maggot_tiny"]           = 8,
+	["$animal_boss_wizard"]           = 42,
+	["$animal_boss_robot"]            = 10,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -115,6 +118,7 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["swarm_firebug"]          = -0.08,
 	["swarm_wasp"]             = -0.08,
 	["animal_longleg"]         = -0.04,
+	["$animal_maggot_tiny"]    = 0.80,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
@@ -320,6 +324,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			["$animal_boss_dragon"] = 20,
 			["$animal_worm_skull"]  = 10,
 			["$animal_worm_end"]    = 10,
+			["$animal_maggot_tiny"] = 90,
 		}
 		-- Appended stuff
 		ModdedStuff()

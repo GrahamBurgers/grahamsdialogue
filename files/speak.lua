@@ -2,6 +2,7 @@ local me = GetUpdatedEntityID()
 local comp = EntityGetFirstComponent(me, "VariableStorageComponent", "graham_speech_removable")
 if not comp then return end
 dofile_once("mods/grahamsdialogue/files/common.lua")
+local name = NameGet(me)
 if EntityIsStunned(me) then return end
 local text = ComponentGetValue2(comp, "value_string")
 local sprite = EntityGetFirstComponent(me, "SpriteComponent", "graham_speech_text") or 0
@@ -12,6 +13,9 @@ if string.len(current) ~= string.len(text) then
 	if EntityHasTag(me, "robot") then
 		amount = 3
 		slow = true
+	end
+	if name == "$animal_maggot_tiny" then
+		GameScreenshake(6)
 	end
 	if GameGetGameEffectCount(me, "MOVEMENT_FASTER_2X") > 0 then amount = amount * 2 end
 	if GameGetGameEffectCount(me, "SLIMY") > 0 then slow = true end

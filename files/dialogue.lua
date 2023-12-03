@@ -152,6 +152,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_mini_mimic", "Chomp. Chomp.", "I got ya!", "Rraaah!"},
     {"$animal_bloody_mimic", "Bleed.", "You fool...", "I will mutilate you."},
     {"$animal_homunculus", "Oh, my bad! Jeez...", "Youch! That's gotta hurt...", "N-no hard feelings, right, boss?"},
+    {"$animal_maggot_tiny", "This isn't anything special. You're just the appetizer.", "It would be too painless and quick to just swallow you whole.", "Don't blame me if I play with my food a little bit.", "Soon, soon... I will feast.", "Bleed for me. I want to savour this moment...", "Do you feel my venom in your veins? I hope it hurts."},
+    {"$animal_boss_robot", "Everything is going exactly as intended. For me.", "This is the part where I kill you.", "Die. Fast. Please.", "You look pained. Let us continue.", "What is wrong? I thought you would have prepared for this.", "This possibility was a rather likely one."},
+    {"$animal_boss_wizard", "Die for me. And don't come back this time.", "I'll take any advantage I can get, if it ends you forever.", "Your attitude of consequencelessness has gone on for far too long.", "When you finally do die... Will anything truly change?", "One step closer to the end of the line...", "You and I are not so different. Weaknesses alike..."},
 }
 
 ---@type string[][]
@@ -308,6 +311,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_mini_mimic", "Aw... Just this once?", "I'll pick a better hiding spot... Next time.", "Ow! So mean..."},
     {"$animal_bloody_mimic", "Blood craves blood.", "Argh... You...!", "Look away or I'll bite out your eyes."},
     {"$animal_homunculus", "Hey! I haven't done that bad of a job, have I?!", "Ouch... Sorry, boss. I'll do better.", "My bad... I should've dodged that."},
+    {"$animal_maggot_tiny", "In the scale of this world, maybe I really am tiny...", "You think you can pack a punch like I do? Surely not...", "Seems like I underestimated you. But I won't be beaten!", "You're quite strong for your small size. How amusing.", "You don't kill for hunger, or for glory. Then, for what?", "You think you can't be stopped. Think again."},
+    {"$animal_boss_robot", "How irritating. Give it up already.", "Strange. Most magic-users stay far away from this place...", "Embarrassing performance. I must do better...", "This was never a fair fight.", "I will come out victorious in due time.", "Guards! Come and assist! I cannot do this alone..."},
+    {"$animal_boss_wizard", "My goal was to extend my life... Yours is to end it. So it goes.", "The Eyes are always watching.", "After all that I've worked for... I won't let go so easily.", "The bleeding never ends... I've become numb to the pain.", "I'm much more than you comprehend. No way I'll let this happen.", "I don't fear you. I fear the things that you could bring..."},
 }
 
 ---@type string[][]
@@ -463,6 +469,9 @@ DIALOGUE_IDLE = {
     {"$animal_mini_mimic", "...", "...?", "...!"},
     {"$animal_bloody_mimic", "...", "...?", "...!"},
     {"$animal_homunculus", "Spitting out my projectiles isn't elegant, but it works...", "Sorry. There's not much brain in my head.", "Call me up if you need any more firepower."},
+    {"$animal_maggot_tiny", "My hunger never ends. Never!", "The chances of you making it out alive are... Tiny.", "Why speak, when a wound is worth a thousand words?", "I'll hunt you down until one of us no longer breathes.", "I don't question the skulls. I just feast upon them.", "Everyone's looking for food in this world..."},
+    {"$animal_boss_robot", "Armed with a variety of methods of taking you out.", "Many heroes have met their end in this subterranean complex.", "My glass eye isn't just bullet-proof, but missile-proof as well.", "Missiles. Plasma. Vaporization. No one compares to me.", "I am the manifestation of the bleeding edge of technology.", "We have eyes and ears all over. You can't hide."},
+    {"$animal_boss_wizard", "Take a breath. Life is fleeting, isn't it?", "I've felt lost lately. Everything I've tried has failed...", "We've gotten so close... So, so close... But not enough.", "Write everything down. Write it all down... Lest it be lost.", "Eternity is fickle, fragile... It cannot be captured easily.", "The pursuit of life is more dangerous than a life in pursuit."},
 }
 
 ---@type string[]

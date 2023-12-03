@@ -79,7 +79,7 @@ function OnWorldPreUpdate()
 	if GameGetFrameNum() > 5 then -- hax
 		-- TODO: this code path might be moderately hot, consider doing `and (GameGetFrameNum % alpha == 0)`
 		dofile("mods/grahamsdialogue/files/common.lua")
-		local enemies = EntityGetWithTag("mortal")
+		local enemies = EntityGetWithTag("hittable")
 		for _k, enemy in ipairs(enemies) do
 			local name = NameGet(enemy)
 			if not EntityHasTag(enemy, "graham_dialogue_added") and EnemyHasDialogue(pools.ANY, name) then
