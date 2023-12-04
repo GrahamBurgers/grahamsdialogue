@@ -1,6 +1,6 @@
 --dofile("mods/grahamsdialogue/files/common.lua")
 function damage_received(damage, message, entity_thats_responsible, is_fatal)
-	if entity_thats_responsible ~= 0 and entity_thats_responsible ~= nil and entity_thats_responsible ~= GetUpdatedEntityID() and not is_fatal then
+	if entity_thats_responsible ~= 0 and entity_thats_responsible ~= nil and entity_thats_responsible ~= GetUpdatedEntityID() then
 		SetRandomSeed(entity_thats_responsible + GameGetFrameNum(), damage + 3141)
 		local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaging")) + 0.5)
 		if ModSettingGet("grahamsdialogue.damaging_enabled") == false then return end

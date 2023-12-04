@@ -155,6 +155,9 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_maggot_tiny", "This isn't anything special. You're just the appetizer.", "It would be too painless and quick to just swallow you whole.", "Don't blame me if I play with my food a little bit.", "Soon, soon... I will feast.", "Bleed for me. I want to savour this moment...", "Do you feel my venom in your veins? I hope it hurts."},
     {"$animal_boss_robot", "Everything is going exactly as intended. For me.", "This is the part where I kill you.", "Die. Fast. Please.", "You look pained. Let us continue.", "What is wrong? I thought you would have prepared for this.", "This possibility was a rather likely one."},
     {"$animal_boss_wizard", "Die for me. And don't come back this time.", "I'll take any advantage I can get, if it ends you forever.", "Your attitude of consequencelessness has gone on for far too long.", "When you finally do die... Will anything truly change?", "One step closer to the end of the line...", "You and I are not so different. Weaknesses alike..."},
+    {"$animal_boss_ghost", "Prove yourself to me! Only then, will you be worthy...", "I'm not going to die again. Not to you...", "No. Your idea of fate is one I reject.", "You still have a choice... Please choose the right path.", "I don't trust you for a second.", "Something about you is... So offputting. Forgive me."},
+    {"$animal_boss_ghost_polyp", "Irreversable.", "That's it. More...", "It's never enough!"},
+    {"$animal_boss_centipede_minion", "I'll prove my worth!", "Soon... I'll be the favourite child!", "One of us... One of us dies."},
 }
 
 ---@type string[][]
@@ -314,6 +317,9 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_maggot_tiny", "In the scale of this world, maybe I really am tiny...", "You think you can pack a punch like I do? Surely not...", "Seems like I underestimated you. But I won't be beaten!", "You're quite strong for your small size. How amusing.", "You don't kill for hunger, or for glory. Then, for what?", "You think you can't be stopped. Think again."},
     {"$animal_boss_robot", "How irritating. Give it up already.", "Strange. Most magic-users stay far away from this place...", "Embarrassing performance. I must do better...", "This was never a fair fight.", "I will come out victorious in due time.", "Guards! Come and assist! I cannot do this alone..."},
     {"$animal_boss_wizard", "My goal was to extend my life... Yours is to end it. So it goes.", "The Eyes are always watching.", "After all that I've worked for... I won't let go so easily.", "The bleeding never ends... I've become numb to the pain.", "I'm much more than you comprehend. No way I'll let this happen.", "I don't fear you. I fear the things that you could bring..."},
+    {"$animal_boss_ghost", "I sense an unholy darkness in your heart, wise one.", "Stay in the snow with us. Being forgotten can be freeing.", "I dislike threats... Reality is often scarier.", "You are not beyond saving. I promise.", "Perhaps I misunderstand your intentions... Or perhaps not.", "I have no purpose, if I am not its guardian..."},
+    {"$animal_boss_ghost_polyp", "Irrelevant.", "No. I refuse.", "It hurts... Push on."},
+    {"$animal_boss_centipede_minion", "So dead obsessed with killing...", "I'm not here to pass judgement...", "Hurts... It makes me sad."},
 }
 
 ---@type string[][]
@@ -344,7 +350,7 @@ DIALOGUE_IDLE = {
     {"$animal_scavenger_grenade", "I should go get a drink after this...", "What day is it? I think rent's due soon...", "I need more coffee..."},
     {"$animal_thundermage", "My clothing? It's custom-made, thank you very much...", "If you can hear my electric crackle, you're too close.", "Magic keeps me alive... and makes so many other things dead."},
     {"$animal_goblin_bomb", "Hrmm...", "Shiny, sparkly glitter...", "What was that sound?"},
-    {"$animal_scavenger_heal", "Does anyone need healing?", "I love my job.", "This place could really use some cleanup..."},
+    {"$animal_scavenger_heal", "Does anyone need healing?", "I love my job.", "This place could really use some clean-up..."},
     {"$animal_boss_alchemist", "Wonders you can't have...", "And yet, there's something missing.", "Is my vision failing me? Or...", "I sense that you're nearby. Do you seek enlightenment?", "Let's make this quick, then.", "If only things went differently, so long ago..."},
     {"$animal_parallel_tentacles", "I feel our reality ripping at the seams...", "I see no evil, and yet evil remains.", "Three eyes count down to one. Then the whole world goes dark."},
     {"$animal_parallel_alchemist", "It'll all be torn apart if this doesn't stop...", "Where are our Gods now?", "The end is near."},
@@ -472,11 +478,14 @@ DIALOGUE_IDLE = {
     {"$animal_maggot_tiny", "My hunger never ends. Never!", "The chances of you making it out alive are... Tiny.", "Why speak, when a wound is worth a thousand words?", "I'll hunt you down until one of us no longer breathes.", "I don't question the skulls. I just feast upon them.", "Everyone's looking for food in this world..."},
     {"$animal_boss_robot", "Armed with a variety of methods of taking you out.", "Many heroes have met their end in this subterranean complex.", "My glass eye isn't just bullet-proof, but missile-proof as well.", "Missiles. Plasma. Vaporization. No one compares to me.", "I am the manifestation of the bleeding edge of technology.", "We have eyes and ears all over. You can't hide."},
     {"$animal_boss_wizard", "Take a breath. Life is fleeting, isn't it?", "I've felt lost lately. Everything I've tried has failed...", "We've gotten so close... So, so close... But not enough.", "Write everything down. Write it all down... Lest it be lost.", "Eternity is fickle, fragile... It cannot be captured easily.", "The pursuit of life is more dangerous than a life in pursuit."},
+    {"$animal_boss_ghost", "Here in the snow, anyone could go missing forever...", "Dormant power had best be kept very safe...", "I fear the day that deific power falls into the wrong hands...", "Oh, it's all a facade, naturally.", "I never chose to become its guardian... It just ended up this way.", ""},
+    {"$animal_boss_ghost_polyp", "Purge the unholy beings!", "I'll teach you a lesson...", "It's all or nothing."},
+    {"$animal_boss_centipede_minion", "Many tried. Many died!", "Boing, boing... Focus.", ""},
 }
 
 ---@type string[]
 GENERIC_HOLDINGWAND =
-    { "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one is a nuke!", "Hey, how do I put bullets into this?",
+    { "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one has a nuke!", "Hey, how do I put bullets into this?",
 }
 
 ---@type string[]

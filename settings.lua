@@ -132,6 +132,13 @@ mod_settings =
 		value_default = true,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	{
+		id = "stupid",
+		ui_name = "stupid mode",
+		ui_description = "randomize every line of dialogue.",
+		value_default = false,
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
 }
 
 -- This function is called to ensure the correct setting values are visible to the game via ModSettingGet(). your mod's settings don't work if you don't have a function like this defined in settings.lua.

@@ -399,5 +399,52 @@ return {
 		if #special > 0 then
 			config.text = special[Random(1, #special)]
 		end
-	end
+	end,
+	["$animal_boss_ghost"] = function(config)
+		local x, y = EntityGetTransform( GetUpdatedEntityID() )
+		local eyes = EntityGetInRadiusWithTag( x, y, 200, "evil_eye" )
+		local found = false
+		for i = 1, #eyes do
+			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
+				found = true
+				break
+			end
+		end
+		if not found then
+			config.size_x = config.size_x - 0.10
+			config.size_y = config.size_y - 0.10
+			local special = {
+				"Concealed, sealed power...",
+				"No light enters. None leaves.",
+				"I see you. You don't fool me...",
+			}
+			config.text = special[Random(1, #special)]
+		elseif Random(1, 3) == 1 and config.pool == pools.IDLE then
+			if HasFlagPersistent( "moon_is_sun" ) and HasFlagPersistent( "darkmoon_is_sun" ) then config.text         = "The suns... The world is bathed in light. What have you done?" end
+			if HasFlagPersistent( "moon_is_darksun" ) and HasFlagPersistent( "darkmoon_is_darksun" ) then config.text = "The suns... The world is shrouded in darkness. What have you done?" end
+			if HasFlagPersistent( "moon_is_sun" ) and HasFlagPersistent( "darkmoon_is_darksun" ) then config.text     = "The suns... The world is balanced at last. You have done well." end
+			if HasFlagPersistent( "moon_is_darksun" ) and HasFlagPersistent( "darkmoon_is_sun" ) then config.text     = "The suns... Something feels off. This is not what our Gods wanted." end
+		end
+	end,
+	["$animal_boss_ghost_polyp"] = function(config)
+		local x, y = EntityGetTransform( GetUpdatedEntityID() )
+		local eyes = EntityGetInRadiusWithTag( x, y, 200, "evil_eye" )
+		local found = false
+		for i = 1, #eyes do
+			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
+				found = true
+				break
+			end
+		end
+		if not found then
+			config.size_x = config.size_x - 0.10
+			config.size_y = config.size_y - 0.10
+			local special = {
+				"Who turned out the lights...?",
+				"We thought things would change...",
+				"We've all gone blind.",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
 }

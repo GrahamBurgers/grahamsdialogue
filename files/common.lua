@@ -93,6 +93,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_maggot_tiny"]           = 8,
 	["$animal_boss_wizard"]           = 42,
 	["$animal_boss_robot"]            = 10,
+	["$animal_boss_ghost"]            = 30,
+	["$animal_boss_centipede_minion"] = -6,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -395,7 +397,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		if faction == "fungus" then
 			size_y = size_y + 0.06
 		end
-		if faction == "ghost" then
+		if faction == "ghost" or faction == "ghost_boss" then
 			EntityAddComponent2(entity, "LuaComponent", {
 				_tags = "graham_speech_removable",
 				execute_every_n_frame = 1,
@@ -475,6 +477,9 @@ end
 ---@param pool pool
 ---@return string
 function GetLine(dialogue_pool, enemy_idx, pool)
+	if ModSettingGet("grahamsdialogue.stupid") then
+		enemy_idx = Random(1, #dialogue_pool)
+	end
 	local lines = dialogue_pool[enemy_idx]
 	local time = GameGetFrameNum()
 	local integrated = {}
