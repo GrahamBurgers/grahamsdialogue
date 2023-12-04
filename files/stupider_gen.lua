@@ -94,8 +94,6 @@ return function()
 		end
 	end
 	built = ""
-	dofile_once("mods/grahamsdialogue/files/lib/print.lua")
-	print_any(stack)
 	local no_space = { ["\""] = true, ["!"] = true, [","] = true, ["."] = true }
 	for k, v in ipairs(stack) do
 		v = tostring(v) -- silly hax
@@ -105,6 +103,6 @@ return function()
 			built = built .. " " .. v
 		end
 	end
-	print(built)
-	return built
+	dofile_once("mods/grahamsdialogue/files/lib/char_nonsense.lua")
+	return strip_chars(built)
 end
