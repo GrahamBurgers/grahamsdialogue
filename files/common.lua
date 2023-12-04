@@ -471,12 +471,18 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	return text
 end
 
+---@type function
+stupider = dofile_once("mods/grahamsdialogue/files/stupider_gen.lua")
+
 ---Gets a line given an enemies index in a dialogue pool
 ---@param dialogue_pool string[][]
 ---@param enemy_idx integer
 ---@param pool pool
 ---@return string
 function GetLine(dialogue_pool, enemy_idx, pool)
+	if ModSettingGet("grahamsdialogue.stupider") then -- mine is more important !! :hamis:
+		return stupider()
+	end
 	if ModSettingGet("grahamsdialogue.stupid") then
 		enemy_idx = Random(1, #dialogue_pool)
 	end
