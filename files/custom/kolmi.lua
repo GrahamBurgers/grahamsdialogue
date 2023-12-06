@@ -66,6 +66,7 @@ local lines = {
 
 ---@return original_weighted_pair[]
 local function GenerateValid()
+	print("init rn")
 	local reqs = ({
 		["none"]         = true,
 		["pacifist"]     = tonumber(StatsGetValue("enemies_killed")) <= 0,
@@ -109,14 +110,16 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 	-- NATHAN PUT YOUR RANDOM CODE HERE ^^^
 	choice = valid[result].original
 	offset = valid[result].offset
+	print(choice, offset)
 	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", valid[result].original)
 	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(valid[result].offset))
 	GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
 	GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", "1")
 end
 
-local line = lines[choice][offset][amount]
+local line = lines[choice][offset].lines[amount]
 if line ~= nil and GameGetFrameNum() > frames + 120 then
+	print(line)
 	local returned = Speak(GetUpdatedEntityID(), line, pools.CUSTOM)
 	if returned ~= nil then
 		GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", tostring(amount + 1))
