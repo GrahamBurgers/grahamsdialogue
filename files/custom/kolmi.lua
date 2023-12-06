@@ -66,7 +66,6 @@ local lines = {
 
 ---@return original_weighted_pair[]
 local function GenerateValid()
-	print("init rn")
 	local reqs = ({
 		["none"]         = true,
 		["pacifist"]     = tonumber(StatsGetValue("enemies_killed")) <= 0,
@@ -99,6 +98,7 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 		sum = sum + v.weight
 		table.insert(integrated, sum)
 	end
+	SetRandomSeed(182342,47729) -- some random coords, this way if you get a cool dialogue it'll be the same on the seed if you get same achievements.
 	cutoff = Randomf(0.0, sum)
 	local result = 1
 	for k, v in ipairs(integrated) do
@@ -110,7 +110,6 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 	-- NATHAN PUT YOUR RANDOM CODE HERE ^^^
 	choice = valid[result].original
 	offset = valid[result].offset
-	print(choice, offset)
 	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", valid[result].original)
 	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(valid[result].offset))
 	GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
@@ -119,7 +118,6 @@ end
 
 local line = lines[choice][offset].lines[amount]
 if line ~= nil and GameGetFrameNum() > frames + 120 then
-	print(line)
 	local returned = Speak(GetUpdatedEntityID(), line, pools.CUSTOM)
 	if returned ~= nil then
 		GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", tostring(amount + 1))

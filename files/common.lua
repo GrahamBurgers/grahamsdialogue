@@ -407,9 +407,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			})
 		end
 	end                                       --!!!--
-
 	if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
-
 	if ModIsEnabled("translation_uwu") then   -- Haunted
 		dofile_once("mods/translation_uwu/init.lua")
 		---@diagnostic disable-next-line: undefined-global
