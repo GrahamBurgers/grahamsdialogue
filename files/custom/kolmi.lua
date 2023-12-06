@@ -1,5 +1,7 @@
 dofile_once("mods/grahamsdialogue/files/common.lua")
-local choice = tonumber(GlobalsGetValue("GRAHAM_KOLMI_SPEECH", "0"))
+dofile_once("mods/grahamsdialogue/files/types.lua")
+local choice = GlobalsGetValue("GRAHAM_KOLMI_SPEECH", "error")
+local offset = tonumber(GlobalsGetValue("GRAHAM_KOLMI_OFFSET", "0"))
 local frames = tonumber(GlobalsGetValue("GRAHAM_KOLMI_FRAMES", "0"))
 local amount = tonumber(GlobalsGetValue("GRAHAM_KOLMI_PROGRESS", "1"))
 
@@ -62,8 +64,8 @@ local lines = {
 	},
 }
 
-if choice == 0 or GameGetFrameNum() > frames + 36000 then -- choose new speech if one hasn't been chosen or if 10 minutes have passed
-	local choosable = {}
+---@return original_weighted_pair[]
+local function GenerateValid()
 	local reqs = ({
 		["none"]         = true,
 		["pacifist"]     = tonumber(StatsGetValue("enemies_killed")) <= 0,
@@ -76,24 +78,48 @@ if choice == 0 or GameGetFrameNum() > frames + 36000 then -- choose new speech i
 		["newgameplus"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 0,
 		["newgamealot"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 3,
 	})
-	for i = 1, #lines do
-		if reqs[lines[i][1]] then
-			choosable[#choosable + 1] = i
+	---@type original_weighted_pair[]
+	built = {}
+	for k, v in pairs(reqs) do
+		if v then
+			for k2, v2 in ipairs(lines[k]) do
+				table.insert(built, { original = k, offset = k2, weight = v2.weight })
+			end
 		end
 	end
-	choice = Random(1, #choosable)
+	return built
+end
+
+if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new speech if one hasn't been chosen or if 10 minutes have passed
+	local valid = GenerateValid()
+	local sum = 0
+	local integrated = {}
+	for k, v in ipairs(valid) do
+		sum = sum + v.weight
+		table.insert(integrated, sum)
+	end
+	cutoff = Randomf(0.0, sum)
+	local result = 1
+	for k, v in ipairs(integrated) do
+		if v <= cutoff then
+			result = k
+			break
+		end
+	end
 	-- NATHAN PUT YOUR RANDOM CODE HERE ^^^
-	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", tostring(choice))
+	choice = valid[result].original
+	offset = valid[result].offset
+	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", valid[result].original)
+	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(valid[result].offset))
 	GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
 	GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", "1")
 end
-if choice ~= 0 then
-	local line = lines[choice][3][amount]
-	if line ~= nil and GameGetFrameNum() > frames + 120 then
-		local returned = Speak(GetUpdatedEntityID(), line, pools.CUSTOM)
-		if returned ~= nil then
-			GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", tostring(amount + 1))
-			GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
-		end
+
+local line = lines[choice][offset][amount]
+if line ~= nil and GameGetFrameNum() > frames + 120 then
+	local returned = Speak(GetUpdatedEntityID(), line, pools.CUSTOM)
+	if returned ~= nil then
+		GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", tostring(amount + 1))
+		GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
 	end
 end

@@ -13,3 +13,8 @@ pools = {
 ---@field lines string[]
 
 ---@alias line_pool table<string, weighted_line[]>
+
+---@class original_weighted_pair
+---@field original string
+---@field offset integer
+---@field weight number
