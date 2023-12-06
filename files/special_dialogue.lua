@@ -59,7 +59,7 @@ return {
 	end,
 	["$animal_firemage"] = function(config)
 		if config.pool == pools.IDLE then
-			local items = EntityGetInRadiusWithTag(x, y, 180, "item_pickup")
+			local items = EntityGetInRadiusWithTag(config.x, config.y, 180, "item_pickup")
 			for i = 1, #items do
 				local comps = EntityGetComponent(items[i], "GameEffectComponent", "enabled_in_hand") or {}
 				for j = 1, #comps do
@@ -286,8 +286,7 @@ return {
 	end,
 	["Calamariface"] = function(config)
 		local special
-		local x, y = EntityGetTransform(config.entity)
-		local is_in_endroom = #EntityGetInRadiusWithTag(x, y, 200, "victoryroom_ambience") ~= 0
+		local is_in_endroom = #EntityGetInRadiusWithTag(config.x, config.y, 200, "victoryroom_ambience") ~= 0
 		if GameHasFlagRun("lap3_now") then
 			special = {
 				"If it's death you want, I'm glad to provide.",
@@ -355,7 +354,6 @@ return {
 		end
 	end,
 	["$animal_boss_wizard"] = function(config)
-		local x, y = EntityGetTransform(config.entity)
 		local comp = EntityGetFirstComponent( config.entity, "VariableStorageComponent", "boss_wizard_mode" )
 		local special = {}
 		if comp ~= nil then
@@ -364,15 +362,15 @@ return {
 			if mode == 1 then chance = 4 end
 			if mode == 2 then chance = 2 end
 			if (config.pool == pools.IDLE or Random(1, chance) == chance) then
-				if EntityHasGameEffect(EntityGetClosestWithTag(x, y, "player_unit"), { "PROTECTION_ALL" }) and Random(1, 3) == 3 then
+				if EntityHasGameEffect(EntityGetClosestWithTag(config.x, config.y, "player_unit"), { "PROTECTION_ALL" }) and Random(1, 3) == 3 then
 					special[#special+1] = "You little cheater. You want to have it both ways, don't you?"
 					special[#special+1] = "I see you over there. Do you need invincibility to beat me? How amusing."
 					special[#special+1] = "Interesting. I worked hard for my power... And here you are. Invulnerable."
 				end
 				if mode == 0 then
 					-- normal
-					if #EntityGetInRadiusWithTag(x, y, 128, "wizard_orb_death") < 1 then
-						special[#special+1] = "You've subverted just one aspect of my magic. I wouldn't celebrate yet."
+					if #EntityGetInRadiusWithTag(config.x, config.y, 128, "wizard_orb_death") < 1 then
+						special[#special+1] = "You've subverted just one aspect of my magic. I wouldn't celebrate just yet."
 						special[#special+1] = "What a shame you didn't shoot the red ones as well. It's not too late..."
 						special[#special+1] = "Oh? Something feels different... My invincibility is gone. No matter."
 					end
@@ -401,8 +399,7 @@ return {
 		end
 	end,
 	["$animal_boss_ghost"] = function(config)
-		local x, y = EntityGetTransform( GetUpdatedEntityID() )
-		local eyes = EntityGetInRadiusWithTag( x, y, 200, "evil_eye" )
+		local eyes = EntityGetInRadiusWithTag( config.x, config.y, 200, "evil_eye" )
 		local found = false
 		for i = 1, #eyes do
 			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
@@ -427,8 +424,7 @@ return {
 		end
 	end,
 	["$animal_boss_ghost_polyp"] = function(config)
-		local x, y = EntityGetTransform( GetUpdatedEntityID() )
-		local eyes = EntityGetInRadiusWithTag( x, y, 200, "evil_eye" )
+		local eyes = EntityGetInRadiusWithTag( config.x, config.y, 200, "evil_eye" )
 		local found = false
 		for i = 1, #eyes do
 			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
@@ -449,6 +445,17 @@ return {
 	end,
 	["$animal_boss_centipede"] = function(config)
 		if (config.pool ~= pools.CUSTOM and GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") then config.text = nil end
+
+		local new = config.text
+		if ModSettingGet("grahamsdialogue.hamis") and ModIsEnabled("Hamisilma") and new then
+			new = string.lower(new)
+			if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
+				new = string.sub(new, 1, -2)
+			end
+			config.text = new
+		end
+
 		config.text = nil -- TEMP TEMP TEMP
 	end
 }
+-- reminder: default speak_end_wait_frames is 180
