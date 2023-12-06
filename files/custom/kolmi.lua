@@ -3,6 +3,11 @@ local choice = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_SPEECH", "0"))
 local frames = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_FRAMES", "0"))
 local amount = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_PROGRESS", "1"))
 
+---@class weighted_line
+---@field weight number
+---@field lines string[]
+
+
 local lines = {
     {"none",           0.30,    {"", "", ""} },
     {"none",           0.30,    {"", "", ""} },
