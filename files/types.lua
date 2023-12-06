@@ -7,3 +7,9 @@ pools = {
 	ANY = 4,
 	CUSTOM = 5,
 }
+
+---@enum kolmi_pool
+kolmi_pools = {
+	NONE = 0,
+	
+}

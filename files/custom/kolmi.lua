@@ -1,4 +1,4 @@
-dofile("mods/grahamsdialogue/files/common.lua")
+dofile_once("mods/grahamsdialogue/files/common.lua")
 local choice = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_SPEECH", "0"))
 local frames = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_FRAMES", "0"))
 local amount = tonumber(GlobalsGetValue( "GRAHAM_KOLMI_PROGRESS", "1"))
