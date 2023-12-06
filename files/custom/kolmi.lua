@@ -35,7 +35,7 @@ local lines = {
     {"glasscannon",    1.00,    {"", "", ""} },
     {"glasscannon",    1.00,    {"", "", ""} },
     {"glasscannon",    1.00,    {"", "", ""} },
-    {"wandcapacity",   15.0,    {"Heheh... That perk that you have there... I recognize it.", "\"Wand Capacity +\". I remember the path that lead you to it.", "I must admit, that was quite a satisfying conclusion...", "Not often do I get to kill you by my own limbs.", "Though, the gourd was a bit strange, wasn't it...?"} },
+    {"wandcapacity",   12.0,    {"Heheh... That perk that you have there... I recognize it.", "\"Wand Capacity +\". I remember the path that lead you to it.", "I must admit, that was quite a satisfying conclusion...", "Not often do I get to kill you by my own limbs.", "Though, the gourd was a bit strange, wasn't it...?"} },
     {"co-op",          6.00,    {"What on earth? There are more of you?", "This doesn't make any sense to me...", "I think I need to get my eyesight checked."} },
     {"co-op",          6.00,    {"Ah, you brought backup this time...? How strange.", "Normally you're all alone. It's quite amusing.", "Ah, well. I'll admit defeat this time.", "Fair fights don't seem to be your thing, anyway..."} },
     {"co-op",          6.00,    {"Something about this feels wrong. Very wrong.", "There are others like you? I thought the rest all were...", "There's some trickery at play. I know it.", "Your entire existence seems to go against the natural order..."} },
@@ -58,8 +58,8 @@ if choice == 0 or GameGetFrameNum() > frames + 36000 then -- choose new speech i
         ["notinkering"]    = tonumber( StatsGetValue("wands_edited" ) ) <= 0 or (GameHasFlagRun("PERK_PICKED_NO_WAND_EDITING") and not GameHasFlagRun("PERK_PICKED_EDIT_WANDS_ANYWHERE")),
         ["wandcapacity"]   = GameHasFlagRun("PERK_PICKED_GRAHAM_EXTRA_SLOTS") and not HasFlagPersistent("graham_used_unlock_all"),
         ["co-op"]          = ModIsEnabled("SimpleCoop") or ModIsEnabled("CouchCoOp") or ModIsEnabled("noita-together"),
-        ["newgameplus"]    = SessionNumbersGetValue( "NEW_GAME_PLUS_COUNT" ) > 0,
-        ["newgamealot"]    = SessionNumbersGetValue( "NEW_GAME_PLUS_COUNT" ) > 3,
+        ["newgameplus"]    = tonumber( SessionNumbersGetValue( "NEW_GAME_PLUS_COUNT" )) > 0,
+        ["newgamealot"]    = tonumber( SessionNumbersGetValue( "NEW_GAME_PLUS_COUNT" )) > 3,
     })
     for i = 1, #lines do
         if reqs[lines[i][1]] then
