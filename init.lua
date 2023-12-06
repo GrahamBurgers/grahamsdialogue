@@ -29,7 +29,7 @@ for i = 1, #filepaths do
 		if content ~= nil then
 			local tree = nxml.parse(content)
 			table.insert(tree.children, nxml.parse(
-				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="' ..
+				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="' ..
 				filepaths[i][2] .. '" script_collision_trigger_timer_finished="' .. (filepaths[i][3] or "") .. '"></LuaComponent>'))
 			tree.attr.tags = "graham_enemydialogue," .. (tree.attr.tags or "")
 			ModTextFileSetContent(path, tostring(tree))
@@ -62,6 +62,12 @@ for i = 1, #Custom_speak_lines do
 		break
 	end
 end
+]])
+
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_before_fight.lua", "player_nearby = true",
+	[[
+
+dofile("mods/grahamsdialogue/files/custom/kolmi.lua")
 ]])
 
 function OnPlayerSpawned(player)

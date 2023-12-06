@@ -158,6 +158,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_boss_ghost", "Prove yourself to me! Only then, will you be worthy...", "I'm not going to die again. Not to you...", "No. Your idea of fate is one I reject.", "You still have a choice... Please choose the right path.", "I don't trust you for a second.", "Something about you is... So offputting. Forgive me."},
     {"$animal_boss_ghost_polyp", "Irreversable.", "That's it. More...", "It's never enough!"},
     {"$animal_boss_centipede_minion", "I'll prove my worth!", "Soon... I'll be the favourite child!", "One of us... One of us dies."},
+    {"$animal_boss_centipede", "", "", "", "", "", ""},
 }
 
 ---@type string[][]
@@ -320,6 +321,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_boss_ghost", "I sense an unholy darkness in your heart, wise one.", "Stay in the snow with us. Being forgotten can be freeing.", "I dislike threats... Reality is often scarier.", "You are not beyond saving. I promise.", "Perhaps I misunderstand your intentions... Or perhaps not.", "I have no purpose, if I am not its guardian..."},
     {"$animal_boss_ghost_polyp", "Irrelevant.", "No. I refuse.", "It hurts... Push on."},
     {"$animal_boss_centipede_minion", "So dead obsessed with killing...", "I'm not here to pass judgement...", "Hurts... It makes me sad."},
+    {"$animal_boss_centipede", "", "", "", "", "", ""},
 }
 
 ---@type string[][]
@@ -481,6 +483,7 @@ DIALOGUE_IDLE = {
     {"$animal_boss_ghost", "Here in the snow, anyone could go missing forever...", "Dormant power had best be kept very safe...", "I fear the day that deific power falls into the wrong hands...", "Oh, it's all a facade, naturally.", "I never chose to become its guardian... It just ended up this way.", ""},
     {"$animal_boss_ghost_polyp", "Purge the unholy beings!", "I'll teach you a lesson...", "It's all or nothing."},
     {"$animal_boss_centipede_minion", "Many tried. Many died!", "Boing, boing... Focus.", ""},
+    {"$animal_boss_centipede", "", "", "", "", "", ""},
 }
 
 ---@type string[]

@@ -29,7 +29,7 @@ if string.len(current) ~= string.len(text) then
 	if font ~= "mods/grahamsdialogue/files/font_data/font_pixel_white.xml" then
 		local _, start = font:find("font_data/")
 		local trimmed_font = font:sub((start or 0) + 1, font:find("%.") - 1)
-		width = dofile("mods/grahamsdialogue/files/custom_font.lua")(trimmed_font, new)
+		width = dofile("mods/grahamsdialogue/files/custom/custom_font.lua")(trimmed_font, new)
 	else
 		width = GuiGetTextDimensions(gui, new, 1) / 2
 	end

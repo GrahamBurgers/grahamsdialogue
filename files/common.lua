@@ -401,7 +401,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			EntityAddComponent2(entity, "LuaComponent", {
 				_tags = "graham_speech_removable",
 				execute_every_n_frame = 1,
-				script_source_file = "mods/grahamsdialogue/files/ghost.lua"
+				script_source_file = "mods/grahamsdialogue/files/custom/ghost.lua"
 			})
 		end
 	end                                       --!!!--
@@ -427,7 +427,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	GuiStartFrame(gui)
 	local width = 0
 	if custom_font then
-		width = dofile("mods/grahamsdialogue/files/custom_font.lua")(font, mode)
+		width = dofile("mods/grahamsdialogue/files/custom/custom_font.lua")(font, mode)
 	else
 		width = GuiGetTextDimensions(gui, mode, 1) / 2 -- special scale after offset_x
 	end

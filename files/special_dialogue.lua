@@ -217,7 +217,7 @@ return {
 		EntityAddComponent2(config.entity, "LuaComponent", {
 			_tags = "graham_speech_removable",
 			execute_every_n_frame = 1,
-			script_source_file = "mods/grahamsdialogue/files/lurker.lua"
+			script_source_file = "mods/grahamsdialogue/files/custom/lurker.lua"
 		})
 	end,
 	["$animal_lukki_dark"] = function(config)
@@ -447,4 +447,8 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_boss_centipede"] = function(config)
+		if (config.pool ~= pools.CUSTOM and GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") then config.text = nil end
+		config.text = nil -- TEMP TEMP TEMP
+	end
 }
