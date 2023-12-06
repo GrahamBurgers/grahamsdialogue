@@ -102,7 +102,7 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 	cutoff = Randomf(0.0, sum)
 	local result = 1
 	for k, v in ipairs(integrated) do
-		if v <= cutoff then
+		if v >= cutoff then
 			result = k
 			break
 		end
