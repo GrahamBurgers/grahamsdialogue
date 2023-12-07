@@ -215,7 +215,7 @@ return {
 	end,
 	["$animal_lurker"] = function(config)
 		EntityAddComponent2(config.entity, "LuaComponent", {
-			_tags = "graham_speech_removable",
+			_tags = "graham_speech_removable,graham_speech_lurker",
 			execute_every_n_frame = 1,
 			script_source_file = "mods/grahamsdialogue/files/custom/lurker.lua"
 		})
@@ -445,12 +445,14 @@ return {
 	end,
 	["$animal_boss_centipede"] = function(config)
 		if ModSettingGet("grahamsdialogue.hamis") and ModIsEnabled("Hamisilma") and config.text then
-			config.text = string.lower(config.text)
+			local new = string.lower(config.text)
 			if string.sub(config.text, -1, -1) == "." and string.sub(config.text, -2, -2) ~= "." then
 				new = string.sub(config.text, 1, -2)
 			end
 			config.text = new
 		end
+		if (config.pool ~= pools.CUSTOM and GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") then config.text = nil end
+		config.text = nil -- TEMP TEMP TEMP
 	end
 }
 -- reminder: default speak_end_wait_frames is 180

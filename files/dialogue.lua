@@ -548,4 +548,6 @@ Custom_speak_lines = {
     {"swarm_fly", "Frozen foes are a joy to nibble on.", "At least flies don't have as bad of a reputation as wasps do...", "Don't worry, I'm no fruit fly.", "No one remembers the flies, until they come back to bite ya.", "'Flies are gross'? I think you're gross.", "So many fresh bodies to feast upon..."},
     {"swarm_firebug", "Death can spread like a wildfire.", "It's fun to watch people panic when they're set ablaze.", "Don't stop, drop, or roll. I hate when people do that."},
     {"swarm_wasp", "Buzz, buzz, and all that.", "What common housefly could stand up to the mighty wasp?", "Sting, sting, sting. What a simple joy."},
+    {"kolmi_begin", "Have at thee!", "I'll fight until my bitter end!", "Let's do this.", "This time, I'll take you down.", "Prepare to meet your end!", "Perish, adventurer!"},
+    {"kolmi_death", "", "", "", "", "", ""},
 }

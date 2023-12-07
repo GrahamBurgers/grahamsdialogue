@@ -70,6 +70,32 @@ inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/bo
 dofile("mods/grahamsdialogue/files/custom/kolmi.lua")
 ]])
 
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/sampo_pickup.lua", "PhysicsSetStatic( entity_id, false )",
+	[[
+
+	dofile_once("mods/grahamsdialogue/files/common.lua")
+	for i = 1, #Custom_speak_lines do
+		if Custom_speak_lines[i][1] == "kolmi_begin" then
+			local type = Random(2, #Custom_speak_lines[i])
+			Speak(entity_id, Custom_speak_lines[i][type], pools.CUSTOM, true, true)
+			break
+		end
+	end
+]])
+
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_update.lua", "death_sound_started = true",
+	[[
+
+	dofile_once("mods/grahamsdialogue/files/common.lua")
+	for i = 1, #Custom_speak_lines do
+		if Custom_speak_lines[i][1] == "kolmi_death" then
+			local type = Random(2, #Custom_speak_lines[i])
+			Speak(entity_id, Custom_speak_lines[i][type], pools.CUSTOM, true, true)
+			break
+		end
+	end
+]])
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")

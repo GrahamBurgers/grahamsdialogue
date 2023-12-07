@@ -4,6 +4,7 @@ if not comp then return end
 dofile_once("mods/grahamsdialogue/files/common.lua")
 local name = NameGet(me)
 if EntityIsStunned(me) then return end
+if EntityGetFirstComponent(me, "LuaComponent", "graham_speech_lurker") and EntityGetFirstComponent(me, "SpriteComponent") ~= EntityGetFirstComponentIncludingDisabled(me, "SpriteComponent") then return end
 local text = ComponentGetValue2(comp, "value_string")
 local sprite = EntityGetFirstComponent(me, "SpriteComponent", "graham_speech_text") or 0
 local amount = 1
