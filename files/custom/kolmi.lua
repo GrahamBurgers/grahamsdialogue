@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-field, undefined-doc-name, lowercase-global
--- thank you nathan for making the code here much better
+if GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") == "1" then return end
+
 dofile_once("mods/grahamsdialogue/files/common.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
 local choice = GlobalsGetValue("GRAHAM_KOLMI_SPEECH", "error")
@@ -7,9 +8,9 @@ local offset = tonumber(GlobalsGetValue("GRAHAM_KOLMI_OFFSET", "0"))
 local frames = tonumber(GlobalsGetValue("GRAHAM_KOLMI_FRAMES", "0"))
 local amount = tonumber(GlobalsGetValue("GRAHAM_KOLMI_PROGRESS", "1"))
 local x, y = EntityGetTransform(GetUpdatedEntityID())
+local orbs = GameGetOrbCountThisRun()
 
-if GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") == "1" then return end
-
+-- thank you nathan for making the code here much better
 ---@type line_pool
 local lines = {
 	["none"] = {
@@ -17,7 +18,7 @@ local lines = {
 		{ weight = 0.30, lines = { "Ahem. \"Time and time again,", "I fight. I win or I lose.", "It all ends the same.\"", "...That's a haiku I wrote about you.", "I have to find some ways to keep myself busy, you know!", "Well. Are you ready for the main event?" } },
 		{ weight = 0.30, lines = { "Ah! You showed up this time. I'm... glad, I think.", "It's rather eerie. Sometimes you never arrive down here.", "I just sit, wait, and tinker, until everything goes dark again.", "Though, I guess it's still better than the alternative.", "Death isn't exactly a painless process, as I'm sure you know..." } },
 		{ weight = 0.30, lines = { "...You know, this device isn't just a simple cog.", "You do not see it in the way that I do. It can work wonders, but...", "It requires the proper knowledge and care.", "Neither of which you seem to possess. No offense.", "Ah, well. I suppose I can't convince you.", "Let's fight, then. Perhaps I'll win this time." } },
-		{ weight = 0.30, lines = { "", "", "" } },
+		{ weight = 0.30, lines = { "Greetings. Did you have a nice journey?", "I don't particularly care. But I enjoy making you think.", "Even if you kill me ten, or a million, or a billion times...", "I just don't want it to become a thoughtless activity for you.", "That's why... I never give up.", "No matter how bleak things seem." } },
 	},
 	["pacifist"] = {
 		{ weight = 3.00, lines = { "You've changed your ways. How interesting.", "Relentless killing, replaced by pacifism...", "Oh, but it's the same person beneath, isn't it?", "The others don't see it, but I do. It's clear as crystal.", "You're corrupt inside. Malicious. Irreversably so.", "How ironic indeed." } },
@@ -47,7 +48,7 @@ local lines = {
 		{ weight = 1.00, lines = { "Oh. I see. All or nothing, is that the idea?", "I'm a bit surprised that you haven't blown yourself up yet.", "Well, this fight may go quicker than most of our previous fights.", "Let's see if we can't make it memorable, though, eh?"} },
 	},
 	["wandcapacity"] = {
-		{ weight = 10.0, lines = { "Heheh... That perk that you have there... I recognize it.", "\"Wand Capacity +\". I remember the path that lead you to it.", "I must admit, that was quite a satisfying conclusion...", "Not often do I get to kill you by my own limbs.", "Though, the gourd was a bit strange, wasn't it...?" } },
+		{ weight = 5.00, lines = { "Heheh... That perk that you have there... I recognize it.", "\"Wand Capacity +\". I remember the path that lead you to it.", "I must admit, that was quite a satisfying conclusion...", "Not often do I get to kill you by my own limbs.", "Though, the gourd was a bit strange, wasn't it...?" } },
 	},
 	["co-op"] = {
 		{ weight = 6.00, lines = { "What on earth? There are more of you?", "This doesn't make any sense to me...", "I think I need to get my eyesight checked." } },
@@ -55,22 +56,44 @@ local lines = {
 		{ weight = 6.00, lines = { "Something about this feels wrong. Very wrong.", "There are others like you? I thought the rest all were...", "There's some trickery at play. I know it.", "Your entire existence seems to go against the natural order..." } },
 	},
 	["newgameplus"] = {
-		{ weight = 8.00, lines = { "", "", "" } },
-		{ weight = 8.00, lines = { "", "", "" } },
-		{ weight = 8.00, lines = { "", "", "" } },
+		{ weight = 6.00, lines = { "Hello again. I feel a sense of deja vu.", "Surely this is your doing, yes?", "It's rather confusing. Almost like a proper reset, but...", "Everything is intensified. You, others, and the pain I feel...", "It's not worse, it's just... increased.", "My curiosity is fading. End this now." } },
+		{ weight = 6.00, lines = { "Greetings. Again.", "I'm beginning to get a bit tired of speaking to you.", "It doesn't particularly help that you are incapable of speaking back.", "At least, in a way that I can understand...", "Let's just cut this short, this time." } },
 	},
 	["newgamealot"] = {
-		{ weight = 16.0, lines = { "", "", "" } },
-		{ weight = 16.0, lines = { "", "", "" } },
+		{ weight = 12.0, lines = { "No more... No more, please.", "How much further do you plan to go?", "There is nothing to be gained here. Nothing but death.", "Or, is that what you seek? To make others suffer?", "You've achieved it, to say the least. Now, please...", "End this inane cycle." } },
+		{ weight = 12.0, lines = { "You just... never stop, do you?", "It's beginning to be a bit frightening.", "What motivates you? Boredom? Blind curiosity?", "Surely, at this point, you've seen all there is to see.", "Why go beyond? Just to prove that you can?", "Trying to understand you is giving me a headache.", "I'd best not think about it much more." } },
 	},
 	["stevescott"] = {
 		{ weight = 6.00, lines = { "...Why exactly is that temple guardian following you?", "I hope you don't plan on getting it involved in our fight.", "You already cause me enough grief when you're alone...", "Take care of it first, please, and then we can begin." } },
 		{ weight = 6.00, lines = { "Hah! You look a bit overwhelmed there, little one.", "What did you do to get one of the Gods' guards sicced on you?", "They usually only get that mad if the holy temples are damaged...", "Worms? Spiders? Don't bother giving me excuses...", "I know exactly how sacreligious your actions can be." } },
 	},
 	["peaceful"] = {
-		{ weight = 9999, lines = { "", "", "" } },
-		{ weight = 9999, lines = { "", "", "" } },
-		{ weight = 9999, lines = { "", "", "" } },
+		{ weight = 9999, lines = { "You've done it? You've done it.", "I never thought I'd see the day...", "Does this mean it's over? The loop is broken?", "You control the fate of this world, so...", "You can live here forever now. No one will harm you ever again.", "Thank you, player... Thank you. Truly." } },
+		{ weight = 9999, lines = { "My mind feels so clear... What's going on?", "The Sampo... My life's work...", "The Gods were satisfied with it? I'm so glad...", "It seems that we ended up making a good team after all.", "So is this the end...? No more runs?", "I'm so accustomed to being hopeless, it's quite strange...", "To think that things may finally change." } },
+	},
+	["2orbs"] = {
+		{ weight = 1.00, lines = { "Our knowledge... I believe I've learned something.", "Yes... The Sampo is stronger now. I'm sure of it.", "But it's still not enough, I believe...", "If your goal is to change fate, then I need to know more.", "If your goal is just to kill me... Then so be it." } },
+		{ weight = 0.80, lines = { "", "", "" } },
+	},
+	["5orbs"] = {
+		{ weight = 2.00, lines = { "Our knowledge... This is enough for something great.", "With these " .. orbs .. ", do you seek to delve deeper?", "I don't know what the best choice is here...", "Even with this knowledge, I still feel like I don't know anything.", "I leave the choice up to you, small one." } },
+		{ weight = 1.60, lines = { "", "", "" } },
+	},
+	["11orbs"] = {
+		{ weight = 4.00, lines = { "Our knowledge... This can make a difference.", "It's not much, but...", "It'll give us a happier ending than what we've had.", "That type of change is welcome, always." } },
+		{ weight = 3.20, lines = { "", "", "" } },
+	},
+	["31orbs"] = {
+		{ weight = 8.00, lines = { "Our knowledge... We're so close now.", "You've overcome the corruption and the shadows...", "Just a little bit more. Can you handle it?", "Or... do you wish to end this now?", "Do what you must." } },
+		{ weight = 6.40, lines = { "", "", "" } },
+	},
+	["33orbs"] = {
+		{ weight = 16.00, lines = { "Our knowledge... This is enough. You've done it.", "Take the Sampo in its true form. Please...", "Offer it to our Gods. They will know what to do." } },
+		{ weight = 12.80, lines = { "", "", "" } },
+	},
+	["34orbs"] = {
+		{ weight = 32.00, lines = { "Our knowledge... You've gone far beyond expectations.", "I won't pretend that I understand how you even did it...", "But, whatever. Go finish what you've started." } },
+		{ weight = 25.60, lines = { "", "", "" } },
 	},
 }
 
@@ -86,9 +109,15 @@ local function GenerateValid()
 		["wandcapacity"] = GameHasFlagRun("PERK_PICKED_GRAHAM_EXTRA_SLOTS") and not HasFlagPersistent("graham_used_unlock_all"),
 		["co-op"]        = ModIsEnabled("SimpleCoop") or ModIsEnabled("CouchCoOp") or ModIsEnabled("noita-together"),
 		["newgameplus"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 0,
-		["newgamealot"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 3,
+		["newgamealot"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 2,
 		["stevescott"]   = #EntityGetInRadiusWithTag(x, y, 200, "necromancer_shop") > 0 and not GameHasFlagRun("PEACE_WITH_GODS"),
 		["peaceful"]     = ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS"),
+		["2orbs"]        = orbs >= 2 and orbs < 5,
+		["5orbs"]        = orbs >= 5 and orbs < 11,
+		["11orbs"]       = orbs >= 11 and orbs < 31,
+		["31orbs"]       = orbs >= 31 and orbs < 33,
+		["33orbs"]       = orbs == 33,
+		["34orbs"]       = orbs >= 34,
 	})
 	---@type original_weighted_pair[]
 	built = {}

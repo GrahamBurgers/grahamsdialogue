@@ -549,5 +549,5 @@ Custom_speak_lines = {
     {"swarm_firebug", "Death can spread like a wildfire.", "It's fun to watch people panic when they're set ablaze.", "Don't stop, drop, or roll. I hate when people do that."},
     {"swarm_wasp", "Buzz, buzz, and all that.", "What common housefly could stand up to the mighty wasp?", "Sting, sting, sting. What a simple joy."},
     {"kolmi_begin", "Have at thee!", "I'll fight until my bitter end!", "Let's do this.", "This time, I'll take you down.", "Prepare to meet your end!", "Perish, adventurer!"},
-    {"kolmi_death", "", "", "", "", "", ""},
+    {"kolmi_death", "In my next life... I'll give you hell...!", "Don't you dare think that this is over!", "Until the next time we meet... Farewell!", "These three weary eyes can finally rest...", "Ah...! This pain never truly fades...", "I'll prevail over you yet! One day...!"},
 }
