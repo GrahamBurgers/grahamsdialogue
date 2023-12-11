@@ -451,8 +451,45 @@ return {
 			end
 			config.text = new
 		end
-		if (config.pool ~= pools.CUSTOM and GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") then config.text = nil end
-		config.text = nil -- TEMP TEMP TEMP
-	end
+		local special = {}
+		if Random(1, 3) == 1 and config.pool == pools.IDLE then
+			if config.y < -7000 or config.y > 15000 then
+				special[#special+1] = "Where on earth are we...? Why have you gone here?"
+				special[#special+1] = "Are you leading me somewhere? What could you possibly..."
+				special[#special+1] = "What are you doing? I'd rather not take a world tour..."
+			end
+			if math.abs(config.x) > 20000 then
+				special[#special+1] = "Something calls to me... I do not belong here. Not at all."
+				special[#special+1] = "Oh, no... I do not like this place. Can we go back, please?"
+				special[#special+1] = "I'm can follow you, but... This is going a bit far. Literally."
+			end
+		end
+		if #special > 0 then
+			config.text = special[Random(1, #special)]
+		end
+		if (config.pool ~= pools.CUSTOM and (GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS")) then config.text = nil end
+		-- config.text = nil -- TEMP TEMP TEMP
+	end,
+	["$animal_wizard_poly"] = function(config)
+		local player = EntityGetClosestWithTag(config.x, config.y, "player_unit")
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and EntityHasGameEffect(player, { "PROTECTION_POLYMORPH" } ) then
+			local special = {
+				"Oh, you're immune? Cute. I'll get to you soon enough.",
+				"We'll see how confident you are once that timer runs out...",
+				"Little cheater. My magic doesn't work on you... For now.",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
+	["$animal_wizard_dark"] = function(config)
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and GameHasFlagRun("PERK_PICKED_GRAHAM_BLIND_SPOT") and Random(1, 2) == 2 then
+			local special = {
+				"What's going wrong...? I can't see you!",
+				"I don't understand... You're immune? How?!",
+				"Something's happened... My magic isn't working!",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
 }
 -- reminder: default speak_end_wait_frames is 180

@@ -158,7 +158,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_boss_ghost", "Prove yourself to me! Only then, will you be worthy...", "I'm not going to die again. Not to you...", "No. Your idea of fate is one I reject.", "You still have a choice... Please choose the right path.", "I don't trust you for a second.", "Something about you is... So offputting. Forgive me."},
     {"$animal_boss_ghost_polyp", "Irreversable.", "That's it. More...", "It's never enough!"},
     {"$animal_boss_centipede_minion", "I'll prove my worth!", "Soon... I'll be the favourite child!", "One of us... One of us dies."},
-    {"$animal_boss_centipede", "", "", "", "", "", ""},
+    {"$animal_boss_centipede", "You're nothing! You'll never survive!", "I should've known that you were never good enough to face me.", "For once, the odds are tipping in my favour...", "This is for all the deaths you've given me...!", "Fighting means nothing, but... I'll fight anyway.", "Good. More of that, please..."},
 }
 
 ---@type string[][]
@@ -240,7 +240,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_miniblob", "Pain!", "Hurt!", "Irk!"},
     {"$animal_blob", "Disperse! Now!", "Divide! Conquer!", "Go! Soldiers!"},
     {"$animal_necromancer", "At least kill me with an interesting wand this time.", "Frankly, I'm a bit disappointed...", "Sigh... just make it quick."},
-    {"$animal_monk", "It's all for you. Ungrateful brat.", "I see you behind the screen. Look at you.", "This is what happens when us monks don't educate people like you."},
+    {"$animal_monk", "It's all for you. Ungrateful brat.", "I see you behind the screen. Are you happy?", "This is what happens when us monks don't educate people like you."},
     {"$animal_worm_tiny", "I'll leave you alone now! P-promise!", "I won't damage anything here, trust me!", "Waaah!"},
     {"$animal_worm", "Fine, fine! I won't break your brickwork anymore.", "I'll get you back for that one.", "Hey, flying is cheating! Stay on the ground like me."},
     {"$animal_worm_big", "Hey! Hands off the hide.", "Are you jealous of my beautiful sight?", "Just let me do my thing, and I'll leave you be."},
@@ -321,7 +321,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_boss_ghost", "I sense an unholy darkness in your heart, wise one.", "Stay in the snow with us. Being forgotten can be freeing.", "I dislike threats... Reality is often scarier.", "You are not beyond saving. I promise.", "Perhaps I misunderstand your intentions... Or perhaps not.", "I have no purpose, if I am not its guardian..."},
     {"$animal_boss_ghost_polyp", "Irrelevant.", "No. I refuse.", "It hurts... Push on."},
     {"$animal_boss_centipede_minion", "So dead obsessed with killing...", "I'm not here to pass judgement...", "Hurts... It makes me sad."},
-    {"$animal_boss_centipede", "", "", "", "", "", ""},
+    {"$animal_boss_centipede", "You always knew that this was how it would end...", "Not yet... I need more time! I must push on...", "I'm not going down just yet... Not to this.", "There's no way... I won't let go yet...!", "Intimidation won't work on me! You can't...", "I remember now why I despise you."},
 }
 
 ---@type string[][]
@@ -480,10 +480,10 @@ DIALOGUE_IDLE = {
     {"$animal_maggot_tiny", "My hunger never ends. Never!", "The chances of you making it out alive are... Tiny.", "Why speak, when a wound is worth a thousand words?", "I'll hunt you down until one of us no longer breathes.", "I don't question the skulls. I just feast upon them.", "Everyone's looking for food in this world..."},
     {"$animal_boss_robot", "Armed with a variety of methods of taking you out.", "Many heroes have met their end in this subterranean complex.", "My glass eye isn't just bullet-proof, but missile-proof as well.", "Missiles. Plasma. Vaporization. No one compares to me.", "I am the manifestation of the bleeding edge of technology.", "We have eyes and ears all over. You can't hide."},
     {"$animal_boss_wizard", "Take a breath. Life is fleeting, isn't it?", "I've felt lost lately. Everything I've tried has failed...", "We've gotten so close... So, so close... But not enough.", "Write everything down. Write it all down... Lest it be lost.", "Eternity is fickle, fragile... It cannot be captured easily.", "The pursuit of life is more dangerous than a life in pursuit."},
-    {"$animal_boss_ghost", "Here in the snow, anyone could go missing forever...", "Dormant power had best be kept very safe...", "I fear the day that deific power falls into the wrong hands...", "Oh, it's all a facade, naturally.", "I never chose to become its guardian... It just ended up this way.", ""},
+    {"$animal_boss_ghost", "Here in the snow, anyone could go missing forever...", "Dormant power had best be kept very safe...", "I fear the day that deific power falls into the wrong hands...", "Oh, it's all a facade, naturally.", "I never chose to become its guardian... It just ended up this way.", "Are you here? Are you listening?"},
     {"$animal_boss_ghost_polyp", "Purge the unholy beings!", "I'll teach you a lesson...", "It's all or nothing."},
-    {"$animal_boss_centipede_minion", "Many tried. Many died!", "Boing, boing... Focus.", ""},
-    {"$animal_boss_centipede", "", "", "", "", "", ""},
+    {"$animal_boss_centipede_minion", "Many tried. Many died!", "Boing, boing... Focus.", "What's going on?"},
+    {"$animal_boss_centipede", "I'll do whatever it takes to stop your reign!", "Time is running short. Let's make this fight count.", "I'm giving this one my all... You'd best watch out.", "The lava rises higher... Are you feeling the heat?", "Tell me, little one... Why do you persist?", "No time for small talk. One of us must die."},
 }
 
 ---@type string[]
@@ -550,4 +550,5 @@ Custom_speak_lines = {
     {"swarm_wasp", "Buzz, buzz, and all that.", "What common housefly could stand up to the mighty wasp?", "Sting, sting, sting. What a simple joy."},
     {"kolmi_begin", "Have at thee!", "I'll fight until my bitter end!", "Let's do this.", "This time, I'll take you down.", "Prepare to meet your end!", "Perish, adventurer!"},
     {"kolmi_death", "In my next life... I'll give you hell...!", "Don't you dare think that this is over!", "Until the next time we meet... Farewell!", "These three weary eyes can finally rest...", "Ah...! This pain never truly fades...", "I'll prevail over you yet! One day...!"},
+    {"kolmi_gourd", "Oh, dear Gods.", "What on Earth...?!", "What. What is this?"},
 }

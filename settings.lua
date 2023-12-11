@@ -139,6 +139,7 @@ mod_settings =
 		value_default = false,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	--[[ funny but not too novel I think
 	{
 		id = "stupider",
 		ui_name = "stupider mode",
@@ -146,6 +147,7 @@ mod_settings =
 		value_default = false,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
+	]]--
 }
 
 -- This function is called to ensure the correct setting values are visible to the game via ModSettingGet(). your mod's settings don't work if you don't have a function like this defined in settings.lua.

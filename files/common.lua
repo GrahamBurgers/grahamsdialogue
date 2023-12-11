@@ -95,7 +95,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_boss_robot"]               = 10,
 	["$animal_boss_ghost"]               = 30,
 	["$animal_boss_centipede_minion"]    = -6,
-	["$animal_boss_centipede"]           = 12,
+	["$animal_boss_centipede"]           = 10,
+	["$animal_monk"]                     = 8,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -122,7 +123,7 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["swarm_wasp"]                       = -0.08,
 	["animal_longleg"]                   = -0.04,
 	["$animal_maggot_tiny"]              = 0.80,
-	["$animal_boss_centipede"]           = 0.50,
+	["$animal_boss_centipede"]           = 0.40,
 	["$animal_necromancer_shop"]         = 0.07,
 	["$animal_necromancer_super"]        = 0.14,
 })
@@ -482,7 +483,7 @@ stupider = dofile_once("mods/grahamsdialogue/files/stupider_gen.lua")
 ---@param pool pool
 ---@return string
 function GetLine(dialogue_pool, enemy_idx, pool)
-	if ModSettingGet("grahamsdialogue.stupider") then -- mine is more important !! :hamis:
+	if ModSettingGet("grahamsdialogue.stupider") and false then -- mine is more important !! :hamis:
 		return stupider()
 	end
 	if ModSettingGet("grahamsdialogue.stupid") then

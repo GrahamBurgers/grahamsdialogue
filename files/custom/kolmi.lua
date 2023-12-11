@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-field, undefined-doc-name, lowercase-global
-if GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") == "1" then return end
+if GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") == "1" and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS") then return end
 
 dofile_once("mods/grahamsdialogue/files/common.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
@@ -14,6 +14,7 @@ local orbs = GameGetOrbCountThisRun()
 ---@type line_pool
 local lines = {
 	["none"] = {
+		{ weight = 0.01, lines = { "Who'd put this much effort into a cosmetic mod?", "It doesn't even affect gameplay! What gives?" }},
 		{ weight = 0.30, lines = { "Hello there, eternal one.", "...May I have a few more moments before we battle, please?", "I accepted my fate a long time ago. But...", "It can feel gratifying to delay the inevitable, no?", "Just... Sit here with me for a moment." } },
 		{ weight = 0.30, lines = { "Ahem. \"Time and time again,", "I fight. I win or I lose.", "It all ends the same.\"", "...That's a haiku I wrote about you.", "I have to find some ways to keep myself busy, you know!", "Well. Are you ready for the main event?" } },
 		{ weight = 0.30, lines = { "Ah! You showed up this time. I'm... glad, I think.", "It's rather eerie. Sometimes you never arrive down here.", "I just sit, wait, and tinker, until everything goes dark again.", "Though, I guess it's still better than the alternative.", "Death isn't exactly a painless process, as I'm sure you know..." } },
@@ -73,28 +74,26 @@ local lines = {
 	},
 	["2orbs"] = {
 		{ weight = 1.00, lines = { "Our knowledge... I believe I've learned something.", "Yes... The Sampo is stronger now. I'm sure of it.", "But it's still not enough, I believe...", "If your goal is to change fate, then I need to know more.", "If your goal is just to kill me... Then so be it." } },
-		{ weight = 0.80, lines = { "", "", "" } },
 	},
 	["5orbs"] = {
 		{ weight = 2.00, lines = { "Our knowledge... This is enough for something great.", "With these " .. orbs .. ", do you seek to delve deeper?", "I don't know what the best choice is here...", "Even with this knowledge, I still feel like I don't know anything.", "I leave the choice up to you, small one." } },
-		{ weight = 1.60, lines = { "", "", "" } },
 	},
 	["11orbs"] = {
 		{ weight = 4.00, lines = { "Our knowledge... This can make a difference.", "It's not much, but...", "It'll give us a happier ending than what we've had.", "That type of change is welcome, always." } },
-		{ weight = 3.20, lines = { "", "", "" } },
 	},
 	["31orbs"] = {
 		{ weight = 8.00, lines = { "Our knowledge... We're so close now.", "You've overcome the corruption and the shadows...", "Just a little bit more. Can you handle it?", "Or... do you wish to end this now?", "Do what you must." } },
-		{ weight = 6.40, lines = { "", "", "" } },
 	},
 	["33orbs"] = {
-		{ weight = 16.00, lines = { "Our knowledge... This is enough. You've done it.", "Take the Sampo in its true form. Please...", "Offer it to our Gods. They will know what to do." } },
-		{ weight = 12.80, lines = { "", "", "" } },
+		{ weight = 16.0, lines = { "Our knowledge... This is enough. You've done it.", "Take the Sampo in its true form. Please...", "Offer it to our Gods. They will know what to do." } },
 	},
 	["34orbs"] = {
-		{ weight = 32.00, lines = { "Our knowledge... You've gone far beyond expectations.", "I won't pretend that I understand how you even did it...", "But, whatever. Go finish what you've started." } },
-		{ weight = 25.60, lines = { "", "", "" } },
+		{ weight = 32.0, lines = { "Our knowledge... You've gone far beyond expectations.", "I won't pretend that I understand how you even did it...", "But, whatever. Go finish what you've started." } },
 	},
+	["gourd"] = {
+		{ weight = 6.00, lines = { "What is that? ...Is that a gourd?", "Why do you have it? Shouldn't you use it for healing?", "You really are such a strange little creature...", "Kindly, keep it away from me. Please." } },
+		{ weight = 6.00, lines = { "Fruit. You brought fruit...?", "Keep that away from me, please... I'm allergic.", "Where did you even get something like that?", "That type of fruit isn't native to... anywhere.", "How truly unusual..." } },
+	}
 }
 
 ---@return original_weighted_pair[]
@@ -118,6 +117,7 @@ local function GenerateValid()
 		["31orbs"]       = orbs >= 31 and orbs < 33,
 		["33orbs"]       = orbs == 33,
 		["34orbs"]       = orbs >= 34,
+		["gourd"]        = EntityGetInRadiusWithTag(x, y, 300, "gourd"),
 	})
 	---@type original_weighted_pair[]
 	built = {}
