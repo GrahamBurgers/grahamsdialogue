@@ -109,6 +109,28 @@ inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/te
 	end
 ]])
 
+inject(args.StringString,modes.PREPEND,"data/entities/animals/boss_centipede/boss_centipede_update.lua","\tphase()",[[
+	local phases = {
+		[phase_chase_slow] = "slow_chase",
+		[phase_chase] = "chase",
+		[phase_chase_direct] = "chase_direct",
+		[phase_circleshot] = "circleshot",
+		[phase_spawn_minion] = "spawn_minion",
+		[phase_firepillar] = "firepillar",
+		[phase_explosion] = "explosion",
+		[phase_homingshot] = "homingshot",
+		[phase_polymorph] = "polymorph",
+		[phase_melee] = "melee",
+		[phase_clean_materials] = "clean_materials",
+		[phase_aggro] = "aggro",
+	}
+	-- print(tostring(phase))
+	-- for k,v in pairs(phases) do print(tostring(k)) end
+	local phase_str = phases[phase]
+	-- print(tostring(phase_str))
+	GlobalsSetValue("grahamsdialogue_kolmi_phase",phase_str)
+]])
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")
@@ -153,10 +175,10 @@ function OnWorldPreUpdate()
 				})
 			end
 		end
-		local orbs = EntityGetWithTag("graham_orbdialogue")
-		for k, orb in ipairs(orbs) do
-			-- doesn't exist lol
-		end
+		-- local orbs = EntityGetWithTag("graham_orbdialogue")
+		-- for k, orb in ipairs(orbs) do
+		-- 	-- doesn't exist lol
+		-- end
 	end
 end
 
