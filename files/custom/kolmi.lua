@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-field, undefined-doc-name, lowercase-global
-if GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") == "1" and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS") then return end
+if GlobalsGetValue("FINAL_BOSS_ACTIVE", "0") == "1" and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS") then return end
 
 dofile_once("mods/grahamsdialogue/files/common.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
@@ -14,7 +14,7 @@ local orbs = GameGetOrbCountThisRun()
 ---@type line_pool
 local lines = {
 	["none"] = {
-		{ weight = 0.01, lines = { "Who'd put this much effort into a cosmetic mod?", "It doesn't even affect gameplay! What gives?" }},
+		{ weight = 0.01, lines = { "Who'd put this much effort into a cosmetic mod?", "It doesn't even affect gameplay! What gives?" } },
 		{ weight = 0.30, lines = { "Hello there, eternal one.", "...May I have a few more moments before we battle, please?", "I accepted my fate a long time ago. But...", "It can feel gratifying to delay the inevitable, no?", "Just... Sit here with me for a moment." } },
 		{ weight = 0.30, lines = { "Ahem. \"Time and time again,", "I fight. I win or I lose.", "It all ends the same.\"", "...That's a haiku I wrote about you.", "I have to find some ways to keep myself busy, you know!", "Well. Are you ready for the main event?" } },
 		{ weight = 0.30, lines = { "Ah! You showed up this time. I'm... glad, I think.", "It's rather eerie. Sometimes you never arrive down here.", "I just sit, wait, and tinker, until everything goes dark again.", "Though, I guess it's still better than the alternative.", "Death isn't exactly a painless process, as I'm sure you know..." } },
@@ -29,7 +29,7 @@ local lines = {
 	},
 	["damageless"] = {
 		{ weight = 6.00, lines = { "Hah. You amuse me, familiar one.", "Not a single point of damage taken? Impressive.", "Let's see if I can't change that for you, eh?", "It's only fair, after the countless deaths you've given me..." } },
-		{ weight = 6.00, lines = { "You are quite the little showoff, aren't you?", "Not a single scratch on you, I see...", "I won't deny the skill involved, but...", "Don't you have anything better to do?"} },
+		{ weight = 6.00, lines = { "You are quite the little showoff, aren't you?", "Not a single scratch on you, I see...", "I won't deny the skill involved, but...", "Don't you have anything better to do?" } },
 		{ weight = 6.00, lines = { "Aren't you an expert at dying? How did you manage to...", "Ah, whatever. I'm probably overthinking it.", "You used ambrosia, or shields, or something. Right...?", "How on earth have you not taken a single hit?", "Whatever. Your little games do nothing but confound me.", "Let's just end this. One way or another." } },
 	},
 	["speedrun"] = {
@@ -46,7 +46,7 @@ local lines = {
 	},
 	["glasscannon"] = {
 		{ weight = 1.00, lines = { "You seem rather explosive today. Are you alright?", "I wouldn't want to get caught up in your destructive tendencies.", "Though, something tells me that I'm about to be..." } },
-		{ weight = 1.00, lines = { "Oh. I see. All or nothing, is that the idea?", "I'm a bit surprised that you haven't blown yourself up yet.", "Well, this fight may go quicker than most of our previous fights.", "Let's see if we can't make it memorable, though, eh?"} },
+		{ weight = 1.00, lines = { "Oh. I see. All or nothing, is that the idea?", "I'm a bit surprised that you haven't blown yourself up yet.", "Well, this fight may go quicker than most of our previous fights.", "Let's see if we can't make it memorable, though, eh?" } },
 	},
 	["wandcapacity"] = {
 		{ weight = 5.00, lines = { "Heheh... That perk that you have there... I recognize it.", "\"Wand Capacity +\". I remember the path that lead you to it.", "I must admit, that was quite a satisfying conclusion...", "Not often do I get to kill you by my own limbs.", "Though, the gourd was a bit strange, wasn't it...?" } },
@@ -139,7 +139,7 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 		sum = sum + v.weight
 		table.insert(integrated, sum)
 	end
-	SetRandomSeed(182342,47729) -- some random coords, this way if you get a cool dialogue it'll be the same on the seed if you get same achievements.
+	SetRandomSeed(182342, 47729 + math.floor(GameGetFrameNum() / 36000) * 5) -- some random coords, this way if you get a cool dialogue it'll be the same on the seed if you get same achievements.
 	cutoff = Randomf(0.0, sum)
 	local result = 1
 	for k, v in ipairs(integrated) do

@@ -10,16 +10,16 @@ local filepaths = {
 	{ "data/entities/misc/perks/tiny_ghost_extra.xml",                "tiny_ghost" },
 	{ "data/entities/misc/perks/ghostly_ghost.xml",                   "ghostly_ghost" },
 	{ "data/entities/buildings/racing_cart.xml",                      "karl" },
-	{ "mods/grahamsperks/files/entities/mini_tanks/tank.xml",         "minitank"},
-	{ "mods/grahamsperks/files/entities/mini_tanks/tank_rocket.xml",  "minitank"},
-	{ "mods/grahamsperks/files/entities/mini_tanks/tank_super.xml",   "minitank"},
-	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank"},
-	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface", "true"},
-	{ "data/entities/misc/perks/lukki_minion.xml",                    "lukki_minion", "true"},
-	{ "data/entities/projectiles/deck/swarm_fly.xml",                 "swarm_fly"},
-	{ "data/entities/projectiles/deck/swarm_firebug.xml",             "swarm_firebug"},
-	{ "data/entities/projectiles/deck/swarm_wasp.xml",                "swarm_wasp"},
-	{ "data/entities/projectiles/deck/friend_fly.xml",                "swarm_fly"},
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank.xml",         "minitank" },
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank_rocket.xml",  "minitank" },
+	{ "mods/grahamsperks/files/entities/mini_tanks/tank_super.xml",   "minitank" },
+	{ "mods/grahamsperks/files/entities/mini_tanks/toasterbot.xml",   "minitank" },
+	{ "mods/lap2/files/entities/chaser.xml",                          "Calamariface",   "true" },
+	{ "data/entities/misc/perks/lukki_minion.xml",                    "lukki_minion",   "true" },
+	{ "data/entities/projectiles/deck/swarm_fly.xml",                 "swarm_fly" },
+	{ "data/entities/projectiles/deck/swarm_firebug.xml",             "swarm_firebug" },
+	{ "data/entities/projectiles/deck/swarm_wasp.xml",                "swarm_wasp" },
+	{ "data/entities/projectiles/deck/friend_fly.xml",                "swarm_fly" },
 }
 
 for i = 1, #filepaths do
@@ -30,7 +30,8 @@ for i = 1, #filepaths do
 			local tree = nxml.parse(content)
 			table.insert(tree.children, nxml.parse(
 				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="' ..
-				filepaths[i][2] .. '" script_collision_trigger_timer_finished="' .. (filepaths[i][3] or "") .. '"></LuaComponent>'))
+				filepaths[i][2] ..
+				'" script_collision_trigger_timer_finished="' .. (filepaths[i][3] or "") .. '"></LuaComponent>'))
 			tree.attr.tags = "graham_enemydialogue," .. (tree.attr.tags or "")
 			ModTextFileSetContent(path, tostring(tree))
 		end
@@ -64,13 +65,15 @@ for i = 1, #Custom_speak_lines do
 end
 ]])
 
-inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_before_fight.lua", "player_nearby = true",
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_before_fight.lua",
+	"player_nearby = true",
 	[[
 
 dofile("mods/grahamsdialogue/files/custom/kolmi.lua")
 ]])
 
-inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/sampo_pickup.lua", "PhysicsSetStatic( entity_id, false )",
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/sampo_pickup.lua",
+	"PhysicsSetStatic( entity_id, false )",
 	[[
 
 	dofile_once("mods/grahamsdialogue/files/common.lua")
@@ -83,7 +86,8 @@ inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/sa
 	end
 ]])
 
-inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_update.lua", "death_sound_started = true",
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_update.lua",
+	"death_sound_started = true",
 	[[
 
 	dofile_once("mods/grahamsdialogue/files/common.lua")
@@ -109,7 +113,8 @@ inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/te
 	end
 ]])
 
-inject(args.StringString,modes.PREPEND,"data/entities/animals/boss_centipede/boss_centipede_update.lua","\tphase()",[[
+inject(args.StringString, modes.PREPEND, "data/entities/animals/boss_centipede/boss_centipede_update.lua", "\tphase()",
+	[[
 	local phases = {
 		[phase_chase_slow] = "slow_chase",
 		[phase_chase] = "chase",
@@ -128,12 +133,15 @@ inject(args.StringString,modes.PREPEND,"data/entities/animals/boss_centipede/bos
 	-- for k,v in pairs(phases) do print(tostring(k)) end
 	local phase_str = phases[phase]
 	-- print(tostring(phase_str))
-	GlobalsSetValue("grahamsdialogue_kolmi_phase",phase_str)
+	GlobalsSetValue("grahamsdialogue_kolmi_phase", phase_str)
 ]])
 
 local tree = nxml.parse(ModTextFileGetContent("data/entities/animals/boss_centipede/boss_centipede.xml"))
-table.insert(tree.children,nxml.parse([[<LuaComponent execute_every_n_frame="5" script_source_file="mods/grahamsdialogue/files/custom/kolmi_generic.lua"></LuaComponent>]]))
-ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml",tostring(tree))
+table.insert(tree.children,
+	nxml.parse(
+		[[<LuaComponent execute_every_n_frame="5" script_source_file="mods/grahamsdialogue/files/custom/kolmi_generic.lua"></LuaComponent>]]
+	))
+ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml", tostring(tree))
 
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
