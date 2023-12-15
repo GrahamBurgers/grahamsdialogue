@@ -38,19 +38,18 @@ for i = 1, #filepaths do
 	end
 end
 
--- TODO: use GetLine() for these
 inject(args.StringString, modes.APPEND, "data/scripts/buildings/racing_cart_checkpoint.lua", "best_time = lap_time", [[
 
 dofile_once("mods/grahamsdialogue/files/common.lua")
 for i = 1, #Custom_speak_lines do
     if Custom_speak_lines[i][1] == "karl_lap" then
-        local type = Random(2, #Custom_speak_lines[i])
-        Speak(entity_id, Custom_speak_lines[i][type], pools.CUSTOM, true, true, "karl")
+        Speak(entity_id, GetLine(Custom_speak_lines,i,pools.KARL), pools.CUSTOM, true, true, "karl")
         break
     end
 end
 ]])
 
+-- he can't die more than once so rng is not needed
 inject(args.StringString, modes.APPEND, "data/entities/animals/boss_limbs/boss_limbs_update.lua", "-- run death sequence",
 	[[
 
@@ -64,6 +63,8 @@ for i = 1, #Custom_speak_lines do
 	end
 end
 ]])
+
+-- all of these are 1 / run or don't speak
 
 inject(args.StringString, modes.APPEND, "data/entities/animals/boss_centipede/boss_centipede_before_fight.lua",
 	"player_nearby = true",
@@ -155,8 +156,7 @@ function OnPlayerSpawned(player)
 end
 
 function OnWorldPreUpdate()
-	if GameGetFrameNum() > 5 then -- hax
-		-- TODO: this code path might be moderately hot, consider doing `and (GameGetFrameNum % alpha == 0)`
+	if GameGetFrameNum() > 5 and GameGetFrameNum() % 15 == 0 then -- hax
 		dofile("mods/grahamsdialogue/files/common.lua")
 		local enemies = EntityGetWithTag("hittable")
 		for _k, enemy in ipairs(enemies) do

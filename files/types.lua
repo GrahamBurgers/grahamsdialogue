@@ -6,6 +6,7 @@ pools = {
 	GENERIC = 3,
 	ANY = 4,
 	CUSTOM = 5,
+	KARL = 6
 }
 
 ---@class weighted_line
