@@ -179,7 +179,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_frog_big", "That's unfortunate.", "I don't blame you.", "Is this necessary?"},
     {"$animal_miner_fire", "I'll get my revenge.", "I hope you burn.", "How dare you!"},
     {"$animal_graham_miner_gasser", "My gas is stronger than sludge. Take my word for it.", "If only this suit protected from more than just toxicity...", "Now you're starting to annoy me."},
-    {"$animal_boss_pit", "You came here just to challenge me?", "You're an utter fool!", "I'm still alive, which means that you've not done your job properly.", "What, do you want it to be a fair fight? Ha ha ha.", "Go jump in the lava lake.", "Am I the strongest opponent you'll face? That's sad."},
+    {"$animal_boss_pit", "You came here just to challenge me? You're an utter fool!", "Your attacks mean nothing to someone as powerful as I.", "You've hurt me, but I'm still alive. It's not over yet.", "What, were you expecting a fair fight? Hah. As if.", "Go jump in the lava lake.", "Am I the strongest opponent you'll face? How sad..."},
     {"$animal_shaman", "I won't forgive you for this.", "Step back, child...", "Stormy skies await you."},
     {"$animal_playerghost", "Do you see your reflection in me?", "Don't feel guilty. This isn't my first time dying.", "I see potential in this one. Good luck..."},
     {"$animal_firebug", "You'll regret this.", "There's always an ally behind me, I'm sure of it.", "Backup! Hive, I need backup!"},
@@ -340,7 +340,7 @@ DIALOGUE_IDLE = {
     {"$animal_frog_big", "Robbit.", "Skip, jump.", "Woof."},
     {"$animal_miner_fire", "I'll burn this whole place down!", "Don't look at me like that!", "You're flammable! All of you!"},
     {"$animal_graham_miner_gasser", "Don't worry, I kill cleanly.", "I can singlehandedly lower the air quality by over " .. tostring(Random(25, 99)) .. "%.", "Am I really the most level-headed one here?"},
-    {"$animal_boss_pit", "I know you're here. Show yourself!", "A coward. You are a coward!", "Power corrupts. We both know that well.", "One of these days... I'll cast a black hole and burrow my way out of this place.", "I enjoy reading as well as obliterating unwise explorers.", "What, do you expect me to make small talk?"},
+    {"$animal_boss_pit", "You want the power that I have? Then fight for it.", "Absolute power... Is that what you've been seeking?", "Latent magic means absolutely nothing if you can't utilize it.", "One of these days... I'll burrow my way out of this place.", "I enjoy literature along with obliterating unwise explorers.", "Power corrupts. We both know that well."},
     {"$animal_shaman", "No one really knows...", "Will you remember me?", "Hm? Oh, it's nothing..."},
     {"$animal_playerghost", "Where have I gone? This isn't my world...", "Risen from my grave... I'll soon return to it.", "I feel lost... am I truly the only one?"},
     {"$animal_firebug", "Bzzt...", "We serve the Hive...", "Regroup and prepare to swarm."},
@@ -551,4 +551,5 @@ Custom_speak_lines = {
     {"kolmi_begin", "Have at thee!", "I'll fight until my bitter end!", "Let's do this.", "This time, I'll take you down.", "Prepare to meet your end!", "Perish, adventurer!"},
     {"kolmi_death", "In my next life... I'll give you hell...!", "Don't you dare think that this is over!", "Until the next time we meet... Farewell!", "These three weary eyes can finally rest...", "Ah...! This pain never truly fades...", "I'll prevail over you yet! One day...!"},
     {"kolmi_gourd", "Oh, dear Gods.", "What on Earth...?!", "What. What is this?"},
+    {"squidward_cheese", "As if I'm gonna let you trick me like that again!", "Thanks, but no thanks. I'd rather it be you that dies.", "Oh, the look on your face...! Priceless, truly...", "Sorry, not sorry. I'm allergic to cheese."},
 }

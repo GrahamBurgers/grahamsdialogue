@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated
 dofile("mods/grahamsdialogue/files/dialogue.lua")
 dofile("mods/grahamsdialogue/files/types.lua")
 
