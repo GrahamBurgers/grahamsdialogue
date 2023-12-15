@@ -140,7 +140,7 @@ inject(args.StringString, modes.PREPEND, "data/entities/animals/boss_centipede/b
 local tree = nxml.parse(ModTextFileGetContent("data/entities/animals/boss_centipede/boss_centipede.xml"))
 table.insert(tree.children,
 	nxml.parse(
-		[[<LuaComponent execute_every_n_frame="5" script_source_file="mods/grahamsdialogue/files/custom/kolmi_generic.lua"></LuaComponent>]]
+		[[<LuaComponent execute_every_n_frame="30" script_source_file="mods/grahamsdialogue/files/custom/kolmi_generic.lua"></LuaComponent>]]
 	))
 ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml", tostring(tree))
 

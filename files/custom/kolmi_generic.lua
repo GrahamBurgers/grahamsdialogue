@@ -20,9 +20,10 @@ local phase_lines = {
 if phase == "none" then return end
 local kolmi = GetUpdatedEntityID()
 local line
-local phase_comment_probability = 0.3
-
-if math.random() < phase_comment_probability then
+local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
+-- print(tostring(rate))
+-- print(tostring(math.random(rate)))
+if math.random(rate) == 1 then
 	---@diagnostic disable-next-line: param-type-mismatch
 	line = GetLineGeneric(phase_lines[phase] or { "i have no lines for " .. phase }, "kolmi")
 end
