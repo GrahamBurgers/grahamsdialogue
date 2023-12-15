@@ -131,6 +131,10 @@ inject(args.StringString,modes.PREPEND,"data/entities/animals/boss_centipede/bos
 	GlobalsSetValue("grahamsdialogue_kolmi_phase",phase_str)
 ]])
 
+local tree = nxml.parse(ModTextFileGetContent("data/entities/animals/boss_centipede/boss_centipede.xml"))
+table.insert(tree.children,nxml.parse([[<LuaComponent execute_every_n_frame="5" script_source_file="mods/grahamsdialogue/files/custom/kolmi_generic.lua"></LuaComponent>]]))
+ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml",tostring(tree))
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")
