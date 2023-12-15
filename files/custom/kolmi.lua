@@ -117,7 +117,7 @@ local function GenerateValid()
 		["31orbs"]       = orbs >= 31 and orbs < 33,
 		["33orbs"]       = orbs == 33,
 		["34orbs"]       = orbs >= 34,
-		["gourd"]        = EntityGetInRadiusWithTag(x, y, 300, "gourd"),
+		["gourd"]        = #EntityGetInRadiusWithTag(x, y, 300, "gourd") ~= 0,
 	})
 	---@type original_weighted_pair[]
 	built = {}
@@ -128,6 +128,8 @@ local function GenerateValid()
 			end
 		end
 	end
+	-- dofile_once("mods/grahamsdialogue/files/lib/print.lua")
+	-- print_any(built)
 	return built
 end
 
