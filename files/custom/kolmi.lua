@@ -154,6 +154,10 @@ if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new sp
 	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(valid[result].offset))
 	GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
 	GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", "1")
+	choice = GlobalsGetValue("GRAHAM_KOLMI_SPEECH", "error")
+	offset = tonumber(GlobalsGetValue("GRAHAM_KOLMI_OFFSET", "0"))
+	frames = tonumber(GlobalsGetValue("GRAHAM_KOLMI_FRAMES", "0"))
+	amount = tonumber(GlobalsGetValue("GRAHAM_KOLMI_PROGRESS", "1"))
 end
 
 local line = lines[choice][offset].lines[amount]
