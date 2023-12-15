@@ -4,13 +4,12 @@ dofile_once("mods/grahamsdialogue/files/types.lua")
 ---@type string
 local phase = GlobalsGetValue("grahamsdialogue_kolmi_phase", "none")
 local phase_lines = {
-	firepillarr = { "Grr so fire!" },
+	firepillar = { "Grr so fire!" },
 	circleshot = { "Circles!!!" },
 	chase = { "I am running...." },
 	slow_chase = { "speakers", "write these grahams" },
 	chase_direct = { "speakers", "write these grahams" },
 	spawn_minion = { "speakers", "write these grahams" },
-	firepillar = { "speakers", "write these grahams" },
 	explosion = { "speakers", "write these grahams" },
 	homingshot = { "speakers", "write these grahams" },
 	polymorph = { "speakers", "write these grahams" },
