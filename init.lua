@@ -143,6 +143,19 @@ table.insert(tree.children,
 	))
 ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml", tostring(tree))
 
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_pit/boss_pit_logic.lua", "-- we're stuck, lets hunt for that connoisseur of cheese",
+	[[
+
+	dofile_once("mods/grahamsdialogue/files/common.lua")
+	for i = 1, #Custom_speak_lines do
+		if Custom_speak_lines[i][1] == "squidward_cheese" then
+			local type = Random(2, #Custom_speak_lines[i])
+			Speak(entity_id, Custom_speak_lines[i][type], pools.CUSTOM, true, true)
+			break
+		end
+	end
+]])
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")

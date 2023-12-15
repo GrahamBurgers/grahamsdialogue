@@ -127,7 +127,7 @@ mod_settings =
 	},
 	{
 		id = "hamis",
-		ui_name = "lowercase hämis",
+		ui_name = "informal hämis",
 		ui_description = "whether or not hämis speak informally like they should :thumbsup:",
 		value_default = true,
 		scope = MOD_SETTING_SCOPE_RUNTIME,
