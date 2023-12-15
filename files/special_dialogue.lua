@@ -5,25 +5,25 @@ return {
 		if Random(1, 7) == 7 then
 			local special = {}
 			if ModIsEnabled("HamisMaid") then
-				special[#special+1] = "This outfit... I feel like it was meant to be."
+				special[#special + 1] = "This outfit... I feel like it was meant to be."
 			end
 			if ModIsEnabled("cowboy_hamis") then
-				special[#special+1] = "This hat... I'm feelin' real good about this!"
+				special[#special + 1] = "This hat... I'm feelin' real good about this!"
 			end
 			if ModIsEnabled("rainbow_hamis") or ModIsEnabled("rainbow_hamogus") then
-				special[#special+1] = "Every color of the rainbow is reflected in our beauty."
+				special[#special + 1] = "Every color of the rainbow is reflected in our beauty."
 			end
 			if ModIsEnabled("hamogus") or ModIsEnabled("rainbow_hamogus") or ModIsEnabled("hamisus") then
-				special[#special+1] = "I'm feeling kind of sus... B-but I'm no impostor!"
+				special[#special + 1] = "I'm feeling kind of sus... B-but I'm no impostor!"
 			end
 			if ModIsEnabled("cool hamis") then
-				special[#special+1] = "This cigarette is fake... But it does make me look cooler."
+				special[#special + 1] = "This cigarette is fake... But it does make me look cooler."
 			end
 			if ModIsEnabled("Copis_Hamis_Friends") then
-				special[#special+1] = "You, player! You're a friend, in more ways than one..."
+				special[#special + 1] = "You, player! You're a friend, in more ways than one..."
 			end
 			if ModIsEnabled("longleg_player") then
-				special[#special+1] = "A fellow spider has more than 3 health? No fair."
+				special[#special + 1] = "A fellow spider has more than 3 health? No fair."
 			end
 			if #special > 0 then
 				new = special[Random(1, #special)]
@@ -354,41 +354,44 @@ return {
 		end
 	end,
 	["$animal_boss_wizard"] = function(config)
-		local comp = EntityGetFirstComponent( config.entity, "VariableStorageComponent", "boss_wizard_mode" )
+		local comp = EntityGetFirstComponent(config.entity, "VariableStorageComponent", "boss_wizard_mode")
 		local special = {}
 		if comp ~= nil then
-			local mode = ComponentGetValue2( comp, "value_int" )
+			local mode = ComponentGetValue2(comp, "value_int")
 			local chance = 6
 			if mode == 1 then chance = 4 end
 			if mode == 2 then chance = 2 end
 			if (config.pool == pools.IDLE or Random(1, chance) == chance) then
 				if EntityHasGameEffect(EntityGetClosestWithTag(config.x, config.y, "player_unit"), { "PROTECTION_ALL" }) and Random(1, 3) == 3 then
-					special[#special+1] = "You little cheater. You want to have it both ways, don't you?"
-					special[#special+1] = "I see you over there. Do you need invincibility to beat me? How amusing."
-					special[#special+1] = "Interesting. I worked hard for my power... And here you are. Invulnerable."
+					special[#special + 1] = "You little cheater. You want to have it both ways, don't you?"
+					special[#special + 1] = "I see you over there. Do you need invincibility to beat me? How amusing."
+					special[#special + 1] = "Interesting. I worked hard for my power... And here you are. Invulnerable."
 				end
 				if mode == 0 then
 					-- normal
 					if #EntityGetInRadiusWithTag(config.x, config.y, 128, "wizard_orb_death") < 1 then
-						special[#special+1] = "You've subverted just one aspect of my magic. I wouldn't celebrate just yet."
-						special[#special+1] = "What a shame you didn't shoot the red ones as well. It's not too late..."
-						special[#special+1] = "Oh? Something feels different... My invincibility is gone. No matter."
+						special[#special + 1] =
+						"You've subverted just one aspect of my magic. I wouldn't celebrate just yet."
+						special[#special + 1] =
+						"What a shame you didn't shoot the red ones as well. It's not too late..."
+						special[#special + 1] = "Oh? Something feels different... My invincibility is gone. No matter."
 					end
 					if GameHasFlagRun("$animal_gate_monster_a_killed") and GameHasFlagRun("$animal_gate_monster_b_killed")
-					and GameHasFlagRun("$animal_gate_monster_c_killed") and GameHasFlagRun("$animal_gate_monster_d_killed")
-					and Random(1, 3) == 3 then
-						special[#special+1] = "You've destroyed the triangular guardians as well? That explains some things..."
+						and GameHasFlagRun("$animal_gate_monster_c_killed") and GameHasFlagRun("$animal_gate_monster_d_killed")
+						and Random(1, 3) == 3 then
+						special[#special + 1] =
+						"You've destroyed the triangular guardians as well? That explains some things..."
 					end
 				elseif mode == 1 then
 					-- helmet gone
-					special[#special+1] = "Bear witness to my true form. I tried to hide it, but no longer."
-					special[#special+1] = "Oh, you've done it now... Prepare to meet your end."
-					special[#special+1] = "The pain is almost unbearable now. Let me share some of it with you."
+					special[#special + 1] = "Bear witness to my true form. I tried to hide it, but no longer."
+					special[#special + 1] = "Oh, you've done it now... Prepare to meet your end."
+					special[#special + 1] = "The pain is almost unbearable now. Let me share some of it with you."
 				elseif mode == 2 then
 					-- tentacle frenzy
-					special[#special+1] = "I don't care anymore! I'll rip you apart, even if it kills me!"
-					special[#special+1] = "You accursed being of magic...! You deserve nothing but pain!"
-					special[#special+1] = "Gods, oh Gods... Grant me power to give this fool what they deserve!"
+					special[#special + 1] = "I don't care anymore! I'll rip you apart, even if it kills me!"
+					special[#special + 1] = "You accursed being of magic...! You deserve nothing but pain!"
+					special[#special + 1] = "Gods, oh Gods... Grant me power to give this fool what they deserve!"
 					config.size_x = config.size_x + 0.06
 					config.size_y = config.size_y + 0.06
 				end
@@ -399,10 +402,10 @@ return {
 		end
 	end,
 	["$animal_boss_ghost"] = function(config)
-		local eyes = EntityGetInRadiusWithTag( config.x, config.y, 200, "evil_eye" )
+		local eyes = EntityGetInRadiusWithTag(config.x, config.y, 200, "evil_eye")
 		local found = false
 		for i = 1, #eyes do
-			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
+			if (EntityGetFirstComponent(eyes[i], "LightComponent", "magic_eye_check")) then
 				found = true
 				break
 			end
@@ -417,17 +420,21 @@ return {
 			}
 			config.text = special[Random(1, #special)]
 		elseif Random(1, 3) == 1 and config.pool == pools.IDLE then
-			if HasFlagPersistent( "moon_is_sun" ) and HasFlagPersistent( "darkmoon_is_sun" ) then config.text         = "The suns... The world is bathed in light. What have you done?" end
-			if HasFlagPersistent( "moon_is_darksun" ) and HasFlagPersistent( "darkmoon_is_darksun" ) then config.text = "The suns... The world is shrouded in darkness. What have you done?" end
-			if HasFlagPersistent( "moon_is_sun" ) and HasFlagPersistent( "darkmoon_is_darksun" ) then config.text     = "The suns... The world is balanced at last. You have done well." end
-			if HasFlagPersistent( "moon_is_darksun" ) and HasFlagPersistent( "darkmoon_is_sun" ) then config.text     = "The suns... Something feels off. This is not what our Gods wanted." end
+			if HasFlagPersistent("moon_is_sun") and HasFlagPersistent("darkmoon_is_sun") then config.text =
+				"The suns... The world is bathed in light. What have you done?" end
+			if HasFlagPersistent("moon_is_darksun") and HasFlagPersistent("darkmoon_is_darksun") then config.text =
+				"The suns... The world is shrouded in darkness. What have you done?" end
+			if HasFlagPersistent("moon_is_sun") and HasFlagPersistent("darkmoon_is_darksun") then config.text =
+				"The suns... The world is balanced at last. You have done well." end
+			if HasFlagPersistent("moon_is_darksun") and HasFlagPersistent("darkmoon_is_sun") then config.text =
+				"The suns... Something feels off. This is not what our Gods wanted." end
 		end
 	end,
 	["$animal_boss_ghost_polyp"] = function(config)
-		local eyes = EntityGetInRadiusWithTag( config.x, config.y, 200, "evil_eye" )
+		local eyes = EntityGetInRadiusWithTag(config.x, config.y, 200, "evil_eye")
 		local found = false
 		for i = 1, #eyes do
-			if (EntityGetFirstComponent( eyes[i], "LightComponent", "magic_eye_check" )) then
+			if (EntityGetFirstComponent(eyes[i], "LightComponent", "magic_eye_check")) then
 				found = true
 				break
 			end
@@ -454,25 +461,25 @@ return {
 		local special = {}
 		if Random(1, 3) == 1 and config.pool == pools.IDLE then
 			if config.y < -7000 or config.y > 15000 then
-				special[#special+1] = "Where on earth are we...? Why have you gone here?"
-				special[#special+1] = "Are you leading me somewhere? What could you possibly..."
-				special[#special+1] = "What are you doing? I'd rather not take a world tour..."
+				special[#special + 1] = "Where on earth are we...? Why have you gone here?"
+				special[#special + 1] = "Are you leading me somewhere? What could you possibly..."
+				special[#special + 1] = "What are you doing? I'd rather not take a world tour..."
 			end
 			if math.abs(config.x) > 20000 then
-				special[#special+1] = "Something calls to me... I do not belong here. Not at all."
-				special[#special+1] = "Oh, no... I do not like this place. Can we go back, please?"
-				special[#special+1] = "I'm can follow you, but... This is going a bit far. Literally."
+				special[#special + 1] = "Something calls to me... I do not belong here. Not at all."
+				special[#special + 1] = "Oh, no... I do not like this place. Can we go back, please?"
+				special[#special + 1] = "I'm can follow you, but... This is going a bit far. Literally."
 			end
 		end
 		if #special > 0 then
 			config.text = special[Random(1, #special)]
 		end
-		if (config.pool ~= pools.CUSTOM and (GlobalsGetValue( "FINAL_BOSS_ACTIVE", "0") ~= "1") and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS")) then config.text = nil end
+		if (config.pool ~= pools.CUSTOM and (GlobalsGetValue("FINAL_BOSS_ACTIVE", "0") ~= "1") and not ComponentGetValue2(EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0, "ENDING_HAPPINESS")) then config.text = nil end
 		-- config.text = nil -- TEMP TEMP TEMP
 	end,
 	["$animal_wizard_poly"] = function(config)
 		local player = EntityGetClosestWithTag(config.x, config.y, "player_unit")
-		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and EntityHasGameEffect(player, { "PROTECTION_POLYMORPH" } ) then
+		if (config.pool == pools.DAMAGEDEALT or config.pool == pools.DAMAGETAKEN) and EntityHasGameEffect(player, { "PROTECTION_POLYMORPH" }) then
 			local special = {
 				"Oh, you're immune? Cute. I'll get to you soon enough.",
 				"We'll see how confident you are once that timer runs out...",

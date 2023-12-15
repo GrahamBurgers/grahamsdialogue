@@ -19,3 +19,7 @@ pools = {
 ---@field original string
 ---@field offset integer
 ---@field weight number
+
+--- @class kolmi_pair
+--- @field lines string[]
+--- @field weight number

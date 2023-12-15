@@ -36,97 +36,97 @@ function ModdedStuff()
 end
 
 Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
-	["$animal_boss_alchemist"]           = 60,
-	["$animal_parallel_alchemist"]       = 60,
-	["$animal_boss_pit"]                 = 13,
-	["$animal_parallel_tentacles"]       = 13,
-	["$animal_necromancer_shop"]         = 8,
-	["$animal_necromancer_super"]        = 10,
-	["$animal_firemage"]                 = 6,
-	["$animal_firemage_weak"]            = 6,
-	["$animal_thundermage"]              = 6,
-	["$animal_tentacler"]                = 8,
-	["$animal_giant"]                    = 6,
-	["$animal_pebble"]                   = -6,
-	["$animal_rat"]                      = -4,
-	["$animal_drone"]                    = -10,
-	["$animal_scavenger_leader"]         = 8,
-	["$animal_scavenger_clusterbomb"]    = 8,
-	["$animal_scavenger_mine"]           = 8,
-	["$animal_necromancer"]              = 10,
-	["$animal_worm_tiny"]                = -10,
-	["$animal_worm"]                     = -7,
-	["$animal_worm_big"]                 = -4,
-	["$animal_phantom_a"]                = 4,
-	["$animal_phantom_b"]                = 4,
-	["$animal_flamer"]                   = 4,
-	["$animal_icer"]                     = 4,
-	["$animal_lukki_tiny"]               = -8,
-	["$graham_lukkimount_name"]          = -38,
-	["$animal_boss_dragon"]              = 4,
-	["$animal_failed_alchemist"]         = 18,
-	["$animal_failed_alchemist_b"]       = 10,
-	["$animal_enlightened_alchemist"]    = 24,
-	["$animal_fungus_big"]               = 8,
-	["$animal_fungus_giga"]              = 24,
-	["$animal_skullfly"]                 = 8,
-	["$animal_spearbot"]                 = 12,
-	["$animal_roboguard"]                = 4,
-	["$animal_piranha"]                  = 4,
-	["generic_ghost"]                    = -8,
-	["$animal_friend"]                   = 10,
-	["$animal_ultimate_killer"]          = -8,
-	["$animal_longleg"]                  = -4,
-	["$animal_zombie"]                   = -4,
-	["$animal_thundermage_big"]          = 20,
-	["$animal_spitmonster"]              = 8,
-	["karl"]                             = -4,
-	["$animal_necrobot"]                 = 8,
-	["$animal_necrobot_super"]           = 8,
-	["$animal_fish_giga"]                = -12,
-	["$animal_boss_limbs"]               = 12,
-	["Calamariface"]                     = 8,
-	["lukki_minion"]                     = -4,
-	["$animal_homunculus"]               = -4,
-	["swarm_fly"]                        = -11,
-	["swarm_firebug"]                    = -11,
-	["swarm_wasp"]                       = -11,
-	["$animal_maggot_tiny"]              = 8,
-	["$animal_boss_wizard"]              = 42,
-	["$animal_boss_robot"]               = 10,
-	["$animal_boss_ghost"]               = 30,
-	["$animal_boss_centipede_minion"]    = -6,
-	["$animal_boss_centipede"]           = 10,
-	["$animal_monk"]                     = 8,
+	["$animal_boss_alchemist"]        = 60,
+	["$animal_parallel_alchemist"]    = 60,
+	["$animal_boss_pit"]              = 13,
+	["$animal_parallel_tentacles"]    = 13,
+	["$animal_necromancer_shop"]      = 8,
+	["$animal_necromancer_super"]     = 10,
+	["$animal_firemage"]              = 6,
+	["$animal_firemage_weak"]         = 6,
+	["$animal_thundermage"]           = 6,
+	["$animal_tentacler"]             = 8,
+	["$animal_giant"]                 = 6,
+	["$animal_pebble"]                = -6,
+	["$animal_rat"]                   = -4,
+	["$animal_drone"]                 = -10,
+	["$animal_scavenger_leader"]      = 8,
+	["$animal_scavenger_clusterbomb"] = 8,
+	["$animal_scavenger_mine"]        = 8,
+	["$animal_necromancer"]           = 10,
+	["$animal_worm_tiny"]             = -10,
+	["$animal_worm"]                  = -7,
+	["$animal_worm_big"]              = -4,
+	["$animal_phantom_a"]             = 4,
+	["$animal_phantom_b"]             = 4,
+	["$animal_flamer"]                = 4,
+	["$animal_icer"]                  = 4,
+	["$animal_lukki_tiny"]            = -8,
+	["$graham_lukkimount_name"]       = -38,
+	["$animal_boss_dragon"]           = 4,
+	["$animal_failed_alchemist"]      = 18,
+	["$animal_failed_alchemist_b"]    = 10,
+	["$animal_enlightened_alchemist"] = 24,
+	["$animal_fungus_big"]            = 8,
+	["$animal_fungus_giga"]           = 24,
+	["$animal_skullfly"]              = 8,
+	["$animal_spearbot"]              = 12,
+	["$animal_roboguard"]             = 4,
+	["$animal_piranha"]               = 4,
+	["generic_ghost"]                 = -8,
+	["$animal_friend"]                = 10,
+	["$animal_ultimate_killer"]       = -8,
+	["$animal_longleg"]               = -4,
+	["$animal_zombie"]                = -4,
+	["$animal_thundermage_big"]       = 20,
+	["$animal_spitmonster"]           = 8,
+	["karl"]                          = -4,
+	["$animal_necrobot"]              = 8,
+	["$animal_necrobot_super"]        = 8,
+	["$animal_fish_giga"]             = -12,
+	["$animal_boss_limbs"]            = 12,
+	["Calamariface"]                  = 8,
+	["lukki_minion"]                  = -4,
+	["$animal_homunculus"]            = -4,
+	["swarm_fly"]                     = -11,
+	["swarm_firebug"]                 = -11,
+	["swarm_wasp"]                    = -11,
+	["$animal_maggot_tiny"]           = 8,
+	["$animal_boss_wizard"]           = 42,
+	["$animal_boss_robot"]            = 10,
+	["$animal_boss_ghost"]            = 30,
+	["$animal_boss_centipede_minion"] = -6,
+	["$animal_boss_centipede"]        = 10,
+	["$animal_monk"]                  = 8,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
-	["$animal_pebble"]                   = -0.8,
-	["$animal_miniblob"]                 = -0.10,
-	["$animal_lukki_tiny"]               = -0.05,
-	["$animal_lukki_dark"]               = 0.20,
-	["$animal_worm_end"]                 = 0.15,
-	["$animal_boss_dragon"]              = 0.10,
-	["$animal_fish_giga"]                = 0.10,
-	["$animal_gate_monster_a"]           = 0.10,
-	["$animal_gate_monster_b"]           = 0.10,
-	["$animal_gate_monster_c"]           = 0.10,
-	["$animal_gate_monster_d"]           = 0.10,
-	["generic_ghost"]                    = -0.08,
-	["karl"]                             = -0.04,
-	["$animal_boss_limbs"]               = 0.10,
-	["minitank"]                         = -0.08,
-	["Calamariface"]                     = 0.05,
-	["lukki_minion"]                     = -0.08,
-	["$animal_homunculus"]               = -0.08,
-	["swarm_fly"]                        = -0.08,
-	["swarm_firebug"]                    = -0.08,
-	["swarm_wasp"]                       = -0.08,
-	["animal_longleg"]                   = -0.04,
-	["$animal_maggot_tiny"]              = 0.80,
-	["$animal_boss_centipede"]           = 0.40,
-	["$animal_necromancer_shop"]         = 0.07,
-	["$animal_necromancer_super"]        = 0.14,
+	["$animal_pebble"]            = -0.8,
+	["$animal_miniblob"]          = -0.10,
+	["$animal_lukki_tiny"]        = -0.05,
+	["$animal_lukki_dark"]        = 0.20,
+	["$animal_worm_end"]          = 0.15,
+	["$animal_boss_dragon"]       = 0.10,
+	["$animal_fish_giga"]         = 0.10,
+	["$animal_gate_monster_a"]    = 0.10,
+	["$animal_gate_monster_b"]    = 0.10,
+	["$animal_gate_monster_c"]    = 0.10,
+	["$animal_gate_monster_d"]    = 0.10,
+	["generic_ghost"]             = -0.08,
+	["karl"]                      = -0.04,
+	["$animal_boss_limbs"]        = 0.10,
+	["minitank"]                  = -0.08,
+	["Calamariface"]              = 0.05,
+	["lukki_minion"]              = -0.08,
+	["$animal_homunculus"]        = -0.08,
+	["swarm_fly"]                 = -0.08,
+	["swarm_firebug"]             = -0.08,
+	["swarm_wasp"]                = -0.08,
+	["animal_longleg"]            = -0.04,
+	["$animal_maggot_tiny"]       = 0.80,
+	["$animal_boss_centipede"]    = 0.40,
+	["$animal_necromancer_shop"]  = 0.07,
+	["$animal_necromancer_super"] = 0.14,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
@@ -492,8 +492,7 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 	end
 	local lines = dialogue_pool[enemy_idx]
 	local time = GameGetFrameNum()
-	local integrated = {}
-	local sum = 0
+	local vals = {}
 	for i = 2, #lines do
 		local last = time - tonumber(GlobalsGetValue(
 			"mods_grahamsdialogue_pool_"
@@ -503,38 +502,23 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
 			2.5)
-		sum = sum + last
-		table.insert(integrated, sum)
+		table.insert(vals, { i, last })
 	end
-	-- looks like someone added way too many dialogue lines to an enemy.
-	sum = math.min(sum, math.pow(2, 30))
-	SetRandomSeed(math.random() * 10000, math.random() * 10000)
-	local cut = Random(1, sum) -- TODO: make this randomf and not break stuff
-	-- print(cut, sum)
-	-- for k, v in ipairs(integrated) do print(k, v) end
-	local idx = 1
-	for k, v in ipairs(integrated) do
-		if cut <= v then
-			idx = k
-			break
-		end
-	end
+	local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
 	GlobalsSetValue("mods_grahamsdialogue_pool_"
 		.. pool
 		.. "_" .. enemy_idx
-		.. "_" .. (idx + 1), tostring(time))
-	return lines[idx + 1]
+		.. "_" .. (ex[1]), tostring(time))
+	return lines[ex[1]]
 end
 
--- TODO: refactor to have a generic integrator function which isn't bound to generic / named pools
 ---Gets a line given an enemies index in a generic dialogue pool
 ---@param dialogue_pool string[]
 ---@param type string
 ---@return string
 function GetLineGeneric(dialogue_pool, type)
 	local time = GameGetFrameNum()
-	local integrated = {}
-	local sum = 0
+	local vals = {}
 	for i = 1, #dialogue_pool do
 		local last = time - tonumber(GlobalsGetValue(
 			"mods_grahamsdialogue_genericpool_"
@@ -543,24 +527,13 @@ function GetLineGeneric(dialogue_pool, type)
 		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
 			---@diagnostic disable-next-line: param-type-mismatch
 			2.5)
-		sum = sum + last
-		table.insert(integrated, sum)
+		table.insert(vals, { i, last })
 	end
-	-- looks like someone added way too many dialogue lines to an enemy.
-	sum = math.min(sum, math.pow(2, 30))
-	SetRandomSeed(math.random() * 10000, math.random() * 10000)
-	local cut = Random(1, sum)
-	local idx = 1
-	for k, v in ipairs(integrated) do
-		if cut <= v then
-			idx = k
-			break
-		end
-	end
+	local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
 	GlobalsSetValue("mods_grahamsdialogue_genericpool_"
 		.. type
-		.. "_" .. idx, tostring(time))
-	return dialogue_pool[idx]
+		.. "_" .. ex[1], tostring(time))
+	return dialogue_pool[ex[1]]
 end
 
 ---@param entity integer
@@ -572,4 +545,27 @@ function IsBoss(entity)
 		EntityHasTag(entity, "boss_dragon") or
 		NameGet(entity) == "$animal_fish_giga" or
 		NameGet(entity) == "$animal_maggot_tiny"
+end
+
+function DiscreteIntegral(vals, weight_get, fully_random)
+	local sum = 0
+	local integrated = {}
+	for k, v in ipairs(vals) do
+		sum = sum + weight_get(v)
+		table.insert(integrated, sum)
+	end
+	if fully_random then
+		SetRandomSeed(GameGetFrameNum() * 4612 + math.random() * 961053, GameGetFrameNum() * 45 + math.random() * 41729)
+	else
+		SetRandomSeed(182342, 47729 + math.floor(GameGetFrameNum() / 36000) * 5) -- some random coords, this way if you get a cool dialogue it'll be the same on the seed if you get same achievements.
+	end
+	local cutoff = Randomf(0.0, sum)
+	local result = 1
+	for k, v in ipairs(integrated) do
+		if v >= cutoff then
+			result = k
+			break
+		end
+	end
+	return vals[result]
 end

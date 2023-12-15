@@ -135,25 +135,11 @@ end
 
 if choice == "error" or GameGetFrameNum() > frames + 36000 then -- choose new speech if one hasn't been chosen or if 10 minutes have passed
 	local valid = GenerateValid()
-	local sum = 0
-	local integrated = {}
-	for k, v in ipairs(valid) do
-		sum = sum + v.weight
-		table.insert(integrated, sum)
-	end
-	SetRandomSeed(182342, 47729 + math.floor(GameGetFrameNum() / 36000) * 5) -- some random coords, this way if you get a cool dialogue it'll be the same on the seed if you get same achievements.
-	cutoff = Randomf(0.0, sum)
-	local result = 1
-	for k, v in ipairs(integrated) do
-		if v >= cutoff then
-			result = k
-			break
-		end
-	end
-	choice = valid[result].original
-	offset = valid[result].offset
-	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", valid[result].original)
-	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(valid[result].offset))
+	local ex = DiscreteIntegral(valid, function(v) return v.weight end, false)
+	choice = ex.original
+	offset = ex.offset
+	GlobalsSetValue("GRAHAM_KOLMI_SPEECH", ex.original)
+	GlobalsSetValue("GRAHAM_KOLMI_OFFSET", tostring(ex.offset))
 	GlobalsSetValue("GRAHAM_KOLMI_FRAMES", tostring(GameGetFrameNum()))
 	GlobalsSetValue("GRAHAM_KOLMI_PROGRESS", "1")
 	choice = GlobalsGetValue("GRAHAM_KOLMI_SPEECH", "error")
