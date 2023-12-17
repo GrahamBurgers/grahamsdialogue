@@ -195,9 +195,7 @@ local function split(inputstr, sep)
 	return t
 end
 
-
--- how to kill petri in 3 easy steps??
-function OnWorldPreUpdate()
+local function consume_buffer()
 	local buffer = GlobalsGetValue("grahamsdialogue.buffer", "")
 	-- we have to consume the buffer fully to stop noita from detonating
 	local parts = split(buffer, ",") -- literal miracle this shit works, i can't believe it
@@ -214,6 +212,10 @@ function OnWorldPreUpdate()
 		::continue::
 	end
 	GlobalsSetValue("grahamsdialogue.buffer","")
+end
+
+-- how to kill petri in 3 easy steps??
+function OnWorldPreUpdate()
 	if GameGetFrameNum() > 5 and GameGetFrameNum() % 15 == 0 then -- hax
 		dofile("mods/grahamsdialogue/files/common.lua")
 		local enemies = EntityGetWithTag("hittable")
@@ -249,6 +251,7 @@ function OnWorldPreUpdate()
 		-- for k, orb in ipairs(orbs) do
 		-- 	-- doesn't exist lol
 		-- end
+		consume_buffer()
 	end
 end
 
