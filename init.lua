@@ -1,5 +1,6 @@
 local nxml = dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
 dofile_once("mods/grahamsdialogue/files/lib/injection.lua")
+GetContent = GetContent or ModTextFileGetContent
 
 local filepaths = {
 	-- note: this may or may not work if the filepath has a child entity (use true to ignore children)
@@ -144,7 +145,8 @@ table.insert(tree.children,
 	))
 ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml", tostring(tree))
 
-inject(args.StringString, modes.APPEND, "data/entities/animals/boss_pit/boss_pit_logic.lua", "-- we're stuck, lets hunt for that connoisseur of cheese",
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_pit/boss_pit_logic.lua",
+	"-- we're stuck, lets hunt for that connoisseur of cheese",
 	[[
 
 	dofile_once("mods/grahamsdialogue/files/common.lua")
@@ -168,7 +170,50 @@ function OnPlayerSpawned(player)
 	end
 end
 
+---@param file string
+---@return string
+local function traverse_base_tree(file)
+	local tree = nxml.parse(GetContent(file))
+	local name = tree.attr.name
+	if name ~= nil then return name end
+	for k, v in ipairs(tree.children) do
+		if v.name == "Base" then
+			return traverse_base_tree(v.attr.file)
+		end
+	end
+	return ""
+end
+
+local function split(inputstr, sep)
+	if sep == nil then
+		sep = "%s"
+	end
+	local t = {}
+	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+		table.insert(t, str)
+	end
+	return t
+end
+
+
+-- how to kill petri in 3 easy steps??
 function OnWorldPreUpdate()
+	local buffer = GlobalsGetValue("grahamsdialogue.buffer", "")
+	-- we have to consume the buffer fully to stop noita from detonating
+	local parts = split(buffer, ",") -- literal miracle this shit works, i can't believe it
+	for k, v in ipairs(parts) do
+		-- print(v)
+		if GlobalsGetValue("grahamsdialogue.readback." .. v, "killingpetri") ~= "killingpetri" then goto continue end
+		-- print(v)
+		if not ModDoesFileExist(v) then goto continue end
+		-- print(v)
+		if v == "??SAV/player.xml" then goto continue end -- execute
+		-- print(v)
+		local name = traverse_base_tree(v)
+		GlobalsSetValue("grahamsdialogue.readback." .. v, name)
+		::continue::
+	end
+	GlobalsSetValue("grahamsdialogue.buffer","")
 	if GameGetFrameNum() > 5 and GameGetFrameNum() % 15 == 0 then -- hax
 		dofile("mods/grahamsdialogue/files/common.lua")
 		local enemies = EntityGetWithTag("hittable")

@@ -1,6 +1,8 @@
 ---@diagnostic disable: deprecated
-dofile("mods/grahamsdialogue/files/dialogue.lua")
-dofile("mods/grahamsdialogue/files/types.lua")
+dofile_once("mods/grahamsdialogue/files/dialogue.lua")
+dofile_once("mods/grahamsdialogue/files/types.lua")
+nxml = nxml or dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
+GetContent = GetContent or ModTextFileGetContent
 
 DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_zombie_weak"]           = "$animal_zombie",
@@ -22,10 +24,37 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 	["ghostly_ghost"]                 = "generic_ghost",
 })
 
+---@type table<string,string>
+memoized_files = memoized_files or {}
+
+---@param to_push string
+local function buffer_push(to_push)
+	local buffer = GlobalsGetValue("grahamsdialogue.buffer", "")
+	buffer = buffer .. to_push .. "," -- we are so hax
+	GlobalsSetValue("grahamsdialogue.buffer", buffer)
+end
+
 ---@param entity integer
 ---@return string
 function NameGet(entity)
 	local name = EntityGetName(entity) or ""
+	if name == "" then
+		local file = EntityGetFilename(entity) -- debug jank function but it is what it is
+		local memoized = memoized_files[file]
+		if memoized ~= nil then
+			name = memoized
+		else
+			-- we got to compute && memoize
+			local readback = GlobalsGetValue("grahamsdialogue.readback." .. file, "killingpetri")
+			if readback ~= "killingpetri" then
+				memoized_files[file] = readback
+				name = file
+			else
+				buffer_push(file)
+			end
+			-- memoized_files[file] = name
+		end
+	end
 	name = DUPES[name] or name
 	return name
 end
