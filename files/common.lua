@@ -3,7 +3,6 @@ dofile_once("mods/grahamsdialogue/files/dialogue.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
 nxml = nxml or dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
 GetContent = GetContent or ModTextFileGetContent
-perf_counters = perf_counters or { memoized = 0, readback = 0, buffer = 0 }
 
 DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_zombie_weak"]           = "$animal_zombie",
@@ -40,13 +39,11 @@ end
 function NameGet(entity)
 	local name = EntityGetName(entity) or ""
 	if name == "" then
-		if math.random() < 0.01 then
-			print(perf_counters.memoized, perf_counters.readback, perf_counters.buffer)
-		end
 		local file = EntityGetFilename(entity) -- debug jank function but it is what it is
+		-- print("we had to do a " .. file)
 		local memoized = memoized_files[file]
 		if memoized ~= nil then
-			perf_counters.memoized = perf_counters.memoized + 1
+			-- print("it was memoized")
 			name = memoized
 			if name == "" then
 				name = "grahamsdialogue.no_name"
@@ -55,11 +52,9 @@ function NameGet(entity)
 			-- we got to compute && memoize
 			local readback = GlobalsGetValue("grahamsdialogue.readback." .. file, "killingpetri")
 			if readback ~= "killingpetri" then
-				perf_counters.readback = perf_counters.readback + 1
 				memoized_files[file] = readback
 				name = readback
 			else
-				perf_counters.buffer = perf_counters.buffer + 1
 				buffer_push(file)
 			end
 			-- memoized_files[file] = name
