@@ -24,8 +24,8 @@ local filepaths = {
 }
 
 for i = 1, #filepaths do
-	if ModDoesFileExist == nil or ModDoesFileExist(filepaths[i][1]) then -- may cause errors if not on beta branch
-		local path = filepaths[i][1]
+	local path = filepaths[i][1]
+	if ModDoesFileExist(path) then -- may cause errors if not on beta branch
 		local content = ModTextFileGetContent(path)
 		if content ~= nil then
 			local tree = nxml.parse(content)
@@ -173,6 +173,10 @@ end
 ---@param file string
 ---@return string
 local function traverse_base_tree(file)
+	-- print("seen "..file)
+	if file:sub(1,4) ~= "data" and file:sub(1,3) ~= "mods" then return "" end -- the stupid api says bones exist but they can't be read.
+	if not ModDoesFileExist(file) then return "" end
+	-- print("going for file")
 	local tree = nxml.parse(GetContent(file))
 	local name = tree.attr.name
 	if name ~= nil then return name end

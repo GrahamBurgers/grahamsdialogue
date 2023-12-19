@@ -2,7 +2,6 @@
 dofile_once("mods/grahamsdialogue/files/dialogue.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
 nxml = nxml or dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
-GetContent = GetContent or ModTextFileGetContent
 
 DUPES = ({ -- for when multiple enemy translation entries are identical
 	["$animal_zombie_weak"]           = "$animal_zombie",
