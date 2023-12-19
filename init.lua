@@ -174,7 +174,7 @@ end
 ---@return string
 local function traverse_base_tree(file)
 	-- print("seen "..file)
-	if file:sub(1,4) ~= "data" and file:sub(1,3) ~= "mods" then return "" end -- the stupid api says bones exist but they can't be read.
+	if file:sub(1, 4) ~= "data" and file:sub(1, 3) ~= "mods" then return "" end -- the stupid api says bones exist but they can't be read.
 	if not ModDoesFileExist(file) then return "" end
 	-- print("going for file")
 	local tree = nxml.parse(GetContent(file))
@@ -215,7 +215,7 @@ local function consume_buffer()
 		GlobalsSetValue("grahamsdialogue.readback." .. v, name)
 		::continue::
 	end
-	GlobalsSetValue("grahamsdialogue.buffer","")
+	GlobalsSetValue("grahamsdialogue.buffer", "")
 end
 
 -- how to kill petri in 3 easy steps??
