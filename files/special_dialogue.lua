@@ -188,7 +188,7 @@ return {
 		return config.text
 	end,
 	["$animal_miner_santa"] = function(config)
-		if StatsBiomeGetValue("enemies_killed") < 1 and config.pool == pools.DAMAGEDEALT then
+		if tonumber(StatsBiomeGetValue("enemies_killed")) < 1 and config.pool == pools.DAMAGEDEALT then
 			local special = {
 				"Pacifism? You might be deserving of the Nice List after all.",
 				"You've been a good person so far. Christmas awaits!",

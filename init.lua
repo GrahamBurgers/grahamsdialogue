@@ -22,6 +22,7 @@ local filepaths = {
 	{ "data/entities/projectiles/deck/swarm_wasp.xml",                "swarm_wasp" },
 	{ "data/entities/projectiles/deck/friend_fly.xml",                "swarm_fly" },
 }
+ModDoesFileExist = ModDoesFileExist or function(path) return ModTextFileGetContent(path) ~= nil end
 
 for i = 1, #filepaths do
 	local path = filepaths[i][1]
