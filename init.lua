@@ -221,8 +221,8 @@ end
 
 -- how to kill petri in 3 easy steps??
 function OnWorldPreUpdate()
-	if GameGetFrameNum() > 5 and GameGetFrameNum() % 15 == 0 then -- hax
-		dofile("mods/grahamsdialogue/files/common.lua")
+	if GameGetFrameNum() > 5 and GameGetFrameNum() % 60 == 0 then -- hax
+		dofile_once("mods/grahamsdialogue/files/common.lua")
 		local enemies = EntityGetWithTag("hittable")
 		for _k, enemy in ipairs(enemies) do
 			local name = NameGet(enemy)

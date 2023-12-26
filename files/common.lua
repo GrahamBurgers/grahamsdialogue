@@ -527,25 +527,29 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 		enemy_idx = Random(1, #dialogue_pool)
 	end
 	local lines = dialogue_pool[enemy_idx]
-	local time = GameGetFrameNum()
-	local vals = {}
-	for i = 2, #lines do
-		local last = time - tonumber(GlobalsGetValue(
-			"mods_grahamsdialogue_pool_"
+	if ModSettingGet("grahamsdialogue.uniqueness") then
+		local time = GameGetFrameNum()
+		local vals = {}
+		for i = 2, #lines do
+			local last = time - tonumber(GlobalsGetValue(
+				"mods_grahamsdialogue_pool_"
+				.. pool
+				.. "_" .. enemy_idx
+				.. "_" .. i, "0"))
+			last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
+				---@diagnostic disable-next-line: param-type-mismatch
+				2.5)
+			vals[#vals+1] = { i, last }
+		end
+		local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
+		GlobalsSetValue("mods_grahamsdialogue_pool_"
 			.. pool
 			.. "_" .. enemy_idx
-			.. "_" .. i, "0"))
-		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
-			---@diagnostic disable-next-line: param-type-mismatch
-			2.5)
-		table.insert(vals, { i, last })
+			.. "_" .. (ex[1]), tostring(time))
+		return lines[ex[1]]
+	else
+		return lines[Random(1, #lines)]
 	end
-	local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
-	GlobalsSetValue("mods_grahamsdialogue_pool_"
-		.. pool
-		.. "_" .. enemy_idx
-		.. "_" .. (ex[1]), tostring(time))
-	return lines[ex[1]]
 end
 
 ---Gets a line given an enemies index in a generic dialogue pool
@@ -588,7 +592,7 @@ function DiscreteIntegral(vals, weight_get, fully_random)
 	local integrated = {}
 	for k, v in ipairs(vals) do
 		sum = sum + weight_get(v)
-		table.insert(integrated, sum)
+		integrated[#integrated+1] = sum
 	end
 	if fully_random then
 		SetRandomSeed(GameGetFrameNum() * 4612 + math.random() * 961053, GameGetFrameNum() * 45 + math.random() * 41729)

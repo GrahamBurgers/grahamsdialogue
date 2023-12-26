@@ -119,6 +119,13 @@ mod_settings =
 	},
 	]]--
 	{
+		id = "uniqueness",
+		ui_name = "Uniqueness",
+		ui_description = "Try to prevent enemies from saying the same line repeatedly.\nMay cause a slight performance impact if enabled.",
+		value_default = true,
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
+	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
 		ui_description = "Whether or not dialogue is visible through the dark.",
