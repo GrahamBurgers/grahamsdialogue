@@ -21,6 +21,7 @@ local filepaths = {
 	{ "data/entities/projectiles/deck/swarm_firebug.xml",             "swarm_firebug" },
 	{ "data/entities/projectiles/deck/swarm_wasp.xml",                "swarm_wasp" },
 	{ "data/entities/projectiles/deck/friend_fly.xml",                "swarm_fly" },
+	{ "data/entities/animals/boss_spirit/wisp.xml",                   "boss_spirit_wisp"}
 }
 ModDoesFileExist = ModDoesFileExist or function(path) return ModTextFileGetContent(path) ~= nil end
 
@@ -31,7 +32,7 @@ for i = 1, #filepaths do
 		if content ~= nil then
 			local tree = nxml.parse(content)
 			table.insert(tree.children, nxml.parse(
-				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom/custom_speak.lua" execute_every_n_frame="30" script_polymorphing_to="' ..
+				'<LuaComponent script_source_file="mods/grahamsdialogue/files/custom/custom_speak.lua" execute_every_n_frame="1" script_polymorphing_to="' ..
 				filepaths[i][2] ..
 				'" script_collision_trigger_timer_finished="' .. (filepaths[i][3] or "") .. '"></LuaComponent>'))
 			tree.attr.tags = "graham_enemydialogue," .. (tree.attr.tags or "")
@@ -146,6 +147,15 @@ table.insert(tree.children,
 	))
 ModTextFileSetContent("data/entities/animals/boss_centipede/boss_centipede.xml", tostring(tree))
 
+if ModIsEnabled("grahamsperks") then
+	tree = nxml.parse(ModTextFileGetContent("mods/grahamsperks/files/spells/panic_bomb.xml"))
+	table.insert(tree.children,
+		nxml.parse(
+			[[<LuaComponent remove_after_executed="1" script_source_file="mods/grahamsdialogue/files/custom/panic_bomb.lua"></LuaComponent>]]
+		))
+	ModTextFileSetContent("mods/grahamsperks/files/spells/panic_bomb.xml", tostring(tree))
+end
+
 inject(args.StringString, modes.APPEND, "data/entities/animals/boss_pit/boss_pit_logic.lua",
 	"-- we're stuck, lets hunt for that connoisseur of cheese",
 	[[
@@ -160,6 +170,20 @@ inject(args.StringString, modes.APPEND, "data/entities/animals/boss_pit/boss_pit
 	end
 ]])
 
+inject(args.StringString, modes.APPEND, "data/scripts/animals/longleg_pet.lua",
+	"local rnd = Random( 1, 20 )",
+	[[
+
+	dofile_once("mods/grahamsdialogue/files/common.lua")
+	for i = 1, #Custom_speak_lines do
+		if Custom_speak_lines[i][1] == "hamis_pet" then
+			local type = Random(2, #Custom_speak_lines[i])
+			Speak(entity_interacted, Custom_speak_lines[i][type], pools.CUSTOM, true, true)
+			break
+		end
+	end
+]])
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")
@@ -167,6 +191,11 @@ function OnPlayerSpawned(player)
 			execute_every_n_frame = -1,
 			script_damage_received = "mods/grahamsdialogue/files/player_damaged.lua",
 			remove_after_executed = false,
+		})
+		EntityAddComponent2(player, "LuaComponent", {
+			execute_every_n_frame = -1,
+			script_death = "mods/grahamsdialogue/files/player_death.lua",
+			remove_after_executed = true,
 		})
 	end
 end

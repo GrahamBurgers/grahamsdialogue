@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global, lowercase-global
 dofile("data/scripts/lib/mod_settings.lua")
 
 function mod_setting_change_callback( mod_id, gui, in_main_menu, setting, old_value, new_value  )
