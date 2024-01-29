@@ -3,7 +3,7 @@
 function death( damage_type_bit_field, damage_message, entity_thats_responsible, drop_items )
 	local x, y = EntityGetTransform(GetUpdatedEntityID())
 	SetRandomSeed(entity_thats_responsible + GameGetFrameNum() + x, y + 3141)
-	local enemies = EntityGetInRadiusWithTag(x, y, 70, "hittable")
+	local enemies = EntityGetInRadiusWithTag(x, y, 90, "hittable")
 	dofile_once("mods/grahamsdialogue/files/common.lua")
 	for p = 1, 2 do -- hax?
 		for i = 1, #enemies do

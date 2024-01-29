@@ -314,14 +314,6 @@ return {
 				"Well done. You did the bare minimum to survive...",
 			}
 		end
-		if #EntityGetWithTag("player_unit") < 1 then
-			config.speak_end_wait_frames = "900000"
-			special = {
-				"Hah. Maybe next time. Or maybe not.",
-				"You knew that this was always the way it was going to end.",
-				"I win this time. Don't tell me you expected anything different.",
-			}
-		end
 		if special ~= nil then
 			config.text = special[Random(1, #special)]
 		end

@@ -314,7 +314,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local rotate = false
 	local old_text = text
 	local x, y = EntityGetTransform(entity)
-	SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
+	SetRandomSeed(entity + x + 2352 + GameGetFrameNum(), GameGetFrameNum() - y + 24806 + GetUpdatedComponentID())
 	local size_x = 0.65
 	local size_y = 0.65
 
@@ -463,6 +463,10 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		end
 		if pool == pools.DEATH then
 			speak_end_wait_frames = "9999999"
+		end
+		local comp = EntityGetFirstComponent(entity, "DamageModelComponent")
+		if comp and ComponentGetValue2(comp, "air_needed") and ComponentGetValue2(comp, "air_in_lungs") <= 0 then
+			text = ""
 		end
 	end                                       --!!!--
 	if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
