@@ -33,7 +33,7 @@ local function buffer_push(to_push)
 	GlobalsSetValue("grahamsdialogue.buffer", buffer)
 end
 
----@param entity integer
+---@param entity entity_id
 ---@return string
 function NameGet(entity)
 	local name = EntityGetName(entity) or ""
@@ -237,7 +237,7 @@ function EmptyEnemyDialogue(pool, name)
 	if pool == pools.DAMAGEDEALT then DIALOGUE_DAMAGEDEALT = what end
 end
 
----@param entity integer
+---@param entity entity_id
 function RemoveCurrentDialogue(entity)
 	if not EntityGetIsAlive(entity) then return end
 	EntityRemoveTag(entity, "graham_speaking")
@@ -249,7 +249,7 @@ function RemoveCurrentDialogue(entity)
 	end
 end
 
----@param entity integer	
+---@param entity entity_id
 ---@param effects string[]
 ---@return boolean
 function EntityHasGameEffect(entity, effects)
@@ -282,7 +282,7 @@ function EntityIsStunned(entity)
 end
 
 ---Returns the spoken text if enemy successfully began speaking. Otherwise, returns nil.
----@param entity number
+---@param entity entity_id
 ---@param text string
 ---@param pool pool
 ---@param check_name boolean? true
@@ -572,7 +572,7 @@ function GetLineGeneric(dialogue_pool, type)
 	return dialogue_pool[ex[1]]
 end
 
----@param entity integer
+---@param entity entity_id
 ---@return boolean
 function IsBoss(entity)
 	return
