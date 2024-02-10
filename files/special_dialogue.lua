@@ -188,7 +188,7 @@ return {
 		return config.text
 	end,
 	["$animal_miner_santa"] = function(config)
-		if StatsBiomeGetValue("enemies_killed") < 1 and config.pool == pools.DAMAGEDEALT then
+		if tonumber(StatsBiomeGetValue("enemies_killed")) < 1 and config.pool == pools.DAMAGEDEALT then
 			local special = {
 				"Pacifism? You might be deserving of the Nice List after all.",
 				"You've been a good person so far. Christmas awaits!",
@@ -198,19 +198,21 @@ return {
 		end
 	end,
 	["$graham_lukkimount_name"] = function(config)
-		local who = ComponentGetValue2(EntityGetFirstComponent(config.entity, "VariableStorageComponent") or 0,
-			"value_int")
-		if who == 0 or who == nil then config.text = "" end
-		if BiomeMapGetName(config.x, config.y) == "$biome_rainforest" and Random(1, 3) == 1 and config.pool == pools.IDLE then
-			local special = {
-				"Ah, it's nice to be home in the jungle.",
-				"It really has been a while. I don't recognize anyone here...",
-				"Can we stay here a bit longer? I've missed it dearly...",
-				"The air is so fresh here. It's a bit strange.",
-				"Compared to everything else underneath the mountain, this place is...",
-				"I'm enjoying just exploring the world with you. Though it's nice to be home.",
-			}
-			config.text = special[Random(1, #special)]
+		if config.pool ~= pools.DEATH then
+			local who = ComponentGetValue2(EntityGetFirstComponent(config.entity, "VariableStorageComponent") or 0,
+				"value_int")
+			if who == 0 or who == nil then config.text = "" end
+			if BiomeMapGetName(config.x, config.y) == "$biome_rainforest" and Random(1, 3) == 1 and config.pool == pools.IDLE then
+				local special = {
+					"Ah, it's nice to be home in the jungle.",
+					"It really has been a while. I don't recognize anyone here...",
+					"Can we stay here a bit longer? I've missed it dearly...",
+					"The air is so fresh here. It's a bit strange.",
+					"Compared to everything else underneath the mountain, this place is...",
+					"I'm enjoying just exploring the world with you. Though it's nice to be home.",
+				}
+				config.text = special[Random(1, #special)]
+			end
 		end
 	end,
 	["$animal_lurker"] = function(config)
@@ -310,14 +312,6 @@ return {
 				"Hmm. Fine. You win this time. Next time, though...",
 				"Care for a real challenge? I bet you can't beat me in Lap 3.",
 				"Well done. You did the bare minimum to survive...",
-			}
-		end
-		if #EntityGetWithTag("player_unit") < 1 then
-			config.speak_end_wait_frames = "900000"
-			special = {
-				"Hah. Maybe next time. Or maybe not.",
-				"You knew that this was always the way it was going to end.",
-				"I win this time. Don't tell me you expected anything different.",
 			}
 		end
 		if special ~= nil then

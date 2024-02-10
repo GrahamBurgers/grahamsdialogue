@@ -1,4 +1,4 @@
----@diagnostic disable: deprecated
+---@diagnostic disable: deprecated, lowercase-global
 dofile_once("mods/grahamsdialogue/files/dialogue.lua")
 dofile_once("mods/grahamsdialogue/files/types.lua")
 nxml = nxml or dofile_once("mods/grahamsdialogue/files/lib/nxml.lua")
@@ -21,6 +21,7 @@ DUPES = ({ -- for when multiple enemy translation entries are identical
 	["tipsy_ghost"]                   = "generic_ghost",
 	["tiny_ghost"]                    = "generic_ghost",
 	["ghostly_ghost"]                 = "generic_ghost",
+	["boss_spirit_wisp"]              = "generic_ghost",
 })
 
 ---@type table<string,string>
@@ -134,6 +135,8 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_boss_centipede_minion"] = -6,
 	["$animal_boss_centipede"]        = 10,
 	["$animal_monk"]                  = 8,
+	["$animal_boss_meat"]             = 10,
+	["$animal_islandspirit"]          = 15,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -158,11 +161,14 @@ Special_sizes = ({ -- for when an enemy needs larger or smaller text
 	["swarm_fly"]                 = -0.08,
 	["swarm_firebug"]             = -0.08,
 	["swarm_wasp"]                = -0.08,
-	["animal_longleg"]            = -0.04,
+	["$animal_longleg"]           = -0.04,
 	["$animal_maggot_tiny"]       = 0.80,
 	["$animal_boss_centipede"]    = 0.40,
 	["$animal_necromancer_shop"]  = 0.07,
 	["$animal_necromancer_super"] = 0.14,
+	["$animal_boss_meat"]         = 0.10,
+	["$animal_islandspirit"]      = 0.10,
+	["boss_spirit_wisp"]          = -0.04,
 })
 
 ---Returns the index of the dialogue in the dialogue table or false if it doesn't exist
@@ -175,6 +181,7 @@ function EnemyHasDialogue(pool, name)
 	if pool == pools.IDLE then what = DIALOGUE_IDLE end
 	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
 	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.DEATH then what = DIALOGUE_DEATH end
 	if what ~= {} then
 		for i = 1, #what do
 			if what[i][1] == name then return i end
@@ -190,6 +197,9 @@ function EnemyHasDialogue(pool, name)
 		for i = 1, #DIALOGUE_DAMAGEDEALT do
 			if DIALOGUE_DAMAGEDEALT[i][1] == name then return i end
 		end
+		for i = 1, #DIALOGUE_DEATH do
+			if DIALOGUE_DEATH[i][1] == name then return i end
+		end
 	end
 	return nil
 end
@@ -204,6 +214,7 @@ function AddEnemyDialogue(pool, name, dialogue)
 	if pool == pools.IDLE then what = DIALOGUE_IDLE end
 	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
 	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.DEATH then what = DIALOGUE_DEATH end
 	if has then
 		for j = 1, #dialogue do
 			-- If the enemy exists in the table already, insert the new dialogue
@@ -217,6 +228,7 @@ function AddEnemyDialogue(pool, name, dialogue)
 	if pool == pools.IDLE then DIALOGUE_IDLE = what end
 	if pool == pools.DAMAGETAKEN then DIALOGUE_DAMAGETAKEN = what end
 	if pool == pools.DAMAGEDEALT then DIALOGUE_DAMAGEDEALT = what end
+	if pool == pools.DEATH then DIALOGUE_DEATH = what end
 end
 
 ---@param pool pool
@@ -227,6 +239,7 @@ function EmptyEnemyDialogue(pool, name)
 	if pool == pools.IDLE then what = DIALOGUE_IDLE end
 	if pool == pools.DAMAGETAKEN then what = DIALOGUE_DAMAGETAKEN end
 	if pool == pools.DAMAGEDEALT then what = DIALOGUE_DAMAGEDEALT end
+	if pool == pools.DEATH then what = DIALOGUE_DEATH end
 
 	if has then
 		table.remove(what, has)
@@ -235,6 +248,7 @@ function EmptyEnemyDialogue(pool, name)
 	if pool == pools.IDLE then DIALOGUE_IDLE = what end
 	if pool == pools.DAMAGETAKEN then DIALOGUE_DAMAGETAKEN = what end
 	if pool == pools.DAMAGEDEALT then DIALOGUE_DAMAGEDEALT = what end
+	if pool == pools.DEATH then DIALOGUE_DEATH = what end
 end
 
 ---@param entity entity_id
@@ -300,7 +314,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	local rotate = false
 	local old_text = text
 	local x, y = EntityGetTransform(entity)
-	SetRandomSeed(entity + x + 2352, GameGetFrameNum() - y + 24806)
+	SetRandomSeed(entity + x + 2352 + GameGetFrameNum(), GameGetFrameNum() - y + 24806 + GetUpdatedComponentID())
 	local size_x = 0.65
 	local size_y = 0.65
 
@@ -341,6 +355,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			if pool == pools.IDLE then dialogue_pool = DIALOGUE_IDLE end
 			if pool == pools.DAMAGEDEALT then dialogue_pool = DIALOGUE_DAMAGEDEALT end
 			if pool == pools.DAMAGETAKEN then dialogue_pool = DIALOGUE_DAMAGETAKEN end
+			if pool == pools.DEATH then dialogue_pool = DIALOGUE_DEATH end
 			if dialogue_pool ~= nil then
 				local enemies = EntityGetInRadiusWithTag(x, y, 150, "enemy") or {}
 				for j = 1, #enemies do
@@ -446,6 +461,13 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 				script_source_file = "mods/grahamsdialogue/files/custom/ghost.lua"
 			})
 		end
+		if pool == pools.DEATH then
+			speak_end_wait_frames = "9999999"
+		end
+		local comp = EntityGetFirstComponent(entity, "DamageModelComponent")
+		if comp and ComponentGetValue2(comp, "air_needed") and ComponentGetValue2(comp, "air_in_lungs") <= 0 then
+			text = ""
+		end
 	end                                       --!!!--
 	if text == "" or text == nil then return end -- utility; if text is nothing then don't speak at all
 	if ModIsEnabled("translation_uwu") then   -- Haunted
@@ -527,25 +549,29 @@ function GetLine(dialogue_pool, enemy_idx, pool)
 		enemy_idx = Random(1, #dialogue_pool)
 	end
 	local lines = dialogue_pool[enemy_idx]
-	local time = GameGetFrameNum()
-	local vals = {}
-	for i = 2, #lines do
-		local last = time - tonumber(GlobalsGetValue(
-			"mods_grahamsdialogue_pool_"
+	if ModSettingGet("grahamsdialogue.uniqueness") then
+		local time = GameGetFrameNum()
+		local vals = {}
+		for i = 2, #lines do
+			local last = time - tonumber(GlobalsGetValue(
+				"mods_grahamsdialogue_pool_"
+				.. pool
+				.. "_" .. enemy_idx
+				.. "_" .. i, "0"))
+			last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
+				---@diagnostic disable-next-line: param-type-mismatch
+				2.5)
+			vals[#vals+1] = { i, last }
+		end
+		local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
+		GlobalsSetValue("mods_grahamsdialogue_pool_"
 			.. pool
 			.. "_" .. enemy_idx
-			.. "_" .. i, "0"))
-		last = math.pow(math.min(last, 1000), -- can support 68 lines per enemy before having actual issues
-			---@diagnostic disable-next-line: param-type-mismatch
-			2.5)
-		table.insert(vals, { i, last })
+			.. "_" .. (ex[1]), tostring(time))
+		return lines[ex[1]]
+	else
+		return lines[Random(1, #lines)]
 	end
-	local ex = DiscreteIntegral(vals, function(v) return v[2] end, true)
-	GlobalsSetValue("mods_grahamsdialogue_pool_"
-		.. pool
-		.. "_" .. enemy_idx
-		.. "_" .. (ex[1]), tostring(time))
-	return lines[ex[1]]
 end
 
 ---Gets a line given an enemies index in a generic dialogue pool
@@ -588,7 +614,7 @@ function DiscreteIntegral(vals, weight_get, fully_random)
 	local integrated = {}
 	for k, v in ipairs(vals) do
 		sum = sum + weight_get(v)
-		table.insert(integrated, sum)
+		integrated[#integrated+1] = sum
 	end
 	if fully_random then
 		SetRandomSeed(GameGetFrameNum() * 4612 + math.random() * 961053, GameGetFrameNum() * 45 + math.random() * 41729)

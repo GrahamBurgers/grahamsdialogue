@@ -159,6 +159,13 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_boss_ghost_polyp", "Irreversable.", "That's it. More...", "It's never enough!"},
     {"$animal_boss_centipede_minion", "I'll prove my worth!", "Soon... I'll be the favourite child!", "One of us... One of us dies."},
     {"$animal_boss_centipede", "You're nothing! You'll never survive!", "I should've known that you were never good enough to face me.", "For once, the odds are tipping in my favour...", "This is for all the deaths you've given me...!", "Fighting means nothing, but... I'll fight anyway.", "Good. More of that, please..."},
+    {"$animal_meatmaggot", "Vital organs taste the best, everyone knows...", "I'll hollow out your skin. Wouldn't that be a spectacle...?", "Ah, what a joy! More, more, please!"},
+    {"$animal_boss_meat", "Meat your demise.", "Youch. I feel that.", "Don't worry. I'm hollow inside too...", "The air here is caustic. I wonder whose fault that is...?", "Don't bother healing. The flesh remembers...", "Down you go. Soon, you'll rot."},
+    {"$animal_slimespirit", "This is quite strange. I'm not complaining.", "Eh? How'd that happen?", "Heh. That's amusing."},
+    {"$animal_berserkspirit", "Yeah! That's what you get!", "Finally! My time to attack!", "Yes! I did it!"},
+    {"$animal_weakspirit", "Deserved.", "Sorry. Maybe.", "What? What did I do?"},
+    {"$animal_confusespirit", "Sure... I guess?", "I'm confused. That doesn't make sense.", "Huh?"},
+    {"$animal_islandspirit", "Behold: The consequences of your actions.", "You won't hold forever. I'll break you.", "Hmm... I see. You're truly weaker than I thought...", "You will feel every ounce of pain you've given them.", "You're heartless. I can still make your heart stop.", "It's almost over. Die already..."}
 }
 
 ---@type string[][]
@@ -322,6 +329,13 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_boss_ghost_polyp", "Irrelevant.", "No. I refuse.", "It hurts... Push on."},
     {"$animal_boss_centipede_minion", "So dead obsessed with killing...", "I'm not here to pass judgement...", "Hurts... It makes me sad."},
     {"$animal_boss_centipede", "You always knew that this was how it would end...", "Not yet... I need more time! I must push on...", "I'm not going down just yet... Not to this.", "There's no way... I won't let go yet...!", "Intimidation won't work on me! You can't...", "I remember now why I despise you."},
+    {"$animal_meatmaggot", "Aaha! Get over here! I'll show you...", "Ah... My big mouth gets me in trouble again.", "Insulted? Grow some thicker skin, heh..."},
+    {"$animal_boss_meat", "Oh, oh, stop the bleeding...", "Ah, I'm cooked...", "No robes for me to hide behind...", "Being vulnerable in this world is scary. I'd rather close my eye.", "Nothing more natural than a giant pile of meat. No?", "Yeow..."},
+    {"$animal_slimespirit", "Slow your roll... There's so much death left.", "So hasty... Kind of rude.", "I get it. You're scared. Time moves fast..."},
+    {"$animal_berserkspirit", "Out of my way! I've got mayhem to cause!", "Kill the others! I don't want anyone left alive...", "Pointless! You're all doomed to die anyway!"},
+    {"$animal_weakspirit", "Oh, just end it all already...", "I can't blame you, but...", "You're just doing this to hurt me..."},
+    {"$animal_confusespirit", "Turn around and leave me, now...", "You seem more sensible than the others...", "We both know that I pose no real threat to you..."},
+    {"$animal_islandspirit", "My antlers would look quite appealing, impaled through your chest.", "There's already enough blood on your hands. No more.", "You're not the hero. You never were.", "I won't fall to you. Not with stakes this high.", "Everything you do... I've never seen someone more selfish.", "There's nothing left. I have nothing to lose..."}
 }
 
 ---@type string[][]
@@ -376,7 +390,7 @@ DIALOGUE_IDLE = {
     {"$animal_tentacler", "I can easily shatter ice with a single strike.", "I used to dwell in the ocean... Until magic changed me.", "A swift slap often knocks the confidence out of someone."},
     {"$animal_tentacler_small", "Nothing to see here...", "When's lunch?", "One day I'll be big and strong."},
     {"$animal_ant", "I have an iron stomach, you know.", "There's nothing that a little bit of acid can't fix.", "It's bubbling up inside..."},
-    {"$animal_maggot", "Oof, I got heartburn...", "Would it be weird if I kept a smaller maggot as a pet?", "I'm less scary than I look. ...Do I look scary?"},
+    {"$animal_maggot", "Oof, I got heartburn...", "Big, strange, balls o' slime...", "I'm the biggest bug there is!"},
     {"$animal_fungus", "Skitter, scatter...", "The roots run deep.", "Rambling, shuffling..."},
     {"$animal_fungus_big", "It'll all return to soil...", "Muddy thoughts...", "Smells bad in here..."},
     {"$animal_fungus_giga", "It's blooming season...", "Don't touch me.", "The fungi speaks to us..."},
@@ -484,6 +498,19 @@ DIALOGUE_IDLE = {
     {"$animal_boss_ghost_polyp", "Purge the unholy beings!", "I'll teach you a lesson...", "It's all or nothing."},
     {"$animal_boss_centipede_minion", "Many tried. Many died!", "Boing, boing... Focus.", "What's going on?"},
     {"$animal_boss_centipede", "I'll do whatever it takes to stop your reign!", "Time is running short. Let's make this fight count.", "I'm giving this one my all... You'd best watch out.", "The lava rises higher... Are you feeling the heat?", "Tell me, little one... Why do you persist?", "No time for small talk. One of us must die."},
+    {"$animal_meatmaggot", "So much... So much flesh to feast on!", "What's meat without bones to complement it?", "Crawling through skin and flesh..."},
+    {"$animal_boss_meat", "Some things are better left unseen.", "...Is this why caves are referred to as Earth's bowels?", "Don't be afraid. It's just the insides brought out.", "You get used to having no skin after a few hundred years.", "I'll rip you to pieces the second you utter the word \"meatball\".", "I'm a vegetarian."},
+    {"$animal_slimespirit", "When one dies with wasted time and effort... That's me.", "Take it slow. Slower...", "I can't seem to get the thoughts out..."},
+    {"$animal_berserkspirit", "When one dies with spite in their heart... That's me!", "Just kill each other already! All of you!", "There's nothing to be gained from friendship! Nothing!"},
+    {"$animal_weakspirit", "When one dies without anyone to mourn them... that's me.", "This sucks. Why do you all hate each other...?", "This place is just... A graveyard of despair."},
+    {"$animal_confusespirit", "When one dies with unanswered questions... That's me?", "Most lesser monsters don't handle disorientation too well...", "Who are you? Where am I?"},
+    {"$animal_islandspirit", "I exist solely to protect those who cannot protect themselves.", "You dare to disrupt one of the few sanctuaries left in this world...?", "My sympathy for you vanished as soon as I watched that first sheep die.", "No rest for the wicked.", "It's a shame, too... You could have been so kind.", "I should've stepped in to stop you a long time ago..."}
+}
+
+DIALOGUE_DEATH = {
+    {"$graham_lukkimount_name", "Oh... Ouch. Sorry, friend...", "Ah, what a shame... What will I do now?", "Wait, no! This is too soon! You can't leave...", "Friend... I'll miss you dearly.", "After all you've done for me... I couldn't save you."},
+    {"Calamariface", "Hah. Maybe next time. Or maybe not.", "You knew that this was always the way it was going to end.", "I win this time. Don't tell me you expected anything different."},
+    {"$animal_boss_centipede", "Ha! Sweet, sweet victory... That must hurt for you.", "For once, I've prevailed... How amusing.", "Gotcha! Hah, that was close...", "Hah. There's always next run, I suppose.", "So... what did you learn? Nothing, as usual...", "I know you. You could've done better than that."},
 }
 
 ---@type string[]
@@ -533,15 +560,15 @@ GENERIC_FRIENDLYFIRE =
 
 ---@type string[][]
 Custom_speak_lines = {
-    {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!"},
-    {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "You think eating bullets is strange? How do I eat at all?", "Try not to heal yourself while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier..."},
-    {"mournful_spirit", "How far can we spread this plague of death?", "This can't be taken back, you know...", "I've learned so much since this began.", "Lure your foes to me. I'll make sure they regret it.", "It's too late for tears. I only have one purpose now.", "Sorry if I bring the mood down. It's part of the job."},
-    {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "Got any spare whiskey or sima? I'll m-make it worth your while.", "I can do lots of stuff! If my head is clear...", "I'm a spirit spirit! Get it...?", "Stay away from my whiskey! ...For your health, I mean."},
+    {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!", "I wanna copy one of those cocky wizard's projectiles. Show 'em what it's like.", "Yo, if someone calls the cops on us, I'm telling them that you did it.", "What are those wands for, anyway? I don't see the point.", "I have some respect for people that can handle my power, heheh...", "Ah, this music isn't my style at all! Change it, will you?"},
+    {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "You think eating bullets is strange? How do I eat at all?", "Try not to heal yourself while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier...", "I find the speed at which you can chug your potions... slightly concerning.", "I tried to drink ambrosia once... Never again.", "Hmm... Do you not need to eat to survive? Weird..."},
+    {"mournful_spirit", "How far can we spread this plague of death?", "This can't be taken back, you know...", "I've learned so much since this began.", "Lure your foes to me. I'll make sure they regret it.", "It's too late for tears. I only have one purpose now.", "Sorry if I bring the mood down. It's part of the job.", "Forget about who we once were... Become something more.", "You can't hold onto anything forever...", "You could join us, once we fade away... Haha..."},
+    {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "Got any spare whiskey or sima? I'll m-make it worth your while.", "I can do lots of stuff! If my head is clear...", "I'm a spirit spirit! Get it...?", "Stay away from my whiskey! ...For your health, that is.", "It's a good thing I don't have any organs to destroy with this..."},
     {"tiny_ghost", "This is quite the ghostly reunion, isn't it?", "Hello, ghost folks! Have we met before?", "Life is short... But being a ghost lasts forever!", "I'm not nearly as strong as your angry friend over there.", "I would love to be friends with that hungry ghost, but I'm so shy...", "I always try to keep my 'spirits' up, hehe."},
     {"ghostly_ghost", "My little brother asked me to come along. You seem nice...", "I've never seen so many ghosts in one place before...", "You might become a ghost one day. Wouldn't that be neat?", "What? I'm just here to keep you company. I don't fight.", "Us ghosts make you floatier, don't you know?", "Come on, guys, we go as ghosts every Halloween..."},
     {"karl", "Modifying the course is against the rules, by the way.", "I typically stay in my course, but it's fun to explore too!", "Bumping walls to turn can be both fun and effective!", "This cart isn't ever gonna run out of power.", "I haven't seen much... Wanna go somewhere?", "I'm so popular, even the stars are attracted to me."},
     {"karl_lap", "New best time! I knew you could do it!", "That lap was great! Wanna do another?", "I'm proud to have you as my driver.", "Woah! I didn't know that you could do it that fast!", "We should try going in the opposite direction next time!", "Yes! That one was super quick!"},
-    {"boss_limbs_death", "Wait, this isn't right! I'm not ready!", "What did you do? Why can't I hold myself together anymore?!", "I'm sorry for what I said! I didn't mean it, I swear!", "T-the offer's still on the table to join me, right...?", "It hurts... How does it hurt?! This is insane!", "Oh... You've really done it now, haven't you..."},
+    {"boss_limbs_death", "Wait, this isn't right! I'm not ready!", "What did you do? Why can't I hold myself together anymore?!", "I'm sorry for what I said! I didn't mean it, I swear!", "T-the offer's still on the table to join me, right...?", "It hurts... How does it hurt?! This is insane!", "Oh... You've really done it now, haven't you...", "You don't understand! You can't do this..."},
     {"minitank", "AAA batteries do not last that long, unfortunately.", "Pew pew pew.", "A little bit of magic can go a long way.", "Circuit boards and computer chips... Everything that is 'me'.", "More sleek and lightweight than any common tank out there.", "I am not a wind-up toy. What a shame."},
     {"Calamariface", "Time's up. If you can't outrun me, you're dead.", "What makes you think that you can outrun death?", "Let's see if I can't teach you a thing or two...", "You've wasted far too much time on a simple jog to the final floor!", "No P-rank awaits you at the end of this run.", "The stakes are high. You're not gonna win this race."},
     {"lukki_minion", "Glad I could tag along! I'll feed on your enemies...", "Bullets are funny. My skin is too tough for them to hurt...", "I'm no facehugger, but I hate to let go of foes...", "Come here, friends! Let me take a bite out of you!", "Hmm... I'm still hungry, though...", "I'd hate to wander off... Ooh, but what's that over there?"},
@@ -550,6 +577,10 @@ Custom_speak_lines = {
     {"swarm_wasp", "Buzz, buzz, and all that.", "What common housefly could stand up to the mighty wasp?", "Sting, sting, sting. What a simple joy."},
     {"kolmi_begin", "Have at thee!", "I'll fight until my bitter end!", "Let's do this.", "This time, I'll take you down.", "Prepare to meet your end!", "Perish, adventurer!"},
     {"kolmi_death", "In my next life... I'll give you hell...!", "Don't you dare think that this is over!", "Until the next time we meet... Farewell!", "These three weary eyes can finally rest...", "Ah...! This pain never truly fades...", "I'll prevail over you yet! One day...!"},
-    {"kolmi_gourd", "Oh, dear Gods.", "What on Earth...?!", "What. What is this?"},
+    {"kolmi_gourd", "Oh, dear Gods.", "What on Earth...?!", "What. What is this?", "Ah... So this is how you humiliate me today?"},
     {"squidward_cheese", "As if I'm gonna let you trick me like that again!", "Thanks, but no thanks. I'd rather it be you that dies.", "Oh, the look on your face...! Priceless, truly...", "Sorry, not sorry. I'm allergic to cheese."},
+    {"lukki_mount_on", "Alright! Where are we headed?", "Sit back and relax. This'll be a smooth ride.", "Away we go! Just tell me where to go.", "You don't speak, but... I feel like I can understand you perfectly.", "I'm surprised you got accustomed to riding a giant spider so quickly..."},
+    {"lukki_mount_off", "I'll stay close. And maybe bite some stuff.", "What are you up to? Can I see?", "Stay safe. If you need help, I won't be far.", "Sorry. I can't squeeze through a lot of little gaps...", "I'll get 'em! ...Who am I supposed to attack?"},
+    {"hamis_pet", "<3", "You're the best.", "!!!", "I love you!", ":)", "Hooray!", "Yippee!"},
+    {"boss_spirit_wisp", "Oooh... karma incarnate...", "You've done it now...", "I'll tear your soul out!", "No longer helpless, and stronger than ever...", "Can't be undone, can't be erased...", "No more forgiveness."},
 }

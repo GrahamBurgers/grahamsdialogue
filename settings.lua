@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global, lowercase-global
 dofile("data/scripts/lib/mod_settings.lua")
 
 function mod_setting_change_callback( mod_id, gui, in_main_menu, setting, old_value, new_value  )
@@ -118,6 +119,13 @@ mod_settings =
 		scope = MOD_SETTING_SCOPE_RUNTIME,
 	},
 	]]--
+	{
+		id = "uniqueness",
+		ui_name = "Uniqueness",
+		ui_description = "Try to prevent enemies from saying the same line repeatedly.\nMay cause a slight performance impact if enabled.",
+		value_default = true,
+		scope = MOD_SETTING_SCOPE_RUNTIME,
+	},
 	{
 		id = "visibility",
 		ui_name = "Glow-in-the-dark dialogue",
