@@ -167,7 +167,7 @@ return {
 		local enemies = EntityGetInRadiusWithTag(config.x, config.y, 140, "glue_NOT")
 		for i = 1, #enemies do
 			if EntityGetName(enemies[i]) == "$animal_pebble" then
-				Speak(enemies[i], config.text, config.pool)
+				Speak(enemies[i], config.text, config.pool, true, true)
 			end
 		end
 	end,
@@ -188,7 +188,7 @@ return {
 		return config.text
 	end,
 	["$animal_miner_santa"] = function(config)
-		if tonumber(StatsBiomeGetValue("enemies_killed")) < 1 and config.pool == pools.DAMAGEDEALT then
+		if tonumber(StatsBiomeGetValue("enemies_killed")) < 1 and (config.pool == pools.DAMAGEDEALT or config.pool == pools.IDLE) then
 			local special = {
 				"Pacifism? You might be deserving of the Nice List after all.",
 				"You've been a good person so far. Christmas awaits!",
@@ -202,16 +202,19 @@ return {
 			local who = ComponentGetValue2(EntityGetFirstComponent(config.entity, "VariableStorageComponent") or 0,
 				"value_int")
 			if who == 0 or who == nil then config.text = "" end
-			if BiomeMapGetName(config.x, config.y) == "$biome_rainforest" and Random(1, 3) == 1 and config.pool == pools.IDLE then
-				local special = {
-					"Ah, it's nice to be home in the jungle.",
-					"It really has been a while. I don't recognize anyone here...",
-					"Can we stay here a bit longer? I've missed it dearly...",
-					"The air is so fresh here. It's a bit strange.",
-					"Compared to everything else underneath the mountain, this place is...",
-					"I'm enjoying just exploring the world with you. Though it's nice to be home.",
-				}
-				config.text = special[Random(1, #special)]
+			if Random(1, 3) == 1 and config.pool == pools.IDLE then
+				local biome = BiomeMapGetName(config.x, config.y)
+				if biome == "$biome_rainforest" then
+					local special = {
+						"Ah, it's nice to be home in the jungle.",
+						"It really has been a while. I don't recognize anyone here...",
+						"Can we stay here a bit longer? I've missed it dearly...",
+						"The air is so fresh here. It's a bit strange.",
+						"Compared to everything else underneath the mountain, this place is...",
+						"I'm enjoying just exploring the world with you. Though it's nice to be home.",
+					}
+					config.text = special[Random(1, #special)]
+				end
 			end
 		end
 	end,
@@ -462,7 +465,7 @@ return {
 			if math.abs(config.x) > 20000 then
 				special[#special + 1] = "Something calls to me... I do not belong here. Not at all."
 				special[#special + 1] = "Oh, no... I do not like this place. Can we go back, please?"
-				special[#special + 1] = "I'm can follow you, but... This is going a bit far. Literally."
+				special[#special + 1] = "I can follow you, but... This is going a bit far. Literally."
 			end
 		end
 		if #special > 0 then
@@ -488,6 +491,27 @@ return {
 				"What's going wrong...? I can't see you!",
 				"I don't understand... You're immune? How?!",
 				"Something's happened... My magic isn't working!",
+			}
+			config.text = special[Random(1, #special)]
+		end
+	end,
+	["$animal_mimic_potion"] = function(config)
+		local mat_mimic = CellFactory_GetType( "mimic_liquid")
+		local mat = GetMaterialInventoryMainMaterial( config.entity )
+		local alive = (mat == mat_mimic)
+		if EntityGetRootEntity(config.entity) ~= config.entity then
+			local special = {
+				"Ooh... where are we going? Hehe...",
+				"Hmm... feels a bit comforting to be held like this...",
+				"Throw me, throw me!",
+			}
+			config.text = special[Random(1, #special)]
+		end
+		if not alive then
+			local special = {
+				"...",
+				"...thirsty...",
+				"...feel empty...",
 			}
 			config.text = special[Random(1, #special)]
 		end

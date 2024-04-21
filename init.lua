@@ -184,6 +184,24 @@ inject(args.StringString, modes.APPEND, "data/scripts/animals/longleg_pet.lua",
 	end
 ]])
 
+inject(args.StringString, modes.APPEND, "data/entities/animals/boss_sky/boss_sky.lua",
+	'SpawnApparition( x, y, 0, true )',
+	[[
+
+	dofile_once("mods/grahamsdialogue/files/common.lua")
+	local thing = "kivi_ghost"
+	if ModSettingGet("grahamsdialogue.stupid") then thing = "dwarf_ghost" end
+	for i = 1, #Custom_speak_lines do
+		if Custom_speak_lines[i][1] == thing then
+			SetRandomSeed(x, y)
+			local type = Random(2, #Custom_speak_lines[i])
+			Speak(apparition, Custom_speak_lines[i][type], pools.CUSTOM, true, true)
+			break
+		end
+	end
+
+]])
+
 function OnPlayerSpawned(player)
 	if not EntityHasTag(player, "graham_dialogue_added") then
 		EntityAddTag(player, "graham_dialogue_added")
@@ -258,10 +276,12 @@ function OnWorldPreUpdate()
 			if not EntityHasTag(enemy, "graham_dialogue_added") and EnemyHasDialogue(pools.ANY, name) then
 				EntityAddTag(enemy, "graham_dialogue_added")
 				EntityAddComponent2(enemy, "LuaComponent", {
+					_tags="enabled_in_world,enabled_in_hand",
 					execute_every_n_frame = -1,
 					script_damage_received = "mods/grahamsdialogue/files/damaged.lua"
 				})
 				EntityAddComponent2(enemy, "LuaComponent", {
+					_tags="enabled_in_world,enabled_in_hand",
 					execute_every_n_frame = 30,
 					script_source_file = "mods/grahamsdialogue/files/idle.lua"
 				})
@@ -272,10 +292,12 @@ function OnWorldPreUpdate()
 			if not EntityHasTag(special, "graham_dialogue_added") then
 				EntityAddTag(special, "graham_dialogue_added")
 				EntityAddComponent2(special, "LuaComponent", {
+					_tags="enabled_in_world,enabled_in_hand",
 					execute_every_n_frame = -1,
 					script_damage_received = "mods/grahamsdialogue/files/damaged.lua"
 				})
 				EntityAddComponent2(special, "LuaComponent", {
+					_tags="enabled_in_world,enabled_in_hand",
 					execute_every_n_frame = 30,
 					script_source_file = "mods/grahamsdialogue/files/idle.lua"
 				})

@@ -165,7 +165,8 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_berserkspirit", "Yeah! That's what you get!", "Finally! My time to attack!", "Yes! I did it!"},
     {"$animal_weakspirit", "Deserved.", "Sorry. Maybe.", "What? What did I do?"},
     {"$animal_confusespirit", "Sure... I guess?", "I'm confused. That doesn't make sense.", "Huh?"},
-    {"$animal_islandspirit", "Behold: The consequences of your actions.", "You won't hold forever. I'll break you.", "Hmm... I see. You're truly weaker than I thought...", "You will feel every ounce of pain you've given them.", "You're heartless. I can still make your heart stop.", "It's almost over. Die already..."}
+    {"$animal_islandspirit", "Behold: The consequences of your actions.", "You won't hold forever. I'll break you.", "Hmm... I see. You're truly weaker than I thought...", "You will feel every ounce of pain you've given them.", "You're heartless. I can still make your heart stop.", "It's almost over. Die already..."},
+    {"$animal_mimic_potion", "Aah! Sorry, sorry, sorry...", "I didn't mean it! I swear...!", "Whoops... ooops..."},
 }
 
 ---@type string[][]
@@ -251,8 +252,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_worm_tiny", "I'll leave you alone now! P-promise!", "I won't damage anything here, trust me!", "Waaah!"},
     {"$animal_worm", "Fine, fine! I won't break your brickwork anymore.", "I'll get you back for that one.", "Hey, flying is cheating! Stay on the ground like me."},
     {"$animal_worm_big", "Hey! Hands off the hide.", "Are you jealous of my beautiful sight?", "Just let me do my thing, and I'll leave you be."},
-    {"$animal_phantom_a", "I cannot believe you thought that'd kill me.", "You can't kill a ghost, idiot.", "I'll tear you into little tiny bits!"},
-    {"$animal_phantom_b", "You may regret this decision.", "Let me be clear. I dislike you.", "You'd better start spinning."},
+    {"$animal_phantom_a", "I cannot believe you thought that'd kill me.", "You can't kill a ghost, idiot.", "You'd better start spinning."},
+    {"$animal_phantom_b", "You may regret this decision.", "Let me be clear. I dislike you.", "I'll tear you into little tiny bits!"},
     {"$animal_statue_physics", "Please, remove this curse...", "You can't stop what has begun.", "Let me take one last breath."},
     {"$animal_flamer", "This ain't a helmet. It's just my head. Hands off.", "I'll enjoy watching you burn.", "Ashes to ashes..."},
     {"$animal_icer", "You look like you'd be scared of the word \"propane\".", "Where's the AC in here? It's too freakin' hot!", "No, not the oil! I don't want to start a fire!"},
@@ -335,7 +336,8 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_berserkspirit", "Out of my way! I've got mayhem to cause!", "Kill the others! I don't want anyone left alive...", "Pointless! You're all doomed to die anyway!"},
     {"$animal_weakspirit", "Oh, just end it all already...", "I can't blame you, but...", "You're just doing this to hurt me..."},
     {"$animal_confusespirit", "Turn around and leave me, now...", "You seem more sensible than the others...", "We both know that I pose no real threat to you..."},
-    {"$animal_islandspirit", "My antlers would look quite appealing, impaled through your chest.", "There's already enough blood on your hands. No more.", "You're not the hero. You never were.", "I won't fall to you. Not with stakes this high.", "Everything you do... I've never seen someone more selfish.", "There's nothing left. I have nothing to lose..."}
+    {"$animal_islandspirit", "My antlers would look quite appealing, impaled through your chest.", "There's already enough blood on your hands. No more.", "You're not the hero. You never were.", "I won't fall to you. Not with stakes this high.", "Everything you do... I've never seen someone more selfish.", "There's nothing left. I have nothing to lose..."},
+    {"$animal_mimic_potion", "W-waah! Don't hit me!", "Hey, no, no! Sorry...", "Did I scare you...? Why are you..."},
 }
 
 ---@type string[][]
@@ -504,7 +506,8 @@ DIALOGUE_IDLE = {
     {"$animal_berserkspirit", "When one dies with spite in their heart... That's me!", "Just kill each other already! All of you!", "There's nothing to be gained from friendship! Nothing!"},
     {"$animal_weakspirit", "When one dies without anyone to mourn them... that's me.", "This sucks. Why do you all hate each other...?", "This place is just... A graveyard of despair."},
     {"$animal_confusespirit", "When one dies with unanswered questions... That's me?", "Most lesser monsters don't handle disorientation too well...", "Who are you? Where am I?"},
-    {"$animal_islandspirit", "I exist solely to protect those who cannot protect themselves.", "You dare to disrupt one of the few sanctuaries left in this world...?", "My sympathy for you vanished as soon as I watched that first sheep die.", "No rest for the wicked.", "It's a shame, too... You could have been so kind.", "I should've stepped in to stop you a long time ago..."}
+    {"$animal_islandspirit", "I exist solely to protect those who cannot protect themselves.", "You dare to disrupt one of the few sanctuaries left in this world...?", "My sympathy for you vanished as soon as I watched that first sheep die.", "No rest for the wicked.", "It's a shame, too... You could have been so kind.", "I should've stepped in to stop you a long time ago..."},
+    {"$animal_mimic_potion", "Hmm... legs too short...", "Brothers? Are you there...?", "Who's fooling anyone?"},
 }
 
 DIALOGUE_DEATH = {
@@ -583,4 +586,6 @@ Custom_speak_lines = {
     {"lukki_mount_off", "I'll stay close. And maybe bite some stuff.", "What are you up to? Can I see?", "Stay safe. If you need help, I won't be far.", "Sorry. I can't squeeze through a lot of little gaps...", "I'll get 'em! ...Who am I supposed to attack?"},
     {"hamis_pet", "<3", "You're the best.", "!!!", "I love you!", ":)", "Hooray!", "Yippee!"},
     {"boss_spirit_wisp", "Oooh... karma incarnate...", "You've done it now...", "I'll tear your soul out!", "No longer helpless, and stronger than ever...", "Can't be undone, can't be erased...", "No more forgiveness."},
+    {"kivi_ghost", "Prepare for trouble!", "We've got you now...", "Incoming!", "Shouldn't have done that...", "Mistakes were made, don't you think..."},
+    {"dwarf_ghost", "Rock and Stone!", "For Karl!", "Rock and roll and stone!", "We are unbreakable!", "None can stand before us!", "Stone.", "Rock and Stone! It never gets old.", "Galaxy's finest!", "We fight for Rock and Stone!"}
 }

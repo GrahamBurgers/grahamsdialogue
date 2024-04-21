@@ -137,6 +137,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 	["$animal_monk"]                  = 8,
 	["$animal_boss_meat"]             = 10,
 	["$animal_islandspirit"]          = 15,
+	["$animal_mimic_potion"]          = -10,
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
@@ -455,11 +456,13 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			size_y = size_y + 0.06
 		end
 		if faction == "ghost" or faction == "ghost_boss" then
-			EntityAddComponent2(entity, "LuaComponent", {
-				_tags = "graham_speech_removable",
-				execute_every_n_frame = 1,
-				script_source_file = "mods/grahamsdialogue/files/custom/ghost.lua"
-			})
+			if EntityGetFirstComponent(entity, "LuaComponent", "graham_ghosty_speech") == nil then
+				EntityAddComponent2(entity, "LuaComponent", {
+					_tags = "graham_ghosty_speech,graham_speech_removable,enabled_in_world,enabled_in_hand,enabled_in_inventory",
+					execute_every_n_frame = 1,
+					script_source_file = "mods/grahamsdialogue/files/custom/ghost.lua"
+				})
+			end
 		end
 		if pool == pools.DEATH then
 			speak_end_wait_frames = "9999999"
@@ -497,7 +500,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 
 	EntityAddTag(entity, "graham_speaking")
 	EntityAddComponent2(entity, "SpriteComponent", {
-		_tags = "enabled_in_world, graham_speech_text, graham_speech_removable",
+		_tags = "enabled_in_world, graham_speech_text, graham_speech_removable,enabled_in_hand",
 		image_file = "mods/grahamsdialogue/files/font_data/" .. font .. ".xml",
 		emissive = ModSettingGet("grahamsdialogue.visibility"),
 		is_text_sprite = true,
@@ -518,13 +521,13 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	if luacomp then EntityRemoveComponent(entity, luacomp) end
 
 	EntityAddComponent2(entity, "VariableStorageComponent", {
-		_tags = "graham_speech_removable",
+		_tags = "graham_speech_removable,enabled_in_world,enabled_in_hand",
 		name = "graham_dialogue_storage",
 		value_string = text,
 		value_int = 1,
 	})
 	EntityAddComponent2(entity, "LuaComponent", {
-		_tags = "graham_speech_removable",
+		_tags = "graham_speech_removable,enabled_in_world,enabled_in_hand",
 		execute_every_n_frame = 1,
 		script_source_file = "mods/grahamsdialogue/files/speak.lua",
 		script_material_area_checker_failed = speak_end_wait_frames,
