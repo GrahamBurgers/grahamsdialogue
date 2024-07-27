@@ -75,6 +75,15 @@ return {
 				end
 			end
 		end
+		if GameGetGameEffectCount(config.entity, "WET") > 0 then
+			local special = {
+				"Ah, I'm feeling dampened...",
+				"My precious flame will go out at this rate...",
+				"Ugh... I suppose this was how I was destined to go out.",
+			}
+			config.text = special[Random(1, #special)]
+			return
+		end
 	end,
 	["$animal_firemage_weak"] = function(config)
 		if config.pool == pools.IDLE then
@@ -93,6 +102,15 @@ return {
 					end
 				end
 			end
+		end
+		if GameGetGameEffectCount(config.entity, "WET") > 0 then
+			local special = {
+				"Argh! Get this crap off of me!",
+				"Hey, whoa, I didn't plan on taking a bath today...",
+				"No, no, no! Fire and water do NOT mix!",
+			}
+			config.text = special[Random(1, #special)]
+			return
 		end
 	end,
 	["$animal_thundermage_big"] = function(config)
@@ -167,7 +185,7 @@ return {
 		local enemies = EntityGetInRadiusWithTag(config.x, config.y, 140, "glue_NOT")
 		for i = 1, #enemies do
 			if EntityGetName(enemies[i]) == "$animal_pebble" then
-				Speak(enemies[i], config.text, config.pool, true, true)
+				Speak(enemies[i], config.text, config.pool, false, true, "$animal_pebble")
 			end
 		end
 	end,
@@ -341,7 +359,7 @@ return {
 			config.size_y = config.size_y - 0.08
 			local special = {
 				"Stay among the rats too long, and you might just become one...",
-				"Stay away from pheromone. You belong to the rats now!",
+				"You belong to the rats now!",
 				"A rat's eyes pierce the dark like nothing else.",
 				"All that lies below the mountain belongs to us! Raah!",
 				"How come we don't get to fly, too? It's so unfair!",
@@ -508,6 +526,9 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 		if not alive then
+			config.alpha = config.alpha * 0.65
+			config.size_x = config.size_x - 0.05
+			config.size_y = config.size_y - 0.05
 			local special = {
 				"...",
 				"...thirsty...",
@@ -516,5 +537,10 @@ return {
 			config.text = special[Random(1, #special)]
 		end
 	end,
+	["$animal_monk"] = function(config)
+		if config.entity ~= EntityGetRootEntity(config.entity) then
+			config.text = ""
+		end
+	end
 }
 -- reminder: default speak_end_wait_frames is 180

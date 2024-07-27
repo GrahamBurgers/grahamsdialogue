@@ -1,10 +1,11 @@
 --dofile("mods/grahamsdialogue/files/common.lua")
+if ModSettingGet("grahamsdialogue.idle_enabled") == false then return end
 local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
 SetRandomSeed(x + GameGetFrameNum(), y + 1394)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
-if ModSettingGet("grahamsdialogue.idle_enabled") == false then return end
-if Random(1, rate) == 1 then
+local cx, cy, cw, ch = GameGetCameraBounds()
+if Random(1, rate) == 1 and x > cx and y > cy and x < cx + cw and y < cy + ch then
 	dofile_once("mods/grahamsdialogue/files/common.lua")
 	local worldstatecomp = EntityGetFirstComponent(GameGetWorldStateEntity(), "WorldStateComponent") or 0
 	local inventory = EntityGetFirstComponent(me, "Inventory2Component")

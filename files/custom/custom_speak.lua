@@ -15,4 +15,4 @@ for i = 1, #Custom_speak_lines do
 		break
 	end
 end
-ComponentSetValue2(GetUpdatedComponentID(), "execute_every_n_frame", (rate * 24 + 240) * Random(0.8, 1.2))
+ComponentSetValue2(GetUpdatedComponentID(), "execute_every_n_frame", (rate * 24 + 240) * Random(0.8, 2.5))

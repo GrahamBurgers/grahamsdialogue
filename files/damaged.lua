@@ -8,7 +8,8 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 
 		local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.damaged")) + 0.5)
 		if ModSettingGet("grahamsdialogue.damaged_enabled") == false then return end
-		if Random(1, rate) == 1 then
+		local cx, cy, cw, ch = GameGetCameraBounds()
+		if Random(1, rate) == 1 and x > cx and y > cy and x < cx + cw and y < cy + ch then
 			if damage > 0 then
 				if EntityHasTag(entity_thats_responsible, "player_unit") then
 					local name = NameGet(me)

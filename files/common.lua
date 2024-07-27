@@ -141,7 +141,7 @@ Special_offsets_y = ({ -- for when an enemy is taller or shorter than expected
 })
 
 Special_sizes = ({ -- for when an enemy needs larger or smaller text
-	["$animal_pebble"]            = -0.8,
+	["$animal_pebble"]            = -0.20,
 	["$animal_miniblob"]          = -0.10,
 	["$animal_lukki_tiny"]        = -0.05,
 	["$animal_lukki_dark"]        = 0.20,
@@ -324,6 +324,11 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	if name_override ~= nil then
 		name = DUPES[name_override] or name_override
 	end
+	if name_override == "$animal_pebble" then
+		-- hardcode this because I can't be bothered
+		size_x = size_x - 0.2
+		size_y = size_y - 0.2
+	end
 	local offset_y = 28 + ((Special_offsets_y[name] or 0) * 1.2)
 	local tablets = EntityGetInRadiusWithTag(x, y, 48, "tablet")
 	local custom_font = ModIsEnabled("salakieli")
@@ -426,6 +431,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 				font = font,
 				custom_font = custom_font,
 				speak_end_wait_frames = speak_end_wait_frames,
+				alpha = alpha,
 			}
 			Special_dialogue[name](config)
 			text = config.text
@@ -439,6 +445,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 			font = config.font
 			custom_font = config.custom_font
 			speak_end_wait_frames = config.speak_end_wait_frames
+			alpha = config.alpha
 		end
 
 		if Special_sizes[name] ~= nil then
