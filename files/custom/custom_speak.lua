@@ -1,7 +1,7 @@
 --dofile("mods/grahamsdialogue/files/common.lua")
 local me = GetUpdatedEntityID()
 local x, y = EntityGetTransform(me)
-SetRandomSeed(x + GameGetFrameNum(), y + me + 23835)
+SetRandomSeed(x + GameGetFrameNum() + GetUpdatedComponentID(), y + me + 23835)
 local rate = math.floor(tonumber(ModSettingGet("grahamsdialogue.idle")) + 0.5)
 if ModSettingGet("grahamsdialogue.idle_enabled") == false then return end
 dofile_once("mods/grahamsdialogue/files/common.lua")

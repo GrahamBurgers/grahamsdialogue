@@ -106,7 +106,7 @@ local function GenerateValid()
 		["glasscannon"]  = GameHasFlagRun("PERK_PICKED_GLASS_CANNON"),
 		["notinkering"]  = tonumber(StatsGetValue("wands_edited")) <= 0 or (GameHasFlagRun("PERK_PICKED_NO_WAND_EDITING") and not GameHasFlagRun("PERK_PICKED_EDIT_WANDS_ANYWHERE")),
 		["wandcapacity"] = GameHasFlagRun("PERK_PICKED_GRAHAM_EXTRA_SLOTS") and not HasFlagPersistent("graham_used_unlock_all"),
-		["co-op"]        = ModIsEnabled("SimpleCoop") or ModIsEnabled("CouchCoOp") or ModIsEnabled("noita-together"),
+		["co-op"]        = ModIsEnabled("SimpleCoop") or ModIsEnabled("CouchCoOp") or ModIsEnabled("noita-together") or ModIsEnabled("quant.ew") or ModIsEnabled("iota_multiplayer"),
 		["newgameplus"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 0,
 		["newgamealot"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 2,
 		["stevescott"]   = #EntityGetInRadiusWithTag(x, y, 200, "necromancer_shop") > 0 and not GameHasFlagRun("PEACE_WITH_GODS"),
