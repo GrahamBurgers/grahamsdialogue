@@ -19,8 +19,8 @@ function damage_received(damage, message, entity_thats_responsible, is_fatal)
 							break
 						end
 					end
-				elseif not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost" or IsBoss(me)) then
-					Speak(me, GetLineGeneric(GENERIC_FRIENDLYFIRE, "GENERIC_FRIENDLYFIRE"), pools.GENERIC)
+				-- elseif not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost" or IsBoss(me)) then
+					-- Speak(me, GetLineGeneric(GENERIC_FRIENDLYFIRE, "GENERIC_FRIENDLYFIRE"), pools.GENERIC)
 				end
 			elseif damage < 0 and not (EntityHasTag(me, "no_generic_dialogue") or NameGet(me) == "$animal_playerghost" or IsBoss(me)) then
 				Speak(me, GetLineGeneric(GENERIC_HEALED, "GENERIC_HEALED"), pools.GENERIC)

@@ -383,13 +383,13 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		Special_dialogue = dofile_once("mods/grahamsdialogue/files/special_dialogue.lua")
 
 		local worm_speeds = {
-			["$animal_worm_tiny"]   = 6,
-			["$animal_worm"]        = 7,
-			["$animal_worm_big"]    = 8,
-			["$animal_boss_dragon"] = 20,
-			["$animal_worm_skull"]  = 10,
-			["$animal_worm_end"]    = 10,
-			["$animal_maggot_tiny"] = 90,
+			["$animal_worm_tiny"]   = 4,
+			["$animal_worm"]        = 5,
+			["$animal_worm_big"]    = 6,
+			["$animal_boss_dragon"] = 15,
+			["$animal_worm_skull"]  = 8,
+			["$animal_worm_end"]    = 8,
+			["$animal_maggot_tiny"] = 60,
 		}
 		-- Appended stuff
 		ModdedStuff()
@@ -455,7 +455,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 		if EntityHasTag(entity, "robot") then
 			size_x = size_x + 0.06
 		end
-		if IsBoss(entity) then
+		if pool == pools.DEATH or IsBoss(entity) then
 			size_x = size_x + 0.10
 			size_y = size_y + 0.10
 		end
@@ -496,7 +496,6 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	size_y = size_y * size
 
 	local gui = GuiCreate()
-	GuiStartFrame(gui)
 	local width = 0
 	if custom_font then
 		width = dofile("mods/grahamsdialogue/files/custom/custom_font.lua")(font, mode)
@@ -509,7 +508,7 @@ function Speak(entity, text, pool, check_name, override_old, name_override)
 	EntityAddComponent2(entity, "SpriteComponent", {
 		_tags = "enabled_in_world, graham_speech_text, graham_speech_removable,enabled_in_hand",
 		image_file = "mods/grahamsdialogue/files/font_data/" .. font .. ".xml",
-		emissive = ModSettingGet("grahamsdialogue.visibility"),
+		emissive = (pool == pools.DEATH) or ModSettingGet("grahamsdialogue.visibility"),
 		is_text_sprite = true,
 		offset_x = width,
 		offset_y = offset_y,

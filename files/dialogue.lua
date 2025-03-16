@@ -56,7 +56,7 @@ DIALOGUE_DAMAGEDEALT = {
     {"$animal_ant", "Ta-da!", "How could you let this happen?", "You lose, sucker!"},
     {"$animal_maggot", "It's like firecrackers! Pop, pop, pop...", "What, did you run out of levitation...?", "Wow! ...What?"},
     {"$animal_fungus_giga", "I hope you don't have allergies.", "You look a bit scraped up...", "Stay back!"},
-    {"$animal_fly", "Sting them! Now!", "We produce honey, and you are NOT involved!", "Maybe you should just leave us alone."},
+    {"$animal_fly", "Sting them! Now!", "Prey, to feed the young...", "Maybe you should just leave us alone."},
     {"$animal_drone", "Target found. Engaging...", "Attempting to break target's focus...", "Detecting weaknesses... Bullets seem ineffective."},
     {"$animal_bigzombie", "Join the undead... you'll be dying to do so.", "One day you'll end up like me.", "In the end, we'll all be... Dead, but perhaps not buried."},
     {"$animal_bigzombiehead", "Is it still rude to headbutt someone if you only have a head?", "This is what you get for ripping my head off!", "Death is inevitable. I'm just speeding yours up."},
@@ -227,7 +227,7 @@ DIALOGUE_DAMAGETAKEN = {
     {"$animal_fungus", "Wah!", "I don't know much...", "Time's running out."},
     {"$animal_fungus_big", "Get over here!", "I've heard about you through the grapevine...", "Death is just temporary when you're like us."},
     {"$animal_fungus_giga", "Just a little bit off the top, thank you.", "Hehe... you're short.", "I'm too dignified to self-destruct, don't you know?"},
-    {"$animal_fly", "That's fine... I'll be fine.", "Just please don't touch our honey...", "It'll all be worth it in the end..."},
+    {"$animal_fly", "That's fine... I'll be fine.", "Ah, you'll get what's coming to you...!", "Oh, but my family must eat..."},
     {"$animal_drone", "I've already informed my correspondents of your location.", "Mayday! Mayday!", "Risk levels high. Please respond..."},
     {"$animal_bigzombie", "Ouch... are all my limbs still attached?", "Don't get a-head of yourself.", "Oh, you haven't heard the last of me."},
     {"$animal_bigzombiehead", "My back pain... it's cured!", "That's giving me a headache.", "I can still bite you, even while my teeth rot away!"},
@@ -348,7 +348,7 @@ DIALOGUE_IDLE = {
     {"$animal_longleg", "Strong in numbers...", "Weak in strength...", "Where's food?", "Stick together like a nice, big family...", "Gnaw on their legs when they're not looking.", "Spiders come in all shapes and sizes."},
     {"$animal_miner", "Need me to dig a hole?", "Where did everyone go?", "Friend?"},
     {"$animal_firemage", "It's a big compliment, to be the hottest color of fire.", "What's the melting temperature of steel? Oh, no...", "I'm not afraid of water! I just... don't like it."},
-    {"$animal_firemage_weak", "The fire is so calming...", "Does anyone have a tablet? They don't burn in my hand like books do.", "Not much for conversation, eh?"},
+    {"$animal_firemage_weak", "The fire is so calming...", "I'm quite the fan of literature... But books burn too easily.", "Not much for conversation, eh?"},
     {"$animal_slimeshooter", "Cleansing sludge...", "I wish I could spit acid.", "Gurgle, blop."},
     {"$animal_acidshooter", "I see you.", "I can see you through the dark.", "Death is near!"},
     {"$animal_giantshooter", "Bloated...", "Ugh...", "What was that?"},
@@ -396,7 +396,7 @@ DIALOGUE_IDLE = {
     {"$animal_fungus", "Skitter, scatter...", "The roots run deep.", "Rambling, shuffling..."},
     {"$animal_fungus_big", "It'll all return to soil...", "Muddy thoughts...", "Smells bad in here..."},
     {"$animal_fungus_giga", "It's blooming season...", "Don't touch me.", "The fungi speaks to us..."},
-    {"$animal_fly", "I hope that no one's melee immune around here.", "That divine liquid... we just need diamond now.", "Need pollen... are there any flowers nearby?"},
+    {"$animal_fly", "To sacrifice oneself... I'm not a simple bee.", "Honey is a hobby. But we feast on prey...", "I could pollinate, if the flowers cooperate..."},
     {"$animal_drone", "Air conditions nominal; Good flight conditions.", "Everything is going according to plan.", "Scouting potential routes..."},
     {"$animal_bigzombie", "Don't be scared of death. Just look at how I turned out.", "You've no stress at all, once you've already died.", "Necromancy is quite a fun game to play."},
     {"$animal_bigzombiehead", "Oh, now you've done it.", "I'm dead...", "Onwards and upwards..."},
@@ -511,14 +511,36 @@ DIALOGUE_IDLE = {
 }
 
 DIALOGUE_DEATH = {
+    {"$animal_shotgunner", "Oi! Shoulda stayed back.", "Oh, that's a lot of blood...", "Ha! I never liked magicians anyway."},
+    {"$animal_miner", "Ah! You suck at playing catch...", "That must've hurt. Sucks to be you.", "What happened? Couldn't magic that problem away?"},
+    {"$animal_graham_miner_gasser", "Good for you... The long-term effects are even worse.", "Heeh... You breathed too much, and now you can't anymore...!", "No one'll even know... A perfect kill."},
+    {"$animal_firemage_weak", "Ha! Couldn't handle the heat after all.", "Boom! Stay outta my flames next time, moron.", "Ah, perfectly medium-rare!"},
+    {"$animal_firemage", "Wow! Didn't realize meat burned so easily...", "Oof, that's not pretty... Not that you looked great before.", "Might wanna get an ice pack on that. Oops, too late."},
+    {"$animal_firebug", "Pop. Shouldn't have attracted the swarm.", "Bzzzzt... Fell to just one. Just me.", "Teamwork is important... But I ended it myself."},
+    {"$animal_bigfirebug", "The intruder's down! All thanks to me...", "Outdone and well-done!", "Challenge a weaker bug next time, magician!"},
+    {"$animal_thundermage", "Simple and easy. Surprising to no one.", "I don't blame you... No one can handle blasts like mine.", "Ha! Next time, try turning back before I catch sight of you."},
+    {"$animal_scavenger_heal", "Sorry. You were too much of a threat to my friends.", "I'd never leave behind my allies for you. I'm sorry.", "Stand down now. I'm not as stupid as I might seem."},
+    {"$animal_monk", "Take time to ponder your mistakes... You've made many.", "Ah, it doesn't surprise me... Ignorance truly isn't bliss.", "Don't you struggle any longer."},
+    {"$animal_necrobot", "No more second chances today.", "Ah, finally... A life that won't be remade.", "Something permanent. A rarity in this world..."},
+    {"$animal_chest_mimic", "HA! Gotcha!", "Eahaha! Should've seen it coming...", "Got 'em! What a fool..."},
     {"$graham_lukkimount_name", "Oh... Ouch. Sorry, friend...", "Ah, what a shame... What will I do now?", "Wait, no! This is too soon! You can't leave...", "Friend... I'll miss you dearly.", "After all you've done for me... I couldn't save you."},
     {"Calamariface", "Hah. Maybe next time. Or maybe not.", "You knew that this was always the way it was going to end.", "I win this time. Don't tell me you expected anything different."},
     {"$animal_boss_centipede", "Ha! Sweet, sweet victory... That must hurt for you.", "For once, I've prevailed... How amusing.", "Gotcha! Hah, that was close...", "Hah. There's always next run, I suppose.", "So... what did you learn? Nothing, as usual...", "I know you. You could've done better than that."},
+    {"$animal_islandspirit", "Hmph. Shame on you. You couldn't even follow through...", "Pathetic. You got what you deserved after all.", "Not even immortal. Sad, but not surprising...", "You knew nothing after all. Just a mindless killer...", "Nothing. You are - were - nothing.", "Good. Now, who's left...? My children..."},
+    {"$animal_boss_dragon", "Oh, it's time! The feast begins!", "A morsel... My morsel! Come here!", "Mine! All mine!", "Ah, my hard-fought meal...!", "Lesson learned... don't trespass where you don't belong!", "Down to the ground... then into my maw!"},
+    {"$animal_boss_robot", "There, the inevitability. For all, with time...", "The human condition: Failure despite effort. Tragic comedy.", "Such a weakness. Being able to bleed...", "A mistake to challenge me. You were imperfect.", "Hardware failure? No surprise, I suppose.", "Farewell. Do better in your imaginary next life..."},
+    {"$animal_boss_limbs", "Ah, don't fear... Come here, let me assimilate you...", "Finally, you've let go. Time for a new beginning...", "You held on too long... Stubborn one. To me...", "You'll be part of me now... Don't resist any longer...", "Begin again... Your new life with me...!", "Ah, you finally stopped holding on... Fallen down."},
+    {"$animal_boss_ghost", "Some things are best left forgotten, forever.", "Now... peace and quiet. Forever...", "So you weren't worthy, hm... For the best.", "This was your destiny, and your fate.", "My job is done. This is the end...", "Lost, lost in the snow... Sleep now and forever."},
+    {"$animal_fish_giga", "Out of your element. And out of time.", "Down you go. You'll make mediocre fish food.", "Pathetic little thing. Crushed under the pressure.", "Float away now. I don't want to see that.", "Ah, well. At least you don't have to worry anymore.", "Should've turned back a long, long time ago..."},
+    {"$animal_boss_meat", "Ah, the life is gone. Now you're just meat.", "You felt my pain. Was it too much? I see...", "Ah, too late to clean those wounds...", "Meat versus meat... I suppose your magic wasn't good enough.", "Another corpse to add to the pile...", "Ah! Seems you've already rotted somewhere inside..."},
+    {"$animal_boss_wizard", "Taste my failure. You'll be forgotten after all you've done.", "This was all a waste of time, then... How miserable.", "Why bother? When you just end up failing... everything you try.", "Let's hope my end will be more dignified... If it ever comes.", "Overwhelmed? Me too, frankly... So just rest now.", "Could've been useful alive... But much more interesting dead."},
+    {"$animal_boss_alchemist", "Someone like me, falling so easily... Terrifying.", "It's settled. You won't be stuck in this life...", "Maybe I overestimated you. Foolish of me to have hope...", "Ah, don't make me look... I've seen enough.", "Surely you'll return. ...No?", "Your choice was already made... long, long ago."},
+    {"$animal_boss_pit", "Ha! You prove my superiority yet again.", "Fool! Should've listened when I warned you...", "Might as well have just jumped in lava. But this was more fun for me.", "You can't handle my magic... How can you be expected to do anything?!", "Gone! Boom! What a pathetic way to go...", "At least you fought with honour... Well, kinda."},
 }
 
 ---@type string[]
 GENERIC_HOLDINGWAND =
-    { "How do you work this thing?", "Guys, look at this thing I found! Isn't this cool?", "Hey, does anyone here own this? No? Finders keepers.", "If I write my name on this, that means it's mine, right?", "I have no idea what this does, but I'm not afraid to use it!", "Oh boy, I hope this one has a nuke!", "Hey, how do I put bullets into this?",
+    { "How do you work this thing?", "Well, this is interesting... Wonder what'll happen when I use it.", "Hey, this belong to anyone? Finders keepers.", "If I write my name on this, that makes it mine...", "I have no idea what this does, but I'm not afraid to use it!", "Hmm... think I saw a nuke come out of one of these before.", "Hey, how do you reload one of these, anyway?",
 }
 
 ---@type string[]
@@ -563,7 +585,7 @@ GENERIC_FRIENDLYFIRE =
 
 ---@type string[][]
 Custom_speak_lines = {
-    {"angry_ghost", "Who would dare fight us with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!", "I wanna copy one of those cocky wizard's projectiles. Show 'em what it's like.", "Yo, if someone calls the cops on us, I'm telling them that you did it.", "What are those wands for, anyway? I don't see the point.", "I have some respect for people that can handle my power, heheh...", "Ah, this music isn't my style at all! Change it, will you?"},
+    {"angry_ghost", "Who would dare challenge a team with this much firepower?!", "Together, we can take on anyone!", "Just use an empty wand, even! I can do the rest.", "Hey, the best battles never happen alone!", "Keep me away from explosives. I get too excited.", "Teach me more spells! Let me destroy more!", "I wanna copy one of those cocky wizard's projectiles. Show 'em what it's like.", "Yo, if someone calls Stevari on us, I'm telling them that you did it.", "What are those wands for, anyway? I don't see the point.", "I've got respect for people that can handle my firepower, heheh...", "You're entirely too calm about this...! Make some noise!"},
     {"hungry_ghost", "Projectiles are a delicacy. Hard to catch them.", "I eat the bullets so that you don't have to.", "You think eating bullets is strange? How do I eat at all?", "Try not to heal yourself while I'm making your spells stronger.", "The Magic Guard spells taste incredible, for the record.", "I'm not fat! I just absorbed too many projectiles earlier...", "I find the speed at which you can chug your potions... slightly concerning.", "I tried to drink ambrosia once... Never again.", "Hmm... Do you not need to eat to survive? Weird..."},
     {"mournful_spirit", "How far can we spread this plague of death?", "This can't be taken back, you know...", "I've learned so much since this began.", "Lure your foes to me. I'll make sure they regret it.", "It's too late for tears. I only have one purpose now.", "Sorry if I bring the mood down. It's part of the job.", "Forget about who we once were... Become something more.", "You can't hold onto anything forever...", "You could join us, once we fade away... Haha..."},
     {"tipsy_ghost", "Hurp... You can c-count on me, boss...", "G-glad to be here.", "Got any spare whiskey or sima? I'll m-make it worth your while.", "I can do lots of stuff! If my head is clear...", "I'm a spirit spirit! Get it...?", "Stay away from my whiskey! ...For your health, that is.", "It's a good thing I don't have any organs to destroy with this..."},
