@@ -56,6 +56,10 @@ local lines = {
 		{ weight = 6.00, lines = { "Ah, you brought backup this time...? How strange.", "Normally you're all alone. It's quite amusing.", "Ah, well. I'll admit defeat this time.", "Fair fights don't seem to be your thing, anyway..." } },
 		{ weight = 6.00, lines = { "Something about this feels wrong. Very wrong.", "There are others like you? I thought the rest all were...", "There's some trickery at play. I know it.", "Your entire existence seems to go against the natural order..." } },
 	},
+	["kitty"] = {
+		{ weight = 1.00, lines = { "Eh... Something feels different today.", "I heard you approaching from quite a distance away.", "...Hm. Nothing to be worried about, surely. Mew." } },
+		{ weight = 1.00, lines = { "You. You have some explaining to do.", "There are certain thoughts I've been having recently.", "Of yarn, and fish, and the like... Are these your doing?", "How interesting. You continuously come up with new ways to humiliate me..." } },
+	},
 	["newgameplus"] = {
 		{ weight = 6.00, lines = { "Hello again. I feel a sense of deja vu.", "Surely this is your doing, yes?", "It's rather confusing. Almost like a proper reset, but...", "Everything is intensified. You, others, and the pain I feel...", "It's not worse, it's just... increased.", "My curiosity is fading. End this now." } },
 		{ weight = 6.00, lines = { "Greetings. Again.", "I'm beginning to get a bit tired of speaking to you.", "It doesn't particularly help that you are incapable of speaking back.", "At least, in a way that I can understand...", "Let's just cut this short, this time." } },
@@ -107,6 +111,7 @@ local function GenerateValid()
 		["notinkering"]  = tonumber(StatsGetValue("wands_edited")) <= 0 or (GameHasFlagRun("PERK_PICKED_NO_WAND_EDITING") and not GameHasFlagRun("PERK_PICKED_EDIT_WANDS_ANYWHERE")),
 		["wandcapacity"] = GameHasFlagRun("PERK_PICKED_GRAHAM_EXTRA_SLOTS") and not HasFlagPersistent("graham_used_unlock_all"),
 		["co-op"]        = ModIsEnabled("SimpleCoop") or ModIsEnabled("CouchCoOp") or ModIsEnabled("noita-together") or ModIsEnabled("quant.ew") or ModIsEnabled("iota_multiplayer"),
+		["kitty"]        = ModIsEnabled("nekolmisilma"),
 		["newgameplus"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 0,
 		["newgamealot"]  = tonumber(SessionNumbersGetValue("NEW_GAME_PLUS_COUNT")) > 2,
 		["stevescott"]   = #EntityGetInRadiusWithTag(x, y, 200, "necromancer_shop") > 0 and not GameHasFlagRun("PEACE_WITH_GODS"),
